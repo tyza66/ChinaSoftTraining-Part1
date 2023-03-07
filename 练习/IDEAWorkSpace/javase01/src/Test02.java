@@ -1,5 +1,6 @@
 public class Test02 {
     public static void main(String[] args) {
+        //基本数据类型
         byte a = 123;
         short b = 456;
         int c = 789;
@@ -12,6 +13,7 @@ public class Test02 {
 
         boolean h = false;
 
+        //引用数据类型
         String i = "good";
 
         System.out.println(a+" "+b+" "+c+" "+d+" "+e+" "+f+" "+g+" "+h+" "+i);
