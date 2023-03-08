@@ -10,7 +10,8 @@ public class 小型计算器 {
         5．运算结果输出*/
         Scanner input = new Scanner(System.in);
         int id = 0;
-        while(true){
+        boolean run = true;
+        while(run){
             System.out.println("=======超级无敌计算系统=======");
             System.out.println("（1）计算加法");
             System.out.println("（2）计算减法");
@@ -19,7 +20,27 @@ public class 小型计算器 {
             System.out.println("（0）退出系统");
             System.out.println("（请输入序号选择）");
             id = input.nextInt();
-
+            switch (id){
+                case 0:
+                    run = false;
+                    break;
+                case 1:
+                    System.out.println("请依次输入需要相加的两个数值：");
+                    System.out.println(input.nextInt()+input.nextInt());
+                    break;
+                case 2:
+                    System.out.println("请依次输入需要相减的两个数值：");
+                    System.out.println(input.nextInt()-input.nextInt());
+                    break;
+                case 3:
+                    System.out.println("请依次输入需要相乘的两个数值：");
+                    System.out.println(input.nextInt()*input.nextInt());
+                    break;
+                case 4:
+                    System.out.println("请依次输入需要相除的两个数值：");
+                    System.out.println(input.nextInt()/input.nextInt());
+                    break;
+            }
         }
     }
 }
