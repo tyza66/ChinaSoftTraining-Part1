@@ -7,6 +7,7 @@ public class NumberTest {
         System.out.println(number.subtration());
         System.out.println(number.multiplication());
         System.out.println(number.division());
+        
     }
 
 }
