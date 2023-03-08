@@ -6,6 +6,13 @@ public class Person {
     int weight;
     char sex;
 
+    public Person(String name, int age, int weight, char sex) {
+        this.name = name;
+        this.age = age;
+        this.weight = weight;
+        this.sex = sex;
+    }
+
     public String getName() {
         return name;
     }
@@ -38,10 +45,11 @@ public class Person {
         this.sex = sex;
     }
 
-    public void eat(){
+    public void eat() {
         System.out.println("吃饭");
     }
-    public void sleep(){
+
+    public void sleep() {
         System.out.println("睡觉");
     }
 }
