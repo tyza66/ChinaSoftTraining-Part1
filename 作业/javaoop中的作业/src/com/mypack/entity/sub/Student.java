@@ -16,6 +16,10 @@ public class Student extends Person {
         return sid;
     }
 
+    public int getSid(int i) {
+        return i;
+    }
+
     public void setSid(int sid) {
         this.sid = sid;
     }
@@ -28,7 +32,7 @@ public class Student extends Person {
         this.grade = grade;
     }
 
-    public String getName(){
+    public String getName() {
         return super.getName();
     }
 

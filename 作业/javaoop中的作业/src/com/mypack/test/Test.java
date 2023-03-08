@@ -12,5 +12,7 @@ public class Test {
         student.eat();
         student.eat();
         System.out.println(student.getAge());
+        System.out.println(student.getSid());
+        System.out.println(student.getSid(666));
     }
 }
