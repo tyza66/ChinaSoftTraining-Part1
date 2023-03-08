@@ -1,6 +1,6 @@
 public class 各种输出 {
     public static void main(String[] args) {
-        int i = 0,j=0;
+        int i = 0, j = 0;
 //        1. 输出1-100
         for (i = 1; i <= 99; i++) {
             System.out.print(i + ",");
@@ -49,17 +49,26 @@ public class 各种输出 {
         }
         System.out.println(sum);
 //        9.打印这2个图形
-        for(i=1;i<=5;i++){
-            for (j=1;j<=5;j++){
-                if(j<=5-i){
+        for (i = 1; i <= 5; i++) {
+            for (j = 1; j <= 5; j++) {
+                if (j <= 5 - i) {
                     System.out.print(" ");
-                }else{
+                } else {
                     System.out.print("*");
                 }
             }
             System.out.println();
         }
 
-        
+        for (i = 1; i <= 4; i++) {
+            for (j = 1; j <= 7; j++) {
+                if (j <= 4-i) {
+                    System.out.print(" ");
+                } else if(j<(4-i)+2*(i-1)+2) {
+                    System.out.print("*");
+                }
+            }
+            System.out.println();
+        }
     }
 }
