@@ -1,3 +1,5 @@
+package 面对对象之前;
+
 import java.util.Scanner;
 
 public class 压岁钱 {

@@ -1,3 +1,5 @@
+package 面对对象之前;
+
 import sun.awt.windows.WPrinterJob;
 
 public class 乘法口诀打印 {

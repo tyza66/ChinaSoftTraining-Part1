@@ -1,3 +1,5 @@
+package 面对对象之前;
+
 public class 数组作业 {
     public static void main(String[] args) {
         int[] arr = {12, 34, 14, 67, 89, 25, 10, 29};

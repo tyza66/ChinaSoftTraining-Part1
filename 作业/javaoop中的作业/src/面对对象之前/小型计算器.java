@@ -1,8 +1,10 @@
+package 面对对象之前;
+
 import java.util.Scanner;
 
 public class 小型计算器 {
     public static void main(String[] args) {
-        /*小型计算器：
+        /*面对对象之前.小型计算器：
         1．有简单运算选择界面
         2．采用循环实现菜单显示
         3．采用switch结构实现菜单的选择

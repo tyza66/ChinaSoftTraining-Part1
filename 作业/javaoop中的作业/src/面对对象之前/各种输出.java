@@ -1,3 +1,5 @@
+package 面对对象之前;
+
 public class 各种输出 {
     public static void main(String[] args) {
         int i = 0, j = 0;
