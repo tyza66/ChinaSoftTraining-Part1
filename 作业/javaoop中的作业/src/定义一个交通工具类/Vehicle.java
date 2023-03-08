@@ -29,4 +29,12 @@ public class Vehicle {
     public void speedDown() {
         speed--;
     }
+
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "speed=" + speed +
+                ", size=" + size +
+                '}';
+    }
 }
