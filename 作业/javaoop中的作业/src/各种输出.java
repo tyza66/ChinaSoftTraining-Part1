@@ -59,5 +59,7 @@ public class 各种输出 {
             }
             System.out.println();
         }
+
+        
     }
 }
