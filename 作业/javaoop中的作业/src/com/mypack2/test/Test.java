@@ -4,10 +4,10 @@ import com.mypack2.entity.Person;
 import com.mypack2.entity.sub.Student;
 import com.mypack2.entity.sub.Teacher;
 import com.mypack2.service.PeopleManagement;
+import com.mypack2.ui.ConsoleUI;
 
 public class Test {
     public static void main(String[] args) {
-        /*
         Student student1 = new Student(666, "xiaoming", 666, 5);
         Teacher teacher1 = new Teacher(888, "xiaoliang", 23333, "good");
         Student student2 = new Student(222, "xiaomi", 666, 5);
@@ -34,7 +34,7 @@ public class Test {
             System.out.print(i.getName() + "  ");
         }
         System.out.println();
-        */
-
+        ConsoleUI consoleUI = new ConsoleUI();
+        consoleUI.showUI();
     }
 }
