@@ -8,6 +8,8 @@ public class ExceptionTest {
         }catch(Exception e){
             e.printStackTrace();
             System.out.println(e.getMessage());
+        }finally {
+            System.out.println(666);
         }
     }
 }

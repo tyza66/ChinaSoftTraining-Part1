@@ -1,5 +1,7 @@
 package 数组;
 
+import java.util.Arrays;
+
 public class TestArrays01 {
     public static void main(String[] args) {
 
@@ -44,6 +46,7 @@ public class TestArrays01 {
         for (String str:arr3){
             System.out.print(str+" ");
         }
+
 
 
 
