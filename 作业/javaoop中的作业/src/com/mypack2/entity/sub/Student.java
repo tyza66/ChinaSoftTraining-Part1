@@ -27,4 +27,9 @@ public class Student extends Person {
     public void setGrade(int grade) {
         this.grade = grade;
     }
+
+    @Override
+    public String getName() {
+        return super.name;
+    }
 }

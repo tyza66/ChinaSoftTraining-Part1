@@ -27,4 +27,9 @@ public class Teacher extends Person {
     public void setStatu(String statu) {
         this.statu = statu;
     }
+
+    @Override
+    public String getName() {
+        return super.name;
+    }
 }

@@ -1,11 +1,12 @@
 package com.mypack2.service;
 
+import com.mypack.service.PeopleManagementIF;
 import com.mypack2.entity.Person;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class PeopleManagement {
+public class PeopleManagement implements PeopleManagementIF {
     ArrayList<Person> person = new ArrayList<Person>();
 
     public void addOne(Person p) {

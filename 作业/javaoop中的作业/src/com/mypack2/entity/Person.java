@@ -1,8 +1,8 @@
 package com.mypack2.entity;
 
-public class Person {
+public abstract class Person {
     int id;
-    String name;
+    public String name;
 
     public Person(int id, String name) {
         this.id = id;
@@ -17,9 +17,7 @@ public class Person {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
+    public abstract String getName();
 
     public void setName(String name) {
         this.name = name;
