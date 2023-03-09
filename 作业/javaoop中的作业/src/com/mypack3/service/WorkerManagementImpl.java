@@ -31,7 +31,7 @@ public class WorkerManagementImpl implements WorkerManagementIF {
         Iterator<Worker> iterable = workerList.iterator();
         while (iterable.hasNext()) {
             Worker i = iterable.next();
-            if (i.getId() == id) {
+            if (i.getId() == id && salary >i.getSalary()) {
                 i.setSalary(salary);
             }
         }
