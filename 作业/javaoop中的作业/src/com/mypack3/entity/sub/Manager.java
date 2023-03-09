@@ -4,6 +4,8 @@ import com.mypack3.entity.Worker;
 
 public class Manager extends Worker {
     int salary;
+    int annualBonus;
+    int year_endDividend;
 
     @Override
     public void eat() {

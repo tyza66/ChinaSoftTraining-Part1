@@ -4,7 +4,7 @@ import com.mypack3.entity.Worker;
 
 public class Employee extends Worker {
     int salary;
-    int 
+    int annualBonus;
 
     @Override
     public void eat() {
