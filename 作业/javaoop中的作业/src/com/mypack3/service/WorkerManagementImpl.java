@@ -41,4 +41,16 @@ public class WorkerManagementImpl implements WorkerManagementIF {
     public Worker[] queryAllWorkers() {
         return workerList.toArray(new Worker[0]);
     }
+
+    @Override
+    public Worker queryOne(int id) {
+        Iterator<Worker> iterable = workerList.iterator();
+        while (iterable.hasNext()) {
+            Worker i = iterable.next();
+            if (i.getId() == id) {
+                return i;
+            }
+        }
+        return null;
+    }
 }

@@ -8,8 +8,9 @@ import java.util.List;
 public interface WorkerManagementIF {
     List<Worker> workerList = null;
 
-    public void addWorker(Worker worker);
-    public void removeWorker(int id);
-    public void updateSalary(int id,int salary);
-    public Worker[] queryAllWorkers();
+    void addWorker(Worker worker);
+    void removeWorker(int id);
+    void updateSalary(int id,int salary);
+    Worker[] queryAllWorkers();
+    Worker queryOne(int id);
 }
