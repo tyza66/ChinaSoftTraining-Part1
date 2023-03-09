@@ -11,5 +11,6 @@ public class ExceptionTest {
         }finally {
             System.out.println(666);
         }
+
     }
 }
