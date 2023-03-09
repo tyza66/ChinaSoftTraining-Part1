@@ -15,5 +15,4 @@ public class 模拟分母为零的场景 {
             System.out.println("执行完了");
         }
     }
-
 }
