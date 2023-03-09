@@ -59,12 +59,14 @@ public class ConsoleUI {
                     System.out.print("请输入需要删除人的id：");
                     int deleteId = input.nextInt();
                     peopleManagement.deleteOne(deleteId);
+                    System.out.println("删除成功");
                     break;
                 case 6:
-                    System.out.print("请输入需要删除人的id和要修改的名字：");
+                    System.out.print("请输入需要修改人的id和要修改的名字：");
                     int updateId = input.nextInt();
                     String updateName = input.next();
                     peopleManagement.update(updateId,updateName);
+                    System.out.println("修改成功");
                     break;
                 default:
                     run = false;
