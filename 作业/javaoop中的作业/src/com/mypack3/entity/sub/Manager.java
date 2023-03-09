@@ -16,4 +16,32 @@ public class Manager extends Worker {
     public void sleep() {
         System.out.println("经理睡觉");
     }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+    public int getAnnualBonus() {
+        return annualBonus;
+    }
+
+    public void setAnnualBonus(int annualBonus) {
+        this.annualBonus = annualBonus;
+    }
+
+    public int getYear_endDividend() {
+        return year_endDividend;
+    }
+
+    public void setYear_endDividend(int year_endDividend) {
+        this.year_endDividend = year_endDividend;
+    }
+
+    public String toString() {
+        return "经理" + super.getName() + "的月薪是" + super.getSalary() + ",年薪是" + super.getSalary() * 12 + ",总收入是" + super.getSalary() * 1 + getAnnualBonus() + getYear_endDividend() + ".";
+    }
 }
