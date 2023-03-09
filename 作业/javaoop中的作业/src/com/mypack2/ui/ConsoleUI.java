@@ -12,6 +12,8 @@ public class ConsoleUI {
         boolean run = true;
         Scanner input = new Scanner(System.in);
         int now = 0;
+        int id;
+        String name;
         while (run) {
             System.out.println("********超级人员管理系统********");
             System.out.println("*(1)保存新人员信息");
@@ -24,10 +26,10 @@ public class ConsoleUI {
             now = input.nextInt();
             switch (now) {
                 case 1:
-                    System.out.println("请输入需要用到的参数们：");
+                    System.out.print("请输入需要用到的参数们：");
                     break;
                 case 2:
-                    System.out.println("请输入需想要查找人的id：");
+                    System.out.print("请输入需想要查找人的id：");
                     break;
                 case 3:
                     for (Person i : peopleManagement.queryAll()) {
@@ -35,9 +37,10 @@ public class ConsoleUI {
                     }
                     break;
                 case 4:
-                    System.out.println("请输入需要用到的参数们：");
+                    System.out.print("请输入需要删除人的id：");
                     break;
                 case 5:
+                    System.out.print("请输入需要删除人的id和要修改的名字：");
                     break;
                 default:
                     run = false;
