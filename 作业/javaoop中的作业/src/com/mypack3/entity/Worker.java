@@ -8,6 +8,15 @@ public abstract class Worker {
     double height;
     int salary;
 
+    public Worker(int id, String name, int age, char sex, double height, int salary) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+        this.height = height;
+        this.salary = salary;
+    }
+
     public abstract void eat();
 
     public abstract void sleep();

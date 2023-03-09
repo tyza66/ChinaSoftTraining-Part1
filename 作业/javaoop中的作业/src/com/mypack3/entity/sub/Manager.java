@@ -3,9 +3,14 @@ package com.mypack3.entity.sub;
 import com.mypack3.entity.Worker;
 
 public class Manager extends Worker {
-    int salary;
     int annualBonus;
     int year_endDividend;
+
+    public Manager(int id, String name, int age, char sex, double height, int salary,int annualBonus,int year_endDividend) {
+        super(id, name, age, sex, height, salary);
+        this.annualBonus = annualBonus;
+        this.year_endDividend = year_endDividend;
+    }
 
     @Override
     public void eat() {
@@ -15,14 +20,6 @@ public class Manager extends Worker {
     @Override
     public void sleep() {
         System.out.println("经理睡觉");
-    }
-
-    public int getSalary() {
-        return salary;
-    }
-
-    public void setSalary(int salary) {
-        this.salary = salary;
     }
 
     public int getAnnualBonus() {
@@ -42,6 +39,6 @@ public class Manager extends Worker {
     }
 
     public String toString() {
-        return "经理" + super.getName() + "的月薪是" + super.getSalary() + ",年薪是" + super.getSalary() * 12 + ",总收入是" + super.getSalary() * 1 + getAnnualBonus() + getYear_endDividend() + ".";
+        return "经理" + super.getName() + "的月薪是" + super.getSalary() + ",年薪是" + (super.getSalary() * 12) + ",总收入是" + (super.getSalary() * 12 + getAnnualBonus() + getYear_endDividend()) + ".";
     }
 }

@@ -1,4 +1,4 @@
-package com.com.mypack3.service;
+package com.mypack3.service.impl;
 
 import com.mypack3.entity.Worker;
 

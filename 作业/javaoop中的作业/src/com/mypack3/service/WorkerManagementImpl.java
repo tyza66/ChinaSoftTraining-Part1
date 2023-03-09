@@ -1,7 +1,7 @@
-package com.mypack3.service.impl;
+package com.mypack3.service;
 
-import com.com.mypack3.service.WorkerManagementIF;
 import com.mypack3.entity.Worker;
+import com.mypack3.service.impl.WorkerManagementIF;
 
 import java.util.ArrayList;
 import java.util.Iterator;
