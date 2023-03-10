@@ -6191,7 +6191,7 @@ Class类中的主要方法有：
 - 包含Declared：它仅获取自身类声明的方法，包括公开的、私有的、保护的等
 - 没有Delcared的普通get方法：会获取某个类所有的公开（public）成员，包括自己定义的和继承下来的
 
- 
+
 
 #### 2.2 Constructor类
 
@@ -6248,7 +6248,7 @@ Method封装了类中的方法，可以动态获取方法的信息，如：
 
 - invoke(Object obj, Object...   args);
 
- 
+
 
 
 

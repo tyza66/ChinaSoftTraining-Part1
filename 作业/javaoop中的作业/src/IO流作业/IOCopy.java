@@ -19,6 +19,9 @@ public class IOCopy {
             while((data=fis.read())!=-1){
                 out2.write((char)data);
             }
+            fis.close();
+            out.close();
+            out2.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

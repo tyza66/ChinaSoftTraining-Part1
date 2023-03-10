@@ -15,6 +15,7 @@ public class Test {
             System.out.println((char)a);
             System.out.println((char)b);
             System.out.println(c);
+            fis.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
