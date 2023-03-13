@@ -10,8 +10,7 @@ public class PeopleManagement {
         this.p[sum] = p;
         sum++;
     }
-
-
+    
     public void queryOne(int id) {
         for (int i = 1; i <= sum; i++) {
             if (p[i - 1].getId() == id) {
