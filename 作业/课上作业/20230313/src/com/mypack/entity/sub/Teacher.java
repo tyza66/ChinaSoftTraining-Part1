@@ -11,4 +11,20 @@ public class Teacher extends Person {
         this.money = money;
         this.statu = statu;
     }
+
+    public int getMoney() {
+        return money;
+    }
+
+    public void setMoney(int money) {
+        this.money = money;
+    }
+
+    public String getStatu() {
+        return statu;
+    }
+
+    public void setStatu(String statu) {
+        this.statu = statu;
+    }
 }

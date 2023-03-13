@@ -11,4 +11,20 @@ public class Student extends Person {
         this.sid = sid;
         this.grade = grade;
     }
+
+    public int getSid() {
+        return sid;
+    }
+
+    public void setSid(int sid) {
+        this.sid = sid;
+    }
+
+    public int getGrade() {
+        return grade;
+    }
+
+    public void setGrade(int grade) {
+        this.grade = grade;
+    }
 }
