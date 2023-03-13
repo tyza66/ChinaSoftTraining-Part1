@@ -1,6 +1,8 @@
 package 多线程作业.火车票;
 
 public class Tickets {
+    public static Ticket ticket = new Ticket(100);
+
     public static void main(String[] args) {
         Ticket ticket = new Ticket();
         Thread t1 = new Thread(new TicketWindow());
@@ -16,6 +18,10 @@ public class Tickets {
 
 class Ticket {
     private int amount;
+
+    public Ticket(int i) {
+        amount = i;
+    }
 
     public Ticket() {
         amount = 100;
@@ -33,6 +39,8 @@ class Ticket {
 class TicketWindow implements Runnable {
     @Override
     public void run() {
-
+        synchronized (Tickets.ticket) {
+            
+        }
     }
 }
