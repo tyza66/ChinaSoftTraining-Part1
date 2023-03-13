@@ -1,6 +1,5 @@
 package com.mypack2.service;
 
-import com.mypack.service.PeopleManagementIF;
 import com.mypack2.entity.Person;
 
 import java.util.ArrayList;
