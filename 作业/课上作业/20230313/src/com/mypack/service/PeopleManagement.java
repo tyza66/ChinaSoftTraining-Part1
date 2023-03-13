@@ -33,13 +33,14 @@ public class PeopleManagement {
         for (int i = 1; i <= 10; i++) {
             if (p[i - 1].getId() == id) {
                 find = i;
+                temp = p[sum - 1];
+                p[sum - 1] = p[find - 1];
+                p[find - 1] = temp;
+                p[sum - 1] = null;
+                sum--;
                 break;
             }
         }
-        temp = p[sum - 1];
-        p[sum - 1] = p[find - 1];
-        p[find - 1] = temp;
-        sum--;
     }
 
     public void update(int id, String name) {
