@@ -3,8 +3,8 @@ package com.mypack.entity.sub2;
 import com.mypack.entity.Person;
 
 public class Teacher extends Person {
-    int gongId;
-    int money;
+    private int gongId;
+    private int money;
 
     public Teacher(String name, int age, int weight, char sex, int gongId, int money) {
         super(name, age, weight, sex);

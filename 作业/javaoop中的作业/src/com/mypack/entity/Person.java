@@ -1,10 +1,10 @@
 package com.mypack.entity;
 
 public class Person {
-    String name;
-    int age;
-    int weight;
-    char sex;
+    private String name;
+    private int age;
+    private int weight;
+    private char sex;
 
     public Person(String name, int age, int weight, char sex) {
         this.name = name;
