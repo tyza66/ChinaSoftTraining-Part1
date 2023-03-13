@@ -1,7 +1,7 @@
 package 多线程作业.火车票;
 
 public class Tickets {
-    public static Ticket ticket = new Ticket(1000);
+    public static Ticket ticket = new Ticket(10000);
 
     public static void main(String[] args) {
         Ticket ticket = new Ticket();
@@ -43,7 +43,7 @@ class TicketWindow implements Runnable {
     public void run() {
         synchronized (Tickets.ticket) {
             while (Tickets.ticket.getAmount() > 0) {
-                Tickets.ticket.notify();
+                Tickets.ticket.notifyAll();
                 System.out.print(Thread.currentThread().getName()+":");
                 Tickets.ticket.sale();
                 try {

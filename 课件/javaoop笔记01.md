@@ -5892,7 +5892,7 @@ class ThreadC extends Thread{
 			}
 			System.out.println(Thread.currentThread().getName()+"释放了"+"\n");
 		}
-		
+		1
 	}
 }
 ```
