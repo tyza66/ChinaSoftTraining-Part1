@@ -1,4 +1,4 @@
-package 多线程作业.火车票;
+package 多线程作业.ABC;
 
 public class ABC {
     public static void main(String[] args) throws InterruptedException {
