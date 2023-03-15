@@ -6,7 +6,7 @@ public class Manager extends Worker {
     int annualBonus;
     int year_endDividend;
 
-    public Manager(int id, String name, int age, char sex, double height, int salary,int annualBonus,int year_endDividend) {
+    public Manager(int id, String name, int age, char sex, double height, int salary, int annualBonus, int year_endDividend) {
         super(id, name, age, sex, height, salary);
         this.annualBonus = annualBonus;
         this.year_endDividend = year_endDividend;
@@ -20,6 +20,11 @@ public class Manager extends Worker {
     @Override
     public void sleep() {
         System.out.println("经理睡觉");
+    }
+
+    @Override
+    public void show() {
+        System.out.println(this.toString());
     }
 
     public int getAnnualBonus() {

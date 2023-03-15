@@ -5,6 +5,7 @@ import com.mypack3.service.WorkerManagementImpl;
 import com.mypack3.service.impl.WorkerManagementIF;
 import com.mypack3.entity.sub.Employee;
 import com.mypack3.entity.sub.Manager;
+import com.mypack3.ui.UI;
 
 public class Test {
     public static void main(String[] args) {
@@ -29,5 +30,10 @@ public class Test {
         }
         System.out.println("==================");
         System.out.println(workers.queryOne(2).toString());
+        System.out.println("==================");
+
+        UI u = new UI();
+        u.init(workers);
+        u.showUI();
     }
 }

@@ -21,6 +21,8 @@ public abstract class Worker {
 
     public abstract void sleep();
 
+    public abstract void show();
+
     public int getId() {
         return id;
     }
@@ -68,4 +70,5 @@ public abstract class Worker {
     public void setSalary(int salary) {
         this.salary = salary;
     }
+
 }

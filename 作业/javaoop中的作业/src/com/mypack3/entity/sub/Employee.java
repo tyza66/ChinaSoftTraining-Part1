@@ -20,6 +20,11 @@ public class Employee extends Worker {
         System.out.println("普通员工睡觉");
     }
 
+    @Override
+    public void show() {
+        System.out.println(this.toString());
+    }
+
     public int getAnnualBonus() {
         return annualBonus;
     }
