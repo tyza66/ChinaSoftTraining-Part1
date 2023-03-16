@@ -62,7 +62,6 @@ public class DateCommonsTools {
             return 365;
     }
     //判断某年是否是闰年,定义为private的目的在于只供当前类中的另外2个方法进行调用
-
     private static boolean isLeapYear(int year) {
         return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
     }
