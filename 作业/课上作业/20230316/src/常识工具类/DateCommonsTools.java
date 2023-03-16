@@ -11,8 +11,11 @@ public class DateCommonsTools {
         return "";
     }
     //根据月份值，返回对应的英语单词
-    public String getMonthWorld(){
-
+    public String getMonthWorld(int month){
+        if (month>=1&&month<=12){
+            String[] arr = new String[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+            return arr[month-1];
+        }
         return "";
     }
     //返回某年某月的总天数
