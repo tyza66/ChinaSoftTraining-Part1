@@ -35,7 +35,7 @@ public class TestArrayList {
         list.remove((Object) 2);
         System.out.println("删除后" + list);
         //查询所有
-        for(int i;i<list.size();i+++){
+        for(int i=0;i<list.size();i++){
             System.out.print(list.get(i)+" ");
         }
         System.out.println();
