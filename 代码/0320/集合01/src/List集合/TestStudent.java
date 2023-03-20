@@ -19,6 +19,7 @@ public class TestStudent {
         lst.add(s3);
         lst.add(s4);
 
+        //lst.add(123);
         //求集合大小
         int size = lst.size();
         System.out.println("集合大小是："+size);

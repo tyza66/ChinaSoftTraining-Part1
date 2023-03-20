@@ -42,6 +42,8 @@ public class TestArrayList02 {
         List list3 = list.subList(1, 6);//前闭后开 前面索引包含在内，后面没有包含
         System.out.println("截取之后："+list3);
 
+
+        System.out.println("list:"+list);
         list3.remove(0);
         System.out.println("删除后："+list3);
 
