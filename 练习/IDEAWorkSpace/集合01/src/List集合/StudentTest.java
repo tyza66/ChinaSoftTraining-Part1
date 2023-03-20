@@ -17,5 +17,6 @@ public class StudentTest {
             }
         }
         System.out.println("修改完成之后的是，"+ls);
+        Integer.parseInt("214748364a");
     }
 }
