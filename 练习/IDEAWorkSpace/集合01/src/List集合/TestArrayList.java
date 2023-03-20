@@ -1,8 +1,5 @@
-package List集合.TestArrayList;
+package List集合;
 
-import sun.rmi.log.LogInputStream;
-
-import javax.swing.*;
 import java.util.ArrayList;
 
 public class TestArrayList {
