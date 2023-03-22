@@ -46,10 +46,5 @@ public class TestFile01 {
         String str2=file2.getName();
         System.out.println("f2的文件名称是："+str2);
 
-
-
-
-
-
     }
 }

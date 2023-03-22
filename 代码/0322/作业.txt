@@ -37,36 +37,4 @@ while((line=br.readLine())!=null){
 	
 
 
-***********************************zuoye 5****************************************
-
-
-	1设计工人类提供4个属性（基本属性）。从现实生活中各行业提取共性（抽象）
-		com.mypack.entity.Worker
-	
-	2.设计
-		普通工人，经理员工
-		com.mypack.entity.sub.CommonWorker
-			年终奖
-
-		com.mypack.entity.sub.Manager
-			年终分红
-			年终奖
-
-	3.员工都有月薪。
-
-	4设计一个业务处理类：com.mypack.service.impl.WorkerManagementImpl
-		添加员工:addWorker
-		删除员工：removeWorker
-		调整工资：updateSalary
-			规则：
-				只能添加，不能降低
-
-		查询员工所有员工
-			queryAllWorkers
-
-		打印多个员工
-			print
-	5.最好这个业务类，前面挡一层接口(com.mypack.service.WorkerManagementIF)
-
-	打印详细信息的时候，需要计算每个人的月薪，以及年薪（12月）,总收入
 
