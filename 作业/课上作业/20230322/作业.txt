@@ -1,0 +1,72 @@
+1.给定一个目录文件，要求输出里面所有的java文件的文件名
+
+2.给定一个目录，列举出来里面所有的物理文件 递归
+
+ 要求：1.计算java文件有多少个
+
+	2.计算共有多少个目录
+
+3.使用mkdir来完成mkdirs的功能
+
+4.给一个文本文件(文件在同目录的：驾驶员测试题.txt)，需要把它解析成一下格式
+		把一行一行的题目解析出来，制作成Question对象，最后返回Question[]
+
+		public Question[] parseFile(String filePath){
+			//解析
+
+
+			return result;
+		}
+
+
+		main(){
+			Question[] qs
+			for(Question q  : qs){
+				System.out.println(q.getTitle()+"#"+q.getAnswer());
+			}
+		}
+
+提示：解析文件是要用到IO流，是这么用的
+
+String filepath="xxxxx";
+BufferedReader br=null;
+br=new BufferedReader(new FileReader(filePath));//逐行读取
+String line=null;
+while((line=br.readLine())!=null){
+	System.out.println(line);}
+	
+
+
+***********************************zuoye 5****************************************
+
+
+	1设计工人类提供4个属性（基本属性）。从现实生活中各行业提取共性（抽象）
+		com.mypack.entity.Worker
+	
+	2.设计
+		普通工人，经理员工
+		com.mypack.entity.sub.CommonWorker
+			年终奖
+
+		com.mypack.entity.sub.Manager
+			年终分红
+			年终奖
+
+	3.员工都有月薪。
+
+	4设计一个业务处理类：com.mypack.service.impl.WorkerManagementImpl
+		添加员工:addWorker
+		删除员工：removeWorker
+		调整工资：updateSalary
+			规则：
+				只能添加，不能降低
+
+		查询员工所有员工
+			queryAllWorkers
+
+		打印多个员工
+			print
+	5.最好这个业务类，前面挡一层接口(com.mypack.service.WorkerManagementIF)
+
+	打印详细信息的时候，需要计算每个人的月薪，以及年薪（12月）,总收入
+
