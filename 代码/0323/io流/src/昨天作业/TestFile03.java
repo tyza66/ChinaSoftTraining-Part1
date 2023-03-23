@@ -13,7 +13,7 @@ public class TestFile03 {
     public static void creatDir(File f) {
 
 
-        File parentDir = f.getParentFile();
+       /* File parentDir = f.getParentFile();
         //判断父目录是否存在
         if (parentDir.exists()) {
             //存在，则直接创建
@@ -24,8 +24,14 @@ public class TestFile03 {
             f.mkdir();
 
 
-        }
+        }*/
+        if (f!=null) {
+            File parentPath = f.getParentFile();
+            //先查看父目录是否存在，不存在，先创建父目录
+            creatDir(parentPath);
+            f.mkdir();
 
+        }
     }
 
 }
