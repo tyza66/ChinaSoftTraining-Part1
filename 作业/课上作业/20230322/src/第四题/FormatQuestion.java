@@ -6,9 +6,10 @@ import java.util.ArrayList;
 public class FormatQuestion {
     public static void main(String[] args) throws IOException {
         Question[] qs = parseFile("C:\\Users\\shun_\\Desktop\\Project\\Public\\ChinaSoft\\作业\\课上作业\\20230322\\驾驶员测试题.txt");
-        for(Question q  : qs){
+        /*for(Question q  : qs){
             q.show();
-        }
+        }*/
+        
     }
     public static Question[] parseFile(String fileName) throws IOException {
         File file = new File(fileName);
