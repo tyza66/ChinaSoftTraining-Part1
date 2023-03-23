@@ -9,7 +9,7 @@ public class FormatQuestion {
         /*for(Question q  : qs){
             q.show();
         }*/
-        
+
     }
     public static Question[] parseFile(String fileName) throws IOException {
         File file = new File(fileName);
