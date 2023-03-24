@@ -21,7 +21,7 @@ public class DirCut {
         file.delete();
     }
 
-    //文件夹的复制
+    //文件夹的复制 old是要复制的文件件路径 end是要放在哪个文件夹里
     public void dirCopyDown(String old, String end) throws IOException {
         //文件夹是一个树的结构其实 我们要走到树干复制树干（文件夹） 走到果子复制果子（文件）
         //获得要剪切的原始文件夹和要输出的目标文件夹上级目录或者文件位置
