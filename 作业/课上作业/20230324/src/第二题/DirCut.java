@@ -15,8 +15,10 @@ public class DirCut {
     //文件夹的剪切
     public void dirCutDown(String old, String end) throws IOException {
         dirCopyDown(old, end);
-        deleleFile(new File(old));
-        deleleDir(new File(old));
+        File file = new File(old);
+        deleleFile(file);
+        deleleDir(file);
+        file.delete();
     }
 
     //文件夹的复制
