@@ -1,9 +1,8 @@
 package 反射;
 
 public final class Person {
-
-    private int id;
-    String name;
+     int id;
+    public String name;
     int age;
     String address;
 
@@ -38,7 +37,7 @@ public final class Person {
         return age;
     }
 
-    public void setAge(int age) {
+    protected void setAge(int age) {
         this.age = age;
     }
 
@@ -46,7 +45,7 @@ public final class Person {
         return address;
     }
 
-    public void setAddress(String address) {
+     void setAddress(String address) {
         this.address = address;
     }
 
