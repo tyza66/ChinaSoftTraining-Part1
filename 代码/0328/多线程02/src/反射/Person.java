@@ -1,6 +1,6 @@
 package 反射;
 
-public class Person {
+public final class Person {
 
     private int id;
     String name;
@@ -8,8 +8,7 @@ public class Person {
     String address;
 
 
-
-    public Person() {
+    Person() {
     }
 
     public Person(int id, String name, int age, String address) {
@@ -51,7 +50,7 @@ public class Person {
         this.address = address;
     }
 
-    public void show(){
-        System.out.println("编号："+id+" 姓名："+name+" 年龄："+age+" 地址："+address);
+    public void show() {
+        System.out.println("编号：" + id + " 姓名：" + name + " 年龄：" + age + " 地址：" + address);
     }
 }
