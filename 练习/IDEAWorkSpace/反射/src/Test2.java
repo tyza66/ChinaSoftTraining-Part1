@@ -16,5 +16,11 @@ public class Test2 {
         //获得有指定参数的构造方法
         Constructor<?> constructor3 = personClass.getConstructor(int.class,String.class);
         System.out.println(constructor3);
+        //获得所在的包
+        Package aPackage = personClass.getPackage();
+        System.out.println(aPackage);
+        //获得权限修饰符的和
+        int modifiers = personClass.getModifiers();
+        System.out.println(modifiers);
     }
 }
