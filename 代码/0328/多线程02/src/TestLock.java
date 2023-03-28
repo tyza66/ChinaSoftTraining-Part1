@@ -17,7 +17,7 @@ public class TestLock {
 
 class ThreadC extends Thread {
 
-    private Object o = new Object();
+    private  static final Object o = new Object();
     //方法锁
    /* @Override
     public synchronized void run() {
