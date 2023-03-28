@@ -1,8 +1,9 @@
 public class TestTX {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         new ThreadE().start();
+        Thread.sleep(1);
         new ThreadF().start();
     }
 }
