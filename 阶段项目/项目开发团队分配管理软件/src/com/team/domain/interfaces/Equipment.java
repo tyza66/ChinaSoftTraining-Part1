@@ -5,5 +5,5 @@ package com.team.domain.interfaces;
  * Github: https://github.com/tyza66
  */
 public interface Equipment {
-
+    public String getDescription();
 }
