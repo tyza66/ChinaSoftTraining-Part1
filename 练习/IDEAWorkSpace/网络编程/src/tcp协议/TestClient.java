@@ -9,6 +9,7 @@ public class TestClient {
         Socket client = new Socket("127.0.0.1",8888);
         PrintWriter pw = new PrintWriter(client.getOutputStream());
         pw.println("Hello,World!");
+        pw.flush();
         if(pw!=null){
             pw.close();
         }
