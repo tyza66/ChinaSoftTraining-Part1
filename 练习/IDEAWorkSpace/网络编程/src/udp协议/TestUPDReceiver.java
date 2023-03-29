@@ -15,6 +15,7 @@ public class TestUPDReceiver {
 
         String m = "giao";
         byte[] bytes1 = m.getBytes();
+        //使用dp接收到的信息发送的位置回复的
         DatagramPacket dp2 = new DatagramPacket(bytes1,bytes1.length,dp.getSocketAddress());
         ds.send(dp2);
         if(ds!=null){
