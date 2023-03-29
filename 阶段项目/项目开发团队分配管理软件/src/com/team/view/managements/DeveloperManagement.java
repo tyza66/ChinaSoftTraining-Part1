@@ -6,4 +6,7 @@ package com.team.view.managements;
  * Github: https://github.com/tyza66
  */
 public class DeveloperManagement {
+    public void show(){
+
+    }
 }

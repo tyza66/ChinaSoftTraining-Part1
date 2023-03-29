@@ -33,4 +33,12 @@ public class UserManagement {
         }
         return false;
     }
+    //修改密码
+    public void changePassWord(String id,String newPwd){
+        for (User one : users) {
+            if (one.getId().equals(id)) {
+                one.setPassword(newPwd);
+            }
+        }
+    }
 }

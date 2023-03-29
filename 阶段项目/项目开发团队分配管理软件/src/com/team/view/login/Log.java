@@ -60,7 +60,16 @@ public class Log {
         String pwd = input.next();
         if (um.check(id,pwd)){
             System.out.println("登录成功！");
-            mm.show();
+            System.out.print("是否需要修改个人信息(y/n):");
+            String y = input.next();
+            if(y.equalsIgnoreCase("Y")){
+                System.out.print("请输入新的密码:");
+                String newPwd = input.next();
+                um.changePassWord(id,newPwd);
+                System.out.println("修改密码成功，请重新登录!");
+            }else{
+                mm.show();
+            }
         }else{
             System.out.println("您输入的账号或密码有误，登录失败！");
         }
