@@ -12,5 +12,8 @@ public class UDPServer {
         DatagramPacket datagramPacket = new DatagramPacket(buffer, buffer.length);
         datagramSocket.receive(datagramPacket);
         System.out.println("来自客户端："+new String(buffer));
+        if (datagramSocket != null) {
+            datagramSocket.close();
+        }
     }
 }
