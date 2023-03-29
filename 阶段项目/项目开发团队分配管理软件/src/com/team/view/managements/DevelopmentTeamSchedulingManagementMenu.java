@@ -5,7 +5,7 @@ package com.team.view.managements;
  * CreateTime: 2023-03-29 18:44
  * Github: https://github.com/tyza66
  */
-public class DevelopmentTeamSchedulingManagement {
+public class DevelopmentTeamSchedulingManagementMenu {
     public void show(){
 
     }

@@ -1,4 +1,4 @@
-package com.team.view.managements;
+package com.team.service.managements;
 
 /**
  * Author:tyza66
@@ -6,7 +6,5 @@ package com.team.view.managements;
  * Github: https://github.com/tyza66
  */
 public class DevelopmentProjectManagement {
-    public void show(){
 
-    }
 }

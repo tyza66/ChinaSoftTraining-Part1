@@ -2,9 +2,9 @@ package com.team.view.menu;
 
 import com.team.service.common.Loading;
 import com.team.service.common.Step;
-import com.team.view.managements.DeveloperManagement;
-import com.team.view.managements.DevelopmentProjectManagement;
-import com.team.view.managements.DevelopmentTeamSchedulingManagement;
+import com.team.view.managements.DeveloperManagementMenu;
+import com.team.view.managements.DevelopmentProjectManagementMenu;
+import com.team.view.managements.DevelopmentTeamSchedulingManagementMenu;
 
 import java.util.Scanner;
 
@@ -14,11 +14,11 @@ import java.util.Scanner;
  * Github: https://github.com/tyza66
  */
 public class ManagementMenu {
-    DeveloperManagement dm = new DeveloperManagement();
-    DevelopmentTeamSchedulingManagement dtsm = new DevelopmentTeamSchedulingManagement();
-    DevelopmentProjectManagement dpm = new DevelopmentProjectManagement();
+    DeveloperManagementMenu dm = new DeveloperManagementMenu();
+    DevelopmentTeamSchedulingManagementMenu dtsm = new DevelopmentTeamSchedulingManagementMenu();
+    DevelopmentProjectManagementMenu dpm = new DevelopmentProjectManagementMenu();
 
-    public void show(){
+    public void show() {
         Scanner input = new Scanner(System.in);
         //加载
         try {
@@ -29,7 +29,7 @@ public class ManagementMenu {
 
         //显示选择界面
         boolean run = true;
-        while(run){
+        while (run) {
             System.out.println("======项目开发团队分配管理系统======");
             System.out.println("1.开发人员管理");
             System.out.println("2.开发团队调度管理");
@@ -37,7 +37,7 @@ public class ManagementMenu {
             System.out.println("0.返回登录界面");
             System.out.print("输入指令：");
             String code = input.next();
-            switch (code){
+            switch (code) {
                 case "1":
                     developerManagement();
                     break;
@@ -57,13 +57,16 @@ public class ManagementMenu {
             Step.longNext();
         }
     }
-    public void developerManagement(){
+
+    public void developerManagement() {
         dm.show();
     }
-    public void developmentTeamSchedulingManagement(){
+
+    public void developmentTeamSchedulingManagement() {
         dtsm.show();
     }
-    public void developmentProjectManagement(){
+
+    public void developmentProjectManagement() {
         dpm.show();
     }
 }
