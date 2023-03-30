@@ -24,6 +24,6 @@ public class Designer extends Programmer {
 
     @Override
     public String toString() {
-        return super.getId() + "\t" + super.getName() + "\t" + super.getAge() + "\t\t" + super.getSalary() + "\t" + (super.getEquipment()==null?"\t":super.getEquipment())  + "\t" + bonus;
+        return super.getId() + "\t" + super.getName() + "\t" + super.getAge() + "岁\t" + super.getSalary() + "\t" + (super.getEquipment()==null?"\t":super.getEquipment())  + "\t" + bonus;
     }
 }

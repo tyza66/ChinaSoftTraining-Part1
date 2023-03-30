@@ -14,10 +14,31 @@ import java.util.*;
  * Github: https://github.com/tyza66
  */
 public class DevelopmentTeamSchedulingManagement {
+    DeveloperManagement dm =new DeveloperManagement();
     private final int MAX_MEMBER = 5;
     private static ArrayList<ArrayList<Programmer>> allTeam = new ArrayList<>();
     private static Map<String, ArrayList<Programmer>> ids = new HashMap<>();
     static int now = 1;
+
+    public DevelopmentTeamSchedulingManagement() {
+        try {
+            newTeam(new Employee[]{dm.queryOne(2), dm.queryOne(3)});
+        } catch (OneIsNotAProgrammer oneIsNotAProgrammer) {
+            oneIsNotAProgrammer.printStackTrace();
+        } catch (TeamFullException e) {
+            e.printStackTrace();
+        } catch (OneIsAlreadyInException e) {
+            e.printStackTrace();
+        } catch (OneIsAlreadyInAnotherTeamException e) {
+            e.printStackTrace();
+        } catch (MaxNumberOfDesigner maxNumberOfDesigner) {
+            maxNumberOfDesigner.printStackTrace();
+        } catch (MaxMumberOfArchitect maxMumberOfArchitect) {
+            maxMumberOfArchitect.printStackTrace();
+        } catch (MaxNumberOfProgrammer maxNumberOfProgrammer) {
+            maxNumberOfProgrammer.printStackTrace();
+        }
+    }
 
     public void newTeam(Employee[] e) throws OneIsNotAProgrammer, TeamFullException, OneIsAlreadyInException, OneIsAlreadyInAnotherTeamException, MaxNumberOfDesigner, MaxMumberOfArchitect, MaxNumberOfProgrammer {
         ArrayList<Programmer> team = new ArrayList<>();

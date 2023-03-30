@@ -41,7 +41,7 @@ public class Programmer extends Employee {
 
     @Override
     public String toString() {
-        return super.getId() + "\t" + super.getName() + "\t" + super.getAge() + "\t\t" + super.getSalary() + "\t" + (getEquipment()==null?"\t":getEquipment()) ;
+        return super.getId() + "\t" + super.getName() + "\t" + super.getAge() + "岁\t" + super.getSalary() + "\t" + (getEquipment()==null?"\t":getEquipment()) ;
     }
 }
 

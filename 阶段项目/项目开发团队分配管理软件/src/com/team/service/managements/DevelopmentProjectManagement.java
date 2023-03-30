@@ -15,7 +15,11 @@ public class DevelopmentProjectManagement {
     static ArrayList<Project> projects = new ArrayList<>();
     static int id = 1;
 
-    public void newProject(String name,String in){
+    public DevelopmentProjectManagement() {
+        newProject("小小工程","这是一个小小的工程1");
+    }
+
+    public void newProject(String name, String in){
         ArrayList<ArrayList<Programmer>> allTeam = DevelopmentTeamSchedulingManagement.getAllTeam();
         Random rand=new Random();
         int n1=rand.nextInt(allTeam.size());
