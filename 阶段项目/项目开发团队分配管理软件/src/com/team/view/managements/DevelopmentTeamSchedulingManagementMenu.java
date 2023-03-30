@@ -2,6 +2,7 @@ package com.team.view.managements;
 
 import com.team.service.common.Loading;
 import com.team.service.common.Step;
+import com.team.service.managements.DevelopmentTeamSchedulingManagement;
 
 import java.util.Scanner;
 
@@ -11,6 +12,7 @@ import java.util.Scanner;
  * Github: https://github.com/tyza66
  */
 public class DevelopmentTeamSchedulingManagementMenu {
+    DevelopmentTeamSchedulingManagement dtsm = new DevelopmentTeamSchedulingManagement();
     public void show(){
         Scanner input = new Scanner(System.in);
         //加载
@@ -23,7 +25,7 @@ public class DevelopmentTeamSchedulingManagementMenu {
         boolean run = true;
         while (run) {
             System.out.println("====开发团队调度管理菜单====");
-            System.out.println("1.查看团队");
+            System.out.println("1.查看团队列表");
             System.out.println("2.新建团队");
             System.out.println("0.返回上级菜单");
             System.out.print("输入指令：");

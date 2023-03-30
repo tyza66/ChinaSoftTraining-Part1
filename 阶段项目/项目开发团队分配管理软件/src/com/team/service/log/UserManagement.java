@@ -10,7 +10,7 @@ import java.util.Iterator;
  * Github: https://github.com/tyza66
  */
 public class UserManagement {
-    ArrayList<User> users = new ArrayList<>();
+    static ArrayList<User> users = new ArrayList<>();
 
     public UserManagement() {
         //初始化一个具有高级权限的账户admin

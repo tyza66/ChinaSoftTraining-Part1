@@ -20,7 +20,7 @@ import java.util.Iterator;
  */
 //开发人员管理
 public class DeveloperManagement {
-    ArrayList<Employee> employees = new ArrayList<>();
+    static ArrayList<Employee> employees = new ArrayList<>();
 
     //初始化
     public DeveloperManagement() {
