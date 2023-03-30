@@ -1,5 +1,7 @@
 package com.team.domain.pojo.employee;
 
+import com.team.domain.interfaces.Equipment;
+
 /**
  * Author:tyza66
  * CreateTime: 2023-03-29 18:28
@@ -10,6 +12,7 @@ public class Employee {
     private String name;
     private int age;
     private double salary;
+    Equipment equipment;
 
     public Employee() {
     }
@@ -56,6 +59,10 @@ public class Employee {
     @Override
     public String toString() {
         return id + "\t" + name + "\t" + age + "\t\t" + salary;
+    }
+
+    public void setEquipment(Equipment equipment) {
+        this.equipment = equipment;
     }
 }
 

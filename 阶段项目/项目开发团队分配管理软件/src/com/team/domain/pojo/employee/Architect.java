@@ -24,7 +24,7 @@ public class Architect extends Designer {
 
     @Override
     public String toString() {
-        return super.getId() + "\t" + super.getName() + "\t" + super.getAge() + "\t\t" + super.getSalary() + "\t" + super.getEquipment() + "\t" + super.getBonus() + "\t" + stock;
+        return super.getId() + "\t" + super.getName() + "\t" + super.getAge() + "\t\t" + super.getSalary() + "\t" + (super.getEquipment()==null?"\t":super.getEquipment()) + "\t" + super.getBonus() + "\t" + stock;
     }
 }
 

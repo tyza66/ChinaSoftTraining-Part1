@@ -44,7 +44,7 @@ public class Log {
                     run = false;
                     break;
                 default:
-                    System.out.println("您输入的内容不合法，请重新输入");
+                    System.out.println("您输入的内容不合法，请重新输入!");
                     break;
             }
             Step.longNext();
