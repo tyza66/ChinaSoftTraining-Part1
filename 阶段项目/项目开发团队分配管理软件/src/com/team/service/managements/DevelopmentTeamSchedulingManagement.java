@@ -110,4 +110,23 @@ public class DevelopmentTeamSchedulingManagement {
     public Set<Map.Entry<String, ArrayList<Programmer>>> getAll() {
         return ids.entrySet();
     }
+
+    public ArrayList<Programmer> getTeamById(String id){
+        return ids.get(id);
+    }
+
+    public boolean DeleteOne(ArrayList<Programmer> team, Employee one){
+        return team.remove(one);
+    }
+
+    public boolean deleteOneTeam(String id){
+        ArrayList<Programmer> programmers = ids.get(id);
+        if(programmers!=null){
+            allTeam.remove(programmers);
+            ids.remove(id);
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

@@ -57,16 +57,77 @@ public class DevelopmentTeamSchedulingManagementMenu {
     }
 
     public void showTeams() {
+        Scanner input = new Scanner(System.in);
         System.out.println("团队编号\t成员们：");
         for (Map.Entry<String, ArrayList<Programmer>> one : dtsm.getAll()) {
             System.out.print(one.getKey() + "\t");
             for (Programmer p : one.getValue()) {
                 String[] w = p.getClass().toString().split("[.]");
-                System.out.print(p.getName() + "(" + w[w.length - 1] + ") ");
+                System.out.print(p.getName() + "(" + w[w.length - 1] + ")   ");
             }
         }
         System.out.println();
-
+        try {
+            System.out.print("输入您要操作的团队编号：");
+            String control = input.next();
+            System.out.println("1.添加成员");
+            System.out.println("2.删除成员");
+            System.out.println("3.删除队伍");
+            System.out.print("输入指令：");
+            String code = input.next();
+            switch (code) {
+                case "1":
+                    System.out.println("现在系统中的成员列表：");
+                    System.out.println("Id\t姓名\t年龄\t\t薪资\t设备\t奖金\t股票");
+                    Employee[] all = dm.queryAll();
+                    for (Employee one : all) {
+                        System.out.println(one);
+                    }
+                    System.out.print("输入你要添加进团队的人的id：");
+                    String id = input.next();
+                    dtsm.addOneByTeam(dtsm.getTeamById(control),dm.queryOne(Integer.parseInt(id)));
+                    System.out.println("添加成功！");
+                    break;
+                case "2":
+                    System.out.println("当前团队成员详细信息为：");
+                    System.out.println("Id\t姓名\t年龄\t\t薪资\t设备\t奖金\t股票");
+                    for (Employee one :dtsm.getTeamById(control)) {
+                        System.out.println(one);
+                    }
+                    System.out.print("输入你要删除的人的id：");
+                    String dId = input.next();
+                    boolean b = dtsm.DeleteOne(dtsm.getTeamById(control), dm.queryOne(Integer.parseInt(dId)));
+                    if (b) {
+                        System.out.println("删除成功！");
+                        System.out.println("当前团队成员详细信息为：");
+                        System.out.println("Id\t姓名\t年龄\t\t薪资\t设备\t奖金\t股票");
+                        for (Employee one : dtsm.getTeamById(control)) {
+                            System.out.println(one);
+                        }
+                    }else {
+                        System.out.println("您输入的信息有误，删除失败！");
+                    }
+                    break;
+                case "3":
+                    System.out.print("你确定要删除这个队伍吗?(y/n):");
+                    String y = input.next();
+                    if(y.equalsIgnoreCase("y")){
+                        if(dtsm.deleteOneTeam(control)){
+                            System.out.println("删除成功！");
+                        }else{
+                            System.out.println("您输入的信息有误，删除失败");
+                        }
+                    }else{
+                        System.out.println("已取消");
+                    }
+                    break;
+                default:
+                    System.out.println("您输入的信息有误！");
+                    break;
+            }
+        } catch (Exception e) {
+            System.out.println("您输入的信息有误，操作失败！（" + e + ")");
+        }
     }
 
     public void newTeam() {
@@ -80,7 +141,7 @@ public class DevelopmentTeamSchedulingManagementMenu {
         try {
             System.out.print("输入你想创建的团队成员数量（最大为5）：");
             int num = Integer.parseInt(input.next());
-            System.out.print("输入你想添加进团队的新成员们d的id（每个使用回车提交）：");
+            System.out.println("输入你想添加进团队的新成员们d的id（每输入一个使用回车提交）↓");
             Employee[] employees = new Employee[num];
             int id = -1;
             for (int i = 0; i < num; i++) {
@@ -97,7 +158,7 @@ public class DevelopmentTeamSchedulingManagementMenu {
                 System.out.print(one.getKey() + "\t");
                 for (Programmer p : one.getValue()) {
                     String[] w = p.getClass().toString().split("[.]");
-                    System.out.print(p.getName() + "(" + w[w.length - 1] + ") ");
+                    System.out.print(p.getName() + "(" + w[w.length - 1] + ")   ");
                 }
             }
             System.out.println();
