@@ -132,4 +132,8 @@ public class DevelopmentTeamSchedulingManagement {
             return false;
         }
     }
+
+    public static ArrayList<ArrayList<Programmer>> getAllTeam() {
+        return allTeam;
+    }
 }

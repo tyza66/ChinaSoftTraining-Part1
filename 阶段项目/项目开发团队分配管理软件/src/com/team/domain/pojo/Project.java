@@ -17,12 +17,12 @@ public class Project {
     private String teamName;//开发团队名称
     private boolean status;//开发状态（true为开发中，false为未开发中）
 
-    public Project(int proId, String projectName, Programmer[] team, String teamName,String desName, boolean status) {
+    public Project(int proId, String projectName, Programmer[] team,String desName, boolean status) {
         this.proId = proId;
         this.projectName = projectName;
         this.desName=desName;
         this.team = team;
-        this.teamName = teamName;
+        //this.teamName = teamName;
         this.status = status;
     }
 
@@ -72,7 +72,6 @@ public class Project {
                 "项目号=" + proId +
                 ", 项目名称='" + projectName + '\'' +
                 ", 开发团队=" + Arrays.toString(team) +
-                ", 开发团队名称='" + teamName + '\'' +
                 ", 开发状态=" + status +
                 '}';
     }

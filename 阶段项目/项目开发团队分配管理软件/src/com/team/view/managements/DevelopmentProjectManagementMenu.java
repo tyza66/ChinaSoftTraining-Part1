@@ -1,7 +1,9 @@
 package com.team.view.managements;
 
+import com.team.domain.pojo.Project;
 import com.team.service.common.Loading;
 import com.team.service.common.Step;
+import com.team.service.managements.DevelopmentProjectManagement;
 
 import java.util.Scanner;
 
@@ -11,6 +13,7 @@ import java.util.Scanner;
  * Github: https://github.com/tyza66
  */
 public class DevelopmentProjectManagementMenu {
+    DevelopmentProjectManagement dpm = new DevelopmentProjectManagement();
     public void show(){
         Scanner input = new Scanner(System.in);
         //加载
@@ -46,7 +49,11 @@ public class DevelopmentProjectManagementMenu {
         }
     }
     public void showProjects(){
-        
+        System.out.println("当前所以项目");
+        Project[] allProject = dpm.getAllProject();
+        for (Project p:allProject){
+            System.out.println(p);
+        }
     }
     public void newProject(){
 
