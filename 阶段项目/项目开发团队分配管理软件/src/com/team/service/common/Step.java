@@ -14,5 +14,6 @@ public class Step {
 
     public static void longNext() {
         System.out.println("====================");
+        System.out.println();
     }
 }

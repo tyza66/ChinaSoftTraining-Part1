@@ -35,4 +35,8 @@ public class DeveloperManagement {
     public void add(int id, String name, int age, double salary, Equipment equipment, double bonus, int stock){
         employees.add(new Architect(id,name,age,salary,equipment,bonus,stock));
     }
+
+    public Employee[] queryAll(){
+        return employees.toArray(new Employee[0]);
+    }
 }

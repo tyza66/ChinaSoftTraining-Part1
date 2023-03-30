@@ -1,5 +1,6 @@
 package com.team.view.managements;
 
+import com.team.domain.pojo.employee.Employee;
 import com.team.service.common.Loading;
 import com.team.service.common.Step;
 import com.team.service.managements.DeveloperManagement;
@@ -45,8 +46,8 @@ public class DeveloperManagementMenu {
                 default:
                     break;
             }
+            Step.longNext();
         }
-        Step.longNext();
     }
 
     public void addOne() {
@@ -114,6 +115,10 @@ public class DeveloperManagementMenu {
     }
 
     public void showAll() {
-
+        System.out.println("Id\t姓名\t年龄\t\t薪资\t设备\t奖金\t股票");
+        Employee[] all = dm.queryAll();
+        for(Employee one:all){
+            System.out.println(one);
+        }
     }
 }

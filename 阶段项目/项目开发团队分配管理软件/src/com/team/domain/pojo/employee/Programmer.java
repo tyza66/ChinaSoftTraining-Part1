@@ -9,12 +9,13 @@ import com.team.domain.interfaces.Equipment;
  */
 public class Programmer extends Employee {
     private int memberId;
-    private boolean status=true;//人员的状态初始化为true，添加到团队之后为false；
+    private boolean status = true;//人员的状态初始化为true，添加到团队之后为false；
     private Equipment equipment;//成员设备
 
-    public Programmer(){}
+    public Programmer() {
+    }
 
-    public Programmer(int id, String name, int age, double salary,  Equipment equipment) {
+    public Programmer(int id, String name, int age, double salary, Equipment equipment) {
         super(id, name, age, salary);
         this.equipment = equipment;
     }
@@ -26,7 +27,10 @@ public class Programmer extends Employee {
     public void setMemberId(int memberId) {
         this.memberId = memberId;
     }
-    public boolean isStatus(){return status;}
+
+    public boolean isStatus() {
+        return status;
+    }
 
     public void setStatus(boolean status) {
         this.status = status;
@@ -34,6 +38,11 @@ public class Programmer extends Employee {
 
     public Equipment getEquipment() {
         return equipment;
+    }
+
+    @Override
+    public String toString() {
+        return super.getId() + "\t" + super.getName() + "\t" + super.getAge() + "\t\t" + super.getSalary() + "\t" + equipment;
     }
 }
 
