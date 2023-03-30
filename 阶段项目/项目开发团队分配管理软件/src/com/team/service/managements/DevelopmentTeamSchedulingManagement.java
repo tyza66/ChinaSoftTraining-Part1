@@ -14,7 +14,7 @@ import java.util.*;
  * Github: https://github.com/tyza66
  */
 public class DevelopmentTeamSchedulingManagement {
-    DeveloperManagement dm =new DeveloperManagement();
+    DeveloperManagement dm = new DeveloperManagement();
     private final int MAX_MEMBER = 5;
     private static ArrayList<ArrayList<Programmer>> allTeam = new ArrayList<>();
     private static Map<String, ArrayList<Programmer>> ids = new HashMap<>();
@@ -22,7 +22,9 @@ public class DevelopmentTeamSchedulingManagement {
 
     public DevelopmentTeamSchedulingManagement() {
         try {
-            newTeam(new Employee[]{dm.queryOne(2), dm.queryOne(3)});
+            if (allTeam.size() == 0) {
+                newTeam(new Employee[]{dm.queryOne(2), dm.queryOne(3)});
+            }
         } catch (OneIsNotAProgrammer oneIsNotAProgrammer) {
             oneIsNotAProgrammer.printStackTrace();
         } catch (TeamFullException e) {
@@ -67,7 +69,7 @@ public class DevelopmentTeamSchedulingManagement {
             if (howManyArchitect(team) == 1) {
                 throw new MaxMumberOfArchitect();
             }
-            team.add((Architect)one);
+            team.add((Architect) one);
             ((Architect) one).setStatus(false);
         } else if (one instanceof Designer) {
             if (howManyDesigner(team) == 2) {
@@ -132,24 +134,24 @@ public class DevelopmentTeamSchedulingManagement {
         return ids.entrySet();
     }
 
-    public ArrayList<Programmer> getTeamById(String id){
+    public ArrayList<Programmer> getTeamById(String id) {
         return ids.get(id);
     }
 
-    public boolean DeleteOne(ArrayList<Programmer> team, Employee one){
-        if(one instanceof Programmer){
+    public boolean DeleteOne(ArrayList<Programmer> team, Employee one) {
+        if (one instanceof Programmer) {
             ((Programmer) one).setStatus(true);
         }
         return team.remove(one);
     }
 
-    public boolean deleteOneTeam(String id){
+    public boolean deleteOneTeam(String id) {
         ArrayList<Programmer> programmers = ids.get(id);
-        if(programmers!=null){
+        if (programmers != null) {
             allTeam.remove(programmers);
             ids.remove(id);
             return true;
-        }else{
+        } else {
             return false;
         }
     }

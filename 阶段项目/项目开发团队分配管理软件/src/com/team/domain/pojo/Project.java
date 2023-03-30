@@ -70,8 +70,13 @@ public class Project {
     public String toString() {
         return "项目编号:" + proId + "\n" +
                 "\t项目名称:'" + projectName + '\'' + "\n" +
+                "\t项目简介:'" + desName + '\'' + "\n" +
                 "\t开发团队:" + Arrays.toString(team) + "\n" +
                 "\t开发状态:" + (status ? "正在开发" : "已完成");
+    }
+
+    public void setDesName(String desName) {
+        this.desName = desName;
     }
 }
 
