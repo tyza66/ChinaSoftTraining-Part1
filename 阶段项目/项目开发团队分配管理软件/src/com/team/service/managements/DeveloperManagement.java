@@ -24,6 +24,24 @@ public class DeveloperManagement {
 
     //初始化
     public DeveloperManagement() {
+        employees.add(new Employee(1, "马云  \t", 22, 3000));
+        employees.add(new Architect(2, "马化腾  \t", 32, 18000, new NoteBook("联想T4", 6000),
+                60000, 5000));
+        employees.add(new Programmer(3, "李彦宏  \t", 23, 7000, new PC("戴尔", "NEC 17寸")));
+        employees.add(new Programmer(4, "刘强东  \t", 24, 7300, new PC("戴尔", "三星 17寸")));
+        employees.add(new Designer(5, "雷军  \t", 50, 10000, new Printer("激光", "佳能2900"),
+                5000));
+        employees.add(new Programmer(6, "任志强  \t", 30, 16800, new PC("华硕", "三星 17寸")));
+        employees.add(new Designer(7, "柳传志  \t", 45, 35500, new PC("华硕", "三星 17寸"),
+                8000));
+        employees.add(new Architect(8, "杨元庆  \t", 35, 6500, new Printer("针式", "爱普生20k"),
+                15500, 1200));
+        employees.add(new Designer(9, "史玉柱  \t", 27, 7800, new NoteBook("惠普m6", 5800),
+                1500));
+        employees.add(new Programmer(10, "丁磊  \t", 26, 6600, new PC("戴尔", "NEC17寸")));
+        employees.add(new Programmer(11, "张朝阳  \t", 35, 7100, new PC("华硕", "三星 17寸")));
+        employees.add(new Designer(12, "杨致远  \t", 38, 9600, new NoteBook("惠普m6", 5800),
+                3000));
         employees.add(new Programmer(96, "孙达明", 99, 999999999, new PC("lenovo", "y7000p")));
     }
 
