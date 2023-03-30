@@ -69,6 +69,11 @@ public class DeveloperManagement {
         while (iterator.hasNext()) {
             Employee one = iterator.next();
             if (one.getId() == id) {
+                if(one instanceof Programmer){
+                    if (!((Programmer) one).isStatus()){
+                        return false;
+                    }
+                }
                 iterator.remove();
                 return true;
             }

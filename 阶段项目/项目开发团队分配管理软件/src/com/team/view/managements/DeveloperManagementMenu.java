@@ -231,7 +231,7 @@ public class DeveloperManagementMenu {
                 try{
                     boolean end = dm.deleteOne(Integer.parseInt(control));
                     if (end==false){
-                        System.out.println("您输入的信息有误，删除失败！");
+                        System.out.println("您输入的信息有误，或者这个人已在某个团队中，删除失败！");
                     }else {
                         System.out.println("删除成功！现在所有的成员信息有：");
                         System.out.println("Id\t姓名\t年龄\t\t薪资\t设备\t奖金\t股票");

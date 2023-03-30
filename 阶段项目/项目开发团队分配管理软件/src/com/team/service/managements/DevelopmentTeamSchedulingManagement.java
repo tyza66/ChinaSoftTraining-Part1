@@ -116,6 +116,9 @@ public class DevelopmentTeamSchedulingManagement {
     }
 
     public boolean DeleteOne(ArrayList<Programmer> team, Employee one){
+        if(one instanceof Programmer){
+            ((Programmer) one).setStatus(true);
+        }
         return team.remove(one);
     }
 
