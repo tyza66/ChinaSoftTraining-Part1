@@ -21,4 +21,9 @@ public class Printer implements Equipment {
     public String getDescription() {
         return name+ "(" +type+ ")" ;
     }
+
+    @Override
+    public String toString() {
+        return name+ "(" +type+ ")" ;
+    }
 }

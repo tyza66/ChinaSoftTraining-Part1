@@ -1,7 +1,9 @@
 package com.team.view.managements;
 
+import com.team.domain.pojo.employee.Employee;
 import com.team.service.common.Loading;
 import com.team.service.common.Step;
+import com.team.service.managements.DeveloperManagement;
 import com.team.service.managements.DevelopmentTeamSchedulingManagement;
 
 import java.util.Scanner;
@@ -12,6 +14,7 @@ import java.util.Scanner;
  * Github: https://github.com/tyza66
  */
 public class DevelopmentTeamSchedulingManagementMenu {
+    DeveloperManagement dm = new DeveloperManagement();
     DevelopmentTeamSchedulingManagement dtsm = new DevelopmentTeamSchedulingManagement();
     public void show(){
         Scanner input = new Scanner(System.in);
@@ -52,6 +55,12 @@ public class DevelopmentTeamSchedulingManagementMenu {
     }
 
     public void newTeam(){
-
+        System.out.println("现在系统中的成员列表：");
+        System.out.println("Id\t姓名\t年龄\t\t薪资\t设备\t奖金\t股票");
+        Employee[] all = dm.queryAll();
+        for(Employee one:all){
+            System.out.println(one);
+        }
+        System.out.print("输入你想要");
     }
 }

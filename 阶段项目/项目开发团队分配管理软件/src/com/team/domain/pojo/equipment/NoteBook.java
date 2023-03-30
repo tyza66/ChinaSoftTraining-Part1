@@ -22,5 +22,10 @@ public class NoteBook implements Equipment {
     public String getDescription() {
         return model + "(" + price + ")";
     }
+
+    @Override
+    public String toString() {
+        return model + "(" + price + ")";
+    }
 }
 
