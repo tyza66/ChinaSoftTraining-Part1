@@ -6,8 +6,7 @@ import com.team.domain.pojo.employee.Designer;
 import com.team.domain.pojo.employee.Employee;
 import com.team.domain.pojo.employee.Programmer;
 
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.*;
 
 /**
  * Author:tyza66
@@ -16,14 +15,18 @@ import java.util.Iterator;
  */
 public class DevelopmentTeamSchedulingManagement {
     private final int MAX_MEMBER = 5;
-    private ArrayList<ArrayList<Programmer>> allTeam = new ArrayList<>();
+    private static ArrayList<ArrayList<Programmer>> allTeam = new ArrayList<>();
+    private static Map<String, ArrayList<Programmer>> ids = new HashMap<>();
+    static int now = 1;
 
     public void newTeam(Employee[] e) throws OneIsNotAProgrammer, TeamFullException, OneIsAlreadyInException, OneIsAlreadyInAnotherTeamException, MaxNumberOfDesigner, MaxMumberOfArchitect, MaxNumberOfProgrammer {
         ArrayList<Programmer> team = new ArrayList<>();
-        allTeam.add(team);
+
         for (Employee one : e) {
             addOneByTeam(team, one);
         }
+        allTeam.add(team);
+        ids.put("" + now++, team);
     }
 
     public void addOneByTeam(ArrayList<Programmer> team, Employee one) throws OneIsNotAProgrammer, TeamFullException, OneIsAlreadyInException, OneIsAlreadyInAnotherTeamException, MaxNumberOfProgrammer, MaxNumberOfDesigner, MaxMumberOfArchitect {
@@ -43,16 +46,19 @@ public class DevelopmentTeamSchedulingManagement {
             if (howManyArchitect(team) == 1) {
                 throw new MaxMumberOfArchitect();
             }
+            team.add((Architect)one);
             ((Architect) one).setStatus(false);
         } else if (one instanceof Designer) {
-            if (howManyDesigner(team)==1){
+            if (howManyDesigner(team) == 2) {
                 throw new MaxNumberOfDesigner();
             }
-                ((Designer) one).setStatus(false);
+            team.add((Designer) one);
+            ((Designer) one).setStatus(false);
         } else if (one instanceof Programmer) {
-            if(howManyProgrammer(team)==1){
+            if (howManyProgrammer(team) == 3) {
                 throw new MaxNumberOfProgrammer();
             }
+            team.add((Programmer) one);
             ((Programmer) one).setStatus(false);
         } else {
             throw new OneIsNotAProgrammer();
@@ -99,5 +105,9 @@ public class DevelopmentTeamSchedulingManagement {
             }
         }
         return sum;
+    }
+
+    public Set<Map.Entry<String, ArrayList<Programmer>>> getAll() {
+        return ids.entrySet();
     }
 }

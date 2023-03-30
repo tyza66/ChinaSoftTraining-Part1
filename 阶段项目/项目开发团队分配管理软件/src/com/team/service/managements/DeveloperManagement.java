@@ -140,4 +140,15 @@ public class DeveloperManagement {
         }
         return false;
     }
+
+    public Employee queryOne(int id){
+        Iterator<Employee> iterator = employees.iterator();
+        while (iterator.hasNext()) {
+            Employee one = iterator.next();
+            if (one.getId() == id) {
+                return one;
+            }
+        }
+        return null;
+    }
 }
