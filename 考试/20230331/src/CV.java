@@ -17,6 +17,5 @@ public class CV {
         }
         fileInputStream.close();
         fileOutputStream.close();
-        
     }
 }
