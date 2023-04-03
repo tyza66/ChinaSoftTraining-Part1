@@ -8,4 +8,4 @@ SELECT * FROM emp WHERE comm is not null;
 SELECT * from emp where DEPTNO^=10;
 SELECT * from emp where DEPTNO!=10;
 SELECT * from emp where DEPTNO<>10;
-SELECT * from emp WHERE ENAME LIKE '%\。%' ESCAPE '\';
+SELECT * from emp WHERE ENAME LIKE '%\_%' ESCAPE '\';
