@@ -1,0 +1,18 @@
+Microsoft Windows [版本 10.0.19043.928]
+(c) Microsoft Corporation。保留所有权利。
+
+C:\Users\Administrator>sqlplus scott/tiger@172.16.11.128:1521/orcl
+
+SQL*Plus: Release 11.2.0.1.0 Production on 星期一 4月 3 09:57:49 2023
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+
+连接到:
+Oracle Database 10g Enterprise Edition Release 10.2.0.1.0 - Production
+With the Partitioning, OLAP and Data Mining options
+
+SQL>
+
+
+
