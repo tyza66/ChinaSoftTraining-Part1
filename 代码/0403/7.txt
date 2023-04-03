@@ -1,0 +1,316 @@
+
+SQL> select deptno,ename from emp;
+
+    DEPTNO ENAME
+---------- ----------
+        20 SMITH
+        30 ALLEN
+        30 WARD
+        20 JONES
+        30 MARTIN
+        30 BLAKE
+        10 CLARK
+        20 SCOTT
+        10 KING
+        30 TURNER
+        20 ADAMS
+
+    DEPTNO ENAME
+---------- ----------
+        30 JAMES
+        20 FORD
+        10 MILLER
+
+已选择14行。
+
+SQL> select deptno from emp;
+
+    DEPTNO
+----------
+        20
+        30
+        30
+        20
+        30
+        30
+        10
+        20
+        10
+        30
+        20
+
+    DEPTNO
+----------
+        30
+        20
+        10
+
+已选择14行。
+
+SQL> select distinct deptno from emp;
+
+    DEPTNO
+----------
+        30
+        20
+        10
+
+SQL> select distinct deptno,ename from emp;
+
+    DEPTNO ENAME
+---------- ----------
+        20 JONES
+        30 WARD
+        20 SCOTT
+        10 KING
+        30 JAMES
+        30 ALLEN
+        30 MARTIN
+        30 BLAKE
+        20 FORD
+        20 SMITH
+        20 ADAMS
+
+    DEPTNO ENAME
+---------- ----------
+        10 MILLER
+        10 CLARK
+        30 TURNER
+
+已选择14行。
+
+SQL> select unique deptno,ename from emp;
+
+    DEPTNO ENAME
+---------- ----------
+        20 JONES
+        30 WARD
+        20 SCOTT
+        10 KING
+        30 JAMES
+        30 ALLEN
+        30 MARTIN
+        30 BLAKE
+        20 FORD
+        20 SMITH
+        20 ADAMS
+
+    DEPTNO ENAME
+---------- ----------
+        10 MILLER
+        10 CLARK
+        30 TURNER
+
+已选择14行。
+
+SQL> select empno,ename from emp;
+
+     EMPNO ENAME
+---------- ----------
+      7369 SMITH
+      7499 ALLEN
+      7521 WARD
+      7566 JONES
+      7654 MARTIN
+      7698 BLAKE
+      7782 CLARK
+      7788 SCOTT
+      7839 KING
+      7844 TURNER
+      7876 ADAMS
+
+     EMPNO ENAME
+---------- ----------
+      7900 JAMES
+      7902 FORD
+      7934 MILLER
+
+已选择14行。
+
+SQL> select 3+3 from emp;
+
+       3+3
+----------
+         6
+         6
+         6
+         6
+         6
+         6
+         6
+         6
+         6
+         6
+         6
+
+       3+3
+----------
+         6
+         6
+         6
+
+已选择14行。
+
+SQL> select 3+3 from dept;
+
+       3+3
+----------
+         6
+         6
+         6
+         6
+
+SQL> select 3+3;
+select 3+3
+         *
+第 1 行出现错误:
+ORA-00923: 未找到要求的 FROM 关键字
+
+
+SQL> select 3+3 from dual;
+
+       3+3
+----------
+         6
+
+SQL> select 10/3 from dual;
+
+      10/3
+----------
+3.33333333
+
+SQL> select 10%3 from dual;
+select 10%3 from dual
+         *
+第 1 行出现错误:
+ORA-00911: 无效字符
+
+
+SQL> select mod(10,3) from dual;
+
+ MOD(10,3)
+----------
+         1
+
+SQL> select 2*3+1 from dual;
+
+     2*3+1
+----------
+         7
+
+SQL> select 2*(3+1) from dual;
+
+   2*(3+1)
+----------
+         8
+
+SQL> select ename,sal,comm from emp;
+
+ENAME             SAL       COMM
+---------- ---------- ----------
+SMITH             800
+ALLEN            1600        300
+WARD             1250        500
+JONES            2975
+MARTIN           1250       1400
+BLAKE            2850
+CLARK            2450
+SCOTT            3000
+KING             5000
+TURNER           1500          0
+ADAMS            1100
+
+ENAME             SAL       COMM
+---------- ---------- ----------
+JAMES             950
+FORD             3000
+MILLER           1300
+
+已选择14行。
+
+SQL> select ename,sal,comm.comm+100 from emp;
+select ename,sal,comm.comm+100 from emp
+                 *
+第 1 行出现错误:
+ORA-00904: "COMM"."COMM": 标识符无效
+
+
+SQL> select ename,sal,comm,comm+100 from emp;
+
+ENAME             SAL       COMM   COMM+100
+---------- ---------- ---------- ----------
+SMITH             800
+ALLEN            1600        300        400
+WARD             1250        500        600
+JONES            2975
+MARTIN           1250       1400       1500
+BLAKE            2850
+CLARK            2450
+SCOTT            3000
+KING             5000
+TURNER           1500          0        100
+ADAMS            1100
+
+ENAME             SAL       COMM   COMM+100
+---------- ---------- ---------- ----------
+JAMES             950
+FORD             3000
+MILLER           1300
+
+已选择14行。
+
+SQL> select ename,sal,comm from emp where comm!=null;
+
+未选定行
+
+SQL> select ename,sal,comm from emp where comm is not null;
+
+ENAME             SAL       COMM
+---------- ---------- ----------
+ALLEN            1600        300
+WARD             1250        500
+MARTIN           1250       1400
+TURNER           1500          0
+
+SQL> select ename,sal,comm from emp where comm is null;
+
+ENAME             SAL       COMM
+---------- ---------- ----------
+SMITH             800
+JONES            2975
+BLAKE            2850
+CLARK            2450
+SCOTT            3000
+KING             5000
+ADAMS            1100
+JAMES             950
+FORD             3000
+MILLER           1300
+
+已选择10行。
+
+SQL> select ename,sal,comm,nvl(comm,0)+100 from emp;
+
+ENAME             SAL       COMM NVL(COMM,0)+100
+---------- ---------- ---------- ---------------
+SMITH             800                        100
+ALLEN            1600        300             400
+WARD             1250        500             600
+JONES            2975                        100
+MARTIN           1250       1400            1500
+BLAKE            2850                        100
+CLARK            2450                        100
+SCOTT            3000                        100
+KING             5000                        100
+TURNER           1500          0             100
+ADAMS            1100                        100
+
+ENAME             SAL       COMM NVL(COMM,0)+100
+---------- ---------- ---------- ---------------
+JAMES             950                        100
+FORD             3000                        100
+MILLER           1300                        100
+
+已选择14行。
+
+SQL>
