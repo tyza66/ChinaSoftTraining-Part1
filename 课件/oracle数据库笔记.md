@@ -17,6 +17,23 @@
 ​				
 
 2.数据库
+
+
+
+存储数据的地方？
+
+变量 
+
+数组
+
+集合框架 List Set Map  运行在内存里面的，不能持久化保存
+
+
+
+File+IO流  数据通过IO流可以写在文件里面
+
+
+
 	为什么要学数据库？
 		Student stu = new Student(???);
 		writeToFile(stu);
@@ -33,6 +50,15 @@
 
 		此时如果有数据库的存在，执行以上功能（保存若干学生，之后再查询姓张的同学）
 
+		关系型数据库  数据库里面的数据以表，字段的形式来存在
+		一张表就相当于一个数据集合
+		一行数据就相当于一个对象
+		一个字段就相当于对象的一个属性
+		
+		dbms  database managesystem  数据库管理系统
+		
+		sql语句： 结构化查询语句 ，类似于自然语言
+	
 		insert into 学生表 values(???);
 		......
 	
@@ -47,7 +73,7 @@
 
 	市面上常见的数据库有哪些？
 		oracle（甲骨文）
-			靠数据库发家，数据库技术。
+			靠数据库发家，数据库技术。java也属于oracle公司
 		sqlserver(微软）
 			sqlserver作为java编程人员使用不是太多，大项目中几乎不会用。
 		db2（IBM）
@@ -67,6 +93,8 @@
 	
 	电信：
 		oracle，sybase（sqlserver）
+		
+	中小型企业： mysql
 
 
 
@@ -87,8 +115,10 @@
 		  .....
 		  50个
 		 3.5类SQL语句，先接触的DQL这一类是5类中最复杂的（绕人）
+		 
+		 DQL： Data Query Language  :数据查询语句，主要是查询，sql语句里面80%都是查询
 			第二天第三天会接触到
-		4.java访问数据库
+		4.java访问数据库  jdbc
 			5-6个类（接口）
 			平均每个类3-4个方法
 
@@ -152,8 +182,14 @@
 
 
 			sqlplus.exe是oracle一个客户端软件，随着oracle的安装一起安装的。
+			
+			oracle数据库有3类账户：
+			scott:  密码tiger
+			system: 普通管理员
+			sys: 系统管理员，权限最高  使用的时候后面必须加 as sysdbs
 
 			sqlplus 用户名/账号@主机地址[ :端口号]/数据库名字
+			sqlplus 用户名/密码    登录本机oracle数据库
 
 	        例如：
 
@@ -309,18 +345,21 @@
 		sql命令：
 			sqlplus接收之后，把他们传入数据库
 			sql命令----》sqlplus软件------>数据库
+	
 
-​	数据类型：
+数据类型：
 
- number
+ number： 数值类型
 
-char 
+ char ： 字符类型: 有固定长度
 
-varchar 
+varchar ： 可变长度的字符串
 
-varchar2
+varchar2： 可变长度的字符串
 
-date
+date： 日期时间类型
+
+
 
 ​	基本的操作
 ​		先理解scott用户下4张表
@@ -453,7 +492,7 @@ date
 
 
 
-	
+
 		oracle中内置函数
 			单行函数与多行函数
 	
@@ -637,7 +676,7 @@ date
 
 
 
-	
+
 			子查询
 				分类：
 					嵌套子查询

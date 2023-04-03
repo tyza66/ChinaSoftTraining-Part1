@@ -1,0 +1,159 @@
+Microsoft Windows [版本 10.0.19043.928]
+(c) Microsoft Corporation。保留所有权利。
+
+C:\Users\Administrator>sqlplus scott/tiger
+
+SQL*Plus: Release 11.2.0.1.0 Production on 星期一 4月 3 13:46:23 2023
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+
+连接到:
+Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+
+SQL> show user
+USER 为 "SCOTT"
+SQL> connect system/orcl;
+已连接。
+SQL> show user;
+USER 为 "SYSTEM"
+SQL> connect sys as sysdba/orcl;
+SP2-0306: 选项无效。
+用法: CONN[ECT] [{logon|/|proxy} [AS {SYSDBA|SYSOPER|SYSASM}] [edition=value]]
+其中 <logon> ::= <username>[/<password>][@<connect_identifier>]
+      <proxy> ::= <proxyuser>[<username>][/<password>][@<connect_identifier>]
+SQL> connect sys/orcl;
+ERROR:
+ORA-28009: connection as SYS should be as SYSDBA or SYSOPER
+
+
+警告: 您不再连接到 ORACLE。
+SQL> quit;
+
+C:\Users\Administrator>sqlplus
+
+SQL*Plus: Release 11.2.0.1.0 Production on 星期一 4月 3 13:47:59 2023
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+请输入用户名:  sys as sysdba
+输入口令:
+
+连接到:
+Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+
+SQL> show user;
+USER 为 "SYS"
+SQL> connect scott/tiger;
+已连接。
+SQL> show user;
+USER 为 "SCOTT"
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+BONUS                          TABLE
+DEPT                           TABLE
+EMP                            TABLE
+SALGRADE                       TABLE
+
+SQL> select * from emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7369 SMITH      CLERK           7902 17-12月-80            800
+        20
+
+      7499 ALLEN      SALESMAN        7698 20-2月 -81           1600        300
+        30
+
+      7521 WARD       SALESMAN        7698 22-2月 -81           1250        500
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7566 JONES      MANAGER         7839 02-4月 -81           2975
+        20
+
+      7654 MARTIN     SALESMAN        7698 28-9月 -81           1250       1400
+        30
+
+      7698 BLAKE      MANAGER         7839 01-5月 -81           2850
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7782 CLARK      MANAGER         7839 09-6月 -81           2450
+        10
+
+      7788 SCOTT      ANALYST         7566 19-4月 -87           3000
+        20
+
+      7839 KING       PRESIDENT            17-11月-81           5000
+        10
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7844 TURNER     SALESMAN        7698 08-9月 -81           1500          0
+        30
+
+      7876 ADAMS      CLERK           7788 23-5月 -87           1100
+        20
+
+      7900 JAMES      CLERK           7698 03-12月-81            950
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7902 FORD       ANALYST         7566 03-12月-81           3000
+        20
+
+      7934 MILLER     CLERK           7782 23-1月 -82           1300
+        10
+
+
+已选择14行。
+
+SQL> desc emp;
+ 名称                                      是否为空? 类型
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                     NOT NULL NUMBER(4)
+ ENAME                                              VARCHAR2(10)
+ JOB                                                VARCHAR2(9)
+ MGR                                                NUMBER(4)
+ HIREDATE                                           DATE
+ SAL                                                NUMBER(7,2)
+ COMM                                               NUMBER(7,2)
+ DEPTNO                                             NUMBER(2)
+
+SQL> desc dept;
+ 名称                                      是否为空? 类型
+ ----------------------------------------- -------- ----------------------------
+ DEPTNO                                    NOT NULL NUMBER(2)
+ DNAME                                              VARCHAR2(14)
+ LOC                                                VARCHAR2(13)
+
+SQL> desc salgrade;
+ 名称                                      是否为空? 类型
+ ----------------------------------------- -------- ----------------------------
+ GRADE                                              NUMBER
+ LOSAL                                              NUMBER
+ HISAL                                              NUMBER
+
+SQL>

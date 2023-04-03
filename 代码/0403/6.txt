@@ -1,0 +1,218 @@
+
+SQL> select * from emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7369 SMITH      CLERK           7902 17-12月-80            800
+        20
+
+      7499 ALLEN      SALESMAN        7698 20-2月 -81           1600        300
+        30
+
+      7521 WARD       SALESMAN        7698 22-2月 -81           1250        500
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7566 JONES      MANAGER         7839 02-4月 -81           2975
+        20
+
+      7654 MARTIN     SALESMAN        7698 28-9月 -81           1250       1400
+        30
+
+      7698 BLAKE      MANAGER         7839 01-5月 -81           2850
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7782 CLARK      MANAGER         7839 09-6月 -81           2450
+        10
+
+      7788 SCOTT      ANALYST         7566 19-4月 -87           3000
+        20
+
+      7839 KING       PRESIDENT            17-11月-81           5000
+        10
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7844 TURNER     SALESMAN        7698 08-9月 -81           1500          0
+        30
+
+      7876 ADAMS      CLERK           7788 23-5月 -87           1100
+        20
+
+      7900 JAMES      CLERK           7698 03-12月-81            950
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7902 FORD       ANALYST         7566 03-12月-81           3000
+        20
+
+      7934 MILLER     CLERK           7782 23-1月 -82           1300
+        10
+
+
+已选择14行。
+
+SQL> select ename,sal,hiredate from emp;
+
+ENAME             SAL HIREDATE
+---------- ---------- --------------
+SMITH             800 17-12月-80
+ALLEN            1600 20-2月 -81
+WARD             1250 22-2月 -81
+JONES            2975 02-4月 -81
+MARTIN           1250 28-9月 -81
+BLAKE            2850 01-5月 -81
+CLARK            2450 09-6月 -81
+SCOTT            3000 19-4月 -87
+KING             5000 17-11月-81
+TURNER           1500 08-9月 -81
+ADAMS            1100 23-5月 -87
+
+ENAME             SAL HIREDATE
+---------- ---------- --------------
+JAMES             950 03-12月-81
+FORD             3000 03-12月-81
+MILLER           1300 23-1月 -82
+
+已选择14行。
+
+SQL> select * from dept;
+
+    DEPTNO DNAME          LOC
+---------- -------------- -------------
+        10 ACCOUNTING     NEW YORK
+        20 RESEARCH       DALLAS
+        30 SALES          CHICAGO
+        40 OPERATIONS     BOSTON
+
+SQL> desc dept;
+ 名称                                      是否为空? 类型
+ ----------------------------------------- -------- ----------------------------
+ DEPTNO                                    NOT NULL NUMBER(2)
+ DNAME                                              VARCHAR2(14)
+ LOC                                                VARCHAR2(13)
+
+SQL> select deptno,dname,loc from dept;
+
+    DEPTNO DNAME          LOC
+---------- -------------- -------------
+        10 ACCOUNTING     NEW YORK
+        20 RESEARCH       DALLAS
+        30 SALES          CHICAGO
+        40 OPERATIONS     BOSTON
+
+SQL> select ename,sal from emp;
+
+ENAME             SAL
+---------- ----------
+SMITH             800
+ALLEN            1600
+WARD             1250
+JONES            2975
+MARTIN           1250
+BLAKE            2850
+CLARK            2450
+SCOTT            3000
+KING             5000
+TURNER           1500
+ADAMS            1100
+
+ENAME             SAL
+---------- ----------
+JAMES             950
+FORD             3000
+MILLER           1300
+
+已选择14行。
+
+SQL> select ename,sal,sal*12 from emp;
+
+ENAME             SAL     SAL*12
+---------- ---------- ----------
+SMITH             800       9600
+ALLEN            1600      19200
+WARD             1250      15000
+JONES            2975      35700
+MARTIN           1250      15000
+BLAKE            2850      34200
+CLARK            2450      29400
+SCOTT            3000      36000
+KING             5000      60000
+TURNER           1500      18000
+ADAMS            1100      13200
+
+ENAME             SAL     SAL*12
+---------- ---------- ----------
+JAMES             950      11400
+FORD             3000      36000
+MILLER           1300      15600
+
+已选择14行。
+
+SQL> select ename,sal,sal*12 as yearpay from emp;
+
+ENAME             SAL    YEARPAY
+---------- ---------- ----------
+SMITH             800       9600
+ALLEN            1600      19200
+WARD             1250      15000
+JONES            2975      35700
+MARTIN           1250      15000
+BLAKE            2850      34200
+CLARK            2450      29400
+SCOTT            3000      36000
+KING             5000      60000
+TURNER           1500      18000
+ADAMS            1100      13200
+
+ENAME             SAL    YEARPAY
+---------- ---------- ----------
+JAMES             950      11400
+FORD             3000      36000
+MILLER           1300      15600
+
+已选择14行。
+
+SQL> select ename,sal,sal*12 yearpay from emp;
+
+ENAME             SAL    YEARPAY
+---------- ---------- ----------
+SMITH             800       9600
+ALLEN            1600      19200
+WARD             1250      15000
+JONES            2975      35700
+MARTIN           1250      15000
+BLAKE            2850      34200
+CLARK            2450      29400
+SCOTT            3000      36000
+KING             5000      60000
+TURNER           1500      18000
+ADAMS            1100      13200
+
+ENAME             SAL    YEARPAY
+---------- ---------- ----------
+JAMES             950      11400
+FORD             3000      36000
+MILLER           1300      15600
+
+已选择14行。
+
+SQL>

@@ -1,0 +1,95 @@
+Microsoft Windows [版本 10.0.19043.928]
+(c) Microsoft Corporation。保留所有权利。
+
+C:\Users\Administrator>sqlplus
+
+SQL*Plus: Release 11.2.0.1.0 Production on 星期一 4月 3 10:40:48 2023
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+请输入用户名:  scott
+输入口令:
+
+连接到:
+Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+
+SQL> quit;
+从 Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options 断开
+
+C:\Users\Administrator>sqlplus scott/tiger;
+
+SQL*Plus: Release 11.2.0.1.0 Production on 星期一 4月 3 10:41:21 2023
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+ERROR:
+ORA-01017: invalid username/password; logon denied
+
+
+请输入用户名:  scott
+输入口令:
+
+连接到:
+Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+
+SQL> sqlplus scott/tiger@localhost:1521/orcl
+SP2-0734: 未知的命令开头 "sqlplus sc..." - 忽略了剩余的行。
+SQL> quit
+从 Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options 断开
+
+C:\Users\Administrator>sqlplus scott/tiger@localhost:1521/orcl
+
+SQL*Plus: Release 11.2.0.1.0 Production on 星期一 4月 3 10:42:34 2023
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+
+连接到:
+Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+
+SQL> quit
+从 Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options 断开
+
+C:\Users\Administrator>sqlplus
+
+SQL*Plus: Release 11.2.0.1.0 Production on 星期一 4月 3 10:42:57 2023
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+请输入用户名:  system
+输入口令:
+
+连接到:
+Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+
+SQL> quit
+从 Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options 断开
+
+C:\Users\Administrator>sqlplus
+
+SQL*Plus: Release 11.2.0.1.0 Production on 星期一 4月 3 10:43:34 2023
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+请输入用户名:  sys
+输入口令:
+ERROR:
+ORA-28009: connection as SYS should be as SYSDBA or SYSOPER
+
+
+请输入用户名:  sys as sysdba
+输入口令:
+
+连接到:
+Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+
+SQL>
