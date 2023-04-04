@@ -1,0 +1,100 @@
+
+SQL> select mod(10,3) from dual;
+
+ MOD(10,3)
+----------
+         1
+
+SQL> select mod(10,3),mod(25,4) from dual;
+
+ MOD(10,3)  MOD(25,4)
+---------- ----------
+         1          1
+
+SQL> select mod(10,3) from dept;
+
+ MOD(10,3)
+----------
+         1
+         1
+         1
+         1
+
+SQL> select ename from emp;
+
+ENAME
+----------
+SS_TH
+SMITH
+ALLEN
+WARD
+JONES
+MARTIN
+BLAKE
+CLARK
+SCOTT
+KING
+TURNER
+
+ENAME
+----------
+ADAMS
+JAMES
+FORD
+MILLER
+
+已选择15行。
+
+SQL> select ename,lower(ename) from emp;
+
+ENAME      LOWER(ENAM
+---------- ----------
+SS_TH      ss_th
+SMITH      smith
+ALLEN      allen
+WARD       ward
+JONES      jones
+MARTIN     martin
+BLAKE      blake
+CLARK      clark
+SCOTT      scott
+KING       king
+TURNER     turner
+
+ENAME      LOWER(ENAM
+---------- ----------
+ADAMS      adams
+JAMES      james
+FORD       ford
+MILLER     miller
+
+已选择15行。
+
+
+
+SQL> select ename,lower(ename) lowername,upper(ename) uppername,initcap(ename) initcapname from emp;
+
+ENAME      LOWERNAME  UPPERNAME  INITCAPNAM
+---------- ---------- ---------- ----------
+SS_TH      ss_th      SS_TH      Ss_Th
+SMITH      smith      SMITH      Smith
+ALLEN      allen      ALLEN      Allen
+WARD       ward       WARD       Ward
+JONES      jones      JONES      Jones
+MARTIN     martin     MARTIN     Martin
+BLAKE      blake      BLAKE      Blake
+CLARK      clark      CLARK      Clark
+SCOTT      scott      SCOTT      Scott
+KING       king       KING       King
+TURNER     turner     TURNER     Turner
+
+ENAME      LOWERNAME  UPPERNAME  INITCAPNAM
+---------- ---------- ---------- ----------
+ADAMS      adams      ADAMS      Adams
+JAMES      james      JAMES      James
+FORD       ford       FORD       Ford
+MILLER     miller     MILLER     Miller
+
+已选择15行。
+
+SQL>
