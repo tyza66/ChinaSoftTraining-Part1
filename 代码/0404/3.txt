@@ -1,0 +1,139 @@
+
+SQL> select ename,sal,comm from emp;
+
+ENAME             SAL       COMM
+---------- ---------- ----------
+SS_TH
+SMITH             800
+ALLEN            1600        300
+WARD             1250        500
+JONES            2975
+MARTIN           1250       1400
+BLAKE            2850
+CLARK            2450
+SCOTT            3000
+KING             5000
+TURNER           1500          0
+
+ENAME             SAL       COMM
+---------- ---------- ----------
+ADAMS            1100
+JAMES             950
+FORD             3000
+MILLER           1300
+
+已选择15行。
+
+SQL> select ename||'的工资加提成是'||sal+comm from emp;
+select ename||'的工资加提成是'||sal+comm from emp
+                               *
+第 1 行出现错误:
+ORA-01722: 无效数字
+
+
+SQL> select ename||'的工资加提成是'||(sal+comm) from emp;
+
+ENAME||'的工资加提成是'||(SAL+COMM)
+----------------------------------------------------------------
+SS_TH的工资加提成是
+SMITH的工资加提成是
+ALLEN的工资加提成是1900
+WARD的工资加提成是1750
+JONES的工资加提成是
+MARTIN的工资加提成是2650
+BLAKE的工资加提成是
+CLARK的工资加提成是
+SCOTT的工资加提成是
+KING的工资加提成是
+TURNER的工资加提成是1500
+
+ENAME||'的工资加提成是'||(SAL+COMM)
+----------------------------------------------------------------
+ADAMS的工资加提成是
+JAMES的工资加提成是
+FORD的工资加提成是
+MILLER的工资加提成是
+
+已选择15行。
+
+SQL> select ename||'的工资加提成是'||(sal+nvl(comm,0)) from emp;
+
+ENAME||'的工资加提成是'||(SAL+NVL(COMM,0))
+----------------------------------------------------------------
+SS_TH的工资加提成是
+SMITH的工资加提成是800
+ALLEN的工资加提成是1900
+WARD的工资加提成是1750
+JONES的工资加提成是2975
+MARTIN的工资加提成是2650
+BLAKE的工资加提成是2850
+CLARK的工资加提成是2450
+SCOTT的工资加提成是3000
+KING的工资加提成是5000
+TURNER的工资加提成是1500
+
+ENAME||'的工资加提成是'||(SAL+NVL(COMM,0))
+----------------------------------------------------------------
+ADAMS的工资加提成是1100
+JAMES的工资加提成是950
+FORD的工资加提成是3000
+MILLER的工资加提成是1300
+
+已选择15行。
+
+SQL> select concat(ename,concat('工资加提成是',sal+nvl(comm,0))) from emp;
+
+CONCAT(ENAME,CONCAT('工资加提成是',SAL+NVL(COMM,0)))
+--------------------------------------------------------------
+SS_TH工资加提成是
+SMITH工资加提成是800
+ALLEN工资加提成是1900
+WARD工资加提成是1750
+JONES工资加提成是2975
+MARTIN工资加提成是2650
+BLAKE工资加提成是2850
+CLARK工资加提成是2450
+SCOTT工资加提成是3000
+KING工资加提成是5000
+TURNER工资加提成是1500
+
+CONCAT(ENAME,CONCAT('工资加提成是',SAL+NVL(COMM,0)))
+--------------------------------------------------------------
+ADAMS工资加提成是1100
+JAMES工资加提成是950
+FORD工资加提成是3000
+MILLER工资加提成是1300
+
+已选择15行。
+
+SQL> edit
+已写入 file afiedt.buf
+
+  1* select concat(ename,concat('工资加提成是',sal+nvl(comm,0))) from emp
+SQL> run
+  1* select concat(ename,concat('工资加提成是',sal+nvl(comm,0))) from emp
+
+CONCAT(ENAME,CONCAT('工资加提成是',SAL+NVL(COMM,0)))
+--------------------------------------------------------------
+SS_TH工资加提成是
+SMITH工资加提成是800
+ALLEN工资加提成是1900
+WARD工资加提成是1750
+JONES工资加提成是2975
+MARTIN工资加提成是2650
+BLAKE工资加提成是2850
+CLARK工资加提成是2450
+SCOTT工资加提成是3000
+KING工资加提成是5000
+TURNER工资加提成是1500
+
+CONCAT(ENAME,CONCAT('工资加提成是',SAL+NVL(COMM,0)))
+--------------------------------------------------------------
+ADAMS工资加提成是1100
+JAMES工资加提成是950
+FORD工资加提成是3000
+MILLER工资加提成是1300
+
+已选择15行。
+
+SQL>
