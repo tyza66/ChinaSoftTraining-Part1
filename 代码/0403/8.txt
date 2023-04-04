@@ -1,0 +1,486 @@
+
+SQL> select ename,sal from emp;
+
+ENAME             SAL
+---------- ----------
+SMITH             800
+ALLEN            1600
+WARD             1250
+JONES            2975
+MARTIN           1250
+BLAKE            2850
+CLARK            2450
+SCOTT            3000
+KING             5000
+TURNER           1500
+ADAMS            1100
+
+ENAME             SAL
+---------- ----------
+JAMES             950
+FORD             3000
+MILLER           1300
+
+已选择14行。
+
+SQL> select ename ||sal from emp;
+
+ENAME||SAL
+--------------------------------------------------
+SMITH800
+ALLEN1600
+WARD1250
+JONES2975
+MARTIN1250
+BLAKE2850
+CLARK2450
+SCOTT3000
+KING5000
+TURNER1500
+ADAMS1100
+
+ENAME||SAL
+--------------------------------------------------
+JAMES950
+FORD3000
+MILLER1300
+
+已选择14行。
+
+SQL> select ename ||'s salary is || sal from emp;
+ERROR:
+ORA-01756: 引号内的字符串没有正确结束
+
+
+SQL> select ename ||''s salary is' || sal from emp;
+ERROR:
+ORA-01756: 引号内的字符串没有正确结束
+
+
+SQL> select ename ||'''s salary is' || sal from emp;
+
+ENAME||'''SSALARYIS'||SAL
+--------------------------------------------------------------
+SMITH's salary is800
+ALLEN's salary is1600
+WARD's salary is1250
+JONES's salary is2975
+MARTIN's salary is1250
+BLAKE's salary is2850
+CLARK's salary is2450
+SCOTT's salary is3000
+KING's salary is5000
+TURNER's salary is1500
+ADAMS's salary is1100
+
+ENAME||'''SSALARYIS'||SAL
+--------------------------------------------------------------
+JAMES's salary is950
+FORD's salary is3000
+MILLER's salary is1300
+
+已选择14行。
+
+SQL> select ename +sal from emp;
+select ename +sal from emp
+       *
+第 1 行出现错误:
+ORA-01722: 无效数字
+
+
+SQL> select concat( concat(ename,'''s salary is '),sal)from emp;
+
+CONCAT(CONCAT(ENAME,'''SSALARYIS'),SAL)
+---------------------------------------------------------------
+SMITH's salary is 800
+ALLEN's salary is 1600
+WARD's salary is 1250
+JONES's salary is 2975
+MARTIN's salary is 1250
+BLAKE's salary is 2850
+CLARK's salary is 2450
+SCOTT's salary is 3000
+KING's salary is 5000
+TURNER's salary is 1500
+ADAMS's salary is 1100
+
+CONCAT(CONCAT(ENAME,'''SSALARYIS'),SAL)
+---------------------------------------------------------------
+JAMES's salary is 950
+FORD's salary is 3000
+MILLER's salary is 1300
+
+已选择14行。
+
+SQL> select deptno,emp from emp;
+select deptno,emp from emp
+              *
+第 1 行出现错误:
+ORA-00904: "EMP": 标识符无效
+
+
+SQL> select deptno,ename from emp;
+
+    DEPTNO ENAME
+---------- ----------
+        20 SMITH
+        30 ALLEN
+        30 WARD
+        20 JONES
+        30 MARTIN
+        30 BLAKE
+        10 CLARK
+        20 SCOTT
+        10 KING
+        30 TURNER
+        20 ADAMS
+
+    DEPTNO ENAME
+---------- ----------
+        30 JAMES
+        20 FORD
+        10 MILLER
+
+已选择14行。
+
+SQL> select deptno,ename from emp where deptno=10;
+
+    DEPTNO ENAME
+---------- ----------
+        10 CLARK
+        10 KING
+        10 MILLER
+
+SQL> select deptno,ename from emp where deptno>10;
+
+    DEPTNO ENAME
+---------- ----------
+        20 SMITH
+        30 ALLEN
+        30 WARD
+        20 JONES
+        30 MARTIN
+        30 BLAKE
+        20 SCOTT
+        30 TURNER
+        20 ADAMS
+        30 JAMES
+        20 FORD
+
+已选择11行。
+
+SQL> select deptno,ename from emp where deptno>=10;
+
+    DEPTNO ENAME
+---------- ----------
+        20 SMITH
+        30 ALLEN
+        30 WARD
+        20 JONES
+        30 MARTIN
+        30 BLAKE
+        10 CLARK
+        20 SCOTT
+        10 KING
+        30 TURNER
+        20 ADAMS
+
+    DEPTNO ENAME
+---------- ----------
+        30 JAMES
+        20 FORD
+        10 MILLER
+
+已选择14行。
+
+SQL> select deptno,ename from emp where deptno!=10;
+
+    DEPTNO ENAME
+---------- ----------
+        20 SMITH
+        30 ALLEN
+        30 WARD
+        20 JONES
+        30 MARTIN
+        30 BLAKE
+        20 SCOTT
+        30 TURNER
+        20 ADAMS
+        30 JAMES
+        20 FORD
+
+已选择11行。
+
+SQL> select deptno,ename from emp where deptno<>10;
+
+    DEPTNO ENAME
+---------- ----------
+        20 SMITH
+        30 ALLEN
+        30 WARD
+        20 JONES
+        30 MARTIN
+        30 BLAKE
+        20 SCOTT
+        30 TURNER
+        20 ADAMS
+        30 JAMES
+        20 FORD
+
+已选择11行。
+
+SQL> select deptno,ename from emp where deptno^=10;
+
+    DEPTNO ENAME
+---------- ----------
+        20 SMITH
+        30 ALLEN
+        30 WARD
+        20 JONES
+        30 MARTIN
+        30 BLAKE
+        20 SCOTT
+        30 TURNER
+        20 ADAMS
+        30 JAMES
+        20 FORD
+
+已选择11行。
+
+SQL> select ename,sal from emp where sal between 1000 and 3000;
+
+ENAME             SAL
+---------- ----------
+ALLEN            1600
+WARD             1250
+JONES            2975
+MARTIN           1250
+BLAKE            2850
+CLARK            2450
+SCOTT            3000
+TURNER           1500
+ADAMS            1100
+FORD             3000
+MILLER           1300
+
+已选择11行。
+
+SQL> select ename,sal from emp where sal>=1000 and sal<=3000;
+
+ENAME             SAL
+---------- ----------
+ALLEN            1600
+WARD             1250
+JONES            2975
+MARTIN           1250
+BLAKE            2850
+CLARK            2450
+SCOTT            3000
+TURNER           1500
+ADAMS            1100
+FORD             3000
+MILLER           1300
+
+已选择11行。
+
+SQL> select ename,sal from emp where sal between 3000 and 1000;
+
+未选定行
+
+SQL> select ename,sal from emp where sal in (1000,2000,3000,4000);
+
+ENAME             SAL
+---------- ----------
+SCOTT            3000
+FORD             3000
+
+SQL> select ename,sal from emp where sal=1000 or sal=2000 or sal=3000 or sal=4000;
+
+ENAME             SAL
+---------- ----------
+SCOTT            3000
+FORD             3000
+
+SQL> select ename from emp;
+
+ENAME
+----------
+SMITH
+ALLEN
+WARD
+JONES
+MARTIN
+BLAKE
+CLARK
+SCOTT
+KING
+TURNER
+ADAMS
+
+ENAME
+----------
+JAMES
+FORD
+MILLER
+
+已选择14行。
+
+SQL> select ename from emp where ename='A';
+
+未选定行
+
+SQL> select ename from emp where ename like 'A';
+
+未选定行
+
+SQL> select ename from emp where ename like '%A%';
+
+ENAME
+----------
+ALLEN
+WARD
+MARTIN
+BLAKE
+CLARK
+ADAMS
+JAMES
+
+已选择7行。
+
+SQL> select ename from emp where ename not like '%A%';
+
+ENAME
+----------
+SMITH
+JONES
+SCOTT
+KING
+TURNER
+FORD
+MILLER
+
+已选择7行。
+
+SQL> select ename from emp where ename like '_A%';
+
+ENAME
+----------
+WARD
+MARTIN
+JAMES
+
+SQL> select ename from emp where ename like '%_%';
+
+ENAME
+----------
+SMITH
+ALLEN
+WARD
+JONES
+MARTIN
+BLAKE
+CLARK
+SCOTT
+KING
+TURNER
+ADAMS
+
+ENAME
+----------
+JAMES
+FORD
+MILLER
+
+已选择14行。
+
+SQL> select ename from emp where ename like '%_%';
+
+ENAME
+----------
+SS_TH
+SMITH
+ALLEN
+WARD
+JONES
+MARTIN
+BLAKE
+CLARK
+SCOTT
+KING
+TURNER
+
+ENAME
+----------
+ADAMS
+JAMES
+FORD
+MILLER
+
+已选择15行。
+
+SQL> select ename from emp where ename like '%\_%' escape '\';
+
+ENAME
+----------
+SS_TH
+
+SQL> select ename,sal from emp where sal in (1000,2000,3000);
+
+ENAME             SAL
+---------- ----------
+SCOTT            3000
+FORD             3000
+
+SQL> select ename,sal from emp where sal in (1000,2000,3000,null);
+
+ENAME             SAL
+---------- ----------
+SCOTT            3000
+FORD             3000
+
+SQL> select ename,sal from emp where ename like '%\_%' escape '\';
+
+ENAME             SAL
+---------- ----------
+SS_TH
+
+SQL> select ename,sal from emp where sal in (1000,2000,3000,null);
+
+ENAME             SAL
+---------- ----------
+SCOTT            3000
+FORD             3000
+
+SQL> select ename,sal from emp where sal not in (1000,2000,3000,null);
+
+未选定行
+
+SQL> select ename,sal from emp where sal not in (1000,2000,3000);
+
+ENAME             SAL
+---------- ----------
+SMITH             800
+ALLEN            1600
+WARD             1250
+JONES            2975
+MARTIN           1250
+BLAKE            2850
+CLARK            2450
+KING             5000
+TURNER           1500
+ADAMS            1100
+JAMES             950
+
+ENAME             SAL
+---------- ----------
+MILLER           1300
+
+已选择12行。
+
+SQL> select deptno,ename ,sal from emp where deptno=10 and sal>3000;
+
+    DEPTNO ENAME             SAL
+---------- ---------- ----------
+        10 KING             5000
+
+SQL>

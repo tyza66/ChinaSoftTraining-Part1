@@ -1,0 +1,242 @@
+Microsoft Windows [版本 10.0.19043.928]
+(c) Microsoft Corporation。保留所有权利。
+
+C:\Users\Administrator>sqlplus scott/tiger
+
+SQL*Plus: Release 11.2.0.1.0 Production on 星期二 4月 4 08:49:08 2023
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+
+连接到:
+Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+
+SQL> select ename,sal from emp;
+
+ENAME             SAL
+---------- ----------
+SS_TH
+SMITH             800
+ALLEN            1600
+WARD             1250
+JONES            2975
+MARTIN           1250
+BLAKE            2850
+CLARK            2450
+SCOTT            3000
+KING             5000
+TURNER           1500
+
+ENAME             SAL
+---------- ----------
+ADAMS            1100
+JAMES             950
+FORD             3000
+MILLER           1300
+
+已选择15行。
+
+SQL> select ename,sal from emp order by sal asc;
+
+ENAME             SAL
+---------- ----------
+SMITH             800
+JAMES             950
+ADAMS            1100
+WARD             1250
+MARTIN           1250
+MILLER           1300
+TURNER           1500
+ALLEN            1600
+CLARK            2450
+BLAKE            2850
+JONES            2975
+
+ENAME             SAL
+---------- ----------
+FORD             3000
+SCOTT            3000
+KING             5000
+SS_TH
+
+已选择15行。
+
+SQL> select ename ,sal from emp order by sal desc;
+
+ENAME             SAL
+---------- ----------
+SS_TH
+KING             5000
+FORD             3000
+SCOTT            3000
+JONES            2975
+BLAKE            2850
+CLARK            2450
+ALLEN            1600
+TURNER           1500
+MILLER           1300
+WARD             1250
+
+ENAME             SAL
+---------- ----------
+MARTIN           1250
+ADAMS            1100
+JAMES             950
+SMITH             800
+
+已选择15行。
+
+SQL> select ename ,sal from emp order by sal ;
+
+ENAME             SAL
+---------- ----------
+SMITH             800
+JAMES             950
+ADAMS            1100
+WARD             1250
+MARTIN           1250
+MILLER           1300
+TURNER           1500
+ALLEN            1600
+CLARK            2450
+BLAKE            2850
+JONES            2975
+
+ENAME             SAL
+---------- ----------
+FORD             3000
+SCOTT            3000
+KING             5000
+SS_TH
+
+已选择15行。
+
+SQL> select ename,sal from emp where sal is not null order by sal asc;
+
+ENAME             SAL
+---------- ----------
+SMITH             800
+JAMES             950
+ADAMS            1100
+WARD             1250
+MARTIN           1250
+MILLER           1300
+TURNER           1500
+ALLEN            1600
+CLARK            2450
+BLAKE            2850
+JONES            2975
+
+ENAME             SAL
+---------- ----------
+SCOTT            3000
+FORD             3000
+KING             5000
+
+已选择14行。
+
+SQL> select ename,sal from emp where sal is not null order by sal desc;
+
+ENAME             SAL
+---------- ----------
+KING             5000
+FORD             3000
+SCOTT            3000
+JONES            2975
+BLAKE            2850
+CLARK            2450
+ALLEN            1600
+TURNER           1500
+MILLER           1300
+WARD             1250
+MARTIN           1250
+
+ENAME             SAL
+---------- ----------
+ADAMS            1100
+JAMES             950
+SMITH             800
+
+已选择14行。
+
+SQL> select ename,sal from emp where sal is not null order by sal desc,ename desc;
+
+ENAME             SAL
+---------- ----------
+KING             5000
+SCOTT            3000
+FORD             3000
+JONES            2975
+BLAKE            2850
+CLARK            2450
+ALLEN            1600
+TURNER           1500
+MILLER           1300
+WARD             1250
+MARTIN           1250
+
+ENAME             SAL
+---------- ----------
+ADAMS            1100
+JAMES             950
+SMITH             800
+
+已选择14行。
+
+SQL> select ename,sal,sal*12 yearpay from emp where yearpay>10000;
+select ename,sal,sal*12 yearpay from emp where yearpay>10000
+                                               *
+第 1 行出现错误:
+ORA-00904: "YEARPAY": 标识符无效
+
+
+SQL> select ename,sal,sal*12 yearpay from emp where sal*12>10000;
+
+ENAME             SAL    YEARPAY
+---------- ---------- ----------
+ALLEN            1600      19200
+WARD             1250      15000
+JONES            2975      35700
+MARTIN           1250      15000
+BLAKE            2850      34200
+CLARK            2450      29400
+SCOTT            3000      36000
+KING             5000      60000
+TURNER           1500      18000
+ADAMS            1100      13200
+JAMES             950      11400
+
+ENAME             SAL    YEARPAY
+---------- ---------- ----------
+FORD             3000      36000
+MILLER           1300      15600
+
+已选择13行。
+
+SQL> select ename,sal,sal*12 yearpay from emp order by yearpay desc;
+
+ENAME             SAL    YEARPAY
+---------- ---------- ----------
+SS_TH
+KING             5000      60000
+FORD             3000      36000
+SCOTT            3000      36000
+JONES            2975      35700
+BLAKE            2850      34200
+CLARK            2450      29400
+ALLEN            1600      19200
+TURNER           1500      18000
+MILLER           1300      15600
+WARD             1250      15000
+
+ENAME             SAL    YEARPAY
+---------- ---------- ----------
+MARTIN           1250      15000
+ADAMS            1100      13200
+JAMES             950      11400
+SMITH             800       9600
+
+已选择15行。
+
+SQL>
