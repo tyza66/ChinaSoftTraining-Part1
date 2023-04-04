@@ -1,0 +1,161 @@
+
+SQL> select sysdate from dual;
+
+SYSDATE
+--------------
+04-4月 -23
+
+SQL> select to_char(sysdate,'yyyy-mm-dd hh:mi:ss') from dual;
+
+TO_CHAR(SYSDATE,'YY
+-------------------
+2023-04-04 11:01:49
+
+SQL> select to_char(sysdate,'yyyy-mm-dd hh:mi:ss') from dual;
+
+TO_CHAR(SYSDATE,'YY
+-------------------
+2023-04-04 11:01:58
+
+SQL> select to_char(sysdate,'yyyy-mm-dd hh:mi:ss') from dual;
+
+TO_CHAR(SYSDATE,'YY
+-------------------
+2023-04-04 11:02:06
+
+SQL> select sysdate,add_months(sysdate,-3) from dual;
+
+SYSDATE        ADD_MONTHS(SYS
+-------------- --------------
+04-4月 -23     04-1月 -23
+
+SQL> select sysdate,add_months(sysdate,3) from dual;
+
+SYSDATE        ADD_MONTHS(SYS
+-------------- --------------
+04-4月 -23     04-7月 -23
+
+SQL> select ename,hiredate from emp;
+
+ENAME      HIREDATE
+---------- --------------
+SS_TH
+SMITH      17-12月-80
+ALLEN      20-2月 -81
+WARD       22-2月 -81
+JONES      02-4月 -81
+MARTIN     28-9月 -81
+BLAKE      01-5月 -81
+CLARK      09-6月 -81
+SCOTT      19-4月 -87
+KING       17-11月-81
+TURNER     08-9月 -81
+
+ENAME      HIREDATE
+---------- --------------
+ADAMS      23-5月 -87
+JAMES      03-12月-81
+FORD       03-12月-81
+MILLER     23-1月 -82
+
+已选择15行。
+
+SQL> select ename,hiredate,months_between(sysdate,hiredate) from emp;
+
+ENAME      HIREDATE       MONTHS_BETWEEN(SYSDATE,HIREDATE)
+---------- -------------- --------------------------------
+SS_TH
+SMITH      17-12月-80                           507.595531
+ALLEN      20-2月 -81                           505.498757
+WARD       22-2月 -81                           505.434241
+JONES      02-4月 -81                           504.079402
+MARTIN     28-9月 -81                           498.240692
+BLAKE      01-5月 -81                            503.11166
+CLARK      09-6月 -81                           501.853595
+SCOTT      19-4月 -87                           431.531015
+KING       17-11月-81                           496.595531
+TURNER     08-9月 -81                           498.885853
+
+ENAME      HIREDATE       MONTHS_BETWEEN(SYSDATE,HIREDATE)
+---------- -------------- --------------------------------
+ADAMS      23-5月 -87                           430.401983
+JAMES      03-12月-81                           496.047144
+FORD       03-12月-81                           496.047144
+MILLER     23-1月 -82                           494.401983
+
+已选择15行。
+
+SQL> select sysdate,last_day(sysdate) from dual;
+
+SYSDATE        LAST_DAY(SYSDA
+-------------- --------------
+04-4月 -23     30-4月 -23
+
+SQL> select sysdate,last_day(sysdate) from dual;
+
+SYSDATE        LAST_DAY(SYSDA
+-------------- --------------
+04-4月 -23     30-4月 -23
+
+SQL> select sysdate,next_day(sysdate) from dual;
+select sysdate,next_day(sysdate) from dual
+               *
+第 1 行出现错误:
+ORA-00909: 参数个数无效
+
+
+SQL> select sysdate,next_day(sysdate,'星期三') from dual;
+
+SYSDATE        NEXT_DAY(SYSDA
+-------------- --------------
+04-4月 -23     05-4月 -23
+
+SQL> select sysdate,next_day(sysdate,'星期五') from dual;
+
+SYSDATE        NEXT_DAY(SYSDA
+-------------- --------------
+04-4月 -23     07-4月 -23
+
+SQL> select sysdate,next_day(sysdate,'星期一') from dual;
+
+SYSDATE        NEXT_DAY(SYSDA
+-------------- --------------
+04-4月 -23     10-4月 -23
+
+SQL> select sysdate,to_char(sysdate,'yyyy-mm-dd hh:mi:ss') from dual;
+
+SYSDATE        TO_CHAR(SYSDATE,'YY
+-------------- -------------------
+04-4月 -23     2023-04-04 11:08:04
+
+SQL> select sysdate,to_char(round(sysdate,'day'),'yyyy-mm-dd hh:mi:ss') from dual;
+
+SYSDATE        TO_CHAR(ROUND(SYSDA
+-------------- -------------------
+04-4月 -23     2023-04-02 12:00:00
+
+SQL> select sysdate,to_char(round(sysdate,'month'),'yyyy-mm-dd hh:mi:ss') from dual;
+
+SYSDATE        TO_CHAR(ROUND(SYSDA
+-------------- -------------------
+04-4月 -23     2023-04-01 12:00:00
+
+SQL> select sysdate,to_char(round(sysdate,'month'),'yyyy-mm-dd') from dual;
+
+SYSDATE        TO_CHAR(RO
+-------------- ----------
+04-4月 -23     2023-04-01
+
+SQL> select sysdate,to_char(round(sysdate,'month'),'yyyy-mm-dd') from dual;
+
+SYSDATE        TO_CHAR(RO
+-------------- ----------
+04-4月 -23     2023-04-01
+
+SQL> select sysdate,to_char(round(sysdate,'year'),'yyyy-mm-dd') from dual;
+
+SYSDATE        TO_CHAR(RO
+-------------- ----------
+04-4月 -23     2023-01-01
+
+SQL>
