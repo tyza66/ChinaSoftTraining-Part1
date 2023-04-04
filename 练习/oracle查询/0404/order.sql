@@ -14,3 +14,10 @@ select ename,length(ename),lpad(ename,10,'0'),rpad(ename,10,'X') from emp;
 select round(1234.3456) from dual;
 select round(1234.5456) from dual;
 select trunc(1234.5634) from dual;
+
+select sysdate,to_char(round(sysdate,'year'),'yyyy-mm-dd') from dual;
+select sysdate,next_day(sysdate,'星期一') from dual;
+select ename,hiredate,months_between(sysdate,hiredate) from emp;
+select sysdate,add_months(sysdate,3) from dual;
+select ename,hiredate from emp;
+select to_char(sysdate,'yyyy-mm-dd hh:mi:ss') from dual;
