@@ -1,0 +1,351 @@
+
+SQL> select ename from emp;
+
+ENAME
+----------
+SS_TH
+SMITH
+ALLEN
+WARD
+JONES
+MARTIN
+BLAKE
+CLARK
+SCOTT
+KING
+TURNER
+
+ENAME
+----------
+ADAMS
+JAMES
+FORD
+MILLER
+
+已选择15行。
+
+SQL> select ename,substr(ename,1,2) from emp;
+
+ENAME      SUBS
+---------- ----
+SS_TH      SS
+SMITH      SM
+ALLEN      AL
+WARD       WA
+JONES      JO
+MARTIN     MA
+BLAKE      BL
+CLARK      CL
+SCOTT      SC
+KING       KI
+TURNER     TU
+
+ENAME      SUBS
+---------- ----
+ADAMS      AD
+JAMES      JA
+FORD       FO
+MILLER     MI
+
+已选择15行。
+
+SQL> select ename,substr(ename,2,4) from emp;
+
+ENAME      SUBSTR(E
+---------- --------
+SS_TH      S_TH
+SMITH      MITH
+ALLEN      LLEN
+WARD       ARD
+JONES      ONES
+MARTIN     ARTI
+BLAKE      LAKE
+CLARK      LARK
+SCOTT      COTT
+KING       ING
+TURNER     URNE
+
+ENAME      SUBSTR(E
+---------- --------
+ADAMS      DAMS
+JAMES      AMES
+FORD       ORD
+MILLER     ILLE
+
+已选择15行。
+
+SQL> select ename,substr(ename,2,2) from emp;
+
+ENAME      SUBS
+---------- ----
+SS_TH      S_
+SMITH      MI
+ALLEN      LL
+WARD       AR
+JONES      ON
+MARTIN     AR
+BLAKE      LA
+CLARK      LA
+SCOTT      CO
+KING       IN
+TURNER     UR
+
+ENAME      SUBS
+---------- ----
+ADAMS      DA
+JAMES      AM
+FORD       OR
+MILLER     IL
+
+已选择15行。
+
+SQL> select ename,substr(ename,2) from emp;
+
+ENAME      SUBSTR(ENAME,2)
+---------- ------------------
+SS_TH      S_TH
+SMITH      MITH
+ALLEN      LLEN
+WARD       ARD
+JONES      ONES
+MARTIN     ARTIN
+BLAKE      LAKE
+CLARK      LARK
+SCOTT      COTT
+KING       ING
+TURNER     URNER
+
+ENAME      SUBSTR(ENAME,2)
+---------- ------------------
+ADAMS      DAMS
+JAMES      AMES
+FORD       ORD
+MILLER     ILLER
+
+已选择15行。
+
+SQL> select ename,length(ename) from emp;
+
+ENAME      LENGTH(ENAME)
+---------- -------------
+SS_TH                  5
+SMITH                  5
+ALLEN                  5
+WARD                   4
+JONES                  5
+MARTIN                 6
+BLAKE                  5
+CLARK                  5
+SCOTT                  5
+KING                   4
+TURNER                 6
+
+ENAME      LENGTH(ENAME)
+---------- -------------
+ADAMS                  5
+JAMES                  5
+FORD                   4
+MILLER                 6
+
+已选择15行。
+
+SQL> select ename,instr(ename,'A') from emp;
+
+ENAME      INSTR(ENAME,'A')
+---------- ----------------
+SS_TH                     0
+SMITH                     0
+ALLEN                     1
+WARD                      2
+JONES                     0
+MARTIN                    2
+BLAKE                     3
+CLARK                     3
+SCOTT                     0
+KING                      0
+TURNER                    0
+
+ENAME      INSTR(ENAME,'A')
+---------- ----------------
+ADAMS                     1
+JAMES                     2
+FORD                      0
+MILLER                    0
+
+已选择15行。
+
+SQL> select ename,instr(ename,'A'), instr(ename,'A',2) from emp;
+
+ENAME      INSTR(ENAME,'A') INSTR(ENAME,'A',2)
+---------- ---------------- ------------------
+SS_TH                     0                  0
+SMITH                     0                  0
+ALLEN                     1                  0
+WARD                      2                  2
+JONES                     0                  0
+MARTIN                    2                  2
+BLAKE                     3                  3
+CLARK                     3                  3
+SCOTT                     0                  0
+KING                      0                  0
+TURNER                    0                  0
+
+ENAME      INSTR(ENAME,'A') INSTR(ENAME,'A',2)
+---------- ---------------- ------------------
+ADAMS                     1                  3
+JAMES                     2                  2
+FORD                      0                  0
+MILLER                    0                  0
+
+已选择15行。
+
+SQL> select length('  abc d  ')from emp;
+
+LENGTH('ABCD')
+--------------
+             9
+             9
+             9
+             9
+             9
+             9
+             9
+             9
+             9
+             9
+             9
+
+LENGTH('ABCD')
+--------------
+             9
+             9
+             9
+             9
+
+已选择15行。
+
+SQL> select length('  abc d  ')from dual;
+
+LENGTH('ABCD')
+--------------
+             9
+
+SQL> select length(trim('  abc d  '))from dual;
+
+LENGTH(TRIM('ABCD'))
+--------------------
+                   5
+
+SQL> select length(ltrim('  abc d  '))from dual;
+
+LENGTH(LTRIM('ABCD'))
+---------------------
+                    7
+
+SQL> select length(rtrim('  abc d  '))from dual;
+
+LENGTH(RTRIM('ABCD'))
+---------------------
+                    7
+
+SQL> select ename from emp;
+
+ENAME
+----------
+SS_TH
+SMITH
+ALLEN
+WARD
+JONES
+MARTIN
+BLAKE
+CLARK
+SCOTT
+KING
+TURNER
+
+ENAME
+----------
+ADAMS
+JAMES
+FORD
+MILLER
+
+已选择15行。
+
+SQL> select ename,replace(ename,'A','*') from emp;
+
+ENAME      REPLACE(EN
+---------- ----------
+SS_TH      SS_TH
+SMITH      SMITH
+ALLEN      *LLEN
+WARD       W*RD
+JONES      JONES
+MARTIN     M*RTIN
+BLAKE      BL*KE
+CLARK      CL*RK
+SCOTT      SCOTT
+KING       KING
+TURNER     TURNER
+
+ENAME      REPLACE(EN
+---------- ----------
+ADAMS      *D*MS
+JAMES      J*MES
+FORD       FORD
+MILLER     MILLER
+
+已选择15行。
+
+SQL> select ename,length(ename),lpad(ename,10,'0') from emp;
+
+ENAME      LENGTH(ENAME) LPAD(ENAME,10,'0')
+---------- ------------- --------------------
+SS_TH                  5 00000SS_TH
+SMITH                  5 00000SMITH
+ALLEN                  5 00000ALLEN
+WARD                   4 000000WARD
+JONES                  5 00000JONES
+MARTIN                 6 0000MARTIN
+BLAKE                  5 00000BLAKE
+CLARK                  5 00000CLARK
+SCOTT                  5 00000SCOTT
+KING                   4 000000KING
+TURNER                 6 0000TURNER
+
+ENAME      LENGTH(ENAME) LPAD(ENAME,10,'0')
+---------- ------------- --------------------
+ADAMS                  5 00000ADAMS
+JAMES                  5 00000JAMES
+FORD                   4 000000FORD
+MILLER                 6 0000MILLER
+
+已选择15行。
+
+SQL> select ename,length(ename),lpad(ename,10,'0'),rpad(ename,10,'X') from emp;
+
+ENAME      LENGTH(ENAME) LPAD(ENAME,10,'0')   RPAD(ENAME,10,'X')
+---------- ------------- -------------------- --------------------
+SS_TH                  5 00000SS_TH           SS_THXXXXX
+SMITH                  5 00000SMITH           SMITHXXXXX
+ALLEN                  5 00000ALLEN           ALLENXXXXX
+WARD                   4 000000WARD           WARDXXXXXX
+JONES                  5 00000JONES           JONESXXXXX
+MARTIN                 6 0000MARTIN           MARTINXXXX
+BLAKE                  5 00000BLAKE           BLAKEXXXXX
+CLARK                  5 00000CLARK           CLARKXXXXX
+SCOTT                  5 00000SCOTT           SCOTTXXXXX
+KING                   4 000000KING           KINGXXXXXX
+TURNER                 6 0000TURNER           TURNERXXXX
+
+ENAME      LENGTH(ENAME) LPAD(ENAME,10,'0')   RPAD(ENAME,10,'X')
+---------- ------------- -------------------- --------------------
+ADAMS                  5 00000ADAMS           ADAMSXXXXX
+JAMES                  5 00000JAMES           JAMESXXXXX
+FORD                   4 000000FORD           FORDXXXXXX
+MILLER                 6 0000MILLER           MILLERXXXX
+
+已选择15行。
+
+SQL>
