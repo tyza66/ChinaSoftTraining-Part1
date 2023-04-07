@@ -1,0 +1,116 @@
+Microsoft Windows [版本 10.0.19043.928]
+(c) Microsoft Corporation。保留所有权利。
+
+C:\Users\Administrator>sqlplus scott/tiger
+
+SQL*Plus: Release 11.2.0.1.0 Production on 星期五 4月 7 08:49:04 2023
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+
+连接到:
+Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+
+SQL> select trunc(sysdate,'year') from dual;
+
+TRUNC(SYSDATE,
+--------------
+01-1月 -23
+
+SQL> select add_months(trunc(sysdate,'year'),12) from dual;
+
+ADD_MONTHS(TRU
+--------------
+01-1月 -24
+
+SQL> select add_months(trunc(sysdate,'year'),12) -trunc(sysdate,'year') from dual;
+
+ADD_MONTHS(TRUNC(SYSDATE,'YEAR'),12)-TRUNC(SYSDATE,'YEAR')
+----------------------------------------------------------
+                                                       365
+
+SQL> select '2020/10/01'+1 from dual;
+select '2020/10/01'+1 from dual
+       *
+第 1 行出现错误:
+ORA-01722: 无效数字
+
+
+SQL> select to_date('2020/10/10','yyyy/mm/dd')+1 from dual;
+
+TO_DATE('2020/
+--------------
+11-10月-20
+
+SQL> select to_char(to_date('2020/10/10','yyyy/mm/dd')+1,'yyyy-mm-dd') from dual;
+
+TO_CHAR(TO
+----------
+2020-10-11
+
+SQL> select to_char(to_date('2020/10/10','yyyy/mm/dd')+1,'yyyy年mm月dd日') from dual;
+select to_char(to_date('2020/10/10','yyyy/mm/dd')+1,'yyyy年mm月dd日') from dual
+                                                    *
+第 1 行出现错误:
+ORA-01821: 日期格式无法识别
+
+
+SQL> select 1234.88 from dual;
+
+   1234.88
+----------
+   1234.88
+
+SQL> select to_char(12345.88,'999,999,99') from dual;
+
+TO_CHAR(123
+-----------
+     123,46
+
+SQL> select to_char(12345.88,'999,999.99') from dual;
+
+TO_CHAR(123
+-----------
+  12,345.88
+
+SQL> select to_char(12345.88,'$999,999.99') from dual;
+
+TO_CHAR(1234
+------------
+  $12,345.88
+
+SQL> select to_number('12345.88') from dual;
+
+TO_NUMBER('12345.88')
+---------------------
+             12345.88
+
+SQL> select to_number('￥12345.88') from dual;
+select to_number('￥12345.88') from dual
+                 *
+第 1 行出现错误:
+ORA-01722: 无效数字
+
+
+SQL> select to_number('￥12345.88'，'999,999.99') from dual;
+select to_number('￥12345.88'，'999,999.99') from dual
+                 *
+第 1 行出现错误:
+ORA-01722: 无效数字
+
+
+SQL> select to_number('￥12345.88'，'L999,999.99') from dual;
+select to_number('￥12345.88'，'L999,999.99') from dual
+                 *
+第 1 行出现错误:
+ORA-01722: 无效数字
+
+
+SQL> select to_number('￥12,345.88'，'L999,999.99') from dual;
+
+TO_NUMBER('￥12,345.88'，'L999,999.99')
+---------------------------------------
+                               12345.88
+
+SQL>
