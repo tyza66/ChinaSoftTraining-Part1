@@ -1,0 +1,491 @@
+
+SQL> edit
+已写入 file afiedt.buf
+
+  1  select
+  2     d.deptno,d.dname,e.ename
+  3  from
+  4     dept d inner join emp e
+  5  on
+  6*    d.deptno=e.deptno
+  7  ;
+
+    DEPTNO DNAME          ENAME
+---------- -------------- ----------
+        20 RESEARCH       SMITH
+        30 SALES          ALLEN
+        30 SALES          WARD
+        20 RESEARCH       JONES
+        30 SALES          MARTIN
+        30 SALES          BLAKE
+        10 ACCOUNTING     CLARK
+        20 RESEARCH       SCOTT
+        10 ACCOUNTING     KING
+        30 SALES          TURNER
+        20 RESEARCH       ADAMS
+
+    DEPTNO DNAME          ENAME
+---------- -------------- ----------
+        30 SALES          JAMES
+        20 RESEARCH       FORD
+        10 ACCOUNTING     MILLER
+
+已选择14行。
+
+SQL> edit
+已写入 file afiedt.buf
+
+  1  select
+  2     d.deptno,d.dname,e.ename
+  3  from
+  4     dept d  join emp e
+  5  on
+  6*    d.deptno=e.deptno
+  7  ;
+
+    DEPTNO DNAME          ENAME
+---------- -------------- ----------
+        20 RESEARCH       SMITH
+        30 SALES          ALLEN
+        30 SALES          WARD
+        20 RESEARCH       JONES
+        30 SALES          MARTIN
+        30 SALES          BLAKE
+        10 ACCOUNTING     CLARK
+        20 RESEARCH       SCOTT
+        10 ACCOUNTING     KING
+        30 SALES          TURNER
+        20 RESEARCH       ADAMS
+
+    DEPTNO DNAME          ENAME
+---------- -------------- ----------
+        30 SALES          JAMES
+        20 RESEARCH       FORD
+        10 ACCOUNTING     MILLER
+
+已选择14行。
+
+SQL> edit
+已写入 file afiedt.buf
+
+  1  select
+  2     d.deptno,d.dname,e.ename
+  3  from
+  4     dept d left outer join emp e
+  5  on
+  6*    d.deptno=e.deptno
+  7  ;
+
+    DEPTNO DNAME          ENAME
+---------- -------------- ----------
+        20 RESEARCH       SMITH
+        30 SALES          ALLEN
+        30 SALES          WARD
+        20 RESEARCH       JONES
+        30 SALES          MARTIN
+        30 SALES          BLAKE
+        10 ACCOUNTING     CLARK
+        20 RESEARCH       SCOTT
+        10 ACCOUNTING     KING
+        30 SALES          TURNER
+        20 RESEARCH       ADAMS
+
+    DEPTNO DNAME          ENAME
+---------- -------------- ----------
+        30 SALES          JAMES
+        20 RESEARCH       FORD
+        10 ACCOUNTING     MILLER
+        40 OPERATIONS
+
+已选择15行。
+
+SQL> edit
+已写入 file afiedt.buf
+
+  1  select
+  2     d.deptno,d.dname,e.ename
+  3  from
+  4     dept d left  join emp e
+  5  on
+  6*    d.deptno=e.deptno
+  7  ;
+
+    DEPTNO DNAME          ENAME
+---------- -------------- ----------
+        20 RESEARCH       SMITH
+        30 SALES          ALLEN
+        30 SALES          WARD
+        20 RESEARCH       JONES
+        30 SALES          MARTIN
+        30 SALES          BLAKE
+        10 ACCOUNTING     CLARK
+        20 RESEARCH       SCOTT
+        10 ACCOUNTING     KING
+        30 SALES          TURNER
+        20 RESEARCH       ADAMS
+
+    DEPTNO DNAME          ENAME
+---------- -------------- ----------
+        30 SALES          JAMES
+        20 RESEARCH       FORD
+        10 ACCOUNTING     MILLER
+        40 OPERATIONS
+
+已选择15行。
+
+SQL> edit
+已写入 file afiedt.buf
+
+  1  select
+  2     d.deptno,d.dname,e.ename
+  3  from
+  4     dept d right outer join emp e
+  5  on
+  6*    d.deptno=e.deptno
+  7  ;
+
+    DEPTNO DNAME          ENAME
+---------- -------------- ----------
+        10 ACCOUNTING     MILLER
+        10 ACCOUNTING     KING
+        10 ACCOUNTING     CLARK
+        20 RESEARCH       FORD
+        20 RESEARCH       ADAMS
+        20 RESEARCH       SCOTT
+        20 RESEARCH       JONES
+        20 RESEARCH       SMITH
+        30 SALES          JAMES
+        30 SALES          TURNER
+        30 SALES          BLAKE
+
+    DEPTNO DNAME          ENAME
+---------- -------------- ----------
+        30 SALES          MARTIN
+        30 SALES          WARD
+        30 SALES          ALLEN
+                          SS_TH
+
+已选择15行。
+
+SQL> edit
+已写入 file afiedt.buf
+
+  1  select
+  2     d.deptno,d.dname,e.ename
+  3  from
+  4     dept d right join emp e
+  5  on
+  6*    d.deptno=e.deptno
+  7  ;
+
+    DEPTNO DNAME          ENAME
+---------- -------------- ----------
+        10 ACCOUNTING     MILLER
+        10 ACCOUNTING     KING
+        10 ACCOUNTING     CLARK
+        20 RESEARCH       FORD
+        20 RESEARCH       ADAMS
+        20 RESEARCH       SCOTT
+        20 RESEARCH       JONES
+        20 RESEARCH       SMITH
+        30 SALES          JAMES
+        30 SALES          TURNER
+        30 SALES          BLAKE
+
+    DEPTNO DNAME          ENAME
+---------- -------------- ----------
+        30 SALES          MARTIN
+        30 SALES          WARD
+        30 SALES          ALLEN
+                          SS_TH
+
+已选择15行。
+
+SQL> edit
+已写入 file afiedt.buf
+
+  1  select
+  2     d.deptno,d.dname,e.ename
+  3  from
+  4     dept d full outer join emp e
+  5  on
+  6*    d.deptno=e.deptno
+  7  ;
+
+    DEPTNO DNAME          ENAME
+---------- -------------- ----------
+                          SS_TH
+        20 RESEARCH       SMITH
+        30 SALES          ALLEN
+        30 SALES          WARD
+        20 RESEARCH       JONES
+        30 SALES          MARTIN
+        30 SALES          BLAKE
+        10 ACCOUNTING     CLARK
+        20 RESEARCH       SCOTT
+        10 ACCOUNTING     KING
+        30 SALES          TURNER
+
+    DEPTNO DNAME          ENAME
+---------- -------------- ----------
+        20 RESEARCH       ADAMS
+        30 SALES          JAMES
+        20 RESEARCH       FORD
+        10 ACCOUNTING     MILLER
+        40 OPERATIONS
+
+已选择16行。
+
+SQL> edit
+已写入 file afiedt.buf
+
+  1  select
+  2     d.deptno,d.dname,e.ename
+  3  from
+  4     dept d full  join emp e
+  5  on
+  6*    d.deptno=e.deptno
+  7  ;
+
+    DEPTNO DNAME          ENAME
+---------- -------------- ----------
+                          SS_TH
+        20 RESEARCH       SMITH
+        30 SALES          ALLEN
+        30 SALES          WARD
+        20 RESEARCH       JONES
+        30 SALES          MARTIN
+        30 SALES          BLAKE
+        10 ACCOUNTING     CLARK
+        20 RESEARCH       SCOTT
+        10 ACCOUNTING     KING
+        30 SALES          TURNER
+
+    DEPTNO DNAME          ENAME
+---------- -------------- ----------
+        20 RESEARCH       ADAMS
+        30 SALES          JAMES
+        20 RESEARCH       FORD
+        10 ACCOUNTING     MILLER
+        40 OPERATIONS
+
+已选择16行。
+
+SQL> edit
+已写入 file afiedt.buf
+
+  1  select
+  2     d.deptno,d.dname,e.ename
+  3  from
+  4     dept d full  join emp e
+  5  on
+  6*    using deptno
+  7  ;
+        using deptno
+              *
+第 6 行出现错误:
+ORA-00920: 无效的关系运算符
+
+
+SQL> edit
+已写入 file afiedt.buf
+
+  1  select
+  2     e.ename,d.dname
+  3  from
+  4     emp e inner join dept d
+  5  using deptno
+  6  order by
+  7*    d.dname
+SQL> run
+  1  select
+  2     e.ename,d.dname
+  3  from
+  4     emp e inner join dept d
+  5  using deptno
+  6  order by
+  7*    d.dname
+using deptno
+      *
+第 5 行出现错误:
+ORA-00906: 缺失左括号
+
+
+SQL> edit
+已写入 file afiedt.buf
+
+  1  select
+  2     e.ename,d.dname
+  3  from
+  4     emp e inner join dept d
+  5  using (deptno)
+  6  order by
+  7*    d.dname
+SQL> run
+  1  select
+  2     e.ename,d.dname
+  3  from
+  4     emp e inner join dept d
+  5  using (deptno)
+  6  order by
+  7*    d.dname
+
+ENAME      DNAME
+---------- --------------
+CLARK      ACCOUNTING
+KING       ACCOUNTING
+MILLER     ACCOUNTING
+JONES      RESEARCH
+FORD       RESEARCH
+ADAMS      RESEARCH
+SMITH      RESEARCH
+SCOTT      RESEARCH
+WARD       SALES
+TURNER     SALES
+ALLEN      SALES
+
+ENAME      DNAME
+---------- --------------
+JAMES      SALES
+BLAKE      SALES
+MARTIN     SALES
+
+已选择14行。
+
+SQL> edit
+已写入 file afiedt.buf
+
+  1  select
+  2     e.ename,d.dname
+  3  from
+  4     emp e natural join dept d
+  5  order by
+  6*    d.dname
+SQL> run
+  1  select
+  2     e.ename,d.dname
+  3  from
+  4     emp e natural join dept d
+  5  order by
+  6*    d.dname
+
+ENAME      DNAME
+---------- --------------
+CLARK      ACCOUNTING
+KING       ACCOUNTING
+MILLER     ACCOUNTING
+JONES      RESEARCH
+FORD       RESEARCH
+ADAMS      RESEARCH
+SMITH      RESEARCH
+SCOTT      RESEARCH
+WARD       SALES
+TURNER     SALES
+ALLEN      SALES
+
+ENAME      DNAME
+---------- --------------
+JAMES      SALES
+BLAKE      SALES
+MARTIN     SALES
+
+已选择14行。
+
+SQL> edit
+已写入 file afiedt.buf
+
+  1  select
+  2     e.ename,d.dname
+  3  from
+  4     emp e cross join dept d
+  5  order by
+  6*    d.dname
+SQL> run
+  1  select
+  2     e.ename,d.dname
+  3  from
+  4     emp e cross join dept d
+  5  order by
+  6*    d.dname
+
+ENAME      DNAME
+---------- --------------
+SS_TH      ACCOUNTING
+MILLER     ACCOUNTING
+ALLEN      ACCOUNTING
+WARD       ACCOUNTING
+JONES      ACCOUNTING
+MARTIN     ACCOUNTING
+BLAKE      ACCOUNTING
+CLARK      ACCOUNTING
+SCOTT      ACCOUNTING
+KING       ACCOUNTING
+TURNER     ACCOUNTING
+
+ENAME      DNAME
+---------- --------------
+ADAMS      ACCOUNTING
+JAMES      ACCOUNTING
+FORD       ACCOUNTING
+SMITH      ACCOUNTING
+FORD       OPERATIONS
+MILLER     OPERATIONS
+JAMES      OPERATIONS
+ADAMS      OPERATIONS
+TURNER     OPERATIONS
+KING       OPERATIONS
+SCOTT      OPERATIONS
+
+ENAME      DNAME
+---------- --------------
+CLARK      OPERATIONS
+BLAKE      OPERATIONS
+MARTIN     OPERATIONS
+JONES      OPERATIONS
+WARD       OPERATIONS
+ALLEN      OPERATIONS
+SMITH      OPERATIONS
+SS_TH      OPERATIONS
+SMITH      RESEARCH
+SS_TH      RESEARCH
+WARD       RESEARCH
+
+ENAME      DNAME
+---------- --------------
+JONES      RESEARCH
+MARTIN     RESEARCH
+BLAKE      RESEARCH
+CLARK      RESEARCH
+SCOTT      RESEARCH
+KING       RESEARCH
+TURNER     RESEARCH
+ADAMS      RESEARCH
+JAMES      RESEARCH
+FORD       RESEARCH
+MILLER     RESEARCH
+
+ENAME      DNAME
+---------- --------------
+ALLEN      RESEARCH
+MILLER     SALES
+FORD       SALES
+JAMES      SALES
+ADAMS      SALES
+TURNER     SALES
+KING       SALES
+SCOTT      SALES
+CLARK      SALES
+BLAKE      SALES
+MARTIN     SALES
+
+ENAME      DNAME
+---------- --------------
+JONES      SALES
+WARD       SALES
+ALLEN      SALES
+SS_TH      SALES
+SMITH      SALES
+
+已选择60行。
+
+SQL>
