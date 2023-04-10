@@ -20,5 +20,15 @@ select d.deptno,d.dname,e.ename from dept d,emp e where d.deptno = e.deptno;
 select d.deptno,d.dname,e.ename from dept d,emp e where d.deptno = e.deptno(+);
 -- 右外连接 右边没有匹配的也显示出来
 select d.deptno,d.dname,e.ename from dept d,emp e where d.deptno(+) = e.deptno;
--- 
-select d.deptno,d.dname,e.ename from dept d,emp e where d.deptno(+) = e.deptno(+);
+-- 内连接
+select d.deptno,d.dname,e.ename from dept d join emp e on d.deptno=e.deptno;
+-- 左外连接
+select d.deptno,d.dname,e.ename from dept d left join emp e on d.deptno=e.deptno;
+-- 右外连接
+select d.deptno,d.dname,e.ename from dept d right join emp e on d.deptno=e.deptno;
+-- 全外连接
+select d.deptno,d.dname,e.ename from dept d full outer join emp e on d.deptno=e.deptno;
+-- 通过deptno进行关联
+select e.ename,d.dname from emp e inner join dept d using (deptno) order by d.dname;
+-- 自然连接和内连接一样 会自动使用同名字段关联连接
+select e.ename,d.dname from emp e natural join dept d  order by d.dname;
