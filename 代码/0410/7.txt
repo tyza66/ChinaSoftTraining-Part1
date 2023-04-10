@@ -271,20 +271,7 @@ SQL> edit
 
 已选择16行。
 
-SQL> edit
-已写入 file afiedt.buf
 
-  1  select
-  2     d.deptno,d.dname,e.ename
-  3  from
-  4     dept d full  join emp e
-  5  on
-  6*    using deptno
-  7  ;
-        using deptno
-              *
-第 6 行出现错误:
-ORA-00920: 无效的关系运算符
 
 
 SQL> edit

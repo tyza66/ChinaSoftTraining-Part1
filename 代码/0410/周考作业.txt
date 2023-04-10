@@ -1,0 +1,90 @@
+    --1、选择部门30中的雇员
+
+select * from emp where deptno=30
+　　
+　　--2、列出所有办事员的姓名、编号和部门
+select e.ename,e.empno,d.dname from emp e inner join dept d on e.deptno=e.deptno where e.job='CLERK'
+　　--3、找出佣金高于薪金的雇员
+select * from emp where comm>sal;
+　
+
+　　--4、找出佣金高于薪金60%的雇员
+select * from emp where comm>sal*0.6
+　　
+
+　　--5、找出部门10中所有经理和部门20中的所有办事员的详细资料
+
+　　select * from emp where (deptno=10 and job='MANAGER') or (deptno=20 and job='CLERK')
+
+　　--6、找出部门10中所有经理、部门20中所有办事员，既不是经理又不是办事员但其薪金>=2000的所有雇员的详细资料
+select * from emp where (deptno=10 and job='MANAGER') or (deptno=20 and job='CLERK') or (job<>'MANAGER' and job<> 'CLERK' and sal>=2000)
+　
+　　--7、找出收取佣金的雇员的不同工作
+
+　　select distinct job from emp where comm>0
+　　--8、找出不收取佣金或收取的佣金低于100的雇员
+select * from emp where comm is null or comm<100
+select * from emp where nvl(comm,0)<100
+　　
+　　--9、找出各月最后一天受雇的所有雇员
+select * from emp where hiredate=last_day(hiredate)
+　　
+　　--10、找出早于25年之前受雇的雇员
+
+　　select * from emp where MONTHS_BETWEEN(sysdate,HIREDATE)/12>25;
+
+　　--11、显示只有首字母大写的所有雇员的姓名
+
+　select * from emp where ename=INITCAP(ename)
+
+　　--12、显示正好为6个字符的雇员姓名
+select ename from emp where length(ename)=6
+　　
+
+　　--13、显示不带有'R'的雇员姓名
+
+　　select ename from emp where ename not like '%R%'
+
+　　--14、显示所有雇员的姓名的前三个字符
+
+　　select ename,substr(ename,1,3) from emp;
+
+　　--15、显示所有雇员的姓名，用a替换所有'A'
+select ename,REPLACE(ename,'A','a') from EMP
+　
+
+　　--16、显示所有雇员的姓名以及满10年服务年限的日期
+
+select ename,hiredate,add_months(hiredate,12*10) as "服务年限的日期" from emp
+　
+　　--17、显示雇员的详细资料，按姓名排序
+select * from emp order by ename;
+　　
+
+　　--18、显示雇员姓名，根据其服务年限，将最老的雇员排在最前面
+select ename,hiredate from emp order by hiredate;
+　　
+
+　　--19、显示所有雇员的姓名、工作和薪金，按工作的降序顺序排序，而工作相同时按薪金升序
+select ename,job,sal from emp order by job desc,sal asc
+
+　　--20、显示所有雇员的姓名和加入公司的年份和月份，按雇员受雇日所在月排序，将最早年份的项目排在最前面
+
+　　select ename,to_char(hiredate,'yyyy'),to_char(hiredate,'mm') from emp order by hiredate asc;
+　　--21、显示在一个月为30天的情况下所有雇员的日薪金
+select ename,sal/30 from emp;
+　　
+
+　　--22、找出在（任何年份的）2月受聘的所有雇员
+
+　　select * from emp where to_char(hiredate,'mm')='02'
+　　--23、对于每个雇员，显示其加入公司的天数
+select ename,sysdate-hiredate from emp;
+
+　　--24、显示姓名字段的任何位置，包含 "A" 的所有雇员的姓名
+select ename from emp where ename like '%A%'
+
+　　--25、以年、月和日显示所有雇员的服务年限
+
+select months_between(sysdate,hiredate)/12 as "年", months_between(sysdate,hiredate) as "月", sysdate-hiredate as "日" from emp;
+　
