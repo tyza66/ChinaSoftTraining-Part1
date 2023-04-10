@@ -12,5 +12,11 @@ select e.ename,e.sal,s.grade from emp e,salgrade s where e.sal between s.LOSAL a
 select e.ename,e.sal,d.dname,d.loc,s.grade from emp e,salgrade s,dept d where e.deptno=d.deptno and e.sal between s.losal and s.hisal;
 -- 查询经理编号
 select empno,ename,mgr from emp;
-
+-- 自连接查询
 select e1.ename,e1.sal,e1.sal,e2.mgr,e2.ename 经理姓名 from emp e1,emp e2 where e1.mgr = e2.EMPNO;
+-- 只有符合条件的会被取出来
+select d.deptno,d.dname,e.ename from dept d,emp e where d.deptno = e.deptno;
+-- 左外连接 左边没有匹配的也显示出来
+select d.deptno,d.dname,e.ename from dept d,emp e where d.deptno = e.deptno(+);
+-- 右外连接 右边没有匹配的也显示出来
+select d.deptno,d.dname,e.ename from dept d,emp e where d.deptno(+) = e.deptno;

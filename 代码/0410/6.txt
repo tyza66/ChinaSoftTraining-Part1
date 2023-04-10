@@ -1,0 +1,164 @@
+
+SQL> edit
+已写入 file afiedt.buf
+
+  1  select
+  2     d.deptno,d.dname,e.ename
+  3  from
+  4     dept d,emp e
+  5  where
+  6*    d.deptno=e.deptno
+SQL> run
+  1  select
+  2     d.deptno,d.dname,e.ename
+  3  from
+  4     dept d,emp e
+  5  where
+  6*    d.deptno=e.deptno
+
+    DEPTNO DNAME          ENAME
+---------- -------------- ----------
+        20 RESEARCH       SMITH
+        30 SALES          ALLEN
+        30 SALES          WARD
+        20 RESEARCH       JONES
+        30 SALES          MARTIN
+        30 SALES          BLAKE
+        10 ACCOUNTING     CLARK
+        20 RESEARCH       SCOTT
+        10 ACCOUNTING     KING
+        30 SALES          TURNER
+        20 RESEARCH       ADAMS
+
+    DEPTNO DNAME          ENAME
+---------- -------------- ----------
+        30 SALES          JAMES
+        20 RESEARCH       FORD
+        10 ACCOUNTING     MILLER
+
+已选择14行。
+
+SQL> edit
+已写入 file afiedt.buf
+
+  1  select
+  2     d.deptno,d.dname,e.ename
+  3  from
+  4     dept d,emp e
+  5  where
+  6*    d.deptno=e.deptno(+)
+SQL> run
+  1  select
+  2     d.deptno,d.dname,e.ename
+  3  from
+  4     dept d,emp e
+  5  where
+  6*    d.deptno=e.deptno(+)
+
+    DEPTNO DNAME          ENAME
+---------- -------------- ----------
+        20 RESEARCH       SMITH
+        30 SALES          ALLEN
+        30 SALES          WARD
+        20 RESEARCH       JONES
+        30 SALES          MARTIN
+        30 SALES          BLAKE
+        10 ACCOUNTING     CLARK
+        20 RESEARCH       SCOTT
+        10 ACCOUNTING     KING
+        30 SALES          TURNER
+        20 RESEARCH       ADAMS
+
+    DEPTNO DNAME          ENAME
+---------- -------------- ----------
+        30 SALES          JAMES
+        20 RESEARCH       FORD
+        10 ACCOUNTING     MILLER
+        40 OPERATIONS
+
+已选择15行。
+
+SQL> edit
+已写入 file afiedt.buf
+
+  1  select
+  2     d.deptno,d.dname,e.ename
+  3  from
+  4     dept d,emp e
+  5  where
+  6*    d.deptno(+)=e.deptno
+SQL>
+
+SQL> edit
+已写入 file afiedt.buf
+
+  1  select
+  2     d.deptno,d.dname,e.ename
+  3  from
+  4     dept d,emp e
+  5  where
+  6*    d.deptno(+)=e.deptno
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+
+SQL>
+SQL> run
+  1  select
+  2     d.deptno,d.dname,e.ename
+  3  from
+  4     dept d,emp e
+  5  where
+  6*    d.deptno(+)=e.deptno
+
+    DEPTNO DNAME          ENAME
+---------- -------------- ----------
+        10 ACCOUNTING     MILLER
+        10 ACCOUNTING     KING
+        10 ACCOUNTING     CLARK
+        20 RESEARCH       FORD
+        20 RESEARCH       ADAMS
+        20 RESEARCH       SCOTT
+        20 RESEARCH       JONES
+        20 RESEARCH       SMITH
+        30 SALES          JAMES
+        30 SALES          TURNER
+        30 SALES          BLAKE
+
+    DEPTNO DNAME          ENAME
+---------- -------------- ----------
+        30 SALES          MARTIN
+        30 SALES          WARD
+        30 SALES          ALLEN
+                          SS_TH
+
+已选择15行。
+
+SQL> edit
+已写入 file afiedt.buf
+
+  1  select
+  2     d.deptno,d.dname,e.ename
+  3  from
+  4     dept d,emp e
+  5  where
+  6*    d.deptno(+)=e.deptno(+)
+SQL> run
+  1  select
+  2     d.deptno,d.dname,e.ename
+  3  from
+  4     dept d,emp e
+  5  where
+  6*    d.deptno(+)=e.deptno(+)
+        d.deptno(+)=e.deptno(+)
+                   *
+第 6 行出现错误:
+ORA-01468: 一个谓词只能引用一个外部联接的表
+
+
+SQL> edit
+已写入 file afiedt.buf
