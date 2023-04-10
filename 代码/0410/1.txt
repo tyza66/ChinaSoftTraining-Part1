@@ -1,0 +1,193 @@
+Microsoft Windows [版本 10.0.19043.928]
+(c) Microsoft Corporation。保留所有权利。
+
+C:\Users\Administrator>sqlplus scott/tiger
+
+SQL*Plus: Release 11.2.0.1.0 Production on 星期一 4月 10 08:45:21 2023
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+
+连接到:
+Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+
+SQL> select * from emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7936 SS_TH
+
+
+      7369 SMITH      CLERK           7902 17-12月-80            800
+        20
+
+      7499 ALLEN      SALESMAN        7698 20-2月 -81           1600        300
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7521 WARD       SALESMAN        7698 22-2月 -81           1250        500
+        30
+
+      7566 JONES      MANAGER         7839 02-4月 -81           2975
+        20
+
+      7654 MARTIN     SALESMAN        7698 28-9月 -81           1250       1400
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7698 BLAKE      MANAGER         7839 01-5月 -81           2850
+        30
+
+      7782 CLARK      MANAGER         7839 09-6月 -81           2450
+        10
+
+      7788 SCOTT      ANALYST         7566 19-4月 -87           3000
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7839 KING       PRESIDENT            17-11月-81           5000
+        10
+
+      7844 TURNER     SALESMAN        7698 08-9月 -81           1500          0
+        30
+
+      7876 ADAMS      CLERK           7788 23-5月 -87           1100
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7900 JAMES      CLERK           7698 03-12月-81            950
+        30
+
+      7902 FORD       ANALYST         7566 03-12月-81           3000
+        20
+
+      7934 MILLER     CLERK           7782 23-1月 -82           1300
+        10
+
+
+已选择15行。
+
+SQL> select ename,comm,nvl(comm,0) from emp;
+
+ENAME            COMM NVL(COMM,0)
+---------- ---------- -----------
+SS_TH                           0
+SMITH                           0
+ALLEN             300         300
+WARD              500         500
+JONES                           0
+MARTIN           1400        1400
+BLAKE                           0
+CLARK                           0
+SCOTT                           0
+KING                            0
+TURNER              0           0
+
+ENAME            COMM NVL(COMM,0)
+---------- ---------- -----------
+ADAMS                           0
+JAMES                           0
+FORD                            0
+MILLER                          0
+
+已选择15行。
+
+SQL> select ename,comm,nvl(comm,0),nvl2(comm,comm,0) from emp;
+
+ENAME            COMM NVL(COMM,0) NVL2(COMM,COMM,0)
+---------- ---------- ----------- -----------------
+SS_TH                           0                 0
+SMITH                           0                 0
+ALLEN             300         300               300
+WARD              500         500               500
+JONES                           0                 0
+MARTIN           1400        1400              1400
+BLAKE                           0                 0
+CLARK                           0                 0
+SCOTT                           0                 0
+KING                            0                 0
+TURNER              0           0                 0
+
+ENAME            COMM NVL(COMM,0) NVL2(COMM,COMM,0)
+---------- ---------- ----------- -----------------
+ADAMS                           0                 0
+JAMES                           0                 0
+FORD                            0                 0
+MILLER                          0                 0
+
+已选择15行。
+
+SQL> select nullif(3,4) from dual;
+
+NULLIF(3,4)
+-----------
+          3
+
+SQL> select nullif(5,4) from dual;
+
+NULLIF(5,4)
+-----------
+          5
+
+SQL> select nullif(5,5) from dual;
+
+NULLIF(5,5)
+-----------
+
+
+SQL> select nullif('a','b') from dual;
+
+N
+-
+a
+
+SQL> select nullif('a','a') from dual;
+
+N
+-
+
+
+SQL> select coalesce(null,null,0,null,1) from dual;
+
+COALESCE(NULL,NULL,0,NULL,1)
+----------------------------
+                           0
+
+SQL> select coalesce(null,null,null,null,1) from dual;
+
+COALESCE(NULL,NULL,NULL,NULL,1)
+-------------------------------
+                              1
+
+SQL> select coalesce(null,null,null,null,null) from dual;
+
+C
+-
+
+
+SQL> select coalesce(null,null,null,null,null,1,2,3,4) from dual;
+
+COALESCE(NULL,NULL,NULL,NULL,NULL,1,2,3,4)
+------------------------------------------
+                                         1
+
+SQL>
