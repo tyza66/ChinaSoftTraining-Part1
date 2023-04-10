@@ -8,3 +8,5 @@ select e.ename,d.dname from emp e,dept d where e.DEPTNO = d.DEPTNO;
 select * from salgrade;
 --查询emp表的薪资等级在哪个区间里面
 select e.ename,e.sal,s.grade from emp e,salgrade s where e.sal between s.LOSAL and HISAL;
+
+select e.name,e.sal,d,dname,d.loc,s.grade from emp e,salgrade s,dept d where e.depno=d.depno and e.sal between s.losal and s,hisal;

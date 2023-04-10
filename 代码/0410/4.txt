@@ -1,0 +1,45 @@
+
+SQL> edit
+已写入 file afiedt.buf
+
+  1  select
+  2     e.ename,e.sal,d.dname,d.loc,s.grade
+  3  from
+  4     emp e, salgrade s,dept d
+  5  where
+  6     e.deptno=d.deptno
+  7     and
+  8*    e.sal between s.losal and s.hisal
+SQL> run
+  1  select
+  2     e.ename,e.sal,d.dname,d.loc,s.grade
+  3  from
+  4     emp e, salgrade s,dept d
+  5  where
+  6     e.deptno=d.deptno
+  7     and
+  8*    e.sal between s.losal and s.hisal
+
+ENAME             SAL DNAME          LOC                GRADE
+---------- ---------- -------------- ------------- ----------
+SMITH             800 RESEARCH       DALLAS                 1
+JAMES             950 SALES          CHICAGO                1
+ADAMS            1100 RESEARCH       DALLAS                 1
+WARD             1250 SALES          CHICAGO                2
+MARTIN           1250 SALES          CHICAGO                2
+MILLER           1300 ACCOUNTING     NEW YORK               2
+TURNER           1500 SALES          CHICAGO                3
+ALLEN            1600 SALES          CHICAGO                3
+CLARK            2450 ACCOUNTING     NEW YORK               4
+BLAKE            2850 SALES          CHICAGO                4
+JONES            2975 RESEARCH       DALLAS                 4
+
+ENAME             SAL DNAME          LOC                GRADE
+---------- ---------- -------------- ------------- ----------
+FORD             3000 RESEARCH       DALLAS                 4
+SCOTT            3000 RESEARCH       DALLAS                 4
+KING             5000 ACCOUNTING     NEW YORK               5
+
+已选择14行。
+
+SQL>

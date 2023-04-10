@@ -1,0 +1,187 @@
+
+
+SQL> edit
+已写入 file afiedt.buf
+
+  1  select
+  2     e.ename,d.dname
+  3  from
+  4     emp e,dept d
+  5  where
+  6*    e.deptno=d.deptno
+SQL> run
+  1  select
+  2     e.ename,d.dname
+  3  from
+  4     emp e,dept d
+  5  where
+  6*    e.deptno=d.deptno
+
+ENAME      DNAME
+---------- --------------
+SMITH      RESEARCH
+ALLEN      SALES
+WARD       SALES
+JONES      RESEARCH
+MARTIN     SALES
+BLAKE      SALES
+CLARK      ACCOUNTING
+SCOTT      RESEARCH
+KING       ACCOUNTING
+TURNER     SALES
+ADAMS      RESEARCH
+
+ENAME      DNAME
+---------- --------------
+JAMES      SALES
+FORD       RESEARCH
+MILLER     ACCOUNTING
+
+已选择14行。
+
+SQL> edit
+已写入 file afiedt.buf
+
+  1  select
+  2     e.ename,d.dname
+  3  from
+  4*    emp e,dept d
+  5  ;
+
+ENAME      DNAME
+---------- --------------
+SS_TH      ACCOUNTING
+SMITH      ACCOUNTING
+ALLEN      ACCOUNTING
+WARD       ACCOUNTING
+JONES      ACCOUNTING
+MARTIN     ACCOUNTING
+BLAKE      ACCOUNTING
+CLARK      ACCOUNTING
+SCOTT      ACCOUNTING
+KING       ACCOUNTING
+TURNER     ACCOUNTING
+
+ENAME      DNAME
+---------- --------------
+ADAMS      ACCOUNTING
+JAMES      ACCOUNTING
+FORD       ACCOUNTING
+MILLER     ACCOUNTING
+SS_TH      RESEARCH
+SMITH      RESEARCH
+ALLEN      RESEARCH
+WARD       RESEARCH
+JONES      RESEARCH
+MARTIN     RESEARCH
+BLAKE      RESEARCH
+
+ENAME      DNAME
+---------- --------------
+CLARK      RESEARCH
+SCOTT      RESEARCH
+KING       RESEARCH
+TURNER     RESEARCH
+ADAMS      RESEARCH
+JAMES      RESEARCH
+FORD       RESEARCH
+MILLER     RESEARCH
+SS_TH      SALES
+SMITH      SALES
+ALLEN      SALES
+
+ENAME      DNAME
+---------- --------------
+WARD       SALES
+JONES      SALES
+MARTIN     SALES
+BLAKE      SALES
+CLARK      SALES
+SCOTT      SALES
+KING       SALES
+TURNER     SALES
+ADAMS      SALES
+JAMES      SALES
+FORD       SALES
+
+ENAME      DNAME
+---------- --------------
+MILLER     SALES
+SS_TH      OPERATIONS
+SMITH      OPERATIONS
+ALLEN      OPERATIONS
+WARD       OPERATIONS
+JONES      OPERATIONS
+MARTIN     OPERATIONS
+BLAKE      OPERATIONS
+CLARK      OPERATIONS
+SCOTT      OPERATIONS
+KING       OPERATIONS
+
+ENAME      DNAME
+---------- --------------
+TURNER     OPERATIONS
+ADAMS      OPERATIONS
+JAMES      OPERATIONS
+FORD       OPERATIONS
+MILLER     OPERATIONS
+
+已选择60行。
+
+SQL> select * from salgrade;
+
+     GRADE      LOSAL      HISAL
+---------- ---------- ----------
+         1        700       1200
+         2       1201       1400
+         3       1401       2000
+         4       2001       3000
+         5       3001       9999
+
+SQL> desc salgrade;
+ 名称                                      是否为空? 类型
+ ----------------------------------------- -------- ----------------------------
+ GRADE                                              NUMBER
+ LOSAL                                              NUMBER
+ HISAL                                              NUMBER
+
+SQL> edit
+已写入 file afiedt.buf
+
+  1  select
+  2     e.ename,e.sal,s.grade
+  3  from
+  4     emp e, salgrade s
+  5  where
+  6*    e.sal between s.losal and s.hisal
+SQL> run
+  1  select
+  2     e.ename,e.sal,s.grade
+  3  from
+  4     emp e, salgrade s
+  5  where
+  6*    e.sal between s.losal and s.hisal
+
+ENAME             SAL      GRADE
+---------- ---------- ----------
+SMITH             800          1
+JAMES             950          1
+ADAMS            1100          1
+WARD             1250          2
+MARTIN           1250          2
+MILLER           1300          2
+TURNER           1500          3
+ALLEN            1600          3
+CLARK            2450          4
+BLAKE            2850          4
+JONES            2975          4
+
+ENAME             SAL      GRADE
+---------- ---------- ----------
+FORD             3000          4
+SCOTT            3000          4
+KING             5000          5
+
+已选择14行。
+
+SQL>
