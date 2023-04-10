@@ -20,3 +20,5 @@ select d.deptno,d.dname,e.ename from dept d,emp e where d.deptno = e.deptno;
 select d.deptno,d.dname,e.ename from dept d,emp e where d.deptno = e.deptno(+);
 -- 右外连接 右边没有匹配的也显示出来
 select d.deptno,d.dname,e.ename from dept d,emp e where d.deptno(+) = e.deptno;
+-- 
+select d.deptno,d.dname,e.ename from dept d,emp e where d.deptno(+) = e.deptno(+);
