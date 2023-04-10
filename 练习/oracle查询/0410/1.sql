@@ -33,4 +33,4 @@ select e.ename,d.dname from emp e inner join dept d using (deptno) order by d.dn
 -- 自然连接和内连接一样 会自动使用同名字段关联连接
 select e.ename,d.dname from emp e natural join dept d  order by d.dname;
 -- 相当于笛卡尔乘积
-select e.ename,d.dname from emp e corss join dept d  order by d.dname;
+select e.ename,d.dname from emp e cross join dept d order by d.dname;
