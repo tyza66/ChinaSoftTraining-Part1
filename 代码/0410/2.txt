@@ -1,0 +1,143 @@
+
+SQL> select deptno,ename,sal from emp;
+
+    DEPTNO ENAME             SAL
+---------- ---------- ----------
+           SS_TH
+        20 SMITH             800
+        30 ALLEN            1600
+        30 WARD             1250
+        20 JONES            2975
+        30 MARTIN           1250
+        30 BLAKE            2850
+        10 CLARK            2450
+        20 SCOTT            3000
+        10 KING             5000
+        30 TURNER           1500
+
+    DEPTNO ENAME             SAL
+---------- ---------- ----------
+        20 ADAMS            1100
+        30 JAMES             950
+        20 FORD             3000
+        10 MILLER           1300
+
+已选择15行。
+
+SQL> select deptno,ename,sal from emp order by deptno;
+
+    DEPTNO ENAME             SAL
+---------- ---------- ----------
+        10 KING             5000
+        10 MILLER           1300
+        10 CLARK            2450
+        20 SMITH             800
+        20 FORD             3000
+        20 ADAMS            1100
+        20 SCOTT            3000
+        20 JONES            2975
+        30 JAMES             950
+        30 ALLEN            1600
+        30 BLAKE            2850
+
+    DEPTNO ENAME             SAL
+---------- ---------- ----------
+        30 MARTIN           1250
+        30 TURNER           1500
+        30 WARD             1250
+           SS_TH
+
+已选择15行。
+
+
+
+
+SQL> edit
+已写入 file afiedt.buf
+
+  1  select deptno,ename,sal ,decode(deptno,10,
+  2     nvl(sal,0)+100,
+  3     20,nvl(sal,0)+200,
+  4     30,nvl(sal,0)+300,
+  5     nvl(sal,0)+1) newsal
+  6  from
+  7     emp
+  8  order by
+  9*     deptno
+ 10  ;
+
+    DEPTNO ENAME             SAL     NEWSAL
+---------- ---------- ---------- ----------
+        10 KING             5000       5100
+        10 MILLER           1300       1400
+        10 CLARK            2450       2550
+        20 SMITH             800       1000
+        20 FORD             3000       3200
+        20 ADAMS            1100       1300
+        20 SCOTT            3000       3200
+        20 JONES            2975       3175
+        30 JAMES             950       1250
+        30 ALLEN            1600       1900
+        30 BLAKE            2850       3150
+
+    DEPTNO ENAME             SAL     NEWSAL
+---------- ---------- ---------- ----------
+        30 MARTIN           1250       1550
+        30 TURNER           1500       1800
+        30 WARD             1250       1550
+           SS_TH                          1
+
+已选择15行。
+
+
+
+
+SQL> edit
+已写入 file afiedt.buf
+
+  1  select deptno,ename,sal ,
+  2     decode(deptno,10,
+  3             nvl(sal,0)+100,
+  4             20,nvl(sal,0)+200,
+  5             30,nvl(sal,0)+300,
+  6             nvl(sal,0)+1) as newsal,
+  7      case
+  8             when deptno=10 then
+  9                     nvl(sal,0)+100
+ 10             when deptno=20 then
+ 11                     nvl(sal,0)+200
+ 12             when deptno=30 then
+ 13                     nvl(sal,0)+300
+ 14             else
+ 15                     nvl(sal,0)+1
+ 16      end as newsal2
+ 17  from
+ 18     emp
+ 19  order by
+ 20*     deptno
+ 21  ;
+
+    DEPTNO ENAME             SAL     NEWSAL    NEWSAL2
+---------- ---------- ---------- ---------- ----------
+        10 KING             5000       5100       5100
+        10 MILLER           1300       1400       1400
+        10 CLARK            2450       2550       2550
+        20 SMITH             800       1000       1000
+        20 FORD             3000       3200       3200
+        20 ADAMS            1100       1300       1300
+        20 SCOTT            3000       3200       3200
+        20 JONES            2975       3175       3175
+        30 JAMES             950       1250       1250
+        30 ALLEN            1600       1900       1900
+        30 BLAKE            2850       3150       3150
+
+    DEPTNO ENAME             SAL     NEWSAL    NEWSAL2
+---------- ---------- ---------- ---------- ----------
+        30 MARTIN           1250       1550       1550
+        30 TURNER           1500       1800       1800
+        30 WARD             1250       1550       1550
+           SS_TH                          1          1
+
+已选择15行。
+
+SQL>
