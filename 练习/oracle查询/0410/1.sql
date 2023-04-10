@@ -10,3 +10,7 @@ select * from salgrade;
 select e.ename,e.sal,s.grade from emp e,salgrade s where e.sal between s.LOSAL and HISAL;
 
 select e.ename,e.sal,d.dname,d.loc,s.grade from emp e,salgrade s,dept d where e.deptno=d.deptno and e.sal between s.losal and s.hisal;
+-- 查询经理编号
+select empno,ename,mgr from emp;
+
+select e1.ename,e1.sal,e1.sal,e2.mgr,e2.ename 经理姓名 from emp e1,emp e2 where e1.mgr = e2.EMPNO;

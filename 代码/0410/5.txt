@@ -1,0 +1,104 @@
+
+SQL> desc emp;
+ 名称                                      是否为空? 类型
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                     NOT NULL NUMBER(4)
+ ENAME                                              VARCHAR2(10)
+ JOB                                                VARCHAR2(9)
+ MGR                                                NUMBER(4)
+ HIREDATE                                           DATE
+ SAL                                                NUMBER(7,2)
+ COMM                                               NUMBER(7,2)
+ DEPTNO                                             NUMBER(2)
+
+
+
+SQL> select empno,ename,mgr from emp;
+
+     EMPNO ENAME             MGR
+---------- ---------- ----------
+      7936 SS_TH
+      7369 SMITH            7902
+      7499 ALLEN            7698
+      7521 WARD             7698
+      7566 JONES            7839
+      7654 MARTIN           7698
+      7698 BLAKE            7839
+      7782 CLARK            7839
+      7788 SCOTT            7566
+      7839 KING
+      7844 TURNER           7698
+
+     EMPNO ENAME             MGR
+---------- ---------- ----------
+      7876 ADAMS            7788
+      7900 JAMES            7698
+      7902 FORD             7566
+      7934 MILLER           7782
+
+已选择15行。
+
+SQL> select empno,ename,sal,mgr from emp;
+
+     EMPNO ENAME             SAL        MGR
+---------- ---------- ---------- ----------
+      7936 SS_TH
+      7369 SMITH             800       7902
+      7499 ALLEN            1600       7698
+      7521 WARD             1250       7698
+      7566 JONES            2975       7839
+      7654 MARTIN           1250       7698
+      7698 BLAKE            2850       7839
+      7782 CLARK            2450       7839
+      7788 SCOTT            3000       7566
+      7839 KING             5000
+      7844 TURNER           1500       7698
+
+     EMPNO ENAME             SAL        MGR
+---------- ---------- ---------- ----------
+      7876 ADAMS            1100       7788
+      7900 JAMES             950       7698
+      7902 FORD             3000       7566
+      7934 MILLER           1300       7782
+
+已选择15行。
+
+SQL> edit
+已写入 file afiedt.buf
+
+  1  select
+  2     e1.empno,e1.ename,e1.sal,e1.mgr,e2.ename
+  3  from
+  4     emp e1,emp e2
+  5  where
+  6*    e1.mgr=e2.empno
+SQL> run
+  1  select
+  2     e1.empno,e1.ename,e1.sal,e1.mgr,e2.ename
+  3  from
+  4     emp e1,emp e2
+  5  where
+  6*    e1.mgr=e2.empno
+
+     EMPNO ENAME             SAL        MGR ENAME
+---------- ---------- ---------- ---------- ----------
+      7902 FORD             3000       7566 JONES
+      7788 SCOTT            3000       7566 JONES
+      7900 JAMES             950       7698 BLAKE
+      7844 TURNER           1500       7698 BLAKE
+      7654 MARTIN           1250       7698 BLAKE
+      7521 WARD             1250       7698 BLAKE
+      7499 ALLEN            1600       7698 BLAKE
+      7934 MILLER           1300       7782 CLARK
+      7876 ADAMS            1100       7788 SCOTT
+      7782 CLARK            2450       7839 KING
+      7698 BLAKE            2850       7839 KING
+
+     EMPNO ENAME             SAL        MGR ENAME
+---------- ---------- ---------- ---------- ----------
+      7566 JONES            2975       7839 KING
+      7369 SMITH             800       7902 FORD
+
+已选择13行。
+
+SQL>
