@@ -1,0 +1,28 @@
+select rownum ,ename,sal from emp;
+select rownum,ename ,sal from emp where rownum<=5
+select rownum ,ename,sal from emp where rownum between 6 and 10
+
+select * from (select rownum rn ,ename,sal from emp) a
+select * from (select rownum rn ,ename,sal from emp) a where rn <=5
+select * from (select rownum rn ,ename,sal from emp) a where rn between 6 and 10
+select * from (select rownum rn ,ename,sal from emp) a where rn between 11 and 15
+
+select 
+	e.ename,e.sal,e.deptno
+from 
+	emp e, (select deptno,avg(sal) avgsal from emp group by deptno) e2
+where 
+	e.deptno=e2.deptno
+and 
+	e.sal>e2.avgsal
+	
+---------------------------
+
+select
+	e.ename,e.sal,e.deptno
+from
+	emp e
+where 
+	e.sal>(
+		select avg(sal) avgsal from emp e2 where e.deptno=e2.deptno	
+	)
