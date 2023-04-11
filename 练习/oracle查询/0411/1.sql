@@ -78,3 +78,14 @@ select e.ename,e.sal,e.deptno from emp e where e.sal>(select avg(sal) avgsal fro
 select * from emp where exists (select ename,sal,deptno from emp e2 where e2.sal>4000);
 -- 字句存在 条件就满足
 select * from emp where exists (select ename,sal,deptno from emp e2 where e2.sal>6000);
+
+select * from dept;
+insert into dept values (1,'研发部','nj');
+insert into dept values (2,'研发2部',null);
+insert into dept values (3,'研发3部');
+-- 已经有了 违反唯一约束条件
+insert into dept values (1,'研发n部',null);
+-- 超出最大精度
+insert into dept values (10000,'研发n部',null);
+-- 类型不同
+insert into dept values ('a','研发n部',null);
