@@ -74,3 +74,7 @@ select * from (select rownum rn,ename,sal from emp) a where rn between 11 and 15
 select e.ename,e.sal,e.deptno from emp e,(select deptno,avg(sal) avgsal from emp group by deptno) e2 where e.deptno= e2.deptno and e.sal>avgsal;
 
 select e.ename,e.sal,e.deptno from emp e where e.sal>(select avg(sal) avgsal from emp e2 where e.deptno=e2.deptno);
+
+select * from emp where exists (select ename,sal,deptno from emp e2 where e2.sal>4000);
+-- 字句存在 条件就满足
+select * from emp where exists (select ename,sal,deptno from emp e2 where e2.sal>6000);
