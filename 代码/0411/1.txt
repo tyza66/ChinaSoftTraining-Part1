@@ -1,0 +1,63 @@
+select 
+	e.deptno,d.dname,count(*),sum(nvl(e.sal,0)) sumsal
+from 
+	emp e,dept d
+	
+where
+	e.deptno=d.deptno
+	
+group by
+	e.deptno,d.dname
+	
+------------------------------
+
+select
+	e.deptno,d.dname,count(*),sum(nvl(e.sal,0)) sumsal
+	
+from 
+	emp e,	dept d
+where 
+	e.deptno=d.deptno(+)
+group by
+	e.deptno,d.dname
+
+------------------------------------
+
+select
+	e.deptno,d.dname,count(*),sum(nvl(e.sal,0)) sumsal
+	
+from 
+	emp e,	dept d
+where 
+	e.deptno=d.deptno(+)
+group by
+	e.deptno,d.dname
+having
+	sum(nvl(e.sal,0))>10000
+	--------------------------------------------
+	
+select
+	e.deptno,d.dname,count(*),sum(nvl(e.sal,0)) sumsal
+	
+from 
+	emp e,	dept d
+where 
+	e.deptno is not null
+	and
+	e.deptno=d.deptno(+)
+group by
+	e.deptno,d.dname
+	
+	--------------------------------------
+	
+select
+	e.deptno,d.dname,count(*),sum(nvl(e.sal,0)) sumsal
+	
+from 
+	emp e,	dept d
+where 
+	e.deptno=d.deptno(+)
+group by
+	e.deptno,d.dname
+having
+	e.deptno is not null
