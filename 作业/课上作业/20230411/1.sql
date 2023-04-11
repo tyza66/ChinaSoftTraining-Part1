@@ -35,7 +35,8 @@ select job,min(sal) 最低工资 from emp group by job;
 --18、列出各个部门的MANAGER（经理）的最低薪金
 select (select e2.ename from emp e2 where e2.EMPNO= e.mgr),min(sal) from emp e group by mgr;
 --19、列出按年薪排序的所有雇员的年薪
-select * from emp order by (sal*12);
+select * from emp order by (sal*12+nvl(comm,0));
 --20、列出薪金水平处于第四位的雇员
+select * from (select rownum rn,e.* from emp e order by e.sal) where rn=4;
 
 
