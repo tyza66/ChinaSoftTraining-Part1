@@ -1,0 +1,28 @@
+select ename,sal from emp where ename='ALLEN'
+select ename,sal from emp order by sal desc;
+select ename,sal from emp where sal>(select sal from emp where ename='ALLEN')
+select ename,sal from emp where deptno=10
+select sal from emp where ename='ALLEN' or ename='SMITH'
+
+select ename,sal from emp where sal>all (select sal from emp where ename='ALLEN' or ename='SMITH')
+select ename,sal from emp where sal<=all (select sal from emp where ename='ALLEN' or ename='SMITH')
+
+select ename,sal from emp where sal in (select max(sal) from emp group by deptno)
+
+select deptno,ename,sal from emp where sal in (select max(sal) from emp group by deptno)
+
+select max(sal) from emp group by deptno
+
+select ename,sal from emp order by sal desc
+
+select ename,sal from emp where sal is not null order by sal desc
+
+select max(sal) from emp where sal is not null group by deptno
+
+select ename ,sal from emp where sal >=all (select max(sal) from emp where sal is not null group by deptno)
+
+
+select ename ,sal from emp where sal <=all (select max(sal) from emp where sal is not null group by deptno)
+select ename ,sal from emp where sal >=any (select max(sal) from emp where sal is not null group by deptno)
+
+select ename ,sal from emp where sal< any (select max(sal) from emp where sal is not null group by deptno)
