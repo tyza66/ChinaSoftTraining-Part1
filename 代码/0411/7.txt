@@ -1,0 +1,533 @@
+Microsoft Windows [版本 10.0.19043.928]
+(c) Microsoft Corporation。保留所有权利。
+
+C:\Users\Administrator>sqlplus scott/tiger
+
+SQL*Plus: Release 11.2.0.1.0 Production on 星期二 4月 11 14:40:38 2023
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+
+连接到:
+Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+
+SQL> desc dept;
+ 名称                                      是否为空? 类型
+ ----------------------------------------- -------- ----------------------------
+ DEPTNO                                    NOT NULL NUMBER(2)
+ DNAME                                              VARCHAR2(14)
+ LOC                                                VARCHAR2(13)
+
+SQL> desc emp;
+ 名称                                      是否为空? 类型
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                     NOT NULL NUMBER(4)
+ ENAME                                              VARCHAR2(10)
+ JOB                                                VARCHAR2(9)
+ MGR                                                NUMBER(4)
+ HIREDATE                                           DATE
+ SAL                                                NUMBER(7,2)
+ COMM                                               NUMBER(7,2)
+ DEPTNO                                             NUMBER(2)
+
+SQL> insert into emp(empno,ename,sal,hiredate) values (100,'bbb',50000,sysdate);
+
+已创建 1 行。
+
+SQL> select * from emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7936 SS_TH
+
+
+       100 bbb                             11-4月 -23          50000
+
+
+      7369 SMITH      CLERK           7902 17-12月-80            800
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7499 ALLEN      SALESMAN        7698 20-2月 -81           1600        300
+        30
+
+      7521 WARD       SALESMAN        7698 22-2月 -81           1250        500
+        30
+
+      7566 JONES      MANAGER         7839 02-4月 -81           2975
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7654 MARTIN     SALESMAN        7698 28-9月 -81           1250       1400
+        30
+
+      7698 BLAKE      MANAGER         7839 01-5月 -81           2850
+        30
+
+      7782 CLARK      MANAGER         7839 09-6月 -81           2450
+        10
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7788 SCOTT      ANALYST         7566 19-4月 -87           3000
+        20
+
+      7839 KING       PRESIDENT            17-11月-81           5000
+        10
+
+      7844 TURNER     SALESMAN        7698 08-9月 -81           1500          0
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7876 ADAMS      CLERK           7788 23-5月 -87           1100
+        20
+
+      7900 JAMES      CLERK           7698 03-12月-81            950
+        30
+
+      7902 FORD       ANALYST         7566 03-12月-81           3000
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7934 MILLER     CLERK           7782 23-1月 -82           1300
+        10
+
+
+已选择16行。
+
+SQL> select empno,ename,sal,to_char(hiredate,'yyyy-mm-dd') from emp;
+
+     EMPNO ENAME             SAL TO_CHAR(HI
+---------- ---------- ---------- ----------
+      7936 SS_TH
+       100 bbb             50000 2023-04-11
+      7369 SMITH             800 1980-12-17
+      7499 ALLEN            1600 1981-02-20
+      7521 WARD             1250 1981-02-22
+      7566 JONES            2975 1981-04-02
+      7654 MARTIN           1250 1981-09-28
+      7698 BLAKE            2850 1981-05-01
+      7782 CLARK            2450 1981-06-09
+      7788 SCOTT            3000 1987-04-19
+      7839 KING             5000 1981-11-17
+
+     EMPNO ENAME             SAL TO_CHAR(HI
+---------- ---------- ---------- ----------
+      7844 TURNER           1500 1981-09-08
+      7876 ADAMS            1100 1987-05-23
+      7900 JAMES             950 1981-12-03
+      7902 FORD             3000 1981-12-03
+      7934 MILLER           1300 1982-01-23
+
+已选择16行。
+
+SQL> insert into emp(empno,hiredate,ename,sal) values (101,to_date('2014-08-13','yyyy-mm-dd'),'ccc',5000);
+
+已创建 1 行。
+
+SQL> select empno,ename,sal,to_char(hiredate,'yyyy-mm-dd') from emp;
+
+     EMPNO ENAME             SAL TO_CHAR(HI
+---------- ---------- ---------- ----------
+      7936 SS_TH
+       100 bbb             50000 2023-04-11
+       101 ccc              5000 2014-08-13
+      7369 SMITH             800 1980-12-17
+      7499 ALLEN            1600 1981-02-20
+      7521 WARD             1250 1981-02-22
+      7566 JONES            2975 1981-04-02
+      7654 MARTIN           1250 1981-09-28
+      7698 BLAKE            2850 1981-05-01
+      7782 CLARK            2450 1981-06-09
+      7788 SCOTT            3000 1987-04-19
+
+     EMPNO ENAME             SAL TO_CHAR(HI
+---------- ---------- ---------- ----------
+      7839 KING             5000 1981-11-17
+      7844 TURNER           1500 1981-09-08
+      7876 ADAMS            1100 1987-05-23
+      7900 JAMES             950 1981-12-03
+      7902 FORD             3000 1981-12-03
+      7934 MILLER           1300 1982-01-23
+
+已选择17行。
+
+SQL> update emp set sal=1800 where ename='SMITH';
+
+已更新 1 行。
+
+SQL> select ename,sal from emp;
+
+ENAME             SAL
+---------- ----------
+SS_TH
+bbb             50000
+ccc              5000
+SMITH            1800
+ALLEN            1600
+WARD             1250
+JONES            2975
+MARTIN           1250
+BLAKE            2850
+CLARK            2450
+SCOTT            3000
+
+ENAME             SAL
+---------- ----------
+KING             5000
+TURNER           1500
+ADAMS            1100
+JAMES             950
+FORD             3000
+MILLER           1300
+
+已选择17行。
+
+SQL> update emp set ename='斯密斯' ,sal=800 where ename='SMITH';
+
+已更新 1 行。
+
+SQL> select ename,sal from emp;
+
+ENAME             SAL
+---------- ----------
+SS_TH
+bbb             50000
+ccc              5000
+斯密斯            800
+ALLEN            1600
+WARD             1250
+JONES            2975
+MARTIN           1250
+BLAKE            2850
+CLARK            2450
+SCOTT            3000
+
+ENAME             SAL
+---------- ----------
+KING             5000
+TURNER           1500
+ADAMS            1100
+JAMES             950
+FORD             3000
+MILLER           1300
+
+已选择17行。
+
+SQL> rollback;
+
+回退已完成。
+
+SQL> select ename,sal from emp;
+
+ENAME             SAL
+---------- ----------
+SS_TH
+SMITH             800
+ALLEN            1600
+WARD             1250
+JONES            2975
+MARTIN           1250
+BLAKE            2850
+CLARK            2450
+SCOTT            3000
+KING             5000
+TURNER           1500
+
+ENAME             SAL
+---------- ----------
+ADAMS            1100
+JAMES             950
+FORD             3000
+MILLER           1300
+
+已选择15行。
+
+SQL> select empno,ename,sal ,hiredate from emp;
+
+     EMPNO ENAME             SAL HIREDATE
+---------- ---------- ---------- --------------
+      7936 SS_TH
+      7369 SMITH             800 17-12月-80
+      7499 ALLEN            1600 20-2月 -81
+      7521 WARD             1250 22-2月 -81
+      7566 JONES            2975 02-4月 -81
+      7654 MARTIN           1250 28-9月 -81
+      7698 BLAKE            2850 01-5月 -81
+      7782 CLARK            2450 09-6月 -81
+      7788 SCOTT            3000 19-4月 -87
+      7839 KING             5000 17-11月-81
+      7844 TURNER           1500 08-9月 -81
+
+     EMPNO ENAME             SAL HIREDATE
+---------- ---------- ---------- --------------
+      7876 ADAMS            1100 23-5月 -87
+      7900 JAMES             950 03-12月-81
+      7902 FORD             3000 03-12月-81
+      7934 MILLER           1300 23-1月 -82
+
+已选择15行。
+
+SQL> delete emp;
+
+已删除15行。
+
+SQL> select empno,ename,sal ,hiredate from emp;
+
+未选定行
+
+SQL> rollback;
+
+回退已完成。
+
+SQL> select empno,ename,sal ,hiredate from emp;
+
+     EMPNO ENAME             SAL HIREDATE
+---------- ---------- ---------- --------------
+      7936 SS_TH
+      7369 SMITH             800 17-12月-80
+      7499 ALLEN            1600 20-2月 -81
+      7521 WARD             1250 22-2月 -81
+      7566 JONES            2975 02-4月 -81
+      7654 MARTIN           1250 28-9月 -81
+      7698 BLAKE            2850 01-5月 -81
+      7782 CLARK            2450 09-6月 -81
+      7788 SCOTT            3000 19-4月 -87
+      7839 KING             5000 17-11月-81
+      7844 TURNER           1500 08-9月 -81
+
+     EMPNO ENAME             SAL HIREDATE
+---------- ---------- ---------- --------------
+      7876 ADAMS            1100 23-5月 -87
+      7900 JAMES             950 03-12月-81
+      7902 FORD             3000 03-12月-81
+      7934 MILLER           1300 23-1月 -82
+
+已选择15行。
+
+SQL> select empno,ename from emp;
+
+     EMPNO ENAME
+---------- ----------
+      7936 SS_TH
+      7369 SMITH
+      7499 ALLEN
+      7521 WARD
+      7566 JONES
+      7654 MARTIN
+      7698 BLAKE
+      7782 CLARK
+      7788 SCOTT
+      7839 KING
+      7844 TURNER
+
+     EMPNO ENAME
+---------- ----------
+      7876 ADAMS
+      7900 JAMES
+      7902 FORD
+      7934 MILLER
+
+已选择15行。
+
+SQL> create table emp2 as select * from emp;
+
+表已创建。
+
+SQL> select * from emp2;
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7936 SS_TH
+
+
+      7369 SMITH      CLERK           7902 17-12月-80            800
+        20
+
+      7499 ALLEN      SALESMAN        7698 20-2月 -81           1600        300
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7521 WARD       SALESMAN        7698 22-2月 -81           1250        500
+        30
+
+      7566 JONES      MANAGER         7839 02-4月 -81           2975
+        20
+
+      7654 MARTIN     SALESMAN        7698 28-9月 -81           1250       1400
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7698 BLAKE      MANAGER         7839 01-5月 -81           2850
+        30
+
+      7782 CLARK      MANAGER         7839 09-6月 -81           2450
+        10
+
+      7788 SCOTT      ANALYST         7566 19-4月 -87           3000
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7839 KING       PRESIDENT            17-11月-81           5000
+        10
+
+      7844 TURNER     SALESMAN        7698 08-9月 -81           1500          0
+        30
+
+      7876 ADAMS      CLERK           7788 23-5月 -87           1100
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7900 JAMES      CLERK           7698 03-12月-81            950
+        30
+
+      7902 FORD       ANALYST         7566 03-12月-81           3000
+        20
+
+      7934 MILLER     CLERK           7782 23-1月 -82           1300
+        10
+
+
+已选择15行。
+
+
+
+SQL> edit
+已写入 file afiedt.buf
+
+  1  merge into emp e using emp2 e2
+  2   on(e.empno=e2.empno)
+  3  when matched then
+  4      update set e.ename=e2.ename
+  5   when not matched then
+  6*     insert (e.empno,e.ename) values (e2.empno,e2.ename)
+  7  ;
+
+17 行已合并。
+
+SQL> select * from emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7936 SS_TH
+
+
+      7937 aaa
+
+
+      7938 bbb
+
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7369 SMITH      CLERK           7902 17-12月-80            800
+        20
+
+      7499 ALLEN      SALESMAN        7698 20-2月 -81           1600        300
+        30
+
+      7521 WARD       SALESMAN        7698 22-2月 -81           1250        500
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7566 JONES      MANAGER         7839 02-4月 -81           2975
+        20
+
+      7654 MARTIN     SALESMAN        7698 28-9月 -81           1250       1400
+        30
+
+      7698 BLAKE      MANAGER         7839 01-5月 -81           2850
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7782 CLARK      MANAGER         7839 09-6月 -81           2450
+        10
+
+      7788 SCOTT      ANALYST         7566 19-4月 -87           3000
+        20
+
+      7839 KING       PRESIDENT            17-11月-81           5000
+        10
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7844 TURNER     SALESMAN        7698 08-9月 -81           1500          0
+        30
+
+      7876 ADAMS      CLERK           7788 23-5月 -87           1100
+        20
+
+      7900 JAMES      CLERK           7698 03-12月-81            950
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7902 FORD       ANALYST         7566 03-12月-81           3000
+        20
+
+      7934 MILLER     CLERK           7782 23-1月 -82           1300
+        10
+
+
+已选择17行。
+
+SQL>
