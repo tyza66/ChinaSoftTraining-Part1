@@ -1,0 +1,20 @@
+select * from emp
+
+select rownum,ename,sal from emp;
+
+select rownum,ename,sal from emp where rownum<=5
+
+select rownum,ename,sal from emp where sal is not null order by sal desc
+
+select ename,sal from emp where sal is not null order by sal desc
+
+select rownum ,a.* from (select ename,sal from emp where sal is not null order by sal desc) a;
+
+select rownum ,a.* from (select ename,sal from emp where sal is not null order by sal desc) a where rownum<=5
+
+
+select ename,sal from emp where sal is not null order by sal desc;
+
+select rownum ,a.* from (select ename,sal from emp where sal is not null order by sal desc) a;
+
+select b.rn,b.ename,b.sal from (select rownum rn,a.* from (select ename,sal from emp where sal is not null order by sal desc) a) b where b.rn between 6 and 10

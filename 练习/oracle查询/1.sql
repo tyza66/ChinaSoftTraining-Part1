@@ -59,3 +59,18 @@ select ename,sal from emp where sal is not null order by sal desc;
 select rownum,a.* from (select ename,sal from emp where sal is not null order by sal desc) a;
 -- 三层嵌套sql语句 之后使用内层产生的行标进行截取中间部分的一部分字段
 select b.rn,b.ename,b.sal from (select rownum rn,a.* from (select ename,sal from emp where sal is not null order by sal desc) a) b where b.rn between 6 and 10;
+
+select rownum,ename,sal from emp;
+select rownum,enum,sal from emp where rownum<=5;
+-- rownum不能直接产于比较，所以必须用别的办法
+select rownum,enum,sal from emp where rownum between 6 and 10;
+
+select * from (select rownum rn,ename,sal from emp) a;
+select * from (select rownum rn,ename,sal from emp) a where rn<5;
+select * from (select rownum rn,ename,sal from emp) a where rn between 6 and 10;
+select * from (select rownum rn,ename,sal from emp) a where rn between 11 and 15;
+
+--关联子查询
+select e.ename,e.sal,e.deptno from emp e,(select deptno,avg(sal) avgsal from emp group by deptno) e2 where e.deptno= e2.deptno and e.sal>avgsal;
+
+select e.ename,e.sal,e.deptno from emp e where e.sal>(select avg(sal) avgsal from emp e2 where e.deptno=e2.deptno);
