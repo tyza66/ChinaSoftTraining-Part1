@@ -89,3 +89,17 @@ insert into dept values (1,'研发n部',null);
 insert into dept values (10000,'研发n部',null);
 -- 类型不同
 insert into dept values ('a','研发n部',null);
+
+insert into emp(empno,ename,sal,hiredate) values(100,'bbb',100,sysdate);
+
+select empno,ename,sal,to_char(hiredate,'yyyy-mm-dd') from emp;
+
+insert into emp(empno,hiredate) values(96,to_date('2021.08-24','yyyy-mm-dd'));
+
+select * from emp;
+update emp set ename='史密斯' ,sal=800 where ename = 'SMITH';
+rollback;
+create table emp2 as select * from emp;
+select * from emp2;
+-- 两张表合并
+merge into emp e using emp2 e2 on (e.empno = e2.empno) when matched then update set e.ename = e2.ename when not matched then insert(e.empno,e.ename) values (e2.empno,e2.ename);

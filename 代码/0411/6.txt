@@ -1,0 +1,115 @@
+Microsoft Windows [版本 10.0.19043.928]
+(c) Microsoft Corporation。保留所有权利。
+
+C:\Users\Administrator>sqlplus scott/tiger
+
+SQL*Plus: Release 11.2.0.1.0 Production on 星期二 4月 11 13:57:52 2023
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+
+连接到:
+Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+
+SQL> select * from dept;
+
+    DEPTNO DNAME          LOC
+---------- -------------- -------------
+        10 ACCOUNTING     NEW YORK
+        20 RESEARCH       DALLAS
+        30 SALES          CHICAGO
+        40 OPERATIONS     BOSTON
+
+SQL> desc dept;
+ 名称                                      是否为空? 类型
+ ----------------------------------------- -------- ----------------------------
+ DEPTNO                                    NOT NULL NUMBER(2)
+ DNAME                                              VARCHAR2(14)
+ LOC                                                VARCHAR2(13)
+
+SQL> insert into dept values (1,'研发部',nj);
+insert into dept values (1,'研发部',nj)
+                                    *
+第 1 行出现错误:
+ORA-00984: 列在此处不允许
+
+
+SQL> insert into dept values (1,'研发部','nj');
+
+已创建 1 行。
+
+SQL> select * from dept;
+
+    DEPTNO DNAME          LOC
+---------- -------------- -------------
+         1 研发部         nj
+        10 ACCOUNTING     NEW YORK
+        20 RESEARCH       DALLAS
+        30 SALES          CHICAGO
+        40 OPERATIONS     BOSTON
+
+SQL> insert into dept values (2,'研发2部',null);
+
+已创建 1 行。
+
+SQL> select * from dept;
+
+    DEPTNO DNAME          LOC
+---------- -------------- -------------
+         1 研发部         nj
+         2 研发2部
+        10 ACCOUNTING     NEW YORK
+        20 RESEARCH       DALLAS
+        30 SALES          CHICAGO
+        40 OPERATIONS     BOSTON
+
+已选择6行。
+
+SQL> insert into dept(deptno,dname) values (3,'研发3部');
+
+已创建 1 行。
+
+SQL> select * from dept;
+
+    DEPTNO DNAME          LOC
+---------- -------------- -------------
+         1 研发部         nj
+         2 研发2部
+         3 研发3部
+        10 ACCOUNTING     NEW YORK
+        20 RESEARCH       DALLAS
+        30 SALES          CHICAGO
+        40 OPERATIONS     BOSTON
+
+已选择7行。
+
+SQL> insert into dept values (1,'研发n部',null);
+insert into dept values (1,'研发n部',null)
+*
+第 1 行出现错误:
+ORA-00001: 违反唯一约束条件 (SCOTT.PK_DEPT)
+
+
+SQL> desc dept;
+ 名称                                      是否为空? 类型
+ ----------------------------------------- -------- ----------------------------
+ DEPTNO                                    NOT NULL NUMBER(2)
+ DNAME                                              VARCHAR2(14)
+ LOC                                                VARCHAR2(13)
+
+SQL> insert into dept values (10000,'研发n部',null);
+insert into dept values (10000,'研发n部',null)
+                         *
+第 1 行出现错误:
+ORA-01438: 值大于为此列指定的允许精度
+
+
+SQL> insert into dept values ('a','研发n部',null);
+insert into dept values ('a','研发n部',null)
+                         *
+第 1 行出现错误:
+ORA-01722: 无效数字
+
+
+SQL>
