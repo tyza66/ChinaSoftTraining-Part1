@@ -58,3 +58,4 @@ select SUBSTR(ENAME,1, 2) from emp;
 select mod(8,3) from dual;
 --30.使用ROUND函数取整。
 select round(1.2) from dual;
+

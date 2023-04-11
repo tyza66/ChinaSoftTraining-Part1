@@ -1,0 +1,116 @@
+
+SQL> select mod(10,3) from dept;
+
+ MOD(10,3)
+----------
+         1
+         1
+         1
+         1
+
+SQL> select empno from emp;
+
+     EMPNO
+----------
+      7369
+      7499
+      7521
+      7566
+      7654
+      7698
+      7782
+      7788
+      7839
+      7844
+      7876
+
+     EMPNO
+----------
+      7900
+      7902
+      7934
+      7936
+
+已选择15行。
+
+SQL> select count(empno) from emp;
+
+COUNT(EMPNO)
+------------
+          15
+
+SQL> select sum(sal) from emp;
+
+  SUM(SAL)
+----------
+     29025
+
+SQL> select avg(sal) from emp;
+
+  AVG(SAL)
+----------
+2073.21429
+
+SQL> select sum(nvl(sal,0))/15 from emp;
+
+SUM(NVL(SAL,0))/15
+------------------
+              1935
+
+SQL> select ename,sal from emp;
+
+ENAME             SAL
+---------- ----------
+SS_TH
+SMITH             800
+ALLEN            1600
+WARD             1250
+JONES            2975
+MARTIN           1250
+BLAKE            2850
+CLARK            2450
+SCOTT            3000
+KING             5000
+TURNER           1500
+
+ENAME             SAL
+---------- ----------
+ADAMS            1100
+JAMES             950
+FORD             3000
+MILLER           1300
+
+已选择15行。
+
+SQL> select min(sal) minsal,max(sal) maxsal from emp;
+
+    MINSAL     MAXSAL
+---------- ----------
+       800       5000
+
+SQL> select * from emp group by deptno;
+select * from emp group by deptno
+       *
+第 1 行出现错误:
+ORA-00979: 不是 GROUP BY 表达式
+
+
+SQL> select deptno from emp group by deptno;
+
+    DEPTNO
+----------
+
+        30
+        20
+        10
+
+SQL> select deptno, count(*) nums,sum(nvl(sal,0)) sumsal,avg(nvl(sal,0)) avgsal,max(sal) maxsal,min(sal) minsal from emp group by deptno;
+
+    DEPTNO       NUMS     SUMSAL     AVGSAL     MAXSAL     MINSAL
+---------- ---------- ---------- ---------- ---------- ----------
+                    1          0          0
+        30          6       9400 1566.66667       2850        950
+        20          5      10875       2175       3000        800
+        10          3       8750 2916.66667       5000       1300
+
+SQL>
