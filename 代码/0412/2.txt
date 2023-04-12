@@ -1,0 +1,330 @@
+
+SQL> create table student(no number,name varchar2(20));
+
+表已创建。
+
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+BONUS                          TABLE
+DEPT                           TABLE
+EMP                            TABLE
+EMP2                           TABLE
+NEWEMP                         TABLE
+SALGRADE                       TABLE
+STUDENT                        TABLE
+TT                             TABLE
+
+已选择8行。
+
+SQL> drop table student;
+
+表已删除。
+
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+BIN$vvSvulk2SACqgv3Y6YojVg==$0 TABLE
+BONUS                          TABLE
+DEPT                           TABLE
+EMP                            TABLE
+EMP2                           TABLE
+NEWEMP                         TABLE
+SALGRADE                       TABLE
+TT                             TABLE
+
+已选择8行。
+
+SQL> purge recyclebin;
+
+回收站已清空。
+
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+BONUS                          TABLE
+DEPT                           TABLE
+EMP                            TABLE
+EMP2                           TABLE
+NEWEMP                         TABLE
+SALGRADE                       TABLE
+TT                             TABLE
+
+已选择7行。
+
+SQL> drop table tt purge;
+
+表已删除。
+
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+BONUS                          TABLE
+DEPT                           TABLE
+EMP                            TABLE
+EMP2                           TABLE
+NEWEMP                         TABLE
+SALGRADE                       TABLE
+
+已选择6行。
+
+SQL> drop table emmp2 purge;
+drop table emmp2 purge
+           *
+第 1 行出现错误:
+ORA-00942: 表或视图不存在
+
+
+SQL> drop table emp2 purge;
+
+表已删除。
+
+SQL> drop table newemp purge;
+
+表已删除。
+
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+BONUS                          TABLE
+DEPT                           TABLE
+EMP                            TABLE
+SALGRADE                       TABLE
+
+SQL> create table student(no number,name char(10),addr varchar2(10),birthday date);
+
+表已创建。
+
+SQL> desc student;
+ 名称                                      是否为空? 类型
+ ----------------------------------------- -------- ----------------------------
+ NO                                                 NUMBER
+ NAME                                               CHAR(10)
+ ADDR                                               VARCHAR2(10)
+ BIRTHDAY                                           DATE
+
+SQL> insert into student values (1,'aaa','nanjing',to_date('1990-10-10','yyyy-mm-dd'));
+
+已创建 1 行。
+
+SQL> commit;
+
+提交完成。
+
+SQL> select * from student;
+
+        NO NAME       ADDR       BIRTHDAY
+---------- ---------- ---------- --------------
+         1 aaa        nanjing    10-10月-90
+
+SQL> select name,length(name),addr,length(addr) from student;
+
+NAME       LENGTH(NAME) ADDR       LENGTH(ADDR)
+---------- ------------ ---------- ------------
+aaa                  10 nanjing               7
+
+SQL> select '|'||name||'|' from student;
+
+'|'||NAME||'
+------------
+|aaa       |
+
+SQL> select * from student where name='aaa';
+
+        NO NAME       ADDR       BIRTHDAY
+---------- ---------- ---------- --------------
+         1 aaa        nanjing    10-10月-90
+
+SQL> desc student;
+ 名称                                      是否为空? 类型
+ ----------------------------------------- -------- ----------------------------
+ NO                                                 NUMBER
+ NAME                                               CHAR(10)
+ ADDR                                               VARCHAR2(10)
+ BIRTHDAY                                           DATE
+
+SQL> select * from student where name='aaa  ';
+
+        NO NAME       ADDR       BIRTHDAY
+---------- ---------- ---------- --------------
+         1 aaa        nanjing    10-10月-90
+
+SQL> select * from student where name='aa ';
+
+未选定行
+
+SQL> select * from student where name='aaa       ';
+
+        NO NAME       ADDR       BIRTHDAY
+---------- ---------- ---------- --------------
+         1 aaa        nanjing    10-10月-90
+
+SQL> alter table student add (sex char(1));
+
+表已更改。
+
+SQL> desc student;
+ 名称                                      是否为空? 类型
+ ----------------------------------------- -------- ----------------------------
+ NO                                                 NUMBER
+ NAME                                               CHAR(10)
+ ADDR                                               VARCHAR2(10)
+ BIRTHDAY                                           DATE
+ SEX                                                CHAR(1)
+
+SQL> select * from student;
+
+        NO NAME       ADDR       BIRTHDAY       S
+---------- ---------- ---------- -------------- -
+         1 aaa        nanjing    10-10月-90
+
+SQL> update student set sex='0';
+
+已更新 1 行。
+
+SQL> select * from student;
+
+        NO NAME       ADDR       BIRTHDAY       S
+---------- ---------- ---------- -------------- -
+         1 aaa        nanjing    10-10月-90     0
+
+SQL> alter table student add( hk varchar2(20),postcode number(6));
+
+表已更改。
+
+SQL> desc student;
+ 名称                                      是否为空? 类型
+ ----------------------------------------- -------- ----------------------------
+ NO                                                 NUMBER
+ NAME                                               CHAR(10)
+ ADDR                                               VARCHAR2(10)
+ BIRTHDAY                                           DATE
+ SEX                                                CHAR(1)
+ HK                                                 VARCHAR2(20)
+ POSTCODE                                           NUMBER(6)
+
+SQL> select * from student;
+
+        NO NAME       ADDR       BIRTHDAY       S HK
+---------- ---------- ---------- -------------- - --------------------
+  POSTCODE
+----------
+         1 aaa        nanjing    10-10月-90     0
+
+
+
+SQL> alter table student drop(hk);
+
+表已更改。
+
+SQL> desc student;
+ 名称                                      是否为空? 类型
+ ----------------------------------------- -------- ----------------------------
+ NO                                                 NUMBER
+ NAME                                               CHAR(10)
+ ADDR                                               VARCHAR2(10)
+ BIRTHDAY                                           DATE
+ SEX                                                CHAR(1)
+ POSTCODE                                           NUMBER(6)
+
+SQL> select * from student;
+
+        NO NAME       ADDR       BIRTHDAY       S   POSTCODE
+---------- ---------- ---------- -------------- - ----------
+         1 aaa        nanjing    10-10月-90     0
+
+SQL> update student set postcode=450000；
+  2  ;
+update student set postcode=450000；
+                                  *
+第 1 行出现错误:
+ORA-00911: 无效字符
+
+
+SQL> update student set postcode=450000;
+
+已更新 1 行。
+
+SQL> select * from student;
+
+        NO NAME       ADDR       BIRTHDAY       S   POSTCODE
+---------- ---------- ---------- -------------- - ----------
+         1 aaa        nanjing    10-10月-90     0     450000
+
+SQL> desc student;
+ 名称                                      是否为空? 类型
+ ----------------------------------------- -------- ----------------------------
+ NO                                                 NUMBER
+ NAME                                               CHAR(10)
+ ADDR                                               VARCHAR2(10)
+ BIRTHDAY                                           DATE
+ SEX                                                CHAR(1)
+ POSTCODE                                           NUMBER(6)
+
+SQL> alter table student modify(sex char(2));
+
+表已更改。
+
+SQL> desc student;
+ 名称                                      是否为空? 类型
+ ----------------------------------------- -------- ----------------------------
+ NO                                                 NUMBER
+ NAME                                               CHAR(10)
+ ADDR                                               VARCHAR2(10)
+ BIRTHDAY                                           DATE
+ SEX                                                CHAR(2)
+ POSTCODE                                           NUMBER(6)
+
+SQL> select * from student;
+
+        NO NAME       ADDR       BIRTHDAY       SE   POSTCODE
+---------- ---------- ---------- -------------- -- ----------
+         1 aaa        nanjing    10-10月-90     0      450000
+
+SQL> commit;
+
+提交完成。
+
+SQL> alter table student modify(sex number);
+alter table student modify(sex number)
+                           *
+第 1 行出现错误:
+ORA-01439: 要更改数据类型, 则要修改的列必须为空
+
+
+SQL> update student set sex=null;
+
+已更新 1 行。
+
+SQL> select * from student;
+
+        NO NAME       ADDR       BIRTHDAY       SE   POSTCODE
+---------- ---------- ---------- -------------- -- ----------
+         1 aaa        nanjing    10-10月-90            450000
+
+SQL> alter table student rename column sex to gender;
+
+表已更改。
+
+SQL> desc student;
+ 名称                                      是否为空? 类型
+ ----------------------------------------- -------- ----------------------------
+ NO                                                 NUMBER
+ NAME                                               CHAR(10)
+ ADDR                                               VARCHAR2(10)
+ BIRTHDAY                                           DATE
+ GENDER                                             CHAR(2)
+ POSTCODE                                           NUMBER(6)
+
+SQL> select * from student;
+
+        NO NAME       ADDR       BIRTHDAY       GE   POSTCODE
+---------- ---------- ---------- -------------- -- ----------
+         1 aaa        nanjing    10-10月-90            450000
+
+SQL>

@@ -1,0 +1,113 @@
+
+SQL> drop table student cascade constraints;
+
+表已删除。
+
+SQL> create table student(no number constraint pk_student primary key,name varchar(20) constraint nk_name not null ,phone varchar2(11) constraint uk_phone unique, sex char(1) constraint ck_sex check(sex in ('0','1')),cno number);
+
+表已创建。
+
+SQL> desc student;
+ 名称                                      是否为空? 类型
+ ----------------------------------------- -------- ----------------------------
+ NO                                        NOT NULL NUMBER
+ NAME                                      NOT NULL VARCHAR2(20)
+ PHONE                                              VARCHAR2(11)
+ SEX                                                CHAR(1)
+ CNO                                                NUMBER
+
+SQL> create table team(no number constraint pk_team primary key,name varchar2(20));
+
+表已创建。
+
+SQL> insert into student(no,name,cno) values (1,'aaa',1);
+
+已创建 1 行。
+
+SQL> select * from student;
+
+        NO NAME                 PHONE       S        CNO
+---------- -------------------- ----------- - ----------
+         1 aaa                                         1
+
+SQL> alter table student add constraint fk_student_team foreign key(cno) references team(no);
+alter table student add constraint fk_student_team foreign key(cno) references team(no)
+                                   *
+第 1 行出现错误:
+ORA-02298: 无法验证 (SCOTT.FK_STUDENT_TEAM) - 未找到父项关键字
+
+
+SQL> update student set cno=null;
+
+已更新 1 行。
+
+SQL> select * from student;
+
+        NO NAME                 PHONE       S        CNO
+---------- -------------------- ----------- - ----------
+         1 aaa
+
+SQL> alter table student add constraint fk_student_team foreign key(cno) references team(no);
+
+表已更改。
+
+SQL> select * from team;
+
+未选定行
+
+SQL> select * from student;
+
+        NO NAME                 PHONE       S        CNO
+---------- -------------------- ----------- - ----------
+         1 aaa
+
+SQL> insert into team values (1,'team1');
+
+已创建 1 行。
+
+SQL> insert into team values (2,'team2');
+
+已创建 1 行。
+
+SQL> commit;
+
+提交完成。
+
+SQL> select * from team;
+
+        NO NAME
+---------- --------------------
+         1 team1
+         2 team2
+
+SQL> select * from student;
+
+        NO NAME                 PHONE       S        CNO
+---------- -------------------- ----------- - ----------
+         1 aaa
+
+SQL> update student set cno=1;
+
+已更新 1 行。
+
+SQL> select * from student;
+
+        NO NAME                 PHONE       S        CNO
+---------- -------------------- ----------- - ----------
+         1 aaa                                         1
+
+SQL> select * from team;
+
+        NO NAME
+---------- --------------------
+         1 team1
+         2 team2
+
+SQL> delete from team where no=1;
+delete from team where no=1
+*
+第 1 行出现错误:
+ORA-02292: 违反完整约束条件 (SCOTT.FK_STUDENT_TEAM) - 已找到子记录
+
+
+SQL>

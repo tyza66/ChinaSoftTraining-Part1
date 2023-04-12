@@ -1,0 +1,351 @@
+Microsoft Windows [版本 10.0.19043.928]
+(c) Microsoft Corporation。保留所有权利。
+
+C:\Users\Administrator>sqlplus scott/tiger
+
+SQL*Plus: Release 11.2.0.1.0 Production on 星期三 4月 12 10:10:19 2023
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+
+连接到:
+Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+
+SQL> select * from student;
+
+        NO NAME       ADDR       BIRTHDAY       GE   POSTCODE
+---------- ---------- ---------- -------------- -- ----------
+         1 aaa        nanjing    10-10月-90            450000
+
+SQL> commit;
+
+提交完成。
+
+SQL> delete from student;
+
+已删除 1 行。
+
+SQL> select * from student;
+
+未选定行
+
+SQL> rollback;
+
+回退已完成。
+
+SQL> select * from student;
+
+        NO NAME       ADDR       BIRTHDAY       GE   POSTCODE
+---------- ---------- ---------- -------------- -- ----------
+         1 aaa        nanjing    10-10月-90            450000
+
+SQL> truncate table student;
+
+表被截断。
+
+SQL> select * from student;
+
+未选定行
+
+SQL> rollback;
+
+回退已完成。
+
+SQL> select * from student;
+
+未选定行
+
+SQL> desc student;
+ 名称                                      是否为空? 类型
+ ----------------------------------------- -------- ----------------------------
+ NO                                                 NUMBER
+ NAME                                               CHAR(10)
+ ADDR                                               VARCHAR2(10)
+ BIRTHDAY                                           DATE
+ GENDER                                             CHAR(2)
+ POSTCODE                                           NUMBER(6)
+
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+BONUS                          TABLE
+DEPT                           TABLE
+EMP                            TABLE
+SALGRADE                       TABLE
+STUDENT                        TABLE
+
+SQL> create table teacher(id number);
+
+表已创建。
+
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+BONUS                          TABLE
+DEPT                           TABLE
+EMP                            TABLE
+SALGRADE                       TABLE
+STUDENT                        TABLE
+TEACHER                        TABLE
+
+已选择6行。
+
+SQL> desc teacher;
+ 名称                                      是否为空? 类型
+ ----------------------------------------- -------- ----------------------------
+ ID                                                 NUMBER
+
+SQL> desc student;
+ 名称                                      是否为空? 类型
+ ----------------------------------------- -------- ----------------------------
+ NO                                                 NUMBER
+ NAME                                               CHAR(10)
+ ADDR                                               VARCHAR2(10)
+ BIRTHDAY                                           DATE
+ GENDER                                             CHAR(2)
+ POSTCODE                                           NUMBER(6)
+
+SQL> alter table student add(sname varchar2(10) default 'zr');
+
+表已更改。
+
+SQL> select * from student;
+
+未选定行
+
+SQL> desc student;
+ 名称                                      是否为空? 类型
+ ----------------------------------------- -------- ----------------------------
+ NO                                                 NUMBER
+ NAME                                               CHAR(10)
+ ADDR                                               VARCHAR2(10)
+ BIRTHDAY                                           DATE
+ GENDER                                             CHAR(2)
+ POSTCODE                                           NUMBER(6)
+ SNAME                                              VARCHAR2(10)
+
+SQL> insert into student(no,name,addr,birthday,gender) values (1,'aaa','nj',sysdate,'0');
+
+已创建 1 行。
+
+SQL> select * from student;
+
+        NO NAME       ADDR       BIRTHDAY       GE   POSTCODE SNAME
+---------- ---------- ---------- -------------- -- ---------- ----------
+         1 aaa        nj         12-4月 -23     0             zr
+
+SQL> insert into student(no,name,addr,birthday,gender,sname) values (2,'bbb','dl',sysdate,'0','zhongruan');
+
+已创建 1 行。
+
+SQL> select * from student;
+
+        NO NAME       ADDR       BIRTHDAY       GE   POSTCODE SNAME
+---------- ---------- ---------- -------------- -- ---------- ----------
+         1 aaa        nj         12-4月 -23     0             zr
+         2 bbb        dl         12-4月 -23     0             zhongruan
+
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+BONUS                          TABLE
+DEPT                           TABLE
+EMP                            TABLE
+SALGRADE                       TABLE
+STUDENT                        TABLE
+TEACHER                        TABLE
+
+已选择6行。
+
+SQL> create table emp2 as select * from emp;
+
+表已创建。
+
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+BONUS                          TABLE
+DEPT                           TABLE
+EMP                            TABLE
+EMP2                           TABLE
+SALGRADE                       TABLE
+STUDENT                        TABLE
+TEACHER                        TABLE
+
+已选择7行。
+
+SQL> desc emp2;
+ 名称                                      是否为空? 类型
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                              NUMBER(4)
+ ENAME                                              VARCHAR2(10)
+ JOB                                                VARCHAR2(9)
+ MGR                                                NUMBER(4)
+ HIREDATE                                           DATE
+ SAL                                                NUMBER(7,2)
+ COMM                                               NUMBER(7,2)
+ DEPTNO                                             NUMBER(2)
+
+SQL> select * from emp2;
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7936 SS_TH
+
+
+      7369 SMITH      CLERK           7902 17-12月-80            700
+        20
+
+      7499 ALLEN      SALESMAN        7698 20-2月 -81           1700        300
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7521 WARD       SALESMAN        7698 22-2月 -81           1250        500
+        30
+
+      7566 JONES      MANAGER         7839 02-4月 -81           2975
+        20
+
+      7654 MARTIN     SALESMAN        7698 28-9月 -81           1250       1400
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7698 BLAKE      MANAGER         7839 01-5月 -81           2850
+        30
+
+      7782 CLARK      MANAGER         7839 09-6月 -81           2450
+        10
+
+      7788 SCOTT      ANALYST         7566 19-4月 -87           3000
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7839 KING       PRESIDENT            17-11月-81           5000
+        10
+
+      7844 TURNER     SALESMAN        7698 08-9月 -81           1500          0
+        30
+
+      7876 ADAMS      CLERK           7788 23-5月 -87           1100
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7900 JAMES      CLERK           7698 03-12月-81            950
+        30
+
+      7902 FORD       ANALYST         7566 03-12月-81           3000
+        20
+
+      7934 MILLER     CLERK           7782 23-1月 -82           1300
+        10
+
+
+已选择15行。
+
+SQL> select empno,ename,sal from emp2;
+
+     EMPNO ENAME             SAL
+---------- ---------- ----------
+      7936 SS_TH
+      7369 SMITH             700
+      7499 ALLEN            1700
+      7521 WARD             1250
+      7566 JONES            2975
+      7654 MARTIN           1250
+      7698 BLAKE            2850
+      7782 CLARK            2450
+      7788 SCOTT            3000
+      7839 KING             5000
+      7844 TURNER           1500
+
+     EMPNO ENAME             SAL
+---------- ---------- ----------
+      7876 ADAMS            1100
+      7900 JAMES             950
+      7902 FORD             3000
+      7934 MILLER           1300
+
+已选择15行。
+
+SQL> create table emp3 as select * from emp where 1=2;
+
+表已创建。
+
+SQL> select * from emp3;
+
+未选定行
+
+SQL> desc emp3;
+ 名称                                      是否为空? 类型
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                              NUMBER(4)
+ ENAME                                              VARCHAR2(10)
+ JOB                                                VARCHAR2(9)
+ MGR                                                NUMBER(4)
+ HIREDATE                                           DATE
+ SAL                                                NUMBER(7,2)
+ COMM                                               NUMBER(7,2)
+ DEPTNO                                             NUMBER(2)
+
+SQL> desc emp2;
+ 名称                                      是否为空? 类型
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                              NUMBER(4)
+ ENAME                                              VARCHAR2(10)
+ JOB                                                VARCHAR2(9)
+ MGR                                                NUMBER(4)
+ HIREDATE                                           DATE
+ SAL                                                NUMBER(7,2)
+ COMM                                               NUMBER(7,2)
+ DEPTNO                                             NUMBER(2)
+
+SQL> alter table emp2 set unused(sal);
+
+表已更改。
+
+SQL> select empno,ename,sal from emp2;
+select empno,ename,sal from emp2
+                   *
+第 1 行出现错误:
+ORA-00904: "SAL": 标识符无效
+
+
+SQL> desc emp2;
+ 名称                                      是否为空? 类型
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                              NUMBER(4)
+ ENAME                                              VARCHAR2(10)
+ JOB                                                VARCHAR2(9)
+ MGR                                                NUMBER(4)
+ HIREDATE                                           DATE
+ COMM                                               NUMBER(7,2)
+ DEPTNO                                             NUMBER(2)
+
+SQL> alter table emp2 drop unused columns;
+
+表已更改。
+
+SQL>

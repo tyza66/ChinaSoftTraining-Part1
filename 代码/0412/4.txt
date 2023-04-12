@@ -1,0 +1,252 @@
+
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+BONUS                          TABLE
+DEPT                           TABLE
+EMP                            TABLE
+EMP2                           TABLE
+EMP3                           TABLE
+SALGRADE                       TABLE
+STUDENT                        TABLE
+TEACHER                        TABLE
+
+已选择8行。
+
+SQL> drop table student purge;
+
+表已删除。
+
+SQL> drop table teacher purge;
+
+表已删除。
+
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+BONUS                          TABLE
+DEPT                           TABLE
+EMP                            TABLE
+EMP2                           TABLE
+EMP3                           TABLE
+SALGRADE                       TABLE
+
+已选择6行。
+
+SQL> edit
+已写入 file afiedt.buf
+
+  1  create table student(
+  2     no number primary key
+  3* );
+SQL> run
+  1  create table student(
+  2     no number primary key
+  3* );
+);
+ *
+第 3 行出现错误:
+ORA-00911: 无效字符
+
+
+SQL> create table student( no number primary key);
+
+表已创建。
+
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+BONUS                          TABLE
+DEPT                           TABLE
+EMP                            TABLE
+EMP2                           TABLE
+EMP3                           TABLE
+SALGRADE                       TABLE
+STUDENT                        TABLE
+
+已选择7行。
+
+SQL> show user;
+USER 为 "SCOTT"
+SQL> desc user_constraints;
+ 名称                                      是否为空? 类型
+ ----------------------------------------- -------- ----------------------------
+ OWNER                                              VARCHAR2(30)
+ CONSTRAINT_NAME                           NOT NULL VARCHAR2(30)
+ CONSTRAINT_TYPE                                    VARCHAR2(1)
+ TABLE_NAME                                NOT NULL VARCHAR2(30)
+ SEARCH_CONDITION                                   LONG
+ R_OWNER                                            VARCHAR2(30)
+ R_CONSTRAINT_NAME                                  VARCHAR2(30)
+ DELETE_RULE                                        VARCHAR2(9)
+ STATUS                                             VARCHAR2(8)
+ DEFERRABLE                                         VARCHAR2(14)
+ DEFERRED                                           VARCHAR2(9)
+ VALIDATED                                          VARCHAR2(13)
+ GENERATED                                          VARCHAR2(14)
+ BAD                                                VARCHAR2(3)
+ RELY                                               VARCHAR2(4)
+ LAST_CHANGE                                        DATE
+ INDEX_OWNER                                        VARCHAR2(30)
+ INDEX_NAME                                         VARCHAR2(30)
+ INVALID                                            VARCHAR2(7)
+ VIEW_RELATED                                       VARCHAR2(14)
+
+SQL> select constraint_name,constraint_type,table_name from user_constraints;
+
+CONSTRAINT_NAME                C TABLE_NAME
+------------------------------ - ------------------------------
+PK_DEPT                        P DEPT
+PK_EMP                         P EMP
+FK_DEPTNO                      R EMP
+SYS_C0011053                   P STUDENT
+
+SQL> drop table student cascade constraints;
+
+表已删除。
+
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+BIN$1Pd89XPOSV6SpaNoYOLG5g==$0 TABLE
+BONUS                          TABLE
+DEPT                           TABLE
+EMP                            TABLE
+EMP2                           TABLE
+EMP3                           TABLE
+SALGRADE                       TABLE
+
+已选择7行。
+
+SQL> create table student(no number constraint pk_student primary key);
+
+表已创建。
+
+SQL> select constraint_name,constraint_type,table_name from user_constraints;
+
+CONSTRAINT_NAME                C TABLE_NAME
+------------------------------ - ------------------------------
+PK_DEPT                        P DEPT
+PK_EMP                         P EMP
+FK_DEPTNO                      R EMP
+BIN$EY2cn97KTSenkChpE+x4SA==$0 P BIN$1Pd89XPOSV6SpaNoYOLG5g==$0
+PK_STUDENT                     P STUDENT
+
+SQL> insert into student values (1);
+
+已创建 1 行。
+
+SQL> insert into student values (1);
+insert into student values (1)
+*
+第 1 行出现错误:
+ORA-00001: 违反唯一约束条件 (SCOTT.PK_STUDENT)
+
+
+SQL> select * from student;
+
+        NO
+----------
+         1
+
+SQL> drop table student cascade constaraints;
+drop table student cascade constaraints
+                           *
+第 1 行出现错误:
+ORA-00905: 缺失关键字
+
+
+SQL> drop table student cascade constraints;
+
+表已删除。
+
+SQL> create table student(no number constraint pk_student primary key,name varchar(20),phone varchar2(11) constraint uk_phone unique);
+
+表已创建。
+
+SQL> insert into student(no,name,phone) values (2,'aaa','133');
+
+已创建 1 行。
+
+SQL> insert into student(no,name,phone) values (3,'bbb','133');
+insert into student(no,name,phone) values (3,'bbb','133')
+*
+第 1 行出现错误:
+ORA-00001: 违反唯一约束条件 (SCOTT.UK_PHONE)
+
+
+SQL> insert into student(no,name,phone) values (3,'bbb',null);
+
+已创建 1 行。
+
+SQL> insert into student(no,name,phone) values (4,'ccc',null);
+
+已创建 1 行。
+
+SQL> select * from student;
+
+        NO NAME                 PHONE
+---------- -------------------- -----------
+         2 aaa                  133
+         3 bbb
+         4 ccc
+
+SQL> drop table student cascade constraints;
+
+表已删除。
+
+SQL> create table student(no number constraint pk_student primary key,name varchar(20) constraint nk_name not null ,phone varchar2(11) constraint uk_phone unique);
+
+表已创建。
+
+SQL> insert into student (no,name) values (1,'aaa');
+
+已创建 1 行。
+
+SQL> insert into student (no,name) values (2,null);
+insert into student (no,name) values (2,null)
+                                        *
+第 1 行出现错误:
+ORA-01400: 无法将 NULL 插入 ("SCOTT"."STUDENT"."NAME")
+
+
+SQL> drop table student cascade constraints;
+
+表已删除。
+
+SQL> create table student(no number constraint pk_student primary key,name varchar(20) constraint nk_name not null ,phone varchar2(11) constraint uk_phone unique, sex char(1) constraint ck_sex check(sex in ('0','1')));
+
+表已创建。
+
+SQL> insert into student(no,name,sex) values (1,'aa',null);
+
+已创建 1 行。
+
+SQL> insert into student(no,name,sex) values (2,'bb','1');
+
+已创建 1 行。
+
+SQL> insert into student(no,name,sex) values (3,'cc','0');
+
+已创建 1 行。
+
+SQL> insert into student(no,name,sex) values (4,'dd','2');
+insert into student(no,name,sex) values (4,'dd','2')
+*
+第 1 行出现错误:
+ORA-02290: 违反检查约束条件 (SCOTT.CK_SEX)
+
+
+SQL> select * from student;
+
+        NO NAME                 PHONE       S
+---------- -------------------- ----------- -
+         1 aa
+         2 bb                               1
+         3 cc                               0
+
+SQL>
