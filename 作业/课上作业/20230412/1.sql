@@ -80,90 +80,88 @@ select * from emp where to_char(hiredate,'mm')='02';
 –22查询所有员工入职以来的工作期限，用“年月**日”的形式表示。（不做）
 
 –23查询至少有一个员工的部门信息
- 
+select d.deptno,dname,loc from dept d where EXISTS(select count(*) from emp where d.deptno =emp.DEPTNO);
 
 –24查询工资比SMITH员工工资高的所有员工信息
+select * from emp where sal>(select sal from emp where ename = 'SMITH');
 
 –25查询所有员工的姓名及其直接上级的姓名
-
+select ename,(select ename from emp e2 where e1.mgr = e2.empno) from emp e1;
 
 –26查询入职日期早于其直接上级领导的所有员工信息
-
+select * from emp e1,emp e2 where (select hiredate from emp e2 where e1.mgr = e2.empno)<e1.hiredate;
 
 –27查询所有部门及其员工信息，包括那些没有员工的部门
-
+select d.deptno,dname,loc,e.* from emp e,dept d where d.deptno = e.deptno;
 
 –28查询所有工种为CLERK的员工的姓名及其部门名称
+select e.ename,d.dname from emp e,dept d where e.job = 'CLERK';
 
 –29查询最低工资大于2500的各种工作
-
-
+select job from emp GROUP BY job having min(sal)>2500;
 
 –31查询最低工资低于2000的部门及其员工信息
 select d.*,e.* from dept d,emp e where d.deptno = e.deptno and d.deptno in (select d.DEPTno from dept d,emp e where d.deptno=e.deptno GROUP BY e.deptno having (min(sal)<2000));
-
-
 –having函数用在group by子句的后面，对分组结果集进行条件筛选。可以使用别名.
 
 –32查询在SALES部门工作的员工的姓名信息
-
-
+select * from emp e,dept d where e.deptno= d.deptno and d.dname = 'SALES';
 
 –33查询工资高于公司平均工资的所有员工信息
-
+select ename,sal from emp group by  having sal>avg(sal);
 
 –34查询与SMITH员工从事相同工作的所有员工信息
-
+select * from emp where job = (select job from emp where ename = 'SMITH');
 
 –35列出工资等于30号部门中某个员工工资的所有员工的姓名和工资。
-
+select ename,sal from emp where sal in(SELECT sal from emp where deptno = 30);
 
 –36查询工资高于30号部门中工作的所有员工的工资的员工姓名和工资
+select ename,sal from emp,dept where sal>(SELECT max(sal) from emp GROUP BY deptno having deptno=30);
 
 –37查询每个部门中的员工数量、平均工资和平均工作年限
-
+select count(*),avg(sal),avg(TO_NUMBER(to_char(hiredate,'yyyy'))) from emp GROUP BY deptno;
 
 –trunc 函数可用于截取日期时间 例：trunc(sysdate,’yyyy’)
 
 –38查询从事同一种工作但不属于同一部门的员工信息
-
-
-
+select e1.* from emp e1,emp e2 where e1.job=e2.job and e1.deptno<>e2.deptno;
 
 –39查询各个部门的详细信息以及部门人数、部门平均工资
-
-
+select d.*,(select count(*) from emp e1 where e1.deptno = d.deptno),(select avg(e2.sal) from emp e2 where e2.deptno = d.deptno) from dept d;
 
 –40查询各种工作的最低工资
+select job,min(sal) from emp group by job;
 
 –41查询各个部门中的不同工种的最高工资
+select max(sal) from emp group by deptno,job;
 
 –42查询10号部门员工以及领导的信息
-
+select e1.*,e2.* from emp e1,emp e2 where e1.mgr = e2.empno and e1.deptno = 10;
 
 –43查询各个部门的人数及平均工资
+select avg(e2.sal) from emp e2 group by e2.deptno;
 
 –44查询工资为某个部门平均工资的员工信息
-
+select e.* from emp e where sal=(select avg(e2.sal) from emp e2 where e2.deptno = e.deptno group by e2.deptno);
 
 –45查询工资高于本部门平均工资的员工的信息
-
+select e.* from emp e where sal>(select avg(e2.sal) from emp e2 where e2.deptno = e.deptno group by e2.deptno);
 
 –46查询工资高于本部门平均工资的员工的信息及其部门的平均工资
-
-
+select e.*,(select avg(e2.sal) from emp e2 where e2.deptno = e.deptno group by e2.deptno) from emp e where sal>(select avg(e2.sal) from emp e2 where e2.deptno = e.deptno group by e2.deptno);
 
 –47查询工资高于20号部门某个员工工资的员工的信息
-
+select * from emp where sal>(select min(sal) from emp where deptno = 20 group by deptno);
 
 –48统计各个工种的人数与平均工资
-
+select deptno,count(ename),avg(sal) from emp group by deptno;
 
 –49统计每个部门中各个工种的人数与平均工资
-
+select deptno,job,count(ename),avg(sal) from emp group by deptno,job;
 
 –50查询工资、奖金与10号部门某个员工工资、奖金都相同的员工的信息
-
+select e2.* from emp e1,emp e2 where e1.sal = e2.sal and e1.comm = e2.comm and e2.deptno=10; 
 
 –51查询部门人数大于5的部门的员工的信息
 select e.* from emp e where e.deptno in (select d.DEPTno from dept d,emp e where d.deptno=e.deptno GROUP BY e.deptno having (count(*)>5));
