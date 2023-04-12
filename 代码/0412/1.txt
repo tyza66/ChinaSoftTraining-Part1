@@ -1,0 +1,203 @@
+Microsoft Windows [版本 10.0.19043.928]
+(c) Microsoft Corporation。保留所有权利。
+
+C:\Users\Administrator>sqlplus scott/tiger
+
+SQL*Plus: Release 11.2.0.1.0 Production on 星期三 4月 12 08:42:17 2023
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+
+连接到:
+Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+
+SQL> select ename,sal from emp;
+
+ENAME             SAL
+---------- ----------
+SS_TH
+SMITH             800
+ALLEN            1600
+WARD             1250
+JONES            2975
+MARTIN           1250
+BLAKE            2850
+CLARK            2450
+SCOTT            3000
+KING             5000
+TURNER           1500
+
+ENAME             SAL
+---------- ----------
+ADAMS            1100
+JAMES             950
+FORD             3000
+MILLER           1300
+
+已选择15行。
+
+SQL> update emp set sal=sal-100 where ename='SMITH';
+
+已更新 1 行。
+
+SQL> select ename,sal from emp where ename='SMITH';
+
+ENAME             SAL
+---------- ----------
+SMITH             700
+
+SQL> update emp set sal=sal+100 where ename='ALLEN';
+
+已更新 1 行。
+
+SQL> select ename,sal from emp where ename='ALLEN';
+
+ENAME             SAL
+---------- ----------
+ALLEN            1700
+
+SQL> commit;
+
+提交完成。
+
+SQL> select ename,sal from emp;
+
+ENAME             SAL
+---------- ----------
+SS_TH
+SMITH             700
+ALLEN            1700
+WARD             1250
+JONES            2975
+MARTIN           1250
+BLAKE            2850
+CLARK            2450
+SCOTT            3000
+KING             5000
+TURNER           1500
+
+ENAME             SAL
+---------- ----------
+ADAMS            1100
+JAMES             950
+FORD             3000
+MILLER           1300
+
+已选择15行。
+
+SQL> delete from emp where ename='SMITH' or ename='ALLEN';
+
+已删除2行。
+
+SQL> select empno,ename,sal from emp where ename in ('SMITH','ALLEN');
+
+未选定行
+
+SQL> rollback;
+
+回退已完成。
+
+SQL> select empno,ename,sal from emp where ename in ('SMITH','ALLEN');
+
+     EMPNO ENAME             SAL
+---------- ---------- ----------
+      7369 SMITH             700
+      7499 ALLEN            1700
+
+SQL> update set sal=3000 where ename='SMITH';
+update set sal=3000 where ename='SMITH'
+       *
+第 1 行出现错误:
+ORA-00903: 表名无效
+
+
+SQL> update emp set sal=3000 where ename='SMITH';
+
+已更新 1 行。
+
+SQL> select empno,ename,sal from emp where ename in ('SMITH','ALLEN');
+
+     EMPNO ENAME             SAL
+---------- ---------- ----------
+      7369 SMITH            3000
+      7499 ALLEN            1700
+
+SQL> rollback;
+
+回退已完成。
+
+SQL> select empno,ename,sal from emp where ename in ('SMITH','ALLEN');
+
+     EMPNO ENAME             SAL
+---------- ---------- ----------
+      7369 SMITH             700
+      7499 ALLEN            1700
+
+SQL> select * from dept;
+
+    DEPTNO DNAME          LOC
+---------- -------------- -------------
+        10 ACCOUNTING     NEW YORK
+        20 RESEARCH       DALLAS
+        30 SALES          CHICAGO
+        40 OPERATIONS     BOSTON
+
+SQL> insert into dept(deptno,dname) values (1,'yfbm');
+
+已创建 1 行。
+
+SQL> select * from dept;
+
+    DEPTNO DNAME          LOC
+---------- -------------- -------------
+         1 yfbm
+        10 ACCOUNTING     NEW YORK
+        20 RESEARCH       DALLAS
+        30 SALES          CHICAGO
+        40 OPERATIONS     BOSTON
+
+SQL> quit;
+从 Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options 断开
+
+C:\Users\Administrator>sqlplus scott/tiger
+
+SQL*Plus: Release 11.2.0.1.0 Production on 星期三 4月 12 08:49:28 2023
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+
+连接到:
+Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+
+SQL> select * from dept;
+
+    DEPTNO DNAME          LOC
+---------- -------------- -------------
+         1 yfbm
+        10 ACCOUNTING     NEW YORK
+        20 RESEARCH       DALLAS
+        30 SALES          CHICAGO
+        40 OPERATIONS     BOSTON
+
+SQL> create table tt(id number);
+
+表已创建。
+
+
+
+
+
+
+
+
+
+
+SQL> desc tt;
+ 名称                                      是否为空? 类型
+ ----------------------------------------- -------- ----------------------------
+ ID                                                 NUMBER
+
+SQL>
