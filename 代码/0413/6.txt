@@ -1,0 +1,103 @@
+
+SQL> show user;
+USER 为 "SCOTT"
+SQL> create synonym e for emp;
+create synonym e for emp
+*
+第 1 行出现错误:
+ORA-01031: 权限不足
+
+
+SQL> conn system/orcl;
+已连接。
+SQL> show user;
+USER 为 "SYSTEM"
+SQL> grant create synonym to scott;
+
+授权成功。
+
+SQL> conn scott/tiger;
+已连接。
+SQL> create synonym e for emp;
+
+同义词已创建。
+
+SQL> select empno,ename from emp;
+
+     EMPNO ENAME
+---------- ----------
+      7936 SS_TH
+         1 aaa
+         2 aaa
+         3 aaa
+      7369 SMITH
+      7499 ALLEN
+      7521 WARD
+      7566 JONES
+      7654 MARTIN
+      7698 BLAKE
+      7782 CLARK
+
+     EMPNO ENAME
+---------- ----------
+      7788 SCOTT
+      7839 KING
+      7844 TURNER
+      7876 ADAMS
+      7900 JAMES
+      7902 FORD
+      7934 MILLER
+
+已选择18行。
+
+SQL> select empno,ename from e;
+
+     EMPNO ENAME
+---------- ----------
+      7936 SS_TH
+         1 aaa
+         2 aaa
+         3 aaa
+      7369 SMITH
+      7499 ALLEN
+      7521 WARD
+      7566 JONES
+      7654 MARTIN
+      7698 BLAKE
+      7782 CLARK
+
+     EMPNO ENAME
+---------- ----------
+      7788 SCOTT
+      7839 KING
+      7844 TURNER
+      7876 ADAMS
+      7900 JAMES
+      7902 FORD
+      7934 MILLER
+
+已选择18行。
+
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+BIN$1Pd89XPOSV6SpaNoYOLG5g==$0 TABLE
+BIN$hQfYzl2bQa2WQzRDTaDpmw==$0 TABLE
+BIN$rkRV7MguSL6GbCRFUzcvwQ==$0 TABLE
+BONUS                          TABLE
+DEPT                           TABLE
+E                              SYNONYM
+EMP                            TABLE
+EMP2                           TABLE
+EMP3                           TABLE
+SALGRADE                       TABLE
+STUDENT                        TABLE
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+TEAM                           TABLE
+
+已选择12行。
+
+SQL>

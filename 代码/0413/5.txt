@@ -1,0 +1,164 @@
+
+SQL> desc user_indexes;
+ 名称                                      是否为空? 类型
+ ----------------------------------------- -------- ----------------------------
+ INDEX_NAME                                NOT NULL VARCHAR2(30)
+ INDEX_TYPE                                         VARCHAR2(27)
+ TABLE_OWNER                               NOT NULL VARCHAR2(30)
+ TABLE_NAME                                NOT NULL VARCHAR2(30)
+ TABLE_TYPE                                         VARCHAR2(11)
+ UNIQUENESS                                         VARCHAR2(9)
+ COMPRESSION                                        VARCHAR2(8)
+ PREFIX_LENGTH                                      NUMBER
+ TABLESPACE_NAME                                    VARCHAR2(30)
+ INI_TRANS                                          NUMBER
+ MAX_TRANS                                          NUMBER
+ INITIAL_EXTENT                                     NUMBER
+ NEXT_EXTENT                                        NUMBER
+ MIN_EXTENTS                                        NUMBER
+ MAX_EXTENTS                                        NUMBER
+ PCT_INCREASE                                       NUMBER
+ PCT_THRESHOLD                                      NUMBER
+ INCLUDE_COLUMN                                     NUMBER
+ FREELISTS                                          NUMBER
+ FREELIST_GROUPS                                    NUMBER
+ PCT_FREE                                           NUMBER
+ LOGGING                                            VARCHAR2(3)
+ BLEVEL                                             NUMBER
+ LEAF_BLOCKS                                        NUMBER
+ DISTINCT_KEYS                                      NUMBER
+ AVG_LEAF_BLOCKS_PER_KEY                            NUMBER
+ AVG_DATA_BLOCKS_PER_KEY                            NUMBER
+ CLUSTERING_FACTOR                                  NUMBER
+ STATUS                                             VARCHAR2(8)
+ NUM_ROWS                                           NUMBER
+ SAMPLE_SIZE                                        NUMBER
+ LAST_ANALYZED                                      DATE
+ DEGREE                                             VARCHAR2(40)
+ INSTANCES                                          VARCHAR2(40)
+ PARTITIONED                                        VARCHAR2(3)
+ TEMPORARY                                          VARCHAR2(1)
+ GENERATED                                          VARCHAR2(1)
+ SECONDARY                                          VARCHAR2(1)
+ BUFFER_POOL                                        VARCHAR2(7)
+ FLASH_CACHE                                        VARCHAR2(7)
+ CELL_FLASH_CACHE                                   VARCHAR2(7)
+ USER_STATS                                         VARCHAR2(3)
+ DURATION                                           VARCHAR2(15)
+ PCT_DIRECT_ACCESS                                  NUMBER
+ ITYP_OWNER                                         VARCHAR2(30)
+ ITYP_NAME                                          VARCHAR2(30)
+ PARAMETERS                                         VARCHAR2(1000)
+ GLOBAL_STATS                                       VARCHAR2(3)
+ DOMIDX_STATUS                                      VARCHAR2(12)
+ DOMIDX_OPSTATUS                                    VARCHAR2(6)
+ FUNCIDX_STATUS                                     VARCHAR2(8)
+ JOIN_INDEX                                         VARCHAR2(3)
+ IOT_REDUNDANT_PKEY_ELIM                            VARCHAR2(3)
+ DROPPED                                            VARCHAR2(3)
+ VISIBILITY                                         VARCHAR2(9)
+ DOMIDX_MANAGEMENT                                  VARCHAR2(14)
+ SEGMENT_CREATED                                    VARCHAR2(3)
+
+SQL> select index_name,table_name from user_indexes;
+
+INDEX_NAME                     TABLE_NAME
+------------------------------ ------------------------------
+PK_TEAM                        TEAM
+PK_STUDENT                     STUDENT
+UK_PHONE                       STUDENT
+PK_EMP                         EMP
+PK_DEPT                        DEPT
+
+SQL> desc user_ind_columns;
+ 名称                                      是否为空? 类型
+ ----------------------------------------- -------- ----------------------------
+ INDEX_NAME                                         VARCHAR2(30)
+ TABLE_NAME                                         VARCHAR2(30)
+ COLUMN_NAME                                        VARCHAR2(4000)
+ COLUMN_POSITION                                    NUMBER
+ COLUMN_LENGTH                                      NUMBER
+ CHAR_LENGTH                                        NUMBER
+ DESCEND                                            VARCHAR2(4)
+
+SQL> select index_name,table_name,column_name from user_ind_columns;
+
+INDEX_NAME                     TABLE_NAME
+------------------------------ ------------------------------
+COLUMN_NAME
+--------------------------------------------------------------------------------
+BIN$0v2fAASVS/aJBX2+G7NFyw==$0 BIN$rkRV7MguSL6GbCRFUzcvwQ==$0
+PHONE
+
+BIN$HBlAlca0S52WM8EvJcjr7A==$0 BIN$1Pd89XPOSV6SpaNoYOLG5g==$0
+NO
+
+BIN$KpMrxJyZTXCJ9ZNQXAlWHQ==$0 BIN$rkRV7MguSL6GbCRFUzcvwQ==$0
+NO
+
+
+INDEX_NAME                     TABLE_NAME
+------------------------------ ------------------------------
+COLUMN_NAME
+--------------------------------------------------------------------------------
+BIN$PPxROZcvRqC/xwueRRlmNw==$0 BIN$hQfYzl2bQa2WQzRDTaDpmw==$0
+PHONE
+
+BIN$T2nKA0fJR2G/6/yVSgZfJQ==$0 BIN$hQfYzl2bQa2WQzRDTaDpmw==$0
+NO
+
+PK_DEPT                        DEPT
+DEPTNO
+
+
+INDEX_NAME                     TABLE_NAME
+------------------------------ ------------------------------
+COLUMN_NAME
+--------------------------------------------------------------------------------
+PK_EMP                         EMP
+EMPNO
+
+PK_STUDENT                     STUDENT
+NO
+
+PK_TEAM                        TEAM
+NO
+
+
+INDEX_NAME                     TABLE_NAME
+------------------------------ ------------------------------
+COLUMN_NAME
+--------------------------------------------------------------------------------
+UK_PHONE                       STUDENT
+PHONE
+
+
+已选择10行。
+
+SQL> select empno,ename from emp where empno=7788;
+
+     EMPNO ENAME
+---------- ----------
+      7788 SCOTT
+
+SQL> select empno,ename from emp where ename='SMITH';
+
+     EMPNO ENAME
+---------- ----------
+      7369 SMITH
+
+SQL> create index idx_ename on emp(ename);
+
+索引已创建。
+
+SQL> select empno,ename from emp where ename='SMITH';
+
+     EMPNO ENAME
+---------- ----------
+      7369 SMITH
+
+SQL> drop index idx_ename;
+
+索引已删除。
+
+SQL>

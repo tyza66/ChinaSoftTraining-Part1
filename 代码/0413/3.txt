@@ -1,0 +1,74 @@
+Microsoft Windows [版本 10.0.19043.928]
+(c) Microsoft Corporation。保留所有权利。
+
+C:\Users\Administrator>sqlplus scott/tiger
+
+SQL*Plus: Release 11.2.0.1.0 Production on 星期四 4月 13 09:41:06 2023
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+
+连接到:
+Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+
+SQL> create sequence myseq;
+
+序列已创建。
+
+SQL> desc user_sequences;
+ 名称                                      是否为空? 类型
+ ----------------------------------------- -------- ----------------------------
+ SEQUENCE_NAME                             NOT NULL VARCHAR2(30)
+ MIN_VALUE                                          NUMBER
+ MAX_VALUE                                          NUMBER
+ INCREMENT_BY                              NOT NULL NUMBER
+ CYCLE_FLAG                                         VARCHAR2(1)
+ ORDER_FLAG                                         VARCHAR2(1)
+ CACHE_SIZE                                NOT NULL NUMBER
+ LAST_NUMBER                               NOT NULL NUMBER
+
+SQL> select sequence_name,min_value,max_value,increment_by from user_sequences;
+
+SEQUENCE_NAME                   MIN_VALUE  MAX_VALUE INCREMENT_BY
+------------------------------ ---------- ---------- ------------
+MYSEQ                                   1 1.0000E+28            1
+SEQ1                                    1 1.0000E+28            1
+
+SQL> select myseq.nextval from dual;
+
+   NEXTVAL
+----------
+         1
+
+SQL> select myseq.nextval from dual;
+
+   NEXTVAL
+----------
+         2
+
+SQL> select myseq.nextval from dual;
+
+   NEXTVAL
+----------
+         3
+
+SQL> select myseq.currval from dual;
+
+   CURRVAL
+----------
+         3
+
+SQL> select myseq.nextval from dual;
+
+   NEXTVAL
+----------
+         4
+
+SQL> select myseq.nextval from dual;
+
+   NEXTVAL
+----------
+         5
+
+SQL>

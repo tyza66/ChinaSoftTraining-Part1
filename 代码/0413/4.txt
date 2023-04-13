@@ -1,0 +1,231 @@
+
+SQL> create sequence myseq2 start with 100 increment by -1;
+create sequence myseq2 start with 100 increment by -1
+*
+第 1 行出现错误:
+ORA-04008: START WITH 不能大于 MAXVALUE
+
+
+SQL> create sequence myseq2 start with 100 increment by -1 maxvalue 100;
+
+序列已创建。
+
+SQL> select myseq2.nextval from dual;
+
+   NEXTVAL
+----------
+       100
+
+SQL> select myseq2.nextval from dual;
+
+   NEXTVAL
+----------
+        99
+
+SQL> select myseq2.nextval from dual;
+
+   NEXTVAL
+----------
+        98
+
+SQL> select myseq2.nextval from dual;
+
+   NEXTVAL
+----------
+        97
+
+SQL>
+SQL> select myseq2.nextval from dual;
+
+   NEXTVAL
+----------
+        96
+
+SQL> create sequence myseq3 start with 1 increment by 2 maxvalue 6;
+
+序列已创建。
+
+SQL> select myseq3.nextval from dual;
+
+   NEXTVAL
+----------
+         1
+
+SQL> select myseq3.nextval from dual;
+
+   NEXTVAL
+----------
+         3
+
+SQL> select myseq3.nextval from dual;
+
+   NEXTVAL
+----------
+         5
+
+SQL> select myseq3.nextval from dual;
+select myseq3.nextval from dual
+*
+第 1 行出现错误:
+ORA-08004: 序列 MYSEQ3.NEXTVAL exceeds MAXVALUE 无法实例化
+
+
+SQL> create sequence myseq4 start with 1 increment by 2 maxvalue  6 cache 2 cycle;
+
+序列已创建。
+
+SQL> select myseq4.nextval from dual;
+
+   NEXTVAL
+----------
+         1
+
+SQL> select myseq4.nextval from dual;
+
+   NEXTVAL
+----------
+         3
+
+SQL> select myseq4.nextval from dual;
+
+   NEXTVAL
+----------
+         5
+
+SQL> select myseq4.nextval from dual;
+
+   NEXTVAL
+----------
+         1
+
+SQL> desc emp;
+ 名称                                      是否为空? 类型
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                     NOT NULL NUMBER(4)
+ ENAME                                              VARCHAR2(10)
+ JOB                                                VARCHAR2(9)
+ MGR                                                NUMBER(4)
+ HIREDATE                                           DATE
+ SAL                                                NUMBER(7,2)
+ COMM                                               NUMBER(7,2)
+ DEPTNO                                             NUMBER(2)
+
+SQL> create sequence seq_emp;
+
+序列已创建。
+
+SQL> select * from emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7936 SS_TH
+
+
+      7369 SMITH      CLERK           7902 17-12月-80            700
+        20
+
+      7499 ALLEN      SALESMAN        7698 20-2月 -81           1700        300
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7521 WARD       SALESMAN        7698 22-2月 -81           1250        500
+        30
+
+      7566 JONES      MANAGER         7839 02-4月 -81           2975
+        20
+
+      7654 MARTIN     SALESMAN        7698 28-9月 -81           1250       1400
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7698 BLAKE      MANAGER         7839 01-5月 -81           2850
+        30
+
+      7782 CLARK      MANAGER         7839 09-6月 -81           2450
+        10
+
+      7788 SCOTT      ANALYST         7566 19-4月 -87           3000
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7839 KING       PRESIDENT            17-11月-81           5000
+        10
+
+      7844 TURNER     SALESMAN        7698 08-9月 -81           1500          0
+        30
+
+      7876 ADAMS      CLERK           7788 23-5月 -87           1100
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE              SAL       COMM
+---------- ---------- --------- ---------- -------------- ---------- ----------
+    DEPTNO
+----------
+      7900 JAMES      CLERK           7698 03-12月-81            950
+        30
+
+      7902 FORD       ANALYST         7566 03-12月-81           3000
+        20
+
+      7934 MILLER     CLERK           7782 23-1月 -82           1300
+        10
+
+
+已选择15行。
+
+SQL> insert into emp(empno,ename) values (seq_emp.nextval,'aaa');
+
+已创建 1 行。
+
+SQL> insert into emp(empno,ename) values (seq_emp.nextval,'aaa');
+
+已创建 1 行。
+
+SQL> insert into emp(empno,ename) values (seq_emp.nextval,'aaa');
+
+已创建 1 行。
+
+SQL> select empno,ename from emp;
+
+     EMPNO ENAME
+---------- ----------
+      7936 SS_TH
+         1 aaa
+         2 aaa
+         3 aaa
+      7369 SMITH
+      7499 ALLEN
+      7521 WARD
+      7566 JONES
+      7654 MARTIN
+      7698 BLAKE
+      7782 CLARK
+
+     EMPNO ENAME
+---------- ----------
+      7788 SCOTT
+      7839 KING
+      7844 TURNER
+      7876 ADAMS
+      7900 JAMES
+      7902 FORD
+      7934 MILLER
+
+已选择18行。
+
+SQL>
