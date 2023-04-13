@@ -38,12 +38,13 @@ select ename from emp where job=(select job from emp where ename='SCOTT')
 　　
 
 　　--11、列出某些雇员的姓名和薪金，条件是他们的薪金等于部门30中任何一个雇员的薪金
-elect ename,sal from emp where sal =(select sal from emp where deptno=30)
+select ename,sal from emp where sal =(select sal from emp where deptno=30)
 　　
 
 　　--12、列出某些雇员的姓名和薪金，条件是他们的薪金高于部门30中所有雇员的薪金
 
-　　s
+　　select ename,sal from emp where sal>all(select sal from emp where deptno=30)
+　　
 
 　　--13、列出每个部门的信息以及该部门中雇员的数量
 select d.deptno,d.dname,count(e.ename) from dept d left join emp e on d.deptno=e.deptno group by d.deptno,d.dname
