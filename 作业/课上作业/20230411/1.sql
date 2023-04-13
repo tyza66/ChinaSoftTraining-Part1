@@ -38,5 +38,6 @@ select (select e2.ename from emp e2 where e2.EMPNO= e.mgr),min(sal) from emp e g
 select * from emp order by (sal*12+nvl(comm,0));
 --20、列出薪金水平处于第四位的雇员
 select * from (select rownum rn,e.* from emp e order by e.sal) where rn=4;
+select empno,ename,sal from emp where sal >=(select losal from salgrade where grade=4) and sal<= (select hisal from salgrade where grade=4);
 
 
