@@ -19,7 +19,6 @@ public class Test1 {
             Connection conn = DriverManager.getConnection(url, user, password);
             //3.创建Statement对象 找一辆车
             Statement stmt = conn.createStatement();
-            System.out.println(stmt);
             //4.执行操作 拉货 executeQuery是专门查询的
             ResultSet rs = stmt.executeQuery("select * from STU");
             //5.处理结果集 处理拉回来的货物
