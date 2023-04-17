@@ -3,9 +3,9 @@ package pojo;
 import java.sql.Date;
 
 /**
- * @author: tyza66
- * @Date: 2023/04/14 10:46
- * @Github: https://github.com/tyza66
+ * Author: tyza66
+ * Date: 2023/04/14 10:46
+ * Github: https://github.com/tyza66
  */
 public class Student {
     int id;
