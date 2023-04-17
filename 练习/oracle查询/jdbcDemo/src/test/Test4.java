@@ -3,6 +3,7 @@ package test;
 import org.junit.Test;
 
 import java.sql.*;
+import java.util.Objects;
 
 /**
  * Author: tyza66
@@ -37,7 +38,7 @@ public class Test4 {
             stmt.executeUpdate(sql2);
             //手动提交事务 如果执行到了这一行 就说明没有报异常
             conn.commit();
-            if (stmt != null) {
+            if (Objects.nonNull(stmt)) {
                 stmt.close();
             }
         } catch (Exception e) {
