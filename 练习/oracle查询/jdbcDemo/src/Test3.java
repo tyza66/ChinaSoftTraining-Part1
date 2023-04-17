@@ -14,6 +14,7 @@ public class Test3 {
     public void testCreateTable() {
         createTable("empp");
     }
+    //创建表
     public void createTable(String tableName){
         String driverClassName = "oracle.jdbc.OracleDriver";
         String user = "scott";

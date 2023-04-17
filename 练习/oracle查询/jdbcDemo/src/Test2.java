@@ -30,7 +30,7 @@ public class Test2 {
     public void TestDeleteById() {
         deleteById(3);
     }
-
+    //使用id进行查找
     public Student queryOneById(int id1) {
         String driverClassName = "oracle.jdbc.OracleDriver";
         String user = "scott";
@@ -67,7 +67,7 @@ public class Test2 {
         }
         return null;
     }
-
+    //使用student对象添加一条
     public void addOne(Student s) {
         String driverClassName = "oracle.jdbc.OracleDriver";
         String user = "scott";
@@ -91,7 +91,7 @@ public class Test2 {
             System.out.println(e.getMessage());
         }
     }
-
+    //使用id进行更新
     public void updateById(Student s) {
         String driverClassName = "oracle.jdbc.OracleDriver";
         String user = "scott";
@@ -115,7 +115,7 @@ public class Test2 {
             System.out.println(e.getMessage());
         }
     }
-
+    //使用id进行删除
     public void deleteById(int id) {
         String driverClassName = "oracle.jdbc.OracleDriver";
         String user = "scott";
