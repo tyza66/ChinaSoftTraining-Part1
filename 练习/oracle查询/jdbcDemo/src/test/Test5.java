@@ -13,6 +13,7 @@ import java.util.List;
  * Github: https://github.com/tyza66
  */
 public class Test5 {
+
     @Test
     public void testStudentDao() {
         StudentDao studentDao = new StudentDaoImpl();
@@ -26,5 +27,21 @@ public class Test5 {
         StudentDao studentDao = new StudentDaoImpl();
         Student student = studentDao.queryStudentById(1);
         System.out.println(student);
+    }
+
+    @Test
+    public void testStudentDao3() {
+        StudentDao studentDao = new StudentDaoImpl();
+        int student = studentDao.deleteStudentById(1);
+        System.out.println(student);
+    }
+
+    @Test
+    public void testStudentDao4() {
+        StudentDao studentDao = new StudentDaoImpl();
+        List<Student> students = studentDao.queryStudentByMohu("三");
+        for(Student student : students) {
+            System.out.println(student);
+        }
     }
 }

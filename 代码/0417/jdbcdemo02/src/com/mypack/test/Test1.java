@@ -23,4 +23,16 @@ public class Test1 {
         Student student = dao.queryStudentById(2);
         System.out.println(student);
     }
+
+    @Test
+    public void testDeleteOne(){
+        int row = dao.deleteStudentById(4);
+        System.out.println("删除了"+row+"行");
+    }
+
+    @Test
+    public void testQueryByMohu(){
+        List<Student> list = dao.queryStudentByMohu("张");
+        System.out.println(list);
+    }
 }
