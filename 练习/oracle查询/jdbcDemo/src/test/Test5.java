@@ -18,10 +18,11 @@ public class Test5 {
     public void testStudentDao() {
         StudentDao studentDao = new StudentDaoImpl();
         List<Student> students = studentDao.queryStudent();
-        for(Student student : students) {
+        for (Student student : students) {
             System.out.println(student);
         }
     }
+
     @Test
     public void testStudentDao2() {
         StudentDao studentDao = new StudentDaoImpl();
@@ -40,7 +41,7 @@ public class Test5 {
     public void testStudentDao4() {
         StudentDao studentDao = new StudentDaoImpl();
         List<Student> students = studentDao.queryStudentByMohu("三");
-        for(Student student : students) {
+        for (Student student : students) {
             System.out.println(student);
         }
     }
