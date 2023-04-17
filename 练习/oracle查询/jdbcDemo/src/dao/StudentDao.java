@@ -15,4 +15,6 @@ public interface StudentDao {
     public int deleteStudentById(int id);
     //模糊查询
     public List<Student> queryStudentByMohu(String mohu);
+    public int addStudent(Student student);
+    public int updateStudent(Student student);
 }

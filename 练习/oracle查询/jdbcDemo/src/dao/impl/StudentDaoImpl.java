@@ -152,5 +152,50 @@ public class StudentDaoImpl implements StudentDao {
         return null;
     }
 
+    @Override
+    public int addStudent(Student student) {
+        Connection connection = DBUtil.getConnection();
+        String sql = "insert into stu values(?,?,?,?,?,?)";
+        try {
+            assert connection != null;
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            pstmt.setInt(1, student.getId());
+            pstmt.setString(2, student.getName());
+            pstmt.setInt(3, student.getAge());
+            pstmt.setDate(4, student.getBirthday());
+            pstmt.setString(5, student.getAddress());
+            pstmt.setString(6, student.getPhoto());
+            int i = pstmt.executeUpdate();
+            DBUtil.close(pstmt, connection);
+            return i;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return 0;
+    }
+
+    @Override
+    public int updateStudent(Student student) {
+        Connection connection = DBUtil.getConnection();
+        String sql = "update stu set name = ?,age = ?,birthday = ?,address = ?,photo = ? where id = ?";
+        try {
+            //断言 ： 如果为真就继续执行 如果为假就终止
+            assert connection != null;
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            pstmt.setInt(6, student.getId());
+            pstmt.setString(1, student.getName());
+            pstmt.setInt(2, student.getAge());
+            pstmt.setDate(3, student.getBirthday());
+            pstmt.setString(4, student.getAddress());
+            pstmt.setString(5, student.getPhoto());
+            int i = pstmt.executeUpdate();
+            DBUtil.close(pstmt, connection);
+            return i;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return 0;
+    }
+
 
 }
