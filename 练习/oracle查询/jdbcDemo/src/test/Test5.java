@@ -46,16 +46,18 @@ public class Test5 {
             System.out.println(student);
         }
     }
+
     @Test
     public void testStudentDao5() {
         StudentDao studentDao = new StudentDaoImpl();
-        int students = studentDao.addStudent(new Student(5,"小明名",96,Date.valueOf("2001-08-24"),"6","6"));
+        int students = studentDao.addStudent(new Student(5, "小明名", 96, Date.valueOf("2001-08-24"), "6", "6"));
         System.out.println(students);
     }
+
     @Test
     public void testStudentDao6() {
         StudentDao studentDao = new StudentDaoImpl();
-        int students = studentDao.updateStudent(new Student(2,"小明21",96,Date.valueOf("2001-08-24"),"6","6"));
+        int students = studentDao.updateStudent(new Student(2, "小明21", 96, Date.valueOf("2001-08-24"), "6", "6"));
         System.out.println(students);
     }
 }
