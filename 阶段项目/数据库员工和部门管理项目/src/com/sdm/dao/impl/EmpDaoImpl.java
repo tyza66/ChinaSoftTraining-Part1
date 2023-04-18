@@ -6,6 +6,7 @@ import com.sdm.pojo.Emp;
 import com.sdm.util.DBUtil;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,11 +24,11 @@ public class EmpDaoImpl implements EmpDao {
             assert conn != null;
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            List<Emp> emps = null;
+            List<Emp> emps = new ArrayList<Emp>();
             while (rs.next()) {
                 Emp emp = new Emp();
-                emp.setEmpNo(rs.getInt("id"));
-                emp.seteName(rs.getString("name"));
+                emp.setEmpNo(rs.getInt("empno"));
+                emp.seteName(rs.getString("ename"));
                 emp.setJob(rs.getString("JOB"));
                 emp.setMGR(rs.getInt("MGR"));
                 emp.setHireDate(rs.getDate("HIREDATE"));
@@ -46,7 +47,7 @@ public class EmpDaoImpl implements EmpDao {
     @Override
     public Emp queryById(int id) {
         Connection conn = DBUtil.getConnection();
-        String sql = "select * from emp where id = ?";
+        String sql = "select * from emp where empno = ?";
         try {
             assert conn != null;
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -54,8 +55,8 @@ public class EmpDaoImpl implements EmpDao {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Emp emp = new Emp();
-                emp.setEmpNo(rs.getInt("id"));
-                emp.seteName(rs.getString("name"));
+                emp.setEmpNo(rs.getInt("empno"));
+                emp.seteName(rs.getString("ename"));
                 emp.setJob(rs.getString("JOB"));
                 emp.setMGR(rs.getInt("MGR"));
                 emp.setHireDate(rs.getDate("HIREDATE"));
@@ -95,7 +96,7 @@ public class EmpDaoImpl implements EmpDao {
     @Override
     public int update(Emp emp) {
         Connection conn = DBUtil.getConnection();
-        String sql = "update emp set name =?, JOB =?, MGR =?, HIREDATE =?, SAL =?, COMM =?, DEPTNO =? where id =?";
+        String sql = "update emp set name =?, JOB =?, MGR =?, HIREDATE =?, SAL =?, COMM =?, DEPTNO =? where empno =?";
         try {
             assert conn != null;
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -141,8 +142,8 @@ public class EmpDaoImpl implements EmpDao {
             List<Emp> emps = null;
             while (rs.next()) {
                 Emp emp = new Emp();
-                emp.setEmpNo(rs.getInt("id"));
-                emp.seteName(rs.getString("name"));
+                emp.setEmpNo(rs.getInt("empno"));
+                emp.seteName(rs.getString("ename"));
                 emp.setJob(rs.getString("JOB"));
                 emp.setMGR(rs.getInt("MGR"));
                 emp.setHireDate(rs.getDate("HIREDATE"));
@@ -171,8 +172,8 @@ public class EmpDaoImpl implements EmpDao {
             List<Emp> emps = null;
             while (rs.next()) {
                 Emp emp = new Emp();
-                emp.setEmpNo(rs.getInt("id"));
-                emp.seteName(rs.getString("name"));
+                emp.setEmpNo(rs.getInt("empno"));
+                emp.seteName(rs.getString("ename"));
                 emp.setJob(rs.getString("JOB"));
                 emp.setMGR(rs.getInt("MGR"));
                 emp.setHireDate(rs.getDate("HIREDATE"));
@@ -201,8 +202,8 @@ public class EmpDaoImpl implements EmpDao {
             List<Emp> emps = null;
             while (rs.next()) {
                 Emp emp = new Emp();
-                emp.setEmpNo(rs.getInt("id"));
-                emp.seteName(rs.getString("name"));
+                emp.setEmpNo(rs.getInt("empno"));
+                emp.seteName(rs.getString("ename"));
                 emp.setJob(rs.getString("JOB"));
                 emp.setMGR(rs.getInt("MGR"));
                 emp.setHireDate(rs.getDate("HIREDATE"));
@@ -230,8 +231,8 @@ public class EmpDaoImpl implements EmpDao {
             List<Emp> emps = null;
             while (rs.next()) {
                 Emp emp = new Emp();
-                emp.setEmpNo(rs.getInt("id"));
-                emp.seteName(rs.getString("name"));
+                emp.setEmpNo(rs.getInt("empno"));
+                emp.seteName(rs.getString("ename"));
                 emp.setJob(rs.getString("JOB"));
                 emp.setMGR(rs.getInt("MGR"));
                 emp.setHireDate(rs.getDate("HIREDATE"));
@@ -258,8 +259,8 @@ public class EmpDaoImpl implements EmpDao {
             List<Emp> emps = null;
             while (rs.next()) {
                 Emp emp = new Emp();
-                emp.setEmpNo(rs.getInt("id"));
-                emp.seteName(rs.getString("name"));
+                emp.setEmpNo(rs.getInt("empno"));
+                emp.seteName(rs.getString("ename"));
                 emp.setJob(rs.getString("JOB"));
                 emp.setMGR(rs.getInt("MGR"));
                 emp.setHireDate(rs.getDate("HIREDATE"));
@@ -286,8 +287,8 @@ public class EmpDaoImpl implements EmpDao {
             List<Emp> emps = null;
             while (rs.next()) {
                 Emp emp = new Emp();
-                emp.setEmpNo(rs.getInt("id"));
-                emp.seteName(rs.getString("name"));
+                emp.setEmpNo(rs.getInt("empno"));
+                emp.seteName(rs.getString("ename"));
                 emp.setJob(rs.getString("JOB"));
                 emp.setMGR(rs.getInt("MGR"));
                 emp.setHireDate(rs.getDate("HIREDATE"));
@@ -319,8 +320,8 @@ public class EmpDaoImpl implements EmpDao {
             List<Emp> emps = null;
             while (rs.next()) {
                 Emp emp = new Emp();
-                emp.setEmpNo(rs.getInt("id"));
-                emp.seteName(rs.getString("name"));
+                emp.setEmpNo(rs.getInt("empno"));
+                emp.seteName(rs.getString("ename"));
                 emp.setJob(rs.getString("JOB"));
                 emp.setMGR(rs.getInt("MGR"));
                 emp.setHireDate(rs.getDate("HIREDATE"));

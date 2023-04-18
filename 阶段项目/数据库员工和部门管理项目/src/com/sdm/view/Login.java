@@ -88,7 +88,7 @@ public class Login {
                 System.exit(0);
                 break;
             default:
-                System.out.println("您输入的指令有误，请重新输入！");
+                System.out.println("您输入的指令有误，请重新输入!");
                 break;
         }
     }
