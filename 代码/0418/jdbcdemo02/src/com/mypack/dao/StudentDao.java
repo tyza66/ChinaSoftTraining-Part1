@@ -17,4 +17,6 @@ public interface StudentDao {
     public List<Student> queryStudentByMohu(String mohu);
 
     public int insertStudent(Student student);
+
+    public int updateStudent(Student student);
 }

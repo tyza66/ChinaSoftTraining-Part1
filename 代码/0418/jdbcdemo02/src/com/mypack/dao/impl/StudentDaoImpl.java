@@ -161,4 +161,30 @@ public class StudentDaoImpl  implements StudentDao {
         }
         return 0;
     }
+
+    @Override
+    public int updateStudent(Student student) {
+        String sql="update stu set name=?,age=?,birthday=?,address=?,photo=? where id=?";
+        Connection conn = DBUtil.getConnection();
+        PreparedStatement pstmt=null;
+        try {
+            pstmt = conn.prepareStatement(sql);
+            //设置参数值  ？顺序跟数据库表里面的顺序一致
+
+            pstmt.setString(1, student.getName());
+            pstmt.setInt(2, student.getAge());
+            //注意：日期类型需要转换 java.sql.Date是和数据库里面的Date保持一致
+            pstmt.setDate(3, DateUtil.toSqlDate(student.getBirthday()));
+            pstmt.setString(4, student.getAddress());
+            pstmt.setString(5, student.getPhoto());
+            pstmt.setInt(6, student.getId());
+            int row = pstmt.executeUpdate();
+            return row;
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally {
+            DBUtil.close(pstmt,conn);
+        }
+        return 0;
+    }
 }

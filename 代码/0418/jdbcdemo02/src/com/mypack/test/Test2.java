@@ -15,4 +15,9 @@ public class Test2 {
         Student student = new Student(4, "马超", 33, DateUtil.strToUtilDate("2019-10-12"), "北京", "aaa");
         dao.insertStudent(student);
     }
+    @Test
+    public void testUpdateOne() {
+        Student student = new Student(4, "马超超", 35, DateUtil.strToUtilDate("2013-05-15"), "上海", "bbb");
+        dao.updateStudent(student);
+    }
 }
