@@ -37,6 +37,7 @@ public class EmpDaoImpl implements EmpDao {
                 emp.setDeptno(rs.getInt("DEPTNO"));
                 emps.add(emp);
             }
+            DBUtil.close(rs,ps,conn);
             return emps;
         } catch (SQLException throwables) {
             System.out.println("数据库错误(" + throwables.getMessage() + ")");
@@ -63,6 +64,7 @@ public class EmpDaoImpl implements EmpDao {
                 emp.setSal(rs.getInt("SAL"));
                 emp.setComm(rs.getInt("COMM"));
                 emp.setDeptno(rs.getInt("DEPTNO"));
+                DBUtil.close(rs,ps,conn);
                 return emp;
             }
         } catch (SQLException throwables) {
@@ -86,6 +88,7 @@ public class EmpDaoImpl implements EmpDao {
             ps.setInt(6, emp.getSal());
             ps.setInt(7, emp.getComm());
             ps.setInt(8, emp.getDeptno());
+            DBUtil.close(ps,conn);
             return ps.executeUpdate();
         } catch (SQLException throwables) {
             System.out.println("数据库错误(" + throwables.getMessage() + ")");
@@ -108,6 +111,7 @@ public class EmpDaoImpl implements EmpDao {
             ps.setInt(6, emp.getComm());
             ps.setInt(7, emp.getDeptno());
             ps.setInt(8, emp.getEmpNo());
+            DBUtil.close(ps,conn);
             return ps.executeUpdate();
         } catch (SQLException throwables) {
             System.out.println("数据库错误(" + throwables.getMessage() + ")");
@@ -123,6 +127,7 @@ public class EmpDaoImpl implements EmpDao {
             assert conn != null;
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
+            DBUtil.close(ps,conn);
             return ps.executeUpdate();
         } catch (SQLException throwables) {
             System.out.println("数据库错误(" + throwables.getMessage() + ")");
@@ -152,6 +157,7 @@ public class EmpDaoImpl implements EmpDao {
                 emp.setDeptno(rs.getInt("DEPTNO"));
                 emps.add(emp);
             }
+            DBUtil.close(rs,ps,conn);
             return emps;
         } catch (SQLException throwables) {
             System.out.println("数据库错误(" + throwables.getMessage() + ")");
@@ -182,6 +188,7 @@ public class EmpDaoImpl implements EmpDao {
                 emp.setDeptno(rs.getInt("DEPTNO"));
                 emps.add(emp);
             }
+            DBUtil.close(rs,ps,conn);
             return emps;
         } catch (SQLException throwables) {
             System.out.println("数据库错误(" + throwables.getMessage() + ")");
@@ -212,6 +219,7 @@ public class EmpDaoImpl implements EmpDao {
                 emp.setDeptno(rs.getInt("DEPTNO"));
                 emps.add(emp);
             }
+            DBUtil.close(rs,ps,conn);
             return emps;
         } catch (SQLException throwables) {
             System.out.println("数据库错误(" + throwables.getMessage() + ")");
@@ -241,6 +249,7 @@ public class EmpDaoImpl implements EmpDao {
                 emp.setDeptno(rs.getInt("DEPTNO"));
                 emps.add(emp);
             }
+            DBUtil.close(rs,ps,conn);
             return emps;
         } catch (SQLException throwables) {
             System.out.println("数据库错误(" + throwables.getMessage() + ")");
@@ -269,6 +278,7 @@ public class EmpDaoImpl implements EmpDao {
                 emp.setDeptno(rs.getInt("DEPTNO"));
                 emps.add(emp);
             }
+            DBUtil.close(rs,ps,conn);
             return emps;
         } catch (SQLException throwables) {
             System.out.println("数据库错误(" + throwables.getMessage() + ")");
@@ -304,6 +314,7 @@ public class EmpDaoImpl implements EmpDao {
                 dept.setLoc(rs.getString("LOC"));
                 System.out.println(dept);
             }
+            DBUtil.close(rs,ps,conn);
         } catch (SQLException throwables) {
             System.out.println("数据库错误(" + throwables.getMessage() + ")");
         }
@@ -331,6 +342,7 @@ public class EmpDaoImpl implements EmpDao {
                 emp.setDeptno(rs.getInt("DEPTNO"));
                 emps.add(emp);
             }
+            DBUtil.close(rs,ps,conn);
             return emps;
         } catch (SQLException throwables) {
             System.out.println("数据库错误(" + throwables.getMessage() + ")");
@@ -350,6 +362,7 @@ public class EmpDaoImpl implements EmpDao {
             if (rs.next()) {
                 n = rs.getInt(1);
             }
+            DBUtil.close(rs,ps,conn);
             return n;
         } catch (SQLException throwables) {
             System.out.println("数据库错误(" + throwables.getMessage() + ")");
