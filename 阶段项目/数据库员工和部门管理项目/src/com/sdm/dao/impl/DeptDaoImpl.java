@@ -20,7 +20,7 @@ public class DeptDaoImpl implements DeptDao {
     @Override
     public int addDept(Dept dept) {
         Connection conn = DBUtil.getConnection();
-        String sql = "insert into emp values(?,?,?)";
+        String sql = "insert into dept values(?,?,?)";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, dept.getDeptNo());
@@ -38,7 +38,7 @@ public class DeptDaoImpl implements DeptDao {
     @Override
     public int deleteDept(int id) {
         Connection conn = DBUtil.getConnection();
-        String sql = "delete from emp where DEPTNO =?";
+        String sql = "delete from dept where DEPTNO =?";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
@@ -54,7 +54,7 @@ public class DeptDaoImpl implements DeptDao {
     @Override
     public int updateDept(Dept dept) {
         Connection conn = DBUtil.getConnection();
-        String sql = "update emp set DNAME =?,LOC =? where DEPTNO =?";
+        String sql = "update dept set DNAME =?,LOC =? where DEPTNO =?";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, dept.getdName());
@@ -72,7 +72,7 @@ public class DeptDaoImpl implements DeptDao {
     @Override
     public List<Dept> queryAll() {
         Connection conn = DBUtil.getConnection();
-        String sql = "select * from emp";
+        String sql = "select * from dept";
         List<Dept> depts = new ArrayList<Dept>();
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
