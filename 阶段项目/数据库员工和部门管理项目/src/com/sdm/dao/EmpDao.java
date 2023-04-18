@@ -33,7 +33,7 @@ public interface EmpDao {
     public List<Emp> queryTop(int num);
 
     //    j.查询出员工工资大于平均薪资的员工信息
-    public List<Emp> queryAvgSalary();
+    public List<Emp> queryBigAvgSalary();
 
     //    k.查询出某个员工的详细信息，包括部门信息
     public void queryDetail(int id);

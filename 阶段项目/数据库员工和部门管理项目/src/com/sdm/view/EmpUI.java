@@ -1,7 +1,9 @@
 package com.sdm.view;
 
+import com.sdm.pojo.Emp;
 import com.sdm.service.EmpService;
 
+import java.sql.Date;
 import java.util.Scanner;
 
 /**
@@ -11,6 +13,7 @@ import java.util.Scanner;
  */
 public class EmpUI {
     private EmpService es = new EmpService();
+
     public void show() {
         boolean run = true;
         Scanner input = new Scanner(System.in);
@@ -44,28 +47,85 @@ public class EmpUI {
                     int id = input.nextInt();
                     es.showOne(id);
                     break;
-                case 3://员工的添加操作
-
+                case 3://员工的添加操作 97 66 44 55 2001-08-24 22 66 20
+                    System.out.println("输入你要添加员工的empNo,eName,job,MGR,hireDate,sal,comm,deptno并用空格隔开：");
+                    try {
+                        Emp e = new Emp(input.nextInt(), input.next(), input.next(), input.nextInt(), Date.valueOf(input.next()), input.nextInt(), input.nextInt(), input.nextInt());
+                        int add = es.add(e);
+                        if (add >= 1) {
+                            System.out.println("添加成功!");
+                        } else {
+                            System.out.println("添加失败");
+                        }
+                    } catch (Exception e) {
+                        System.out.println("你输入的信息有误!");
+                    }
                     break;
-                case 4://员工的修改操作
+                case 4://员工的修改操作 97 96 44 55 2001-08-24 22 66 20
+                    System.out.println("输入你要修改员工的empNo,eName,job,MGR,hireDate,sal,comm,deptno并用空格隔开：");
+                    try {
+                        Emp e = new Emp(input.nextInt(), input.next(), input.next(), input.nextInt(), Date.valueOf(input.next()), input.nextInt(), input.nextInt(), input.nextInt());
+                        int add = es.update(e);
+                        if (add >= 1) {
+                            System.out.println("修改成功!");
+                        } else {
+                            System.out.println("修改失败");
+                        }
+                    } catch (Exception e) {
+                        System.out.println("你输入的信息有误!");
+                    }
                     break;
                 case 5://员工的删除操作
+                    System.out.print("输入你要删除的员工id:");
+                    int id1 = input.nextInt();
+                    int delete = es.delete(id1);
+                    if (delete >= 1) {
+                        System.out.println("删除成功!");
+                    } else {
+                        System.out.println("删除失败");
+                    }
                     break;
                 case 6://查询出姓名里面包含“xxx”的员工信息
+                    System.out.print("输入要查询的关键词:");
+                    String next = input.next();
+                    es.showByNameIn(next);
                     break;
-                case 7://查询出员工薪资再指定区间值的员工信息，区间 值从键盘动态获取
+                case 7://查询出员工薪资再指定区间值的员工信息，区间 值从键盘动态获取 100 10000
+                    System.out.println("输入薪资范围的最小值和最大值并且用空格隔开:");
+                    try {
+                        es.showSalaryInCase(input.nextInt(), input.nextInt());
+                    }catch (Exception e) {
+                        System.out.println("你输入的信息有误!");
+                    }
                     break;
-                case 8://查询出员工雇佣日期再指定区间的员工信息
+                case 8://查询出员工雇佣日期再指定区间的员工信息 1900-01-01 2001-12-12
+                    System.out.println("输入入职日期范围的最小值和最大值并且用空格隔开（yyyy-mm-dd）:");
+                    try {
+                        es.showHireInCase(input.next(), input.next());
+                    }catch (Exception e) {
+                        System.out.println("你输入的信息有误!");
+                    }
                     break;
                 case 9://查询出头n条员工信息，n从键盘动态获取
+                    System.out.print("输入查询信息的条数:");
+                    int n = input.nextInt();
+                    es.showTop(n);
                     break;
                 case 10://查询出员工工资大于平均薪资的员工信息
+                    es.showSalBiggerAvg();
                     break;
                 case 11://查询出某个员工的详细信息，包括部门信息
+                    System.out.print("输入查询员工的id:");
+                    int id2 = input.nextInt();
+                    es.showDetail(id2);
                     break;
                 case 12://查询出部门编号等于指定部门的员工的详细信息
+                    System.out.print("输入查询部门的id:");
+                    int id3 = input.nextInt();
+                    es.showMember(id3);
                     break;
                 case 13://查询出员工的总记录数
+                    es.showNum();
                     break;
                 default:
                     System.out.println("您输入的指令有误，请重新输入!");

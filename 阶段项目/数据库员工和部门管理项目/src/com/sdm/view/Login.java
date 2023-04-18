@@ -39,6 +39,7 @@ public class Login {
                 if (us.checkUser(userName, passWord)) {
                     failTimes = 0;
                     user = userName;
+                    System.out.println("登录成功");
                     menu();
                 } else {
                     System.out.println("密码错误请重新登录!");
@@ -58,7 +59,6 @@ public class Login {
 
     public void menu() {
         Scanner input = new Scanner(System.in);
-        System.out.println("登录成功");
         System.out.println("---员工部门管理系统---");
         System.out.println("1.修改当前系统用户密码(" + user + ")");
         System.out.println("2.员工信息管理模块");

@@ -39,7 +39,7 @@ public class EmpDaoImpl implements EmpDao {
             }
             return emps;
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            System.out.println("数据库错误(" + throwables.getMessage() + ")");
         }
         return null;
     }
@@ -66,7 +66,7 @@ public class EmpDaoImpl implements EmpDao {
                 return emp;
             }
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            System.out.println("数据库错误(" + throwables.getMessage() + ")");
         }
         return null;
     }
@@ -74,7 +74,7 @@ public class EmpDaoImpl implements EmpDao {
     @Override
     public int add(Emp emp) {
         Connection conn = DBUtil.getConnection();
-        String sql = "insert into values(?,?,?,?,?,?,?,?)";
+        String sql = "insert into emp values(?,?,?,?,?,?,?,?)";
         try {
             assert conn != null;
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -88,7 +88,7 @@ public class EmpDaoImpl implements EmpDao {
             ps.setInt(8, emp.getDeptno());
             return ps.executeUpdate();
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            System.out.println("数据库错误(" + throwables.getMessage() + ")");
         }
         return 0;
     }
@@ -96,7 +96,7 @@ public class EmpDaoImpl implements EmpDao {
     @Override
     public int update(Emp emp) {
         Connection conn = DBUtil.getConnection();
-        String sql = "update emp set name =?, JOB =?, MGR =?, HIREDATE =?, SAL =?, COMM =?, DEPTNO =? where empno =?";
+        String sql = "update emp set ename =?, JOB =?, MGR =?, HIREDATE =?, SAL =?, COMM =?, DEPTNO =? where empno =?";
         try {
             assert conn != null;
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -110,7 +110,7 @@ public class EmpDaoImpl implements EmpDao {
             ps.setInt(8, emp.getEmpNo());
             return ps.executeUpdate();
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            System.out.println("数据库错误(" + throwables.getMessage() + ")");
         }
         return 0;
     }
@@ -118,14 +118,14 @@ public class EmpDaoImpl implements EmpDao {
     @Override
     public int delete(int id) {
         Connection conn = DBUtil.getConnection();
-        String sql = "delete from emp where id =?";
+        String sql = "delete from emp where empno =?";
         try {
             assert conn != null;
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
             return ps.executeUpdate();
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            System.out.println("数据库错误(" + throwables.getMessage() + ")");
         }
         return 0;
     }
@@ -133,13 +133,13 @@ public class EmpDaoImpl implements EmpDao {
     @Override
     public List<Emp> queryByNameIn(String name) {
         Connection conn = DBUtil.getConnection();
-        String sql = "select * from emp where NAME like ?";
+        String sql = "select * from emp where eNAME like ?";
         try {
             assert conn != null;
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, "%" + name + "%");
             ResultSet rs = ps.executeQuery();
-            List<Emp> emps = null;
+            List<Emp> emps = new ArrayList<Emp>();
             while (rs.next()) {
                 Emp emp = new Emp();
                 emp.setEmpNo(rs.getInt("empno"));
@@ -154,7 +154,7 @@ public class EmpDaoImpl implements EmpDao {
             }
             return emps;
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            System.out.println("数据库错误(" + throwables.getMessage() + ")");
         }
         return null;
     }
@@ -162,14 +162,14 @@ public class EmpDaoImpl implements EmpDao {
     @Override
     public List<Emp> queryBySalary(int salary1, int salary2) {
         Connection conn = DBUtil.getConnection();
-        String sql = "select * from emp WHERE SAL >= ? AND SAL =< ?";
+        String sql = "select * from emp WHERE SAL >= ? AND SAL <= ?";
         try {
             assert conn != null;
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, salary1);
             ps.setInt(2, salary2);
             ResultSet rs = ps.executeQuery();
-            List<Emp> emps = null;
+            List<Emp> emps = new ArrayList<Emp>();
             while (rs.next()) {
                 Emp emp = new Emp();
                 emp.setEmpNo(rs.getInt("empno"));
@@ -184,7 +184,7 @@ public class EmpDaoImpl implements EmpDao {
             }
             return emps;
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            System.out.println("数据库错误(" + throwables.getMessage() + ")");
         }
         return null;
     }
@@ -192,14 +192,14 @@ public class EmpDaoImpl implements EmpDao {
     @Override
     public List<Emp> queryByHiredate(String hiredate1, String hiredate2) {
         Connection conn = DBUtil.getConnection();
-        String sql = "select * from emp WHERE HIREDATE >= ? AND HIREDATE =< ?";
+        String sql = "select * from emp WHERE HIREDATE >= ? AND HIREDATE <= ?";
         try {
             assert conn != null;
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setDate(1, Date.valueOf(hiredate1));
             ps.setDate(2, Date.valueOf(hiredate2));
             ResultSet rs = ps.executeQuery();
-            List<Emp> emps = null;
+            List<Emp> emps = new ArrayList<Emp>();
             while (rs.next()) {
                 Emp emp = new Emp();
                 emp.setEmpNo(rs.getInt("empno"));
@@ -214,7 +214,7 @@ public class EmpDaoImpl implements EmpDao {
             }
             return emps;
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            System.out.println("数据库错误(" + throwables.getMessage() + ")");
         }
         return null;
     }
@@ -222,13 +222,13 @@ public class EmpDaoImpl implements EmpDao {
     @Override
     public List<Emp> queryTop(int num) {
         Connection conn = DBUtil.getConnection();
-        String sql = "select * from emp where rownnum = ?";
+        String sql = "select * from emp where rownum <= ?";
         try {
             assert conn != null;
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, num);
             ResultSet rs = ps.executeQuery();
-            List<Emp> emps = null;
+            List<Emp> emps = new ArrayList<Emp>();
             while (rs.next()) {
                 Emp emp = new Emp();
                 emp.setEmpNo(rs.getInt("empno"));
@@ -243,20 +243,20 @@ public class EmpDaoImpl implements EmpDao {
             }
             return emps;
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            System.out.println("数据库错误(" + throwables.getMessage() + ")");
         }
         return null;
     }
 
     @Override
-    public List<Emp> queryAvgSalary() {
+    public List<Emp> queryBigAvgSalary() {
         Connection conn = DBUtil.getConnection();
         String sql = "select * from emp WHERE sal > (select avg(sal) from emp)";
         try {
             assert conn != null;
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            List<Emp> emps = null;
+            List<Emp> emps = new ArrayList<Emp>();
             while (rs.next()) {
                 Emp emp = new Emp();
                 emp.setEmpNo(rs.getInt("empno"));
@@ -271,7 +271,7 @@ public class EmpDaoImpl implements EmpDao {
             }
             return emps;
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            System.out.println("数据库错误(" + throwables.getMessage() + ")");
         }
         return null;
     }
@@ -279,12 +279,13 @@ public class EmpDaoImpl implements EmpDao {
     @Override
     public void queryDetail(int id) {
         Connection conn = DBUtil.getConnection();
-        String sql = "select * from emp e,dept d where e.deptno = d.deptno and e.empno = 7521;";
+        String sql = "select * from emp e,dept d where e.deptno = d.deptno and e.empno = ?";
         try {
             assert conn != null;
             PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
-            List<Emp> emps = null;
+            List<Emp> emps = new ArrayList<Emp>();
             while (rs.next()) {
                 Emp emp = new Emp();
                 emp.setEmpNo(rs.getInt("empno"));
@@ -304,20 +305,20 @@ public class EmpDaoImpl implements EmpDao {
                 System.out.println(dept);
             }
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            System.out.println("数据库错误(" + throwables.getMessage() + ")");
         }
     }
 
     @Override
     public List<Emp> queryDetailByDep(int depId) {
         Connection conn = DBUtil.getConnection();
-        String sql = "select * from emp WHERE deptno=?";
+        String sql = "select * from emp WHERE deptno= ?";
         try {
             assert conn != null;
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, depId);
             ResultSet rs = ps.executeQuery();
-            List<Emp> emps = null;
+            List<Emp> emps = new ArrayList<Emp>();
             while (rs.next()) {
                 Emp emp = new Emp();
                 emp.setEmpNo(rs.getInt("empno"));
@@ -332,7 +333,7 @@ public class EmpDaoImpl implements EmpDao {
             }
             return emps;
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            System.out.println("数据库错误(" + throwables.getMessage() + ")");
         }
         return null;
     }
@@ -351,7 +352,7 @@ public class EmpDaoImpl implements EmpDao {
             }
             return n;
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            System.out.println("数据库错误(" + throwables.getMessage() + ")");
         }
         return 0;
     }
