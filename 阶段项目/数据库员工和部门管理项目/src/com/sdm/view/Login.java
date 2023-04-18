@@ -79,8 +79,10 @@ public class Login {
                 user = "";
                 break;
             case 2:
+                new EmpUI().show();
                 break;
             case 3:
+                new DeptUI().show();
                 break;
             case -1:
                 System.exit(0);
