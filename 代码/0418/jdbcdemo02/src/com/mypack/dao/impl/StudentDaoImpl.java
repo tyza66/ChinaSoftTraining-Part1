@@ -3,6 +3,7 @@ package com.mypack.dao.impl;
 import com.mypack.dao.StudentDao;
 import com.mypack.pojo.Student;
 import com.mypack.util.DBUtil;
+import com.mypack.util.DateUtil;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -133,5 +134,31 @@ public class StudentDaoImpl  implements StudentDao {
 
         }
         return null;
+    }
+
+    @Override
+    public int insertStudent(Student student) {
+
+        String sql="insert into stu values (?,?,?,?,?,?)";
+        Connection conn = DBUtil.getConnection();
+        PreparedStatement pstmt=null;
+        try {
+            pstmt = conn.prepareStatement(sql);
+            //设置参数值  ？顺序跟数据库表里面的顺序一致
+            pstmt.setInt(1, student.getId());
+            pstmt.setString(2, student.getName());
+            pstmt.setInt(3, student.getAge());
+            //注意：日期类型需要转换 java.sql.Date是和数据库里面的Date保持一致
+            pstmt.setDate(4, DateUtil.toSqlDate(student.getBirthday()));
+            pstmt.setString(5, student.getAddress());
+            pstmt.setString(6, student.getPhoto());
+            int row = pstmt.executeUpdate();
+            return row;
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally {
+            DBUtil.close(pstmt,conn);
+        }
+        return 0;
     }
 }
