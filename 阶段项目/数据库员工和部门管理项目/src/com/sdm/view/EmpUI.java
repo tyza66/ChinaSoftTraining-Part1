@@ -18,7 +18,7 @@ public class EmpUI {
         boolean run = true;
         Scanner input = new Scanner(System.in);
         while (run) {
-            System.out.println("---员工部门管理系统---");
+            System.out.println("---员工管理系统---");
             System.out.println("1 .查询所有员工");
             System.out.println("2 .使用id查询某个员工");
             System.out.println("3 .添加员工");
