@@ -28,6 +28,7 @@ public class UserDaoImpl implements UserDao {
                 User user = new User();
                 user.setUserName(rs.getString("username"));
                 user.setPassWord(rs.getString("password"));
+                DBUtil.close(rs,ps,conn);
                 return user;
             }
         } catch (Exception throwables) {
@@ -40,12 +41,13 @@ public class UserDaoImpl implements UserDao {
     @Override
     public int updatePassWordByUserName(String userName,String passWord) {
         Connection conn = DBUtil.getConnection();
-        String sql = "UPDATE user SET password =? WHERE username =?";
+        String sql = "UPDATE \"USER\" SET password =? WHERE username =?";
         try {
             assert conn!= null;
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, passWord);
             ps.setString(2, userName);
+            DBUtil.close(ps,conn);
             return ps.executeUpdate();
         } catch (Exception throwables) {
             throwables.printStackTrace();
@@ -56,12 +58,13 @@ public class UserDaoImpl implements UserDao {
     @Override
     public int insertUser(User user) {
         Connection conn = DBUtil.getConnection();
-        String sql = "INSERT INTO user(username,password) VALUES(?,?)";
+        String sql = "INSERT INTO \"USER\" VALUES(?,?)";
         try {
             assert conn!= null;
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, user.getUserName());
             ps.setString(2, user.getPassWord());
+            DBUtil.close(ps,conn);
             return ps.executeUpdate();
         } catch (Exception throwables) {
             throwables.printStackTrace();
