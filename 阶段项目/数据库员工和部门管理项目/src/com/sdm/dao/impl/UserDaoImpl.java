@@ -18,7 +18,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User getUserByUserName(String userName) {
         Connection conn = DBUtil.getConnection();
-        String sql = "SELECT * FROM user where username = ?";
+        String sql = "SELECT * FROM \"USER\" where username = ?";
         try {
             assert conn != null;
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -46,6 +46,22 @@ public class UserDaoImpl implements UserDao {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, passWord);
             ps.setString(2, userName);
+            return ps.executeUpdate();
+        } catch (Exception throwables) {
+            throwables.printStackTrace();
+        }
+        return 0;
+    }
+
+    @Override
+    public int insertUser(User user) {
+        Connection conn = DBUtil.getConnection();
+        String sql = "INSERT INTO user(username,password) VALUES(?,?)";
+        try {
+            assert conn!= null;
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, user.getUserName());
+            ps.setString(2, user.getPassWord());
             return ps.executeUpdate();
         } catch (Exception throwables) {
             throwables.printStackTrace();

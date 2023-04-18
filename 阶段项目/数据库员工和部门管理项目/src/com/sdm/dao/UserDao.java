@@ -7,4 +7,6 @@ public interface UserDao {
     public User getUserByUserName(String userName);
     //通过用户名修改用户密码
     public int updatePassWordByUserName(String userName,String passWord);
+    //插入一个新的账户
+    public int insertUser(User user);
 }
