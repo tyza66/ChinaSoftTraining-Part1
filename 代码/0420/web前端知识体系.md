@@ -14,39 +14,41 @@
 
 
 
-html
+html： 静态网页技术  
 
-javascript
+javascript： 网页动态技术
 
-css
+css： 网页修饰效果
 
-jquery
+jquery： 其实就是一个js框架，封装了很多js的逻辑
 
-ajax
+ajax：异步编程技术
 
-vue
+bootstarp： 响应式布局框架，不管是各种设备，都能很好的适配
 
-react
+vue： 前端最火的框架，国内比较多
 
-angularjs
+react： 国外用的比较多
+
+angularjs：用的不多了
 
 
 
-easyui
+easyui：  前端的样式框架，封装了很多组件
 
-ztree 
+ztree ：树形的插件
 
-bootstarp
 
-elementui
 
-uniapp 小程序
+elementui： 饿了么出品的一个ui框架，一般和vue搭配使用
+
+微信小程序：
+
+uniapp 小程序：能够实现各种小程序
 
  ES6新特性
 
 NodeJS
-
-webpack
 
 
 
@@ -73,7 +75,6 @@ html : 超文本标记语言
 ```
 <html>
 	<head>
-		<meta charset="UTF-8">
 		<title>第一个html文件</title>
 	</head>
 	<body>
@@ -91,6 +92,8 @@ html标签大部分都是双标签，有开始标签和结束标签，head标签
 
 
 html里面的标签是人家事先规定好的，不能自己随便定义，学习html就是学习里面的标签
+
+标签名不区分大小写，html文件后缀名是.html或者.htm；她运行的时候i使用浏览器打开；编辑的时候使用记事本编辑工具来编写
 
 
 
