@@ -20,17 +20,21 @@ public class DeptDaoImpl implements DeptDao {
     @Override
     public int addDept(Dept dept) {
         Connection conn = DBUtil.getConnection();
+        PreparedStatement ps = null;
         String sql = "insert into dept values(?,?,?)";
         try {
-            PreparedStatement ps = conn.prepareStatement(sql);
+            ps = conn.prepareStatement(sql);
             ps.setInt(1, dept.getDeptNo());
             ps.setString(2, dept.getdName());
             ps.setString(3, dept.getLoc());
             int i = ps.executeUpdate();
-            DBUtil.close(ps, conn);
             return i;
         } catch (Exception e) {
             System.out.println("数据库错误(" + e.getMessage() + ")");
+        } finally {
+            if (ps != null) {
+                DBUtil.close(ps, conn);
+            }
         }
         return 0;
     }
@@ -38,15 +42,19 @@ public class DeptDaoImpl implements DeptDao {
     @Override
     public int deleteDept(int id) {
         Connection conn = DBUtil.getConnection();
+        PreparedStatement ps = null;
         String sql = "delete from dept where DEPTNO =?";
         try {
-            PreparedStatement ps = conn.prepareStatement(sql);
+            ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
             int i = ps.executeUpdate();
-            DBUtil.close(ps, conn);
             return i;
         } catch (Exception e) {
             System.out.println("数据库错误(" + e.getMessage() + ")");
+        } finally {
+            if (ps != null) {
+                DBUtil.close(ps, conn);
+            }
         }
         return 0;
     }
@@ -54,9 +62,10 @@ public class DeptDaoImpl implements DeptDao {
     @Override
     public int updateDept(Dept dept) {
         Connection conn = DBUtil.getConnection();
+        PreparedStatement ps = null;
         String sql = "update dept set DNAME =?,LOC =? where DEPTNO =?";
         try {
-            PreparedStatement ps = conn.prepareStatement(sql);
+            ps = conn.prepareStatement(sql);
             ps.setString(1, dept.getdName());
             ps.setString(2, dept.getLoc());
             ps.setInt(3, dept.getDeptNo());
@@ -65,6 +74,10 @@ public class DeptDaoImpl implements DeptDao {
             return i;
         } catch (Exception e) {
             System.out.println("数据库错误(" + e.getMessage() + ")");
+        } finally {
+            if (ps != null) {
+                DBUtil.close(ps, conn);
+            }
         }
         return 0;
     }
@@ -72,10 +85,11 @@ public class DeptDaoImpl implements DeptDao {
     @Override
     public List<Dept> queryAll() {
         Connection conn = DBUtil.getConnection();
+        PreparedStatement ps = null;
         String sql = "select * from dept";
         List<Dept> depts = new ArrayList<Dept>();
         try {
-            PreparedStatement ps = conn.prepareStatement(sql);
+            ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Dept dept = new Dept();
@@ -88,6 +102,10 @@ public class DeptDaoImpl implements DeptDao {
             return depts;
         } catch (Exception e) {
             System.out.println("数据库错误(" + e.getMessage() + ")");
+        } finally {
+            if (ps != null) {
+                DBUtil.close(ps, conn);
+            }
         }
         return null;
     }

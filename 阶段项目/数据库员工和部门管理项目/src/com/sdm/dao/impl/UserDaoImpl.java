@@ -7,7 +7,6 @@ import com.sdm.util.DBUtil;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 /**
  * Author: tyza66
@@ -18,39 +17,46 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User getUserByUserName(String userName) {
         Connection conn = DBUtil.getConnection();
+        PreparedStatement ps = null;
         String sql = "SELECT * FROM \"USER\" where username = ?";
         try {
             assert conn != null;
-            PreparedStatement ps = conn.prepareStatement(sql);
+            ps = conn.prepareStatement(sql);
             ps.setString(1, userName);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 User user = new User();
                 user.setUserName(rs.getString("username"));
                 user.setPassWord(rs.getString("password"));
-                DBUtil.close(rs,ps,conn);
                 return user;
             }
         } catch (Exception throwables) {
             throwables.printStackTrace();
+        } finally {
+            if (ps != null) {
+                DBUtil.close(ps, conn);
+            }
         }
-
         return null;
     }
 
     @Override
-    public int updatePassWordByUserName(String userName,String passWord) {
+    public int updatePassWordByUserName(String userName, String passWord) {
         Connection conn = DBUtil.getConnection();
+        PreparedStatement ps = null;
         String sql = "UPDATE \"USER\" SET password =? WHERE username =?";
         try {
-            assert conn!= null;
-            PreparedStatement ps = conn.prepareStatement(sql);
+            assert conn != null;
+            ps = conn.prepareStatement(sql);
             ps.setString(1, passWord);
             ps.setString(2, userName);
-            DBUtil.close(ps,conn);
             return ps.executeUpdate();
         } catch (Exception throwables) {
             throwables.printStackTrace();
+        } finally {
+            if (ps != null) {
+                DBUtil.close(ps, conn);
+            }
         }
         return 0;
     }
@@ -58,16 +64,20 @@ public class UserDaoImpl implements UserDao {
     @Override
     public int insertUser(User user) {
         Connection conn = DBUtil.getConnection();
+        PreparedStatement ps = null;
         String sql = "INSERT INTO \"USER\" VALUES(?,?)";
         try {
-            assert conn!= null;
-            PreparedStatement ps = conn.prepareStatement(sql);
+            assert conn != null;
+            ps = conn.prepareStatement(sql);
             ps.setString(1, user.getUserName());
             ps.setString(2, user.getPassWord());
-            DBUtil.close(ps,conn);
             return ps.executeUpdate();
         } catch (Exception throwables) {
             throwables.printStackTrace();
+        } finally {
+            if (ps != null) {
+                DBUtil.close(ps, conn);
+            }
         }
         return 0;
     }
