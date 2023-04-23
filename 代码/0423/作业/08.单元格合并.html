@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!-- colspan="n" 合并列 就是横向合并单元格 n的值等于几，就表示合并几个单元格
+			rowspan="" 合并行  就是纵向合并单元格
+		-->
+		<table width="500px" height="350px" align="center" border="1">
+			<caption><h2>学生管理系统</h2></caption>
+			
+			<tr>
+				<th>
+					编号
+				</th>
+				<th>
+					姓名
+				</th>
+				<th>
+					年龄
+				</th>
+				<th>
+					地址
+				</th>
+				<th>
+					操作
+				</th>
+			</tr>
+			
+			<tr>
+				<td colspan="2">1001</td>
+				
+				<td>22</td>
+				<td>北京</td>
+				<td>
+					<a href="">修改</a>
+					<a href="">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td>1002</td>
+				<td>李四</td>
+				<td>23</td>
+				<td>上海</td>
+				<td>
+					<a href="">修改</a>
+					<a href="">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td rowspan="2">1004</td>
+				<td>曹超</td>
+				<td>24</td>
+				<td>洛阳</td>
+				<td>
+					<a href="">修改</a>
+					<a href="">删除</a>
+				</td>
+			</tr>
+			<tr>
+				
+				<td>张郃</td>
+				<td>26</td>
+				<td>四川</td>
+				<td>
+					<a href="">修改</a>
+					<a href="">删除</a>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
