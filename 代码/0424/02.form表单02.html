@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<form action="" method="get">
+			
+			<!--
+				select option 下拉选 
+				selected="selected" 表示默认被选中
+			-->
+			部门：
+			<select>
+				<option value="0">--请选择--</option>
+				<option value="1" selected="selected">人事部</option>
+				<option value="2">技术部</option>
+				<option value="3">财务部</option>
+			</select>
+			
+			<br />
+			
+			<!-- textarea 表示文本域 可以写多行数据 cols 表示宽度 rows 表示高度-->
+			备注：
+			<textarea cols="60" rows="10">aaa</textarea>
+			<br />
+			
+			<!--
+				
+				submit: 提交按钮，能够将表单里面输入的数据提交到action指向的地址
+				reset:重置按钮，将表单数据恢复默认值
+				button: 普通按钮，必须绑定相应的js事件
+			-->
+			
+			<input type="submit" value="提交" />
+			<input type="reset" value="重置" />
+			<input type="button" value="点击" />
+		</form>
+	</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!-- form表单 action 表示跳转到后台的地址 method 提交方式有2中 get post-->
+		<form action="" method="get">
+			
+			<!-- input type="" text 表示文本框，不写默认就是文本框  password 表示密码框 radio 单选按钮 checkbox 复选框-->
+			<!-- input type="text" 文本框 name表示文本框的名称  value表示默认值 size 文本框长度  maxlength 文本的最大字符长度-->
+			用户名：<input type="text"  name="username" value="张三" size="15" maxlength="6"/> <br />
+			
+			<!-- input type="pasword" 密码框  -->
+			密码： <input type="password" name="password" value="123456" size="18"/><br/>
+			
+			爱好： <!-- input type="checkbox" 复选框  同一组复选框name属性必须相同 checked 表示默认被选中-->
+			篮球 <input type="checkbox" name="love" value="lq" />
+			足球 <input type="checkbox" name="love" value="zq"  checked="checked"/>
+			排球<input type="checkbox" name="love" value="pq" />
+			<br />
+			<!-- input type="radio" 表示当选按钮 checked表示默认被选中
+				单选按钮要想实现互斥效果，就必须name属性相同
+			-->
+			性别： 男<input type="radio" name="sex" checked="checked" value="1"/> 
+			女<input type="radio" name="sex" value="2"/>
+			
+			
+			
+		</form>
+	</body>
+</html>           
