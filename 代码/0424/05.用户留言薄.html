@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body align="center">
+		
+		<h1 style="color: red;">用户留言薄</h1>
+		<hr width="50%" color="red" />
+		
+		<form action="" method="get">
+			
+			<table align="center" border="1">
+				<tr>
+					<td>用户名：</td>
+					<td><input type="text"/></td>
+					<td>密码</td>
+					<td><input type="password" /> </td>
+				</tr>
+				
+				<tr>
+					<td>电子信箱：</td>
+					<td><input type="text"/></td>
+					<td>民族：</td>
+					<td><select>
+						<option>汉族</option>
+						<option>满族</option>
+						<option>回族</option>
+					</select> </td>
+				</tr>
+				
+				<tr>
+					<td>性别：</td>
+					<td><input type="radio" name="sex" checked="checked"/>男
+						<input type="radio" name="sex" />女
+					</td>
+					<td>爱好：</td>
+					<td>
+						<input type="checkbox" name="love" checked="checked"/>篮球
+						<input type="checkbox" name="love" />足球
+						<input type="checkbox" name="love" />排球
+						<input type="checkbox" name="love" />其他
+					</td>
+				</tr>
+				<tr>
+					<td>留言：</td>
+					<td colspan="3">
+						<textarea rows="5" cols="40">
+							请多多指教
+						</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4">
+						<input type="submit" value="确定" />
+						<input type="reset" value="重置" />
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>

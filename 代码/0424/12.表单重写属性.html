@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+        	formaction: 重写action指向的地址
+        	formnovalidate="true" 表示取消表单元素提交的时候的验证功能
+        -->
+		<form action="aa" method="get">
+			email： <input type="email" name="email" /><br/>
+			<input type="submit" value="提交1"/><br />
+			<input type="submit" value="提交2" formaction="bb"/><br />
+			<input type="submit" value="提交3" formnovalidate="true"/><br />
+		</form>
+	</body>
+</html>
