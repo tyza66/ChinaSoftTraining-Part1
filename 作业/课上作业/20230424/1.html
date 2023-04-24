@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 align="center" style="color: red;">用户留言簿</h1>
+    <hr color="red" />
+    <form align="center">
+        <table border="1" align="center">
+            <tr>
+                <td>用户名：</td>
+                <td><input type="text" /></td>
+                <td>密&nbsp;&nbsp;&nbsp;码：</td>
+                <td><input type="password" /></td>
+            </tr>
+            <tr>
+                <td>电子邮箱：</td>
+                <td><input type="text" /></td>
+                <td>民&nbsp;&nbsp;&nbsp;族：</td>
+                <td><select>
+                        <option checked="checked">汉族</option>
+                        <option checked="checked">满族</option>
+                    </select></td>
+            </tr>
+            <tr>
+                <td>性&nbsp;&nbsp;&nbsp;别：</td>
+                <td>
+                    <input type="radio" name="sex" checked="checked" value="1" />男 <input type="radio" name="sex"
+                        checked="checked" value="2" />女
+                </td>
+                <td>爱&nbsp;&nbsp;&nbsp;好：</td>
+                <td>
+                    <input type="checkbox" name="ah" checked="checked" value="1" />篮球
+                    <input type="checkbox" name="ah" value="2" />足球
+                    <input type="checkbox" name="ah" value="3" />排球
+                    <input type="checkbox" name="ah" value="4" />其他
+                </td>
+            </tr>
+            <tr>
+                <td>留&nbsp;&nbsp;&nbsp;言：</td>
+                <td colspan="3">
+                    <textarea cols="60" rows="10"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4"><input type="submit" value="确定" /> <input type="reset" value="重置" /></td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>
