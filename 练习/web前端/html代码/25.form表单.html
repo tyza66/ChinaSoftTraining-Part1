@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--action表示跳转到后台的地址-->
+    <!--method提交方式有两种一种是get一种是post-->
+    <form action="">
+        <!--text表示文本框 password表示密码框 radio表示单选框 checkbox表示多选框-->
+        <!--name表示文本框的名字 value表示文本框的默认值 size表示文本框的长度 maxlength是文本的最大字符长度-->
+        用户名:<input type="text" name="username" value="张三" maxlength="6"></input><br />
+        密码:<input type="password" name="password" value="123465"></input><br />
+        爱好:
+        篮球:<input type="checkbox" name="love" value="lq" checked="checked"/>
+        足球:<input type="checkbox" name="love" value="zq" />
+        排球:<input type="checkbox" name="love" value="pq" /><br />
+        性别:
+        男:<input type="radio" name="sex" checked="checked" value="1"></input>
+        女:<input type="radio" name="sex" value="2"></input>
+    </form>
+</body>
+
+</html>
