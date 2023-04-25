@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		/*
+		 * border-collapse 属性设置是否将表格边框折叠为单一边框：
+		 * text-align 属性设置水平对齐方式，比如左对齐、右对齐或者居中：
+		 * vertical-align 属性设置垂直对齐方式，比如顶部对齐、底部对齐或居中对齐：
+		 * 如需控制表格中内容与边框的距离，请为 td 和 th 元素设置 padding 属性：
+		 * color: white; 表格内容字体的颜色变成白色
+		 */
+		table,tr,td,th{
+			border: 1px solid blue;
+			
+		}
+		table{
+			width: 500px;
+			height: 350px;
+			text-align: center;
+			border-collapse: collapse;
+			background-color: green;
+			color: white;
+			
+		}
+		th{
+			height: 50px;
+		}
+		td{
+			vertical-align: bottom;
+			padding: 15px;
+		}
+	</style>
+	<body>
+		
+		<table>
+			<tr>
+				<th>编号</th>
+				<th>姓名</th>
+				<th>年龄</th>
+				<th>住址</th>
+			</tr>
+			<tr>
+				<td>1001</td>
+				<td>张三</td>
+				<td>23</td>
+				<td>Beijing</td>
+			</tr>
+			<tr>
+				<td>1001</td>
+				<td>张三</td>
+				<td>23</td>
+				<td>Beijing</td>
+			</tr>
+			<tr>
+				<td>1001</td>
+				<td>张三</td>
+				<td>23</td>
+				<td>Beijing</td>
+			</tr>
+		</table>
+	</body>
+</html>
