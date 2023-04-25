@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		/*
+		 * 元素选择器，选择所有的p标签
+		 */
+		p{
+			font-size: 22px;
+		}
+		/**
+		 * id选择器，使用#id值
+		 */
+		#p1{
+			color: blue;
+		}
+		/*
+		 * 类选择器： .类值
+		 */
+		.p2{
+			background-color: yellow;
+		}
+		/*
+		 * 后代选择器： 后代： 表示子子孙孙,使用空格来表示
+		 */
+	/*	#p3 span{
+			color: green;
+		}*/
+		
+		/*
+		 * 子选择器： 使用>来表示 表示儿子，不包括孙子标签等
+		 * 
+		 */
+		/*#p3>span{
+			color: pink;
+		}*/
+		/*
+		 * 集合选择器，能够同时修饰多个标签，使用,来分割
+		 */
+		h1,#p5{
+			color: orange;
+		}
+		/*
+		 * 通用选择器  使用*来表示  *表示所有标签
+		 */
+		*{
+			background-color: aquamarine;
+		}
+	</style>
+	<body>
+		<h1>锄禾</h1>
+		<p id="p1">锄禾日当午</p>
+		<p id="p5">汗滴禾下土</p>
+		<p class="p2">谁知盘中餐</p>
+		<p class="p2">粒粒皆辛苦</p>
+		
+		<div id="p3">
+			<span>大连欢迎您</span>
+			<p id="p2">hello world</p>
+			<div>
+				<span>aaaaaa</span>
+			</div>
+		</div>
+	</body>
+</html>

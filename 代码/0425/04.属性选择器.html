@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		
+		/*
+		 * 有title属性的所有的元素标签
+		 */
+		[title]{
+			color: red;
+		}
+		/*
+		 * title属性值等于mi的镖标签对象
+		 */
+		[title=mi]{
+			border: 5px solid blue;
+		}
+		/*
+		 * 包含指定的值，适用于由空格分割的属性值
+		 */
+		[title~=mi]{
+			background-color: green;
+		}
+	</style>
+	<body>
+		
+		<h1>属性选择器</h1>
+		<h2 title="aa">子标题</h2>
+		
+		<a href="http://www.baidu.com">百度一下</a>
+		<a title="mi" href="http://www.mi.com">小米商城</a>
+		<a title="mi big" href="http://www.mi2.com">假的小米商城</a>
+	</body>
+</html>
