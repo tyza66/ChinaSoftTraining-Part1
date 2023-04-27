@@ -5,8 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+        }
+        .p1{
+            background-color: aqua;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 3;
+        }
+        .p2{
+            background-color: beige;
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            z-index: 2;
+        }
+        .p3{
+            background-color: brown;
+            position: absolute;
+            top: 60px;
+            left: 60px;
+            z-index: 1;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="p1">
+        aaa
+    </div>
+    <div class="p2">
+        bbb
+    </div>
+    <div class="p3">
+        ccc
+    </div>
 </body>
 </html>
