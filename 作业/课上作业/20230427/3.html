@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 1000px;
+            height: 500px;
+            margin: 0 auto;
+        }
+        #left{
+            float: left;
+            height: 500px;
+            width: 400px;
+        }
+        #right{
+            width: 600px;
+            height: 500px;
+            float: left;
+        }
+        .mg{
+            height: 500px;
+            width: 400px;
+        }
+        .dl{
+            text-decoration: line-through;
+        }
+        .bt{
+            width: 30px;
+            height: 30px;
+            background-color: white;
+        }
+        .in{
+            width: 60px;
+            height: 25px;
+            padding: 0;
+        }
+        .sc{
+            width: 200px;
+            height: 30px;
+            background-color: #483d8b;
+            border-radius: 2px;
+            line-height: 30px;
+            text-align: center;
+            color: white;
+            margin-top: 20px;
+        }
+        .l{
+            margin-top: 20px;
+        }
+        .il{
+            display: inline-block;
+            width: 200px;
+            height: 30px;
+            background-color: #483d8b;
+            border-radius: 2px;
+            line-height: 30px;
+            text-align: center;
+            color: white;
+        }
+    </style>
+    <script>
+        function up(){
+            var a =  document.getElementById('nu');
+            a.value = a.value + 1
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <div id="left">
+            <img class="mg" src="ej.png" />
+        </div>
+        <div id="right">
+            <h1>小米耳机</h1>
+            <p class="dl">原价：￥373.75</p>
+            <p>折扣价：<font color="red" size="8">￥299</font></p>
+            <p>配置：官方标配</p>
+            <div><font>配置：</font> <button class="bt" onclick="down()">-</button><input id="nu" class="in" type="number" value="0"/><button class="bt" onclick="up()">+</button></div>
+            <div class="sc">收藏</div>
+            <div class="l"> 
+                <div class="il">加入购物车</div>
+                <div class="il">立即购买</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
