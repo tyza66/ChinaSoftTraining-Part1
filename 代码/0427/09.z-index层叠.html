@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*
+			 * z-index: 层叠 值是个整数值，整数值越大，该元素越靠上显示
+			 */
+			div{
+				width: 200px;
+				height: 200px;
+			}
+			.p1{
+				background-color: yellow;
+				position: absolute;
+				top:20px;
+				left: 20px;
+				z-index: 3;
+			}
+			.p2{
+				background-color: grey;
+				position: absolute;
+				top:40px;
+				left: 40px;
+				z-index: 2;
+			}
+			.p3{
+				background-color: pink;
+				position: absolute;
+				top:60px;
+				left: 60px;
+				z-index: 1;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="p1">
+			aaa
+		</div>
+		<div class="p2">
+			bbb
+		</div>
+		<div class="p3">
+			ccc
+		</div>
+	</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.main-container{
+			/*
+			 * 居中显示
+			 */
+			margin: 0 auto;
+			width:1200px;
+			height: 620px;
+			background-color: yellow;
+		}
+		.left{
+			width: 400px;
+			height: 100%;
+			background-color: pink;
+			margin-right: 20px;
+			float: left;
+		}
+		.right{
+			float: left;
+			width:780px;
+			height: 100%;
+		}
+		.right div{
+			float: left;
+			width:180px;
+			height: 300px;
+			background-color: blueviolet;
+		}
+		.right-3{
+			margin-bottom: 20px;
+		}
+		.right-1,.right-2,.right-3,
+		.right-5,.right-6,.right-7{
+			margin-right: 20px;
+		}
+	</style>
+	<body>
+		
+		<div class="main-container">
+			
+			<div class="left">左边</div>
+			<div class="right">
+				<div class="right-1">1</div>
+				<div class="right-2">2</div>
+				<div class="right-3">3</div>
+				<div class="right-4">4</div>
+				<div class="right-5">5</div>
+				<div class="right-6">6</div>
+				<div class="right-7">7</div>
+				<div class="right-8">8</div>
+			</div>
+		</div>
+	</body>
+</html>
