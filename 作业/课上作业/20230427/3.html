@@ -64,8 +64,12 @@
     </style>
     <script>
         function up(){
-            var a =  document.getElementById('nu');
-            a.value = a.value + 1
+            var a = document.getElementById('nu');
+            a.value = parseInt(a.value) + 1
+        }
+        function down(){
+            var a = document.getElementById('nu');
+            a.value = parseInt(a.value) - 1
         }
     </script>
 </head>
