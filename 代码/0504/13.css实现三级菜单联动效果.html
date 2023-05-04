@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul,li{
+			list-style: none;
+		}
+		.top{
+			background: green;
+			height: 34px;
+			width:100%;
+			padding: 0 10%;
+			box-sizing: border-box;
+		}
+		.main-nav{
+			display: flex;
+			line-height: 34px;
+		}
+		.two-nav{
+			background: #4db3a4;
+			position:relative;
+			display: none;
+		}
+		.three-nav{
+			background: #4db3a4;
+			position: absolute;
+			top:0;
+			right: -116px;
+			display: none;
+		}
+		.item-nav,.two-item,.three-item{
+			width: 126px;
+			text-align: center;
+		}
+		.item-nav>a,.two-item>a,.three-item>a{
+			text-decoration: none;
+			color: #fff;
+		}
+		.none{
+			display: none;
+		}
+		
+		.item-nav:hover>.two-nav{
+			display: block;
+		}
+		.two-item:hover>.three-nav{
+			display: block;
+		}
+		.item-nav:hover,.two-item:hover,.three-item:hover{
+			background: #44a597;
+		}
+	</style>
+	<body>
+		
+		<div class="top">
+			
+			<ul class="main-nav">
+				<li class="item-nav">
+					<a href="">我的行程</a>
+				</li>
+				<li class="item-nav">
+					<a href="">ES管理员</a>
+					
+					
+					<ul class="two-nav none">
+						<li class="two-item">
+							<a href="">ES差旅预定</a>
+							<ul class="three-nav none">
+								<li class="three-item">
+									<a href="">ES差旅1</a>
+								</li>
+								<li class="three-item">
+									<a href="">ES差旅2</a>
+								</li>
+								<li class="three-item">
+									<a href="">ES差旅3</a>
+								</li>
+							</ul>
+						</li>
+						<li class="two-item">
+							<a href="">ES差旅</a>
+							<ul class="three-nav none">
+								<li class="three-item">
+									<a href="">酒店账单</a>
+								</li>
+								<li class="three-item">
+									<a href="">飞机账单</a>
+								</li>
+								<li class="three-item">
+									<a href="">火车账单</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li class="item-nav">
+					<a href="">差旅报表</a>
+				</li>
+				<li class="item-nav">
+					<a href="">差旅审批</a>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		/*
+		 * transform:
+		 * rotate() 方法
+
+通过 rotate() 方法，元素顺时针旋转给定的角度。允许负值，元素将逆时针旋转。
+translate() 方法
+
+通过 translate() 方法，元素从其当前位置移动，根据给定的 left（x 坐标） 和 top（y 坐标） 位置参数：
+scale() 方法
+
+通过 scale() 方法，元素的尺寸会增加或减少，根据给定的宽度（X 轴）和高度（Y 轴）参数：
+skew() 方法
+
+通过 skew() 方法，元素翻转给定的角度，根据给定的水平线（X 轴）和垂直线（Y 轴）参数：
+
+matrix() 方法
+
+matrix() 方法把所有 2D 转换方法组合在一起。
+
+matrix() 方法需要六个参数，包含数学函数，允许您：旋转、缩放、移动以及倾斜元素。
+
+
+
+		 */
+		
+		#aa {
+			width: 200px;
+			height: 150px;
+			background-color: yellowgreen;
+			/*transform: rotate(60deg);*/
+			/*transform: translate(100px,300px);*/
+			/*transform: scale(2, 4);*/
+			/*transform: skew(30deg,20deg);*/
+			transform: matrix(2.866,0.5,-1.5,0.866,2,5);
+		}
+	</style>
+
+	<body>
+		<div id="aa">
+
+		</div>
+	</body>
+
+</html>
