@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        .top{
+            background: green;
+            height: 34px;
+            width: 100%;
+            padding: 0 10%;
+            box-sizing: border-box;
+        }
+        .main-nav{
+            display: flex;
+            line-height: 34px;
+        }
+        .two-item{
+            background-color: aqua;
+            display: none;
+        }
+        .item-nav:hover>.two-item{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <ul class="main-nav">
+            <li class="item-nav">
+                <a href="">标题1</a>
+                <ul class="two-item">
+                    <a href="">二级标题1</a>
+                </ul>
+            </li>
+            <li class="item-nav">
+                <a href="">标题2</a>
+            </li>
+            <li class="item-nav">
+                <a href="">标题3</a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
