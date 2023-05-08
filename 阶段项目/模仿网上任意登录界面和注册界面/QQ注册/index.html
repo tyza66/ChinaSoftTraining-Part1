@@ -12,7 +12,11 @@
     <div class="a">
         <div class="head">
             <img class="r1" src="qq.png" />
-            <img class="ri" src="right.png">
+            <div class="ri">
+                <img src="2.png" />
+                <span>简体中文 v</span>
+                <span>意见反馈</span>
+            </div>
             <div class="ww">
                 <h1>欢迎注册QQ</h1>
                 <label for="input1">每一天，乐在沟通。</label>
@@ -22,7 +26,7 @@
 
                 <input type="text" id="input3" name="input3" placeholder="手机号码">
 
-                <input class="sbm" type="submit" value="立即注册"/>
+                <input class="sbm" type="submit" value="立即注册" />
             </div>
         </div>
     </div>
@@ -54,7 +58,6 @@
 
         .ri {
             float: right;
-            margin-top: 10px;
             margin-right: 20px;
         }
 
@@ -70,15 +73,32 @@
             display: block;
             margin-bottom: 10px;
         }
-        .ww{
+
+        .ww {
             width: 300px;
             margin: 0 auto;
             margin-top: 100px;
         }
-        .sbm{
+
+        .sbm {
             width: 320px;
             background-color: #0085ff;
             border-radius: 5px;
+        }
+
+        .ri img {
+            float: left;
+            height: 20px;
+            margin-top: 15px;
+            display: inline-block;
+        }
+
+        .ri span {
+            float: left;
+            display: inline-block;
+            margin-left: 15px;
+            line-height: 50px;
+            text-align: center;
         }
     </style>
 </body>
