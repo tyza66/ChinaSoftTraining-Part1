@@ -59,11 +59,30 @@
        var obj = new Object();
        console.log(obj)
        console.log(typeof obj)
+       //添加属性
        obj.name = "x"
+       console.log(obj)
        /*
-        属性就是事务的特征
-        方法就是事务的行为
+            属性就是事务的特征
+            方法就是事务的行为
        */
+      //修改属性的值
+      obj.name = "y"
+      console.log(obj)
+      //删除属性的值
+      delete obj.name;
+      console.log(obj)
+
+      //通过字面量来创建对象
+      var obj2= {
+        name : "giao",
+        age : 100,
+        sex : "男",
+        get:function(){
+            alert("一个方法")
+        }
+      }
+      obj2.get()
     </script>
 </head>
 
