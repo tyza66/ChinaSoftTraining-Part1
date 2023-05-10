@@ -31,13 +31,13 @@
         var str = "Hello World"
         alert(str.length);
         //如果多个字符串直接加号 字符串+任意的数据类型可以返回一个新的字符串
-        alert("ni"+"Hao");
+        alert("ni" + "Hao");
         var ss = "giao" + undefined
         console.log(typeof ss)
         var age = 100
-        console.log("遴选"+age+"岁")
+        console.log("遴选" + age + "岁")
 
-        var bool = true +1;
+        var bool = true + 1;
         console.log(bool)
         var aa;
         console.log(aa) //undefine
@@ -56,37 +56,37 @@
         /*
             使用new关键字调用构造函数
         */
-       var obj = new Object();
-       console.log(obj)
-       console.log(typeof obj)
-       //添加属性
-       obj.name = "x"
-       console.log(obj)
-       /*
-            属性就是事务的特征
-            方法就是事务的行为
-       */
-      //修改属性的值
-      obj.name = "y"
-      console.log(obj)
-      //删除属性的值
-      delete obj.name;
-      console.log(obj)
+        var obj = new Object();
+        console.log(obj)
+        console.log(typeof obj)
+        //添加属性
+        obj.name = "x"
+        console.log(obj)
+        /*
+             属性就是事务的特征
+             方法就是事务的行为
+        */
+        //修改属性的值
+        obj.name = "y"
+        console.log(obj)
+        //删除属性的值
+        delete obj.name;
+        console.log(obj)
 
-      //通过字面量来创建对象
-      var obj2= {
-        name : "giao",
-        age : 100,
-        sex : "男",
-        get:function(){
-            alert("一个方法")
+        //通过字面量来创建对象
+        var obj2 = {
+            name: "giao",
+            age: 100,
+            sex: "男",
+            get: function () {
+                alert("一个方法")
+            }
         }
-      }
-      obj2.get()
-
-      for(var key in obj2){
-        console.log(obj2[key])
-      }
+        obj2.get()
+        //for in 用于对象的循环遍历操作
+        for (var key in obj2) {
+            console.log(obj2[key])
+        }
     </script>
 </head>
 
