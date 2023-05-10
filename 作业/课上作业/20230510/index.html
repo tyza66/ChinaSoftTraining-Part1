@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 7.声明变量保存用户输入的值，如果值为root，或者为ran@110.com ，
+        //  或者为13838383838，打印true，否则false
+        var input = "root"
+        if (input == "root" || input == "ran@110.com" || input == "13838383838") {
+            console.log(true)
+        } else {
+            console.log(false)
+        }
+        //  8.声明变量保存一个人的年龄，如果满18岁打印’成年人’，使用短路逻辑
+        var age = 18
+        if (age <= 18 && age >= 5) {
+            console.log('成年人')
+        }
+        //  9.声明变量保存价格，假设打5折，计算结果是多少并打印出来。
+        var price = 2
+        console.log(price * 0.5)
+        //  10.声明变量保存用户输入的用户名和密码，
+        var username = "user"
+        var password = "pass"
+        //  如果用户名为root并且密码为123456，打印‘登陆成功’，否则‘登陆失败’
+        if (username == "root" && password == "123456") {
+            console.log("登录成功")
+        }
+        //  11.声明变量保存一个人的年龄，如果满18岁打印成年人
+        var age2 = 18;
+        if (age2 >= 18) {
+            console.log('成年人')
+        }
+        //  12.声明变量保存性别的值(1/0)，如果是1打印男，否则打印女
+        var sex = 1
+        if (sex == 1) {
+            console.log("男")
+        } else if (sex == 2) {
+            console.log("女")
+        }
+        //  13.声明变量保存订单的状态码，根据订单的状态码打印对应的汉字状态
+        var code = 1
+        switch (code) {
+            case 1:
+                console.log("等待付款")
+                break;
+            case 2:
+                console.log("等待发货")
+                break;
+            case 3:
+                console.log("运输中")
+                break;
+            case 4:
+                console.log("已签收")
+                break;
+            case 5:
+                console.log("已取消")
+                break;
+            default:
+                console.log("无法追踪")
+                break;
+        }
+        //1-等待付款 2-等待发货 3-运输中 4-已签收 5-已取消 其它-无法追踪
+
+        //  14.声明变量保存一个人的成绩，根据分数做出评判
+        var score = 100;
+        if(score>=90){
+            console.log("优秀")
+        }else if(score>=80){
+            console.log("良好")
+        }else if(score>=70){
+            console.log("中等")
+        }else if(score>=60){
+            console.log("及格")
+        }else{
+            console.log("不及格")
+        }
+        //  //90~ 优秀
+        //  //80~90以下 良好
+        //  //70~80以下 中等
+        //  //60~70以下 及格
+        //  //60以下 不及格
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
