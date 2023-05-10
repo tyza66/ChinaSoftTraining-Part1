@@ -84,7 +84,7 @@
 		 * 数据类型转换
 		 */
 		//转换为字符串 
-		var num = 1;
+//		var num = 1;
 //		console.log(typeof num);
 ////		var str = num.toString();
 ////		console.log(typeof str);
@@ -120,17 +120,57 @@
 		 * 创建对象
 		 * 使用new关键字调用构造函数
 		 */
-		var obj = new Object();
+//		var obj = new Object();
 //		console.log(obj);
 //		console.log(typeof obj);
-		obj.name = "女帝";
-		obj.sex = "女";
-		console.log(obj.name);
-		console.log(obj.sex);
+		/**
+		 * 在对象中保存的值称为属性
+		 * 属性： 事物的特征
+		 * 方法（函数）：事物的行为
+		 */
 		
+//		obj.name = "女帝";
+//		obj.sex = "女";
+//		console.log(obj.name);
+//		console.log(obj.sex);
+		/**
+		 * 修改属性的值
+		 */
+//		obj.name = "张子凡";
+//		obj.sex = "男";
+//		console.log(obj.name,obj.sex);
 		
-
+		/**
+		 * delete 删除对象的属性值
+		 */
+//		delete obj.name;
+//		console.log(obj.name);
 		
+		/**
+		 * 使用字面量来创建对象
+		 * 语法：{属性名：属性值,属性名：属性值.......}
+		 * 注意：如果是最后一个属性就不需要写,了
+		 */
+		
+		var obj2 = {
+			name:"岐王",
+			age:100,
+			sex:"男",
+			get: function(){
+				alert("123");
+			}
+		}
+		console.log(obj2);
+		console.log(typeof obj2);
+		obj2.get();
+		
+		/**
+		 * 对象的遍历 for ... in 语句用于对象的循环遍历操作
+		 * 语法中的变量是自定义的，但是它需要符合命名规范，通常是 k 或着 key
+		 */
+		for(var o in obj2){
+			console.log(obj2[o]);
+		}
 
 		</script>
 	</head>
