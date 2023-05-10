@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>js编写位置</title>
+		<!--可以将js脚本写在script标签中-->
+		<script type="application/javascript">
+			alert("hello world");
+		</script>
+		
+		<!--可以将js文件写道外部js文件中-->
+		<script src="js/script.js">
+			/**
+			 * script标签一旦用于外部文件了，就不能再编写代码了，如果需要就可以再
+			 * 创建一个script标签用于编写内部代码。
+			 */
+			alert("hello world");
+		</script>
+		
+		<!--<script type="application/javascript">
+			<!--alert("hello world");
+		</script>-->
+		
+	</head>
+	<body>
+		<!--可以将js代码编写到标签的onclick属性，点击之后，js代码才会执行-->
+		<button onclick="alert('单击一下')">单击操作</button>
+		<!--可以将js代码写在超链接中，点击之后，才会执行代码-->
+		<a href="javascript:alert('再点击一次')">你点击一下</a>
+		<a href="javascript:;">点击之后没有反应</a>
+	</body>
+</html>

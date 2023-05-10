@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>数据类型</title>
+		<script type="text/javascript">
+			/**
+			 * 基本数据类型
+			 * Number:数字型，包含了整型和浮点值例如：21 0.21 默认值：0；
+			 * Boolean: 布尔值类型，例如：true,false;等价于1和0 默认值 false;
+			 * String:字符串类型，例如："袁天罡" 默认值""
+			 * Undefined:未定义  var a; 声明了一个变量a但是没有赋值，此时a = undefind
+			 * Null: var a; 声明一个空值
+			 * 
+			 * 
+			 * 复杂数据类型
+			 * object
+			 * 对象属于一种复合的数据类型，在对象中可以保存多个不同的数据类型的属性。
+			 */
+			
+			/**
+			 * 最大值和最小值
+			 */
+//			alert(Number.MAX_VALUE);
+//			alert(Number.MIN_VALUE);
+			/**
+			 * 数字型三种特殊值
+			 */
+			//代表无穷大
+//			console.log(Infinity);
+//			//代表无穷小
+//			console.log(-Infinity);
+//			//代表非数值
+//			console.log(NaN);
+			
+			//isNaN（x）用来判断一个变量是否为非数字的类型，返回是true,证明它不是数字。
+//			var flag = isNaN("hello");
+//			console.log(flag);
+			
+			/**
+			 * 字符串类型 String
+			 */
+//			var str = "hello world";
+//			alert(str.length);
+			
+			/**
+			 * 多个字符串之间可以使用+进行拼接
+			 * 新的字符串 = 字符串 + 任意数据类型  ,只要有字符串和其他类型拼接，
+			 * 最终的结果都是字符串类型
+			 */
+//			var strOld = "你好";
+//			var strNew = strOld + 123456;
+//			var strNew2 = strOld + undefined;
+//			console.log(strNew);
+//			
+//			//typeof校验数据类型的
+//			console.log(typeof strNew);
+//			console.log(typeof strNew2);
+//			
+//			var age = 18;
+//			console.log("林轩"+age+"岁")
+
+		/**
+		 * 布尔类型 Boolean
+		 * true false 1 0
+		 */
+//		var bool = true + 1;
+//		console.log(bool);
+//		console.log(typeof bool);
+		
+		/**
+		 * undefined和null类型
+		 */
+//		var abb;
+//		console.log(abb);
+//		console.log(typeof abb);
+		
+//		var bb = null;
+//		console.log(bb);
+//		console.log(typeof bb);
+//		console.log(typeof null);
+		
+		/**
+		 * 数据类型转换
+		 */
+		//转换为字符串 
+		var num = 1;
+//		console.log(typeof num);
+////		var str = num.toString();
+////		console.log(typeof str);
+//		//强制转换
+//		var str2 = String(num);
+//		console.log(typeof str2);
+		
+		/**
+		 * 转换为数字型
+		 * 		parseInt(string)
+		 */
+//		console.log(parseInt("213"));
+//		console.log(typeof parseInt("213"));
+//		console.log(parseInt(3.94)); //取整数
+//		console.log(parseInt("100px"));//会去掉这px单位
+//		console.log(parseFloat("3.45"));
+//		console.log(typeof parseFloat("3.45"));
+//		var t = Number("123px");
+//		console.log(t)
+//		console.log(typeof t);
+		
+		/**
+		 * 转换为布尔类型
+		 * Boolean(string) 其他类型转换为布尔类型
+		 * 代表空的，否定的值会被转换为false,例如：0,NaN，null,undefined.
+		 * 其余的值都是true.
+		 */
+//		console.log(Boolean("123"));
+//		console.log(Boolean(NaN));
+//		console.log(Boolean(0));
+
+		/**
+		 * 创建对象
+		 * 使用new关键字调用构造函数
+		 */
+		var obj = new Object();
+//		console.log(obj);
+//		console.log(typeof obj);
+		obj.name = "女帝";
+		obj.sex = "女";
+		console.log(obj.name);
+		console.log(obj.sex);
+		
+		
+
+		
+
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
