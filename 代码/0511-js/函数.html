@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>函数</title>
+		<script type="text/javascript">
+			/**
+			 * 函数：就是封装了一段可以被重复调用执行的代码。
+			 * 通过这个代码块可以实现大量的代码重复使用
+			 * 
+			第一种方式:
+			function 函数名(){
+				
+			}
+			第二种方式:
+			var 函数名 = function(){
+				//函数体代码;
+			}
+			
+			调用函数     函数名();
+			注意:
+				声明函数本身不会执行代码逻辑,只有调用函数时才会执行函数体代码.
+				调用函数一定不要忘记添加小括号.
+			 * 
+			 */
+
+//			function test(){
+//				console.log("执行了test函数！");
+//			}
+//			
+//			var test2 = function(){
+//				console.log("test2被执行");
+//			}
+			
+//			//调用函数
+//			test();
+//			test2();
+			
+			/**
+			 * 函数的参数
+			 * 在声明函数的时候，可以在函数名后面的小括号中添加一些参数，这些参数称为形参，
+			 * 在调用函数的时候，同意也需要传递相应的参数，这些参数被称为  实参。
+			 * 可以定义任意多个参数，用英文逗号分隔开
+			function 函数名(形参1,形参2....){
+				
+			}
+			调用函数：
+				函数名（实参1,实参2....）;
+			 */
+//			function test3(a,b){
+//				console.log(a,b);
+//			}
+//			test3(1,2);
+			
+			/**
+			 * 函数的形参和实参个数不匹配的问题
+			 */
+//			function sum(num1,num2){
+//				console.log(num1+num2);
+//			}
+			
+//			sum(100,200); //正常情况
+//			sum(100,250,500,555);//如果实参个数多于形参个数，只取到形参的个数。
+//			sum(100);//实参个数小于形参个数，多出来的那个形参的值定义为undefined，结果就是NaN
+			
+			/**
+			 * 函数的返回值
+			 * function test4(){
+			 * 		return 需要返回的值;
+			 * }
+			 */
+			
+//			function test4 (a,b) {
+//				return a+b;
+//			}
+//			var result = test4(100,200);
+//			console.log(result);
+
+			/**
+			 * 1.创建一个getSum的函数，计算1~任意的数字之间所有整数的和，并打印出来。
+			 * 
+			 * 2.创建一个getMax函数，传递两个参数，返回最大值。
+			 * 
+			 * 3.传递任意三个参数，返回最大值。
+			 */
+//			function getSum(num){
+//				var sum =0;
+//				for(var i =1;i<=num;i++){
+//					sum += i;
+//				}
+//				console.log(sum);
+//			}
+//			getSum(100);
+			
+			function getMax(a,b,c){
+				var temp = a>b?a:b;
+				return temp>c?temp:c;
+			}
+			console.log(getMax(1,2,3));
+
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

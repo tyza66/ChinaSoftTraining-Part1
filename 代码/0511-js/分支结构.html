@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>分支结构</title>
+		<script type="text/javascript">
+			//if/else语句
+			/**
+			 * 单分支
+			 */
+//			if(1==1){
+//				console.log("1==1");
+//			}
+			/**
+			 * 双分支
+			 */
+//			if(1!=1){
+//				console.log("1==1");
+//			}else{
+//				console.log("其他情况");
+//			}
+			
+			/**
+			 * 多分支
+			 */
+			
+//			if(1!=1){
+//				console.log("1==1");
+//			}else if(2==2){
+//				console.log("2==2");
+//			}else{
+//				console.log("其他情况");
+//			}
+//			
+			/**
+			 * swith ... case
+			 */
+			// 声明变量保存城市的名称，根据城市名称打印对应的旅游景点，运用swith实现。
+//			var city = '大连';
+//			switch(city){
+//				case "大连":
+//					console.log("星海广场");
+//					break;
+//				case "北京":
+//					console.log("故宫");
+//					break;
+//				default:
+//					console.log("对不起，系统待优化..");
+//					break;
+//			}
+			
+			//三元表达式
+			/**
+			 * 语法结构: 表达式1?表达式2:表达式3
+			 * 如果表达式1表达式1判断条件为true,返回表达式2的值，否则返回表达式3的值。
+			 */
+			
+			/**
+			 * 循环结构：
+			 * for(初始化参数;判断条件;更新循环变量){
+			 * 		循环体;
+			 * }
+			 */
+//			for(var i = 0;i<10;i++){
+//				console.log(i);
+//			}
+			/**
+			 * 假设到银行存钱10000元，银行利率是4%，5年后一共能拿到多少钱？
+			 */
+//			var money = 10000;
+//			for(var i = 1;i<=5;i++){
+//				money = money * 0.04 + money;
+//			}
+//			console.log(money);
+
+			/**
+			 * while 语法结构：
+			 * 
+			 *	初始化部分;
+				while(判断条件){
+					循环体;
+					迭代部分;
+				}
+				
+				do。。。。while。。。语法结构：
+				
+				do{
+					循环体;
+					迭代
+				}while (判断条件);
+			 */
+//			var i =0;
+//			while(i<10){
+//				console.log(i);
+//				i++;//注意：迭代时候，如果没有i++，会导致死循环。
+//			}
+			
+			/**while循环练习：
+			 * 
+			 * 1.打印50~40之间所有的整数。
+			 * 2.运用循环遍历的方式，打印出70 75 80 85 90
+			 */
+			
+//			var i= 50;
+//			while(i>=40){
+//				console.log(i);
+//				i--;
+//			}
+
+//			var i = 70; 
+//			do{
+//				console.log(i);
+//				i += 5;  //i = i+5;
+//			}while (i<=90)
+				
+				/**
+				 * 死循环
+				 */
+//				while(true){
+//					
+//				}
+				
+//				for(;;){
+//					console.log("hello world");
+//				}
+
+				/**
+				 * break; //立即跳出整个循环
+				 * continue; //用于跳出本次循环，继续下一次循环。
+				 */
+				
+				//遍历0-10，当i=8的时候，程序终止
+//				for(var i = 0;i<=10;i++){
+//					if(i==8){
+//						continue;
+//					}
+//					console.log(i);
+//				}
+				
+				/**
+				 * 打印1~100之间所有的偶数.
+				 */
+				var i = 1;
+				while(i<=100){
+					if(i % 2==0){
+						console.log(i);
+					}
+					i++;
+				}
+			
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

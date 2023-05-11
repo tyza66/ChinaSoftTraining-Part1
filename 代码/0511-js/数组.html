@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>数组</title>
+		<script>
+			/**
+			 * 数组：
+			 * 		数组也是一个对象
+			 * 		它和普通对象功能类似，也是用来存储一些值的。
+			 * 	          不同的是普通的对象是使用字符串作为属性名。
+			 * 		而数组是使用整型数字作为索引操作元素的。
+			 * 		索引： 从0开始的整数
+			 * 		数组的存储性能要比普通对象要好，所以在开发中我们经常使用数组来存储数据。
+			 * 		注意：声明数组中可以存放任意类型的数据，例如字符串，数字，布尔值...
+			 */
+			//方法一：定义一个空数组，长度根据赋值的个数来指定的
+//			var array = new Array();
+//			array[0] = 10;
+//			array[1] = 20;
+//			array[2] = 30;
+//			console.log(array);
+			
+			//方法二
+//			var array2 = new Array(1,2,3);
+//			console.log(array2);
+			
+			//方法三：利用数组字面量创建数组
+//			var array3 = ["不良帅",300,true];
+//			console.log(array3);
+
+//		var array4 = ["不良帅","李星云","长子凡"]
+//		for(var i =0;i<array4.length;i++){
+//			console.log(array4[i]);
+//		}
+		
+		/**
+		 * 数组的扩容
+		 * 改变数组的长度
+		 */
+//		var arr = ["red","green","pink","blue"];
+//		console.log(arr.length);
+//		arr.length = 7;
+//		console.log(arr);//数组扩容之后默认值是undefined
+//		console.log(arr[5]);
+//		
+//		//instanceof() 判断变量是否属于某个数据类型
+//			console.log(arr instanceof Array); //如果是数组那么返回true
+			
+		/**
+		 * 添加数组元素
+		 * 语法： 
+		 * 		push（参数1....）末尾添加一个或者多个元素，是修改原数组 返回值是新的数组长度
+		 */
+//		var arr = [1,2,3]
+//		var res = arr.push(4,"pink");
+//			console.log(res);
+//			console.log(arr);
+
+		/**
+		 * pop()删除数组最后一个元素，把数组长度减1，无参数，修改原数组 返回值是删除的元素的值
+		 */
+//		var arr = [1,2,3];
+//		var res = arr.pop();
+//		console.log(res);
+//		console.log(arr);
+		
+		/**
+		 * 数组的反转
+		 * reverse() 颠倒数组中元素的顺序，返回值会改变原来的数组，返回的是新数组
+		 */
+//		var result = arr.reverse();
+//		console.log(arr);
+//		console.log(result);
+		
+		/**
+		 * indexof()
+		 */
+//		var arr = ["red","green","pink","green","blue"];
+		//从左到右查找第一次出现的位置。
+//		console.log(arr.indexOf("green"));
+//		//不存在的时候返回的是-1
+//		console.log(arr.indexOf("xxx"));
+		//indexof("值",索引号)：从第几个位置开始查找元素，返回是索引的位置，如果没有找到返回-1
+//		console.log(arr.indexOf("green",2));
+
+		//数组转换为字符串
+		//toString():把数组转换为字符串
+		//join("分隔符")：方法用于把数组的所有元素转换为字符串，返回值是字符串,不会修改原数组。
+//		var arr = ["red","green","pink","green","blue"];
+//		var str = arr.toString();
+//		console.log(str);
+//		console.log(str instanceof String);//console.log(typeof str);
+//		console.log(arr.join());
+//		console.log(arr.join("/"));
+//		console.log(arr);
+
+/**
+ * 1.求出数组元素的和[30,90,90,200,700,50]
+ * 		
+ * 2.求出数组里大于5的和[1,3,6,66,88,11]
+ */
+//		var arr = [30,90,90,200,700,50];
+//		var sum = 0;
+//		for(var i =0;i<arr.length;i++){
+//			sum += arr[i];
+//		}
+//		console.log(sum);
+		
+//		var arr2 = [1,3,6,66,88,11];
+//		var sum2 = 0;
+//		for(var i =0;i<arr2.length;i++){
+//			if(arr2[i]>5){
+//				sum2 += arr2[i];
+//			}
+//		}
+//		console.log(sum2)
+		
+		var arr = [3,2,8,1,9,5,7];
+		for(var i =0;i<arr.length-1;i++){
+			for(var j = 0;j<arr.length-1-i;j++){
+				if(arr[j]>arr[j+1]){
+					var temp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = temp;
+				}
+			}
+		}
+		console.log(arr);
+		
+
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

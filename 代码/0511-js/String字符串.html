@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>字符串</title>
+		<script>
+			
+//			charAt() 返回在指定位置的字符
+//			charCodeAt() 返回在指定的位置字符的Unicode编码
+
+//			indexOf()检索字符串
+//			lastIndexOf()从后向前搜索字符串
+			
+			var str = "abcdedghcd";
+			console.log(str.charAt(2)); //c
+			console.log(str.charCodeAt(0));//97
+			console.log(String.fromCharCode(65,66,67,68));
+			
+			console.log(str.indexOf("cd"));//2
+			console.log(str.indexOf("c",4));//-1
+			console.log(str.lastIndexOf("cd"));
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
