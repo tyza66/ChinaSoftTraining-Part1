@@ -11,6 +11,11 @@
         var array = new Array();//数组的长的是根据具体赋值的长度来决定的
         var array2 = new Array(1,2,3);//直接通过有参的构造器创建数组
         var array3 = [1,2,3]//利用字面量的方式创建数组
+        //数组扩容
+        array.length = 7 //扩容之后没有值的部分默认是undefined
+        console.log(array instanceof Array) //判断变量的类型 如果符合就是true
+        //push函数在数组末尾添加一个元素并且 返回值是新的数组的长度
+        //pop 删除数组最后一个元素 返回值就是数组中删除的那个元素
     </script>
 </head>
 <body>
