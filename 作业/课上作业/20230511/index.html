@@ -13,6 +13,68 @@
             break;
         }
     }
+//     1.请用对象字面量的形式创建一个名字为可可的狗对象，具体信息如下。
+// 名称：可可                                        类型（type）：阿拉斯加犬
+// 年龄：5岁                                         颜色：棕红色
+// 技能：汪汪叫、摇尾巴
+var kk = {
+    name: "可可",
+    type:"阿拉斯加犬",
+    age:"5岁",
+    color:"棕红色",
+    w:function(){
+        console.log("giao")
+    },
+    y:function(){
+        console.log("giao2")
+    }
+}
+kk.w()
+// 2.打印1~100之间所有整数，遇到能被3或者4整除就跳过
+for(var i=1;i<=100;i++){
+    if(i%3==0||i%4==0){
+        continue;
+    }else{
+        console.log(i)
+    }
+}
+// 3.创建商品对象，包含有商品的名称，价格，颜色，品牌；修改价格属性，添加重量属性，最后打印对象。
+var sp = {
+    name:"东西",
+    price:"100米",
+    color:"无色",
+    band:"小米"
+}
+sp.price = "50米"
+sp.weight = "999吨"
+console.log(sp)
+// 4：计算1~100之间所有奇数的和
+var sum = 0;
+for(var i=1;i<=100;i++){
+    if(i%2==1){
+        sum += i;
+    }
+}
+console.log(sum)
+// 5：使用死循环计算1~10之间所有整数的乘积
+var num = 1
+var end = 1
+while(true){
+    end = end * num
+    num++
+    if(num==11){
+        break;
+    }
+}
+console.log(end)
+// 6：计算1~100之间所有能被3整除的数字的和
+var sum = 0;
+for(var i=1;i<=100;i++){
+    if(i%3==0){
+        sum += i;
+    }
+}
+console.log(sum)
 </script>
 
 <body>
