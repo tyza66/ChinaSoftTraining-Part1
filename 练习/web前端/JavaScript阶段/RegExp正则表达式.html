@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,13 +15,18 @@
         var res = reg2.test("j")
         console.log(res)
         var str = "纯棉2不觉晓"
-        var num = str.replace(/\d/g,"*")
+        var num = str.replace(/\d/g, "*")
         console.log(num)
         var reg = new RegExp("[abc]")
         console.log(reg.test("a"))
-        </script>
+        //简单的手机号效验功能
+        var r = /^1[35789]\d{3,11}$/
+        console.log(r.test("13345678900"))
+    </script>
 </head>
+
 <body>
-    
+
 </body>
+
 </html>
