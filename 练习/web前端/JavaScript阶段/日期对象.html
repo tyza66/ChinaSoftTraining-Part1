@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var d = new Date()
+        console.log(d.getFullYear())
+        console.log(d.getMonth()) //月份是0到11
+        console.log(d.getDate())
+        console.log(d.getHours())//0开始
+        console.log(d.getMinutes())//0开始
+        console.log(d.getDay())//0-6 一周中的哪一天
+        var weeks = ["日","一","二","三","四","五","六"]
+        function showData(){
+            var dd = new Date();
+            var fullYear = d.getFullYear();
+            var month = dd.getMonth()
+            var date = dd.getDate()
+            var hours = dd.getHours()
+            var minutes = dd.getMinutes()
+            var seconds = dd.getSeconds()
+            var day = dd.getDay()
+            var weeks = ["日","一","二","三","四","五","六"]
+            var dataStr = fullYear + "-" + month + "-" + date + "-" + hours + "-" + minutes + "-" + seconds;
+            document.getElementById("div1").innerHTML = dataStr
+        }
+        window.setInterval(showData,1000)
+        function convert(time){
+            if(time<10){
+                return "0"+time;
+            }else{
+                return time;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+</html>

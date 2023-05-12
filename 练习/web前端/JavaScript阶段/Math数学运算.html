@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,10 +11,43 @@
         console.log(Math.ceil(3.4)) //向上取整
         console.log(Math.floor(3.6)) //向下取整 不遵循四舍五入
         console.log(Math.round(7.6)) //四舍五入
-        console.log(Math.sqrt(8).toFixed(2))
+        console.log(Math.sqrt(8).toFixed(2)) //开方 保留两位小数
+        console.log(Math.max(1, 2, 3)) //找到最大值 只能比较数字 不能比较别的 否则返回NaN
+        console.log(Math.min(1, 2, 3)) //找到最小值
+        console.log(Math.random())
+        //获得0到100的随机数
+        console.log(Math.round(Math.random() * 100))
+        //实现一个函数 输入两个参数 表示随机的范围 返回值是随机数
+        function random(min, max) {
+            // 检查参数是否合法
+            if (min > max) {
+                // 如果不合法，抛出错误
+                throw new Error("min should be less than or equal to max");
+            }
+            // 计算范围的大小
+            let range = max - min;
+            // 生成一个0到1之间的随机数
+            let rand = Math.random();
+            // 将随机数映射到范围内，并加上最小值
+            let result = rand * range + min;
+            // 返回结果
+            return result;
+        }
+        //使用随机数实现四位大写字母验证码
+        var n1 = "",n2="",n3="",n4=""
+        for(var i=1;i<=20;i++){
+        n1 = random(65,90)
+        n2 = random(65,90)
+        n3 = random(65,90)
+        n4 = random(65,90)
+        console.log(String.fromCharCode(n1,n2,n3,n4))
+        document.write(String.fromCharCode(n1,n2,n3,n4)+"<br />")
+        }
     </script>
 </head>
+
 <body>
-    
+
 </body>
+
 </html>
