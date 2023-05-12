@@ -22,7 +22,8 @@
         //简单的手机号效验功能
         var r = /^1[35789]\d{3,11}$/
         console.log(r.test("13345678900"))
-        var email = /^$/
+        var email = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)$/
+        console.log(email.test("123@qq.com"))
     </script>
 </head>
 

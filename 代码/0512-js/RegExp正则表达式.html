@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>正则表达式</title>
+		<script type="text/javascript">
+			/**
+			 * 字符串转义符 \
+			 * 转义符都是\开头的， 常用的转义符说明：
+			 * \n - 换行
+			 * \\ - 斜杠\
+			 * \‘ -单引号
+			 * \t - tab缩进制表符
+			 * \b - 空格 b是blank空格
+			 * \d - 所有的数字
+			 */
+			
+			/**
+			 * 正则对象RegExp
+			 */
+			//第一种方式：通过构造函数创建正则对象
+//			var reg = new RegExp('\\d');
+//			var b = reg.test(1);
+//			console.log(b);
+			
+			/**
+			 * 第二种方式： /\d/ 等价于 new RegExp('\\d')
+			 */
+//			var reg2 = /\d/;
+//			var res = reg2.test("j");
+//			console.log(res);
+			
+//			var str = "春1眠2不3觉4晓";
+//			var num = str.search("不觉晓");
+//			console.log(num);
+			//g - 正则表达式匹配全部的
+//			var s = str.replace(/\d/g,"*");
+//			console.log(s);
+			
+			/**
+			 * 匹配任意一个字符
+			 */
+//			var reg = new RegExp("[abc]");
+//			console.log(reg.test("a"));
+//			console.log(reg.test("b"));
+//			console.log(reg.test("c"));
+//			console.log(reg.test("ab"));
+//			console.log(reg.test("ac"));
+//			console.log(reg.test("bd"));
+//			console.log(reg.test(" "));
+
+			/**
+			 * 简单的手机号校验
+			 */
+//			var r = /^1[35789]\d{3,9}$/
+//			console.log(r.test("13121881051"));
+			
+			/**
+			 * 邮箱的校验
+			 * 12345@163.com
+			 * 123@qq.net.cn
+			 */
+			var email = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
+			console.log(email.test("123@qq.net.cn"))
+
+
+
+
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

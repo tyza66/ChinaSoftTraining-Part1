@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Math对象</title>
+		<script type="text/javascript">
+			
+			//绝对值
+//			console.log(Math.abs(-100));//100
+			//向上取整
+//			console.log(Math.ceil(3.2));//4
+			//向下取整
+//			console.log(Math.floor(3.6));//3
+			//四舍五入
+//			console.log(Math.round(7.3));//7
+			//开方, toFixed(2)保留小数几位  满足四舍五入
+//			console.log(Math.sqrt(8).toFixed(2));
+//			最大值  只能比较数字  否则返回NaN
+//			console.log(Math.max(22,33,44,55));
+			//求最小值  只能比较数字  否则返回NaN
+//			console.log(Math.min(22,33,44,55));
+			
+			//随机数 
+//			var res = Math.random();//0-1的随机数
+//			console.log(res);
+			
+			/**
+			 * 设计一个函数myRandom() ：实现0-100的随机数
+			 */
+//			function myRandom(){
+//				var num = Math.random();
+//				var result= Math.floor(num*(100+1));
+//				console.log(result);
+//			}
+//			myRandom();
+			
+			/**
+			 * 设计一个动态的函数 有两个参数，实现这两个数之间的随机数打印出来。
+			 */
+//			function getRandom(min,max){
+//				return Math.floor(Math.random()*(max-min+1))+ min
+//			}
+//			console.log(getRandom(1,10));
+			
+			/**
+			 * 利用随机数实现四位大写字母验证码，验证码输出到浏览器页面中。
+			 * 输出20行。
+			 */
+			for(var i =1;i<=20;i++){
+				for(var j = 1;j<=4;j++){
+					var r = Math.floor(Math.random()*(90-65+1))+ 65;
+					var c = String.fromCharCode(r);
+					document.write(c);
+				}
+				document.write("<br>");
+			}
+
+
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
