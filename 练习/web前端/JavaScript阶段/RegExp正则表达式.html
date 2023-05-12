@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //字符串转义
+        //正则表达式 \n换行 \\斜杠 \'单引号 \t制表符 \b空格 \d所有数字
+        var reg = new RegExp('\\d') //只要是数字就会返回true
+        console.log(reg.test("12"))
+        var reg2 = /\d/
+        var res = reg2.test("j")
+        console.log(res)
+        var str = "纯棉2不觉晓"
+        var num = str.replace(/\d/g,"*")
+        console.log(num)
+        var reg = new RegExp("[abc]")
+        console.log(reg.test("a"))
+        </script>
+</head>
+<body>
+    
+</body>
+</html>

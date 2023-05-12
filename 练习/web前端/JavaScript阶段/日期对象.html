@@ -24,7 +24,7 @@
             var seconds = dd.getSeconds()
             var day = dd.getDay()
             var weeks = ["日","一","二","三","四","五","六"]
-            var dataStr = fullYear + "-" + month + "-" + date + "-" + hours + "-" + minutes + "-" + seconds;
+            var dataStr = fullYear + "-" + convert(month+1) + "-" + convert(date) + "-" + hours + "-" + convert(minutes) + "-" + convert(seconds)+"-星期"+weeks[day];
             document.getElementById("div1").innerHTML = dataStr
         }
         window.setInterval(showData,1000)
