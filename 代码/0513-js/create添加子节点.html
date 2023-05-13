@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>添加子节点</title>
+
+	</head>
+	<body>
+		<div id="div1">
+			
+		</div>
+		
+		<div id="div2">
+			
+		</div>
+		<input type="button" value="添加子节点" onclick="m1()" />
+		<br/>
+		<input type="button" value="生成表" onclick="m2()" />
+
+		
+		
+		<script type="text/javascript">
+			
+			function m1(){
+				var div1 = document.getElementById("div1");
+				//动态创建p节点
+				var p = document.createElement("p");
+				//设置属性  第一个参数传递属性名  第二个参数传递属性值
+				p.setAttribute("align","center");
+				
+				//动态创建文本节点
+				var text = document.createTextNode("hello world");
+				//向p元素添加文本节点
+				p.appendChild(text);
+				div1.appendChild(p);
+				
+			}
+			
+			/**
+			 * 练习： 动态生成一张5行3列的表，使表的位置是居中的，表中内容自定义。
+			 */
+			function m2(){
+				var div2 = document.getElementById("div2");
+				//创建表格元素
+				var table = document.createElement("table");
+				//设置属性
+				table.setAttribute("width",500);
+				table.setAttribute("border",1);
+				table.setAttribute("align","center");
+				
+				for(var i =0;i<50;i++){
+					var tr = document.createElement("tr");
+					for(var j = 0;j<30;j++){
+						var td = document.createElement("td");
+						td.innerHTML = "内容"+i+":"+j;
+						tr.appendChild(td);
+					}
+					table.appendChild(tr);
+				}
+				div2.appendChild(table);
+			}
+			
+		</script>
+	</body>
+</html>
