@@ -126,12 +126,79 @@
 <script type="text/javascript">
     //验证四个文本框不能为空
     function checkForm() {
-
+        var userName = document.getElementById("userName")
+        var nameErr = document.getElementById("nameErr")
+        //判断用户名不能为空
+        if(userName.value.length==0){
+            nameErr.innerHTML="用户名不能为空";
+            nameErr.className = "error";
+            return;
+        }
+        var pattern = /^\w{3,}$/
+        if(pattern.test(userName.value)){
+            nameErr.innerHTML="success!";
+            nameErr.className = "success";
+        }else{
+            nameErr.innerHTML="输入至少3位用户名";
+            nameErr.className = "error";
+            return;
+        }
+        var name = document.getElementById("userPasword")
+        var err = document.getElementById("passwordErr")
+        if(name.value.length==0){
+            err.innerHTML="密码不能为空";
+            err.className = "error";
+            return;
+        }
+        var pattern2 = /^\w{4,8}$/
+        if(pattern2.test(name.value)){
+            err.innerHTML="success!";
+            err.className = "success";
+            
+        }else{
+            err.innerHTML="请输入4到8位的密码";
+            err.className = "error";
+            return;
+        }
+        name = document.getElementById("userConfirmPasword")
+        err = document.getElementById("conPasswordErr")
+        if(name.value.length==0){
+            err.innerHTML="重复密码不能为空";
+            err.className = "error";
+            return;
+        }
+        var pattern2 = /^\w{4,8}$/
+        if(pattern2.test(name.value)&&name.value==document.getElementById("userPasword").value){
+            err.innerHTML="success!";
+            err.className = "success";
+            
+        }else{
+            err.innerHTML="两次输入密码不一致";
+            err.className = "error";
+            return;
+        }
+        name = document.getElementById("userPhone")
+        err = document.getElementById("phoneErr")
+        if(name.value.length==0){
+            err.innerHTML="手机号码不能为空";
+            err.className = "error";
+            return;
+        }
+        var pattern2 = /\d{3}\d{8}|\d{4}\{7,8}/
+        if(pattern2.test(name.value)){
+            err.innerHTML="success!";
+            err.className = "success";
+            
+        }else{
+            err.innerHTML="请输入11位的手机号码";
+            err.className = "error";
+            return;
+        }
     }
 
     //1 用户名校验
     function checkUserName() {
-
+       
     }
 
 
