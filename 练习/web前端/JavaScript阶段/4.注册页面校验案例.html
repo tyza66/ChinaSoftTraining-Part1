@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>表单验证</title>
+    <style type="text/css">
+        .divAll {
+            width: 800px;
+            font-family: '黑体';
+            margin: 50px auto;
+        }
+
+        #titles {
+            font-weight: bold;
+            font-size: 18px;
+            height: 50px;
+            line-height: 50px;
+            background: #FFF9F3;
+            text-align: center;
+            border: 1px solid #CCC;
+        ;
+        }
+
+        #contents {
+            margin-top: 20px;
+            background: #FFF9F3;
+            border: 1px solid #CCC;
+        ;
+        }
+
+        #form-itemGroup {
+            padding: 10px;
+        }
+
+        #form-itemGroup label {
+            display: inline-block;
+            width: 100px;
+            height: 32px;
+            line-height: 32px;
+            color: #666;
+            text-align: right;
+        }
+
+        #form-itemGroup .userName {
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            border: 1px solid #CCC;
+        }
+
+        #form-itemGroup .default {
+            width: 200px;
+            height: 32px;
+            line-height: 32px;
+            color: #999;
+        }
+
+        #form-itemGroup .error {
+            height: 32px;
+            line-height: 32px;
+            color: #F00;
+        }
+
+        #form-itemGroup .success {
+            height: 32px;
+            line-height: 32px;
+            color: #096;
+        }
+
+        .divBtn {
+            margin-top: 20px;
+            margin-left: 200px;
+            width: 100px;
+            height: 32px;
+            line-height: 32px;
+            background-color: #F93;
+            margin-bottom: 10px;
+            color: #ffffff;
+            font-weight: bold;
+            border: none;
+        }
+    </style>
+
+
+</head>
+<body>
+<div class="divAll">
+    <div id="titles">新用户注册</div>
+    <div id="contents">
+        <h3>基本信息</h3>
+        <hr width="95%" color="#f2f2f2" />
+        <form action="#" onSubmit="checkForm()">
+            <div id="form-itemGroup">
+                <label for="userName">用户名：</label>
+                <input type="text" id="userName" class="userName" onBlur="checkUserName()"
+                       oninput="checkUserName()">
+                <span class="default " id="nameErr">请输入至少3位的用户名</span>
+            </div>
+            <div id="form-itemGroup">
+                <label for="userPasword">密码：</label>
+                <input type="password" id="userPasword" class="userName" onBlur="checkPassword()"
+                       oninput="checkPassword()">
+                <span class="default" id="passwordErr">请输入4到8位的密码</span>
+            </div>
+            <div id="form-itemGroup">
+                <label for="userConfirmPasword">确认密码：</label>
+                <input type="password" id="userConfirmPasword" class="userName" onBlur="ConfirmPassword()"
+                       oninput="ConfirmPassword()">
+                <span class="default" id="conPasswordErr">请再输入一遍密码</span>
+            </div>
+            <div id="form-itemGroup">
+                <label for="userPhone">手机号码：</label>
+                <input type="text" id="userPhone" class="userName" onBlur="checkPhone()" oninput="checkPhone()">
+                <span class="default" id="phoneErr">请输入11位手机号码</span>
+            </div>
+            <div>
+                <button type="submit" class="divBtn">注册</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<!-- js的正则校验 -->
+<script type="text/javascript">
+    //验证四个文本框不能为空
+    function checkForm() {
+
+    }
+
+    //1 用户名校验
+    function checkUserName() {
+
+    }
+
+
+    //校验密码
+    function checkPassword() {
+
+    }
+
+
+    //校验确认密码
+    function ConfirmPassword() {
+
+    }
+
+    //校验手机号
+    function checkPhone() {
+
+    }
+</script>
+
+</body>
+</html>
