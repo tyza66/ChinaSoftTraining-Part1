@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a id="a1" href="标识符.html" target="_blank">测试链接</a>
+    <br />
+    <button onclick="setA()">操作a标签的属性</button>
+    <br />
+    <img id="tp" src="./img/修勾.webp"/>
+    <br />
+    <button onclick="setTP()">更换图片</button>
+    <br />
+    <input id="tt" type="text" />
+    <br />
+    <button onclick="noT()">输入框禁用</button>
+    <br />
+    <input type="checkbox" name="hobby" id="" value="smoking"/>抽烟
+    <input type="checkbox" name="hobby" id="" value="drinking"/>喝酒
+    <input type="checkbox" name="hobby" id="" value="tangtou"/>烫头
+    <br />
+    <button onclick="getChecked()">获取复选框选中的值</button>
+    <button onclick="checkAll()">全选</button>
+    <button onclick="notCheckAll()">全不选</button>
+    <button onclick="checkBack()">反选</button>
+    <br />
+    <script>
+        function setA() {
+            var a1 = document.getElementById("a1");
+            console.log(a1.href)
+            console.log(a1.target)
+            a1.href = "http://www.baidu.com"
+        }
+        function setTP(){
+            var tp = document.getElementById("tp")
+            tp.src = "./img/灯塔.webp"
+        }
+        function noT(){
+            var t = document.getElementById("tt")
+            tt.disabled="true"
+        }
+        function getChecked(){
+            var cs = document.getElementsByName("hobby");
+            for(var i=0;i<cs.length;i++){
+                if(cs[i].checked==true){
+                    console.log(cs[i].value)
+                }
+            }
+        }
+        function checkAll(){
+            var cs = document.getElementsByName("hobby");
+            for(var i=0;i<cs.length;i++){
+                cs[i].checked=true
+            }
+        }
+        function notCheckAll(){
+            var cs = document.getElementsByName("hobby");
+            for(var i=0;i<cs.length;i++){
+                cs[i].checked=false
+            }
+        }
+        function checkBack(){
+            var cs = document.getElementsByName("hobby");
+            for(var i=0;i<cs.length;i++){
+                cs[i].checked=!cs[i].checked
+            }
+        }
+    </script>
+</body>
+</html>
