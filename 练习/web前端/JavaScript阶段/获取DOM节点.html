@@ -11,13 +11,40 @@
 </head>
 <body>
     <div id="d1">块级属性</div>
+    <p>我是第1段文字</p>
+    <p class="item">我是第2段文字</p>
+    <p>我是第3段文字</p>
+    <p class="item">我是第4段文字</p>
+    <p>我是第5段文字</p>
     <input type="button" name="" class="获取div元素" value="获取dom元素" onclick="getDiv()"/>
+    <button onclick="getClassP()">通过类选择器获得内容</button>
+    <button onclick="getAllP()">通过标签选择器获得所有的p标签</button>
+    <br/>
+    <input type="checkbox" name="hobby" id="" value="smoking"/>抽烟
+    <input type="checkbox" name="hobby" id="" value="drinking"/>喝酒
+    <input type="checkbox" name="hobby" id="" value="tangtou"/>烫头
+    <button onclick="getCk()">通过name属相获得复选框的值</button>
     <script>
         function getDiv(){
             var d1 = document.getElementById("d1");
             alert(d1.innerText);//获取标签内部的文本
             d1.innerText = "更改的内容"//设置标签内部的文本 不会解析html标签
             d1.innerHTML = "<i>这是一个斜体的文字</i>"//使用这个就会解析html标签
+        }
+        function getClassP(){
+            var items = document.getElementsByClassName("item") //获得的结果是一个元素的集合
+            for(var i=0;i<items.length;i++){
+                console.log(items[i].innerText)
+            }
+        }
+        function getAllP(){
+            var ps = document.getElementsByTagName("p");
+            for(var i=0;i<ps.length;i++){
+                console.log(ps[i].innerText)
+            }
+        }
+        function getCk(){
+            
         }
     </script>
 </body>
