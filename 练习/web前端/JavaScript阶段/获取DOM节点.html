@@ -23,6 +23,7 @@
     <input type="checkbox" name="hobby" id="" value="smoking"/>抽烟
     <input type="checkbox" name="hobby" id="" value="drinking"/>喝酒
     <input type="checkbox" name="hobby" id="" value="tangtou"/>烫头
+    <br/>
     <button onclick="getCk()">通过name属相获得复选框的值</button>
     <script>
         function getDiv(){
@@ -44,7 +45,10 @@
             }
         }
         function getCk(){
-            
+            var cs = document.getElementsByName("hobby");
+            for(var i=0;i<cs.length;i++){
+                console.log(cs[i].value)
+            }
         }
     </script>
 </body>
