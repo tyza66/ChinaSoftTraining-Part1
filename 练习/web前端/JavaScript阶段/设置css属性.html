@@ -5,18 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .main{
+            width: 300px;
+            height: 300px;
+            border:1px solid black;
+        }
+    </style>
 </head>
 <body>
-    <div id="d1">
-
-    </div>
+    <div id="d1" pid="1"></div>
     <button onclick="setStyle()">设置样式</button>
     <script>
         function setStyle() {
             var d1 = document.getElementById("d1")
-            d1.style.width = "200px";
-            d1.style.height = "200px"
-            d1.style.backgroundColor = "#000000"
+            // d1.style.width = "200px";
+            // d1.style.height = "200px"
+            // d1.style.backgroundColor = "#000000"//js中的属性名变成了驼峰形式的
+            //上面那种直接的方式的优先级更高
+            //方式二 通过改变类名来修改
+            d1.className = "main"
+            //方法三  使用setAttribute进行设置
+            d1.setAttribute("style", "width:20px")
+            //获得shuxing
+            console.log(d1.getAttribute("style"))
+            d1.setAttribute("1",22) //可以设置自定义的属性
         }
     </script>
 </body>
