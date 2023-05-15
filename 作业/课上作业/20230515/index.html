@@ -1,12 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>虚假的计算器</title>
+    <style>
+        .out {
+            width: 360px;
+            margin: 0 auto;
+        }
+
+        .screen {
+            width: 340px;
+            height: 30px;
+            border: 1px solid #000000;
+            float: left;
+            margin-left: 10px;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .bt {
+            width: 70px;
+            height: 35px;
+            margin: 5px 10px;
+            background: #aca7a7;
+            float: left;
+            line-height: 35px;
+            text-align: center;
+        }
+
+        .bt:hover {
+            background: #8d8888;
+        }
+    </style>
 </head>
+
 <body>
+    <div class="out">
+        <div class="screen" id="screen"></div>
+        <div class="bt">(</div>
+        <div class="bt">)</div>
+        <div class="bt">%</div>
+        <div class="bt">删除</div>
+        <div class="bt">7</div>
+        <div class="bt">8</div>
+        <div class="bt">9</div>
+        <div class="bt">/</div>
+        <div class="bt">4</div>
+        <div class="bt">5</div>
+        <div class="bt">6</div>
+        <div class="bt">*</div>
+        <div class="bt">1</div>
+        <div class="bt">2</div>
+        <div class="bt">3</div>
+        <div class="bt">-</div>
+        <div class="bt">0</div>
+        <div class="bt">.</div>
+        <div class="bt">=</div>
+        <div class="bt">+</div>
+    </div>
     
+    <script>
+        var bts = document.getElementsByClassName("bt")
+        var screen = document.getElementById("screen")
+        for (var i = 0; i < bts.length; i++) {
+            if (i == 3) {
+                bts[i].onclick = function () {
+                    screen.innerText = screen.innerText.slice(0, -1)
+                }
+            } else if(i == 18){
+                bts[i].onclick = function () {
+                    screen.innerText = eval(screen.innerText)
+                }
+            }
+            else {
+                bts[i].onclick = function () {
+                    screen.innerText = screen.innerText + this.innerText
+                }
+            }
+        }
+    </script>
 </body>
+
 </html>
