@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    第一个数<input type="text" id="i1" />
+    操作符<input type="text" id="i2" />
+    第二个数<input type="text" id="i3" />
+    = <span id="out"></span>
+    <button onclick="submit()">获取结果</button>
+    <button id="play">后绑定</button>
+    <script>
+        function submit() {
+            var i1 = document.getElementById("i1");
+            var i2 = document.getElementById("i2");
+            var i3 = document.getElementById("i3");
+            var out = document.getElementById("out");
+            switch (i2.value) {
+                case "+":
+                    out.innerText = parseFloat(i1.value) + parseFloat(i3.value)
+                    break;
+                case "-":
+                    out.innerText = parseFloat(i1.value) - parseFloat(i3.value)
+                    break;
+                case "*":
+                    out.innerText = parseFloat(i1.value) * parseFloat(i3.value)
+                    break;
+                case "/":
+                    out.innerText = parseFloat(i1.value) / parseFloat(i3.value)
+                    break;
+                case "%":
+                    out.innerText = parseFloat(i1.value) % parseFloat(i3.value)
+                    break;
+            }
+        }
+        document.getElementById("play").onclick = function() {
+            submit();
+        }
+    </script>
+</body>
+
+</html>
