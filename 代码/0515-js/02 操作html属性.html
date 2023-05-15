@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<a href="01 获取DOM节点.html" target="_blank" id="a1">测试链接</a>
+		
+		
+		<button onclick="setA()">操作a链接属性</button>
+		
+		<!--练习  原始图片  通过点击按钮 更换图片-->
+		<img src="img/8.png"/>
+		
+		<button onclick="changeSrc()">更改图片</button>
+		
+		<!--文本框禁用  -->
+		<input type="text"  value="123" id="t" />
+		
+		<button onclick="setTextDis()">禁用</button>
+		
+		
+		<!--获取复选框选中的值-->
+		<button onclick="selectAll()">全选</button>
+		<button onclick="selectNotAll()">全不选</button>
+		<button onclick="selectReverse()">反选</button>
+		<input type="checkbox" name="hobby" id="" value="smoking" />抽烟
+		<input type="checkbox" name="hobby" id="" value="drinking" />喝酒
+		<input type="checkbox" name="hobby" id="" value="hothair" />烫头
+		
+		<button onclick="getCheckedV()">获取复选框选中的值</button>
+		
+		
+		<script type="text/javascript">
+			function setA(){
+				//操作html属性  1 获取html元素  2 元素.html属性   获取 标签属性   元素.html属性 = 值; 设置html标签属性
+				var a1 = document.getElementById("a1");
+				
+				console.log("href",a1.href);
+				console.log("target",a1.target);
+				
+				a1.href="test.html";
+				
+			}
+			
+			function changeSrc(){
+				var old = document.getElementsByTagName("img")[0];
+				
+				old.src = "img/9.png";
+			}
+			
+			function setTextDis(){
+				var t = document.getElementById("t");
+//				console.log("文本框的值",t.value);
+                console.log("dis",t.disabled);//false
+                //利用布尔值操作html标签单一属性
+                t.disabled  = true;
+				
+			}
+			
+			function getCheckedV(){
+				var hs = document.getElementsByName("hobby");
+				for (var i = 0; i < hs.length; i++) {
+					if (hs[i].checked) {//hs[i].checked == true
+						console.log("被选中 的值",hs[i].value);
+					}
+				}
+			}
+			//全选
+			function selectAll(){
+				var hs = document.getElementsByName("hobby");
+				for (var i = 0; i < hs.length; i++) {
+					hs[i].checked = true;
+				}
+			}
+			//全不选
+			function selectNotAll(){
+				var hs = document.getElementsByName("hobby");
+				for (var i = 0; i < hs.length; i++) {
+					hs[i].checked = false;
+				}
+			}
+			
+			//selectReverse
+			function selectReverse(){
+				var hs = document.getElementsByName("hobby");
+				for (var i = 0; i < hs.length; i++) {
+					hs[i].checked = !hs[i].checked;
+				}
+			}
+		</script>
+	</body>
+</html>

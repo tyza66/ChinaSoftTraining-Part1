@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		第一个数：<input type="text" name="" id="t1" value="" />
+		操作符 <input type="text" name="" id="oper" value="" />
+		第二个数 <input type="text" name="" id="t2" value="" /> = 
+		
+		<span id="res">
+			
+		</span>
+		
+		<button id="btn">获取结果</button>
+		
+		
+		<script type="text/javascript">
+			document.getElementById("btn").onclick = function(){
+				//获取第一个数的值 document.getElementById("t1").value string
+				var num1 = parseFloat(document.getElementById("t1").value);
+				//获取第二个数
+				var num2 = parseFloat(document.getElementById("t2").value);
+//				console.log("num1",num1);
+
+				//获取操作符
+				var oper = document.getElementById("oper").value;
+				
+				var res = document.getElementById("res");
+				
+				res.innerText = eval(num1+oper+num2);//4*5
+				
+				/*if (oper == "+") {
+					res.innerText = num1 + num2;
+				}else if (oper == "-") {
+					res.innerText = num1 - num2;
+				}else if (oper == "*") {
+					res.innerText = num1 * num2;
+				}else if (oper == "/") {
+					res.innerText = num1 / num2;
+				}*/
+				
+			}
+		</script>
+		
+	</body>
+</html>

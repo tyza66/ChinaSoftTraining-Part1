@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				height: 100px;
+				width: 100px;
+				border: 1px solid black;
+				float:  left;
+				margin-left: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		
+		<script type="text/javascript">
+			var ds = document.getElementsByTagName("div");
+			
+			for (var i = 0; i < ds.length; i++) {
+				ds[i].onclick = function(){
+//					alert("i = " + i);
+//					alert("div" + ds[i].innerText);
+					alert(this.innerText);
+				}
+			}
+		</script>
+	</body>
+</html>

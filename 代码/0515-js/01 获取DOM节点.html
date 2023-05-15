@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<div id="d1">块级元素</div>
+		
+		<input type="button" name="" id="" value="获取div元素" onclick="getDiv()"/>
+		
+		<!--p{这是第$个段落}*5 + Tab键   元素标签{标签内部的内容}*生成次数  $ 按照顺序生成数字-->
+		<p>这是第1个段落</p>
+		<p class="item">这是第2个段落</p>
+		<p>这是第3个段落</p>
+		<p class="item">这是第4个段落</p>
+		<p>这是第5个段落</p>
+		
+		<button onclick="getClassP()">通过类选择器获取内容</button>
+		
+		<button onclick="getAllP()">通过标签选择器获取所有的p元素</button> <br />
+		
+		
+		<!--复选框-->
+		<input type="checkbox" name="hobby" id="" value="smoking" />抽烟
+		<input type="checkbox" name="hobby" id="" value="drinking" />喝酒
+		<input type="checkbox" name="hobby" id="" value="hothair" />烫头
+		
+		<button onclick="getCk()">通过name属性获取复选框的值</button>
+		
+		<script type="text/javascript">
+			//通过name属性获取复选框的值
+			function getCk(){
+				var cs = document.getElementsByName("hobby");
+				console.log(cs);
+				for (var i = 0; i < cs.length; i++) {
+					console.log("每个复选框内容",cs[i].value);
+				}
+			}
+			function getDiv(){
+			  var d1 = 	document.getElementById("d1");
+			  
+			  //获取标签内部的文本
+//			  alert("div内容" + d1.innerText);
+			  
+			  //设置标签内部的文本 innerText 纯文本 不会解析html标签
+//			  d1.innerText = "<i>更改div内容</i>";
+			  
+			  //innerHTML 设置内容 如果内容有html标签  html标签会被解析
+			  d1.innerHTML = "<i>更改div内容</i>";
+			}
+			
+			//通过类选择器获取内容
+			function getClassP(){
+				var items = document.getElementsByClassName("item");//HTML Collection
+				console.log(items);
+				for (var i = 0; i < items.length; i++) {
+					console.log("item",items[i].innerText);
+				}
+			}
+			
+			//通过标签选择器获取所有的p元素
+			function getAllP(){
+				var ps = document.getElementsByTagName("p");//HTML Collection
+				console.log(ps);
+				//获取每个p标签内容
+				for (var i = 0; i <= ps.length - 1; i++) {
+					console.log("每个p标签内容",ps[i].innerText);
+				}
+			}
+		</script>
+	</body>
+</html>

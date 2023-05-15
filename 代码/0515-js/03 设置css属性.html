@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.main{
+				width: 300px;
+				height: 300px;
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="d1"  >
+			块级元素
+		</div>
+		
+		<button onclick="setStyle()">设置样式</button>
+		
+		<script type="text/javascript">
+			function setStyle(){
+				//获取div元素
+				var d1 = document.getElementById("d1");
+				
+				//设置css属性 
+				//方式一 ： 元素.style.css属性  （注意：原有的css属性大多是-连接  js设置css属性 驼峰式）
+				/*d1.style.width = "200px";
+				d1.style.height = "150px";
+				d1.style.backgroundColor = "red";*/
+				
+				//方式二 设置类名
+//				d1.className = "main";
+
+                //方式三  设置属性  setAttribute(属性名称,属性值);  getAttribute("属性名称") 获取属性
+                d1.setAttribute("style","width: 120px;height: 120px;background-color: green;");
+                console.log("获取样式",d1.getAttribute("style"));
+                
+                d1.setAttribute("pid",1);//设置自定义属性
+			}
+		</script>
+	</body>
+</html>

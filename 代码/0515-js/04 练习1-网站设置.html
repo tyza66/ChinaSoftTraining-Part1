@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--table>tr*3>td{$$}-->
+		<table width="600" border="1" cellspacing="0" height="300">
+			<tr>
+				<td>
+					设置字号:
+					<!--注意：a href="" 绑定点击事件   会发生刷新
+						解决方式：
+						1 href="#" 空连接 保证点击不会刷新
+						2 href="javascript:setSize2()" 保证点击不会刷新
+					-->
+					<a href="#" onclick="setSize(50)">大</a>
+					<a href="javascript:setSize(30)">中</a>
+					<a href="#" onclick="setSize(10)">小</a>
+				</td>
+			</tr>
+			<tr>
+				<td>设置颜色：
+					<button onclick="setColor('black')">黑色</button>
+					<button onclick="setColor('red')">红色</button>
+					<button onclick="setColor('blue')">蓝色</button>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p id="p1">北京师范大学是教育部直属重点大学，是一所以教师教育、教育科学和文理基础学科为主要特色的著名学府。学校的前身是 1902年创立的京师大学堂师范馆，1908年改称京师优级师范学堂，独立设校，1912年改名为北京高等师范学校。1923年学 校更名为北京师范大学，成为中国历史上第一所师范大学。1931年、1952年北平女子师范大学、辅仁大学先后并入北京师范大学。 百余年来，北京师范大学始终同中华民族争取独立、自由、民主、富强的进步事业同呼吸、共命运，在“五·四”、“一二· 九”等爱国运动中发挥了重要作用。以李大钊、鲁迅、梁启超、钱玄同、吴承仕、黎锦熙、陈垣、范文澜、侯外庐、白寿彝、钟敬 文、启功、胡先骕、汪堃仁、周廷儒等为代表，一大批名师先贤在这里弘文励教。经过百余年的发展，学校秉承“爱国进步、诚信 质朴、求真创新、为人师表”的优良传统和"学为人师，行为世范"的校训精神，形成了“治学修身，兼济天下”的育人理念。 “七五”、“八五”期间，北京师范大学被确定为国家首批重点建设的十所大学之一。“九五”期间，又被首批列入“211工 程”建设计划。2002年百年校庆之际，教育部和北京市决定重点共建北京师范大学，北京市第九次党代会将北京师范大学列入支持 建设的世界一流大学的行列。“十五”期间，学校进入国家“985工程”建设计划。2017年，学校进入国家“世界一流大学”建设 A类名单，11个学科进入国家“世界一流学科”建设名单。</p>
+				</td>
+			</tr>
+		</table>
+		
+		<script type="text/javascript">
+			function setSize(size){
+				var p1 = document.getElementById("p1");
+				p1.style.fontSize = size + "px";
+			}
+			
+			function setColor(color){
+				var p1 = document.getElementById("p1");
+				p1.style.color = color;
+			}
+			
+			
+		</script>
+	</body>
+</html>
