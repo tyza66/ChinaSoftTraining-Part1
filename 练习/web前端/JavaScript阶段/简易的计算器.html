@@ -42,6 +42,10 @@
         document.getElementById("play").onclick = function() {
             submit();
         }
+        var code="sdm a = 1;giao(a);"//sdm是变量赋值语句 giao是输出语句
+        var pass = code.replace("sdm","var")
+        pass = pass.replace("giao","alert")
+        console.log(eval(pass))
     </script>
 </body>
 
