@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100%;
+            border: 1px solid #000000;
+        }
+
+        #text {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        更改文字大小： <a href="javascript:change(1)">大</a> <a href="javascript:change(2)">中</a> <a
+            href="javascript:change(3)">小</a>
+    </div>
+    <div class="box">
+        更改字体颜色：<button onclick="change(4)">红</button><button onclick="change(5)">绿</button><button
+            onclick="change(6)">蓝</button>
+    </div>
+    <div class="box">
+        <p id="text">dohdpoifoifhoedhfpoigwaeiupfrwtfgoiewhgrweouitfhw[atpihiowpatfgoua4iwhu</p>
+    </div>
+    <script>
+        function change(i) {
+            var t = document.getElementById("text")
+            switch (i) {
+                case 1:
+                    t.style.fontSize = "40px"
+                    break;
+                case 2:
+                    t.style.fontSize = "20px"
+                    break;
+                case 3:
+                    t.style.fontSize = "10px"
+                    break;
+                case 4:
+                    t.style.color = "red"
+                    break;
+                case 5:
+                    t.style.color = "green"
+                    break;
+                case 6:
+                    t.style.color = "blue"
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>
