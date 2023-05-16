@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="radio" name="r" value="大"/>大
+    <input type="radio" name="r" value="小"/>小
+    <button onclick="c()">猜</button>
+    <span id="out"></span>
+    <script>
+        function c(){
+            var rs = document.getElementsByName("r");
+            var out = document.getElementById("out");
+            var now = ""
+            for(var i=0; i<rs.length; i++){
+                if(rs[i].checked){
+                    now = rs[i].value
+                }
+            }
+            var m = Math.floor(1 + Math.random()*(10))
+                console.log(m)
+                console.log(now)
+                if(m>=1&&m<=5&&now=="小"){
+                    out.innerText = "对了"
+                }else if(m>=6&&m<=10&&now=="大"){
+                    out.innerText = "对了"
+                }
+                else{
+                    out.innerText = "错了"
+                }
+        }
+    </script>
+</body>
+</html>
