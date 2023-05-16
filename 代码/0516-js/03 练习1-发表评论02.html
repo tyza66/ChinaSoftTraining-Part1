@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<table width="300" border="1" cellspacing="0">
+			<tr id="tr1">
+				<td>昵称</td>
+				<td>发表内容</td>
+			</tr>
+			<tr>
+				<td>会飞的鱼</td>
+				<td>今天28度</td>
+			</tr>
+		</table>
+		
+		<h3>发表评论</h3>
+		昵称 <input type="text" name="" id="uname" value="" /><br />
+		发表内容 <input type="text" name="" id="content" value="" />
+		<button id="btn">发表评论</button>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				document.getElementById("btn").onclick = function(){
+					//获取输入昵称
+					var uname = document.getElementById("uname").value;
+					//获取内容
+					var content = document.getElementById("content").value;
+					
+			
+					
+					//document.getElementById("tr1").parentNode tbody节点
+					document.getElementById("tr1").parentNode.innerHTML 
+					+= "<tr><td>"+uname+"</td><td>"+content+"</td></tr>";
+					
+					//es6 模板语言 `${变量的值}`
+					document.getElementById("tr1").parentNode.innerHTML += `<tr><td>${uname}</td><td>${content}</td></tr>`;
+					
+					
+					//清空
+					document.getElementById("uname").value = "";
+					document.getElementById("content").value = "";
+					
+					
+					
+				}
+			}
+		</script>
+		
+		
+	</body>
+</html>

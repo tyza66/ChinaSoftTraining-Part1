@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+//			window.onload 等待页面中所有的DOM节点(图片 视频 音频)加载完毕后执行
+			window.onload = function(){
+				var d1 = document.getElementById("d1");
+				document.getElementById("btn").onclick = function(){
+//					console.log(d1);
+                   //d1是父节点  查看子节点
+                   var ps = d1.children;//子元素节点
+                   console.log(ps);
+                   for (var i = 0; i < ps.length; i++) {
+                   	console.log(ps[i].innerText);
+                   }
+                   
+                   //查看父元素节点
+                   //获取子节点
+                   var p1 = document.getElementById("p1");
+                   console.log("父节点",p1.parentNode.parentNode);
+                   
+                   console.log("第一个子节点",d1.firstElementChild);
+                   console.log("最后一个子节点",d1.lastElementChild);
+                   var p2 = document.getElementById("p2");
+                   console.log("上一个兄弟节点",p2.previousElementSibling);
+                   console.log("下一个兄弟节点",p2.nextElementSibling);
+				}
+			}
+			
+		</script>
+		
+		<div id="d1">
+			<p id="p1">这是第1个段落</p>
+			<p id="p2">这是第2个段落</p>
+			<p>这是第3个段落</p>
+		</div>
+		
+		<button id="btn">查看节点</button>
+		
+		
+		
+	</body>
+</html>

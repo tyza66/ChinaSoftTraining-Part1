@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<table width="300" border="1" cellspacing="0">
+			<tr id="tr1">
+				<td>昵称</td>
+				<td>发表内容</td>
+			</tr>
+			<tr>
+				<td>会飞的鱼</td>
+				<td>今天28度</td>
+			</tr>
+		</table>
+		
+		<h3>发表评论</h3>
+		昵称 <input type="text" name="" id="uname" value="" /><br />
+		发表内容 <input type="text" name="" id="content" value="" />
+		<button id="btn">发表评论</button>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				document.getElementById("btn").onclick = function(){
+					//获取输入昵称
+					var uname = document.getElementById("uname").value;
+					//获取内容
+					var content = document.getElementById("content").value;
+					
+					//创建tr元素节点
+					var tr = document.createElement("tr");
+					var td1 = document.createElement("td");
+					//创建文本节点
+					var tname = document.createTextNode(uname);
+					td1.appendChild(tname);
+					
+					var td2 = document.createElement("td");
+					td2.innerText = content;
+					
+					//添加子节点
+					tr.appendChild(td1);
+					tr.appendChild(td2);
+					
+//					document.getElementsByTagName("table")[0].appendChild(tr);
+					
+					//document.getElementById("tr1").parentNode tbody节点
+					document.getElementById("tr1").parentNode.appendChild(tr);
+					
+					//清空
+					document.getElementById("uname").value = "";
+					document.getElementById("content").value = "";
+					
+					
+					
+				}
+			}
+		</script>
+		
+		
+	</body>
+</html>
