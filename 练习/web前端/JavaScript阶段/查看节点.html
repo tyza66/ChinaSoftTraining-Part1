@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        window.onload = function () {
+            var d1 = document.getElementById("dl")
+            document.getElementById("btn").onclick = function () {
+                var ps = dl.children //查看所有的元素节点
+                for (var i = 0; i < ps.length; i++) {
+                    console.log(ps[i].innerText)
+                }
+                //查看父元素节点
+                //获取子节点
+                var p1 = document.getElementById("p1");
+                console.log(p1.parentNode.parentNode.parentNode.parentNode)
+
+                console.log(d1.firstElementChild)
+                console.log(d1.lastElementChild)
+            }
+        }
+    </script>
+    <div id="dl">
+        <p id="p1">这是第1个段落</p>
+        <p>这是第2个段落</p>
+        <p>这是第3个段落</p>
+    </div>
+    <button id="btn">查看节点</button>
+
+</body>
+
+</html>

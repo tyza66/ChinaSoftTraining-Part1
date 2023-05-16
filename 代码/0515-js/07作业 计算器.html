@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<table width="400" border="1" cellspacing="0" height="600">
+			<tr>
+				<td colspan="4" id="res"></td>
+			</tr>
+			<tr>
+				<td class="item">1</td>
+				<td class="item">2</td>
+				<td class="item">3</td>
+				<td class="item">+</td>
+			</tr>
+			<tr>
+				<td class="item">4</td>
+				<td class="item">5</td>
+				<td class="item">6</td>
+				<td class="item">-</td>
+			</tr>
+			<tr>
+				<td class="item">7</td>
+				<td class="item">8</td>
+				<td class="item">9</td>
+				<td class="item">*</td>
+			</tr>
+			<tr>
+				<td class="item">0</td>
+				<td id="clear">C</td>
+				<td class="item">/</td>
+				<td id="cal">=</td>
+			</tr>
+		</table>
+		
+		<script type="text/javascript">
+			//获取参与运算元素
+			var its = document.getElementsByClassName("item");
+			//获取显示结果元素
+			var res = document.getElementById("res");
+			
+			for (var i = 0; i < its.length; i++) {
+				its[i].onclick = function(){
+//					console.log(this.innerText);
+                    res.innerText += this.innerText;
+				}
+			}
+			
+			//获取=号元素并绑定点击事件
+			document.getElementById("cal").onclick = function(){
+				res.innerText = eval(res.innerText);
+			}
+			
+			//清除按钮
+			document.getElementById("clear").onclick=function(){
+				res.innerText = "";
+			}
+		</script>
+	</body>
+</html>
