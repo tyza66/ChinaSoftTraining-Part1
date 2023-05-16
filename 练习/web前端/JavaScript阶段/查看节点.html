@@ -22,14 +22,17 @@
                 var p1 = document.getElementById("p1");
                 console.log(p1.parentNode.parentNode.parentNode.parentNode)
 
-                console.log(d1.firstElementChild)
-                console.log(d1.lastElementChild)
+                console.log(d1.firstElementChild) //第一个孩子
+                console.log(d1.lastElementChild)    //最后一个孩子
+                var p2 = document.getElementById("p2")
+                console.log(p2.previousElementSibling)//上一个兄弟
+                console.log(p2.nextElementSibling)//下一个兄弟
             }
         }
     </script>
     <div id="dl">
         <p id="p1">这是第1个段落</p>
-        <p>这是第2个段落</p>
+        <p id="p2">这是第2个段落</p>
         <p>这是第3个段落</p>
     </div>
     <button id="btn">查看节点</button>

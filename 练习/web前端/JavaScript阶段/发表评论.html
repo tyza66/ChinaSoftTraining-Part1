@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table id="t" border="1" width="300" cellpadding="0">
+        <tr>
+            <td>昵称</td>
+            <td>发表内容</td>
+        </tr>
+        <tr>
+            <td>会飞的鱼</td>
+            <td>今天28度</td>
+        </tr>
+    </table>
+    <h3>发表评论</h3>
+    昵称<input type="text" name="" id="name" /><br />
+    发布内容<input type="text" name="" id="in1"><br />
+    <button id="btn">发表评论</button>
+    <script>
+        var btn = document.getElementById("btn")
+        var t = document.getElementById("t")
+        btn.onclick = function(){
+            var name = document.getElementById("name")
+            var in1 = document.getElementById("in1")
+            var one = document.createElement("tr")
+            var td = document.createElement("td")
+            td.innerText = name.value
+            one.appendChild(td)
+            td = document.createElement("td")
+            td.innerText = in1.value
+            one.appendChild(td)
+            t.appendChild(one)
+            name.value = ""
+            in1.value = ""
+        }
+    </script>
+</body>
+</html>
