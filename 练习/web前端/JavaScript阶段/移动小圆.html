@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 1000px;
+        }
+
+        #d1 {
+            width: 150px;
+            height: 150px;
+            background-color: red;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="d1">
+
+    </div>
+    <script>
+        var d1 = document.getElementById("d1")
+        d1.style.marginLeft = "0px";
+        d1.style.marginTop = "0px";
+        console.log(d1)
+        document.onkeydown = function (event) {
+            console.log(event.keyCode)
+            switch (event.keyCode) {
+                case 65:
+                    d1.style.marginLeft = (parseInt(d1.style.marginLeft) - 1) + "px";
+                    break;
+                case 68:
+                    d1.style.marginLeft = (parseInt(d1.style.marginLeft) + 1) + "px";
+                    break;
+                case 87:
+                    d1.style.marginTop = (parseInt(d1.style.marginTop) - 1) + "px";
+                    break;
+                case 83:
+                    d1.style.marginTop = (parseInt(d1.style.marginTop) + 1) + "px";
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>

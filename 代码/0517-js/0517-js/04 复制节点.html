@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p>今天也是一个好天气</p>
+		
+		<button id="btn">复制节点</button>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				document.getElementById("btn").onclick = function(){
+					var p = document.getElementsByTagName("p")[0];
+					
+					//cloneNode() 复制节点 默认false 浅克隆 复制元素节点  true 深克隆  复制当前节点以及子节点
+					var cp = p.cloneNode(true);
+					console.log("cp",cp);
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #d1{
+            width: 300px;
+            height: 300px;
+            background-color: aquamarine;
+        }
+        #d2{
+            width:150px;
+            height: 150px;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="d1">
+        <div id="d2">
+
+        </div>
+    </div>
+    <script>
+        //子元素也会自动绑定上
+        document.getElementById("d1").onmouseover = function(){//onmouseenter 不会被子元素自动绑定
+            var p = document.createElement("p")
+            p.innerText = "鼠标移入"
+            this.appendChild(p)
+        }
+        document.getElementById("d1").onmouseout = function(){//onmouseleave 子元素不会被自动绑定上
+            var p = document.createElement("p")
+            p.innerText = "鼠标移出"
+            this.appendChild(p)
+        }
+    </script>
+</body>
+
+</html>

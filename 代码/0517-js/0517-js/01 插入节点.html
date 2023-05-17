@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<img src="img/8.png" id="old"/>
+		
+		<button id="btn">插入图片</button>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				document.getElementById("btn").onclick = function(){
+					//获取原来的节点
+					var old = document.getElementById("old");
+					
+					//创建新的节点 img 
+					var newImg = document.createElement("img");
+					newImg.src = "img/9.png";
+					
+					//插入节点  父节点.insertBefore(新的节点,原来的节点);
+					old.parentNode.insertBefore(newImg,old);
+				}
+			}
+		</script>
+	</body>
+</html>

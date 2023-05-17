@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>项目1</li>
+			<li>项目2</li>
+			<li>项目3</li>
+			<li>项目4</li>
+			<li>项目5</li>
+		</ul>
+		
+		<button id="btn">删除节点</button>
+		<button id="btn2">循环删除子节点</button>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				document.getElementById("btn").onclick = function(){
+					//获取ul节点 父节点
+					var ul = document.getElementsByTagName("ul")[0];
+					//获取第一个li子节点
+					var li1 = document.getElementsByTagName("li")[0];
+					
+					//父节点.removeChild(子节点) 删除节点
+//					ul.removeChild(li1);
+
+					//节点.remove() 删除当前节点   
+					li1.remove();
+				}  
+				
+				//注意：下标会发生改变  如果循环删除子节点  从后向前删除节点
+				document.getElementById("btn2").onclick = function(){
+					var lis = document.getElementsByTagName("li");
+					for (var i = lis.length - 1; i >= 0; i--) {
+						lis[i].remove();
+					}
+					
+				}
+				
+			}
+		</script>
+	</body>
+</html>

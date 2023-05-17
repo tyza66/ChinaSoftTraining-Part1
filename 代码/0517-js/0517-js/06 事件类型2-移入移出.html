@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#d1{
+				width: 300px;
+				height: 300px;
+				background-color: lightblue;
+			}
+			
+			
+			#d2 {
+				width: 150px;
+				height: 150px;
+				background-color: lightcoral;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="d1">
+			<div id="d2">
+				
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			//鼠标移入                     鼠标移出
+			//onmouseover   onmouseout  绑定在父元素上  对应子元素也会自动绑定移入移出事件
+			//onmouseenter   onmouseleave 绑定在父元素  就只发生在父元素上  子元素不会被绑定事件
+			document.getElementById("d1").onmouseenter = function(){
+				var p = document.createElement("p");
+				p.innerText = "鼠标移入";
+				
+				this.appendChild(p);
+			}
+			
+			//鼠标移出
+			document.getElementById("d1").onmouseleave = function(){
+				var p = document.createElement("p");
+				p.innerText = "鼠标移出";
+				
+				this.appendChild(p);
+			}
+		</script>
+	</body>
+</html>
