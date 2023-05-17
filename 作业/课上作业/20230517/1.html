@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .trr {
+            background-color: #f0f0f0;
+        }
+
+        .trr:hover {
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="1" cellspacing="0">
+        <tr style="background-color: #0098cc;">
+            <td><input type="checkbox" name="ck" /></td>
+            <td>商品</td>
+            <td>价格</td>
+        </tr>
+        <tr class="trr">
+            <td><input type="checkbox" name="ck" /></td>
+            <td>iPhone8</td>
+            <td>8000</td>
+        </tr>
+        <tr class="trr">
+            <td><input type="checkbox" name="ck" /></td>
+            <td>iPad Pro</td>
+            <td>5000</td>
+        </tr>
+        <tr class="trr">
+            <td><input type="checkbox" name="ck" /></td>
+            <td>iPad Air</td>
+            <td>2000</td>
+        </tr>
+        <tr class="trr">
+            <td><input type="checkbox" name="ck" /></td>
+            <td>Apple Watch</td>
+            <td>2000</td>
+        </tr>
+    </table>
+    <script>
+        var cks = document.getElementsByName("ck");
+        cks[0].onclick = function () {
+            if (cks[0].checked) {
+                for (var i = 0; i < cks.length; i++) {
+                    cks[i].checked = true
+                }
+            }else{
+                for (var i = 0; i < cks.length; i++) {
+                    cks[i].checked = false
+                }
+            }
+        } 
+        cks[1].onclick = function(){
+            var a = false
+            for (var i = 1; i < cks.length; i++) {
+                    if(!cks[i].checked) a= true
+                }
+            if(!a){
+                cks[0].checked = true
+            }else{
+                cks[0].checked = false
+            }
+        }
+        cks[2].onclick = function(){
+            var a = false
+            for (var i = 1; i < cks.length; i++) {
+                    if(!cks[i].checked) a= true
+                }
+            if(!a){
+                cks[0].checked = true
+            }else{
+                cks[0].checked = false
+            }
+        }
+        cks[3].onclick = function(){
+            var a = false
+            for (var i = 1; i < cks.length; i++) {
+                    if(!cks[i].checked) a= true
+                }
+            if(!a){
+                cks[0].checked = true
+            }else{
+                cks[0].checked = false
+            }
+        }
+        cks[4].onclick = function(){
+            var a = false
+            for (var i = 1; i < cks.length; i++) {
+                    if(!cks[i].checked) a= true
+                }
+            if(!a){
+                cks[0].checked = true
+            }else{
+                cks[0].checked = false
+            }
+        }
+    </script>
+</body>
+
+</html>

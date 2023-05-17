@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tab{
+            display: inline-block;
+            cursor:pointer
+        }
+    </style>
+</head>
+<body>
+    <div >
+        <div class="tab" style="background-color: brown;">商品介绍</div>
+        <div class="tab">规格与包装</div>
+        <div class="tab">售后保障</div>
+        <div class="tab">商品评价(50000)</div>
+        <div class="tab">手机社区</div>
+    </div>
+    <div class="b" style="display: bolck;">1</div>
+    <div class="b" style="display: none;">2</div>
+    <div class="b" style="display: none;">3</div>
+    <div class="b" style="display: none;">4</div>
+    <div class="b" style="display: none;">5</div>
+    <script>
+        var tabs = document.getElementsByClassName("tab")
+        var bs = document.getElementsByClassName("b")
+        tabs[0].onclick = function(){
+            clear()
+            tabs[0].style.backgroundColor = "brown"
+            bs[0].style.display = "block"
+            console.log(11)
+        }
+        tabs[1].onclick = function(){
+            clear()
+            tabs[1].style.backgroundColor = "brown"
+            bs[1].style.display = "block"
+        }
+        tabs[2].onclick = function(){
+            clear()
+            tabs[2].style.backgroundColor = "brown"
+            bs[2].style.display = "block"
+        }
+        tabs[3].onclick = function(){
+            clear()
+            tabs[3].style.backgroundColor = "brown"
+            bs[3].style.display = "block"
+        }
+        tabs[4].onclick = function(){
+            clear()
+            tabs[4].style.backgroundColor = "brown"
+            bs[4].style.display = "block"
+        }
+
+        function clear(){
+            for(var i = 0; i < tabs.length; i++){
+                bs[i].style.display = "none"
+            }
+            for(var i = 0; i < tabs.length; i++){
+                tabs[i].style.backgroundColor = "white"
+            }
+        }
+    </script>
+</body>
+</html>
