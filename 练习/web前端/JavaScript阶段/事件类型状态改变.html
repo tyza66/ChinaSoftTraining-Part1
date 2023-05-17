@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="city">
+        <option value="大连">大连</option>
+        <option value="沈阳">沈阳</option>
+        <option value="锦州">锦州</option>
+    </select>
+    <script>
+        //值发生改变的时候
+        document.getElementById("city").onchange = function() {
+            console.log(this.value)
+        }
+    </script>
+</body>
+</html>

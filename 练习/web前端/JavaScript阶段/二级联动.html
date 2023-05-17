@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="city">
+        <option value="0">辽宁省</option>
+        <option value="1">吉林省</option>
+        <option value="2">黑龙江省</option>
+    </select>
+    <select id="city1">
+        <option value="大连">大连</option>
+        <option value="沈阳">沈阳</option>
+        <option value="锦州">锦州</option>
+    </select>
+    <script>
+        var pros = ["辽宁省","吉林省","黑龙江省"]
+        var citys = [["大连","沈阳","锦州"],["长春","吉林","延边"],["哈尔滨","大庆","齐齐哈尔"]]
+        var city1 = document.getElementById("city1")
+        //值发生改变的时候
+        document.getElementById("city").onchange = function() {
+            var now = this.value
+            var num = city1.children.length
+            for(var i = 0; i < num; i++) {
+                city1.children[0].remove()
+                var newOne = document.createElement("option")
+                newOne.value = citys[now][i]
+                newOne.innerHTML = citys[now][i]
+                city1.appendChild(newOne)
+            }
+        }
+    </script>
+</body>
+</html>

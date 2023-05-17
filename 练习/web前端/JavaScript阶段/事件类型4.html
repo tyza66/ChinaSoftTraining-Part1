@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" method="post">
+        用户名<input id="uname" type="text" /><span id="error"></span>
+    </form>
+    <script>
+        document.getElementById("uname").onfocus = function () {//获得焦点的时候
+            this.style.backgroundColor = "red"
+        }
+        document.getElementById("uname").onblur = function () { //失去焦点的时候
+            if (document.getElementById("uname").value == ""){
+                document.getElementById("error").innerText = "空"
+            }else{
+                document.getElementById("error").innerText = ""
+            }
+        }
+    </script>
+</body>
+
+</html>
