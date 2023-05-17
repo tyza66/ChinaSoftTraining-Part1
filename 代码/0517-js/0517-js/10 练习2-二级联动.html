@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<select id="pro" onchange="setCitys()">
+			<!--<option value="">辽宁省</option>
+			<option value="">吉林省</option>
+			<option value="">黑龙江省</option>-->
+		</select>
+		
+		<select id="city">
+			<!--<option value="">大连</option>
+			<option value="">沈阳</option>
+			<option value="">锦州</option>-->
+		</select>
+		
+		<script type="text/javascript">
+			var pros = ["辽宁省","吉林省","黑龙江省"];//省份
+			var citys = [["大连","沈阳","锦州"],["长春","吉林","延边"],["哈尔滨","大庆","齐齐哈尔"]];
+			
+			window.onload = function(){
+				var spro = document.getElementById("pro");
+				
+				for (var i = 0; i < pros.length; i++) {
+					//<option value="i">辽宁省</option> new Option(pros[i],i)
+					spro.add(new Option(pros[i],i));
+				}
+				
+				//初始页面加载 设置一次城市
+				setCitys();
+			}
+			
+			function setCitys(){
+				var index = document.getElementById("pro").value;
+				console.log("index",index);
+				var scity = document.getElementById("city");
+				
+				//清空
+				scity.options.length = 0;
+				
+				for(var i = 0; i < citys[index].length;i++){
+					scity.add(new Option(citys[index][i],i));
+				}
+			}
+			
+		</script>
+	</body>
+</html>

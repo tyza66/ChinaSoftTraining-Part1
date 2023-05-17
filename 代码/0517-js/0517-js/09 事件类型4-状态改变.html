@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.err {
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<form action="" method="post">
+			用户名 <input type="text" name="" id="uname" value="" /><span id="error"></span>
+			
+			<select id="city">
+				<option value="大连">大连</option>
+				<option value="沈阳">沈阳</option>
+				<option value="锦州">锦州</option>
+			</select>
+		</form>
+		
+		<script type="text/javascript">
+			//onfocus 获取焦点
+			/*document.getElementById("uname").onfocus = function(){
+				this.style.backgroundColor = "red";
+			}*/
+			
+			
+			//表单验证
+			//输入内容不能为空  空则提示  失去焦点 onblur
+			document.getElementById("uname").onblur = function(){
+				var uname = document.getElementById("uname");
+				var err = document.getElementById("error");
+				
+				if (uname == null || uname.value == "") {
+					err.innerText = "请输入用户名，不能为空";
+//					err.style.color = "red";
+					err.className = "err";
+				}else {
+					err.innerText = "";
+					err.className = "";
+				}
+			}
+			
+			//onchange 值发生改变
+			document.getElementById("city").onchange = function(){
+				alert(this.value);
+			}
+			
+		</script>
+	</body>
+</html>

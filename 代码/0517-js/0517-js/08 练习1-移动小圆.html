@@ -18,6 +18,33 @@
 		</div>
 		
 		
-		<!--小圆绑定键盘按下事件   通过用户按下a 左移 d 右移  w 上移  s 下移-->
+		<!--小圆绑定键盘按下事件   通过用户按下a 65  左移 d 68  右移  w 87  上移  s  83 下移  进行移动-->
+		<script type="text/javascript">
+			//获取小圆元素
+			var d1 = document.getElementById("d1");
+			
+			var n = 0;
+			var m = 0;	
+			document.onkeydown = function(event){
+				console.log("keyCode",event.keyCode);
+				if (event.keyCode == 68) {//右移 d 68
+					n++;
+					d1.style.marginLeft = n * 10 + "px";
+					
+				} else if (event.keyCode == 65) {//a 65  左移 
+					n--;
+					d1.style.marginLeft = n * 10 + "px";
+					
+				}else if (event.keyCode == 83) {//s  83 下移
+					m++;
+					d1.style.marginTop = m * 10 + "px";
+					
+				}else if (event.keyCode == 87) {//w 87  上移
+					m--;
+					d1.style.marginTop = m * 10 + "px";
+				}
+			}
+		</script>
+		
 	</body>
 </html>
