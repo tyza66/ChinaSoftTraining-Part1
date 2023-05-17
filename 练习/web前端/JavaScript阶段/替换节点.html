@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>这是一个段落</p>
+    <button id="btn">替换节点</button>
+    <script>
+         window.onload = function () {
+            document.getElementById("btn").onclick = function () {
+                var old = document.getElementsByTagName("p")[0]
+                var newH3 = document.createElement("h3")
+                newH3.innerText = "我是三级标题"
+                old.parentNode.replaceChild(newH3,old)
+            }
+        }
+    </script>
+</body>
+</html>

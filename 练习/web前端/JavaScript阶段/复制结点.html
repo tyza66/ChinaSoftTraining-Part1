@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>今天也是好天气</p>
+    <button id="btn">复制节点</button>
+    <script>
+        window.onload = function () {
+            document.getElementById("btn").onclick = function () {
+                var p = document.getElementsByTagName("p")[0]
+                var newH3 = document.createElement("h3")
+                //啥也不写默认是false 就是浅克隆 里面的东西不会被克隆
+                var cp = p.cloneNode()
+                console.log(cp)
+                var cp2 = p.cloneNode(true) //深克隆 复制当前节点以及子节点
+                console.log(cp2)
+            }
+        }
+    </script>
+</body>
+
+</html>
