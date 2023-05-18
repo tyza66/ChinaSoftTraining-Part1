@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn" onclick="alert('html元素级别的绑定')">html元素级别的绑定</button>
+    <button id="btn2">DOM 0级事件绑定</button>
+    <button id="btn3">DOM 2级事件绑定</button>
+    <script>
+        //多次绑定同一个事件的时候 就会覆盖
+        document.getElementById("btn2").onclick = function() { 
+            alert('dom 0级事件绑定1')
+        }
+        document.getElementById("btn2").onclick = function() { 
+            alert('dom 0级事件绑定2')
+        }
+        //多次绑定同一个元素 每个代码都会执行一次
+        document.getElementById("btn3").addEventListener("click", function() {
+            alert('dom 2级事件绑定1')
+        })
+        document.getElementById("btn3").addEventListener("click", function() {
+            alert('dom 2级事件绑定2')
+        })
+    </script>
+</body>
+</html>

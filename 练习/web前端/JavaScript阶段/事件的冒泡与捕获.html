@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #d1{
+            width: 300px;
+            height: 300px;
+            background-color: lightblue;
+        }
+        #d2{
+            width: 200px;
+            height: 200px;
+            background-color: lightcoral;
+        }
+        #d3{
+            width: 100px;
+            height: 100px;
+            background-color: lightgoldenrodyellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="d1">
+        <div id="d2">
+            <div id="d3">
+
+            </div>
+        </div>
+    </div>
+    <script>
+        //事件流从子级到父级 的监听程序 叫做事件的冒泡
+        document.getElementById("d1").addEventListener("click",function(){
+            alert("d1")
+        })
+        document.getElementById("d2").addEventListener("click",function(event){
+            alert("d2")
+            event.stopPropagation() //阻止事件冒泡
+        })
+        document.getElementById("d3").addEventListener("click",function(){
+            alert("d3")
+        })
+    </script>
+</body>
+</html>
