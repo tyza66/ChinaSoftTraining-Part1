@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<!--html元素级别绑定-->
+		<button id="btn" onclick="alert('html元素级别绑定')">html元素级别绑定</button>
+		
+		<button id="btn2">DOM 0级事件绑定</button>
+		
+		<button id="btn3">DOM 2级事件绑定</button>
+		
+		<script type="text/javascript">
+			
+			//DOM 0级事件绑定 
+			//针对同一个元素 多次绑定同一个事件  会发生覆盖
+			document.getElementById("btn2").onclick = function(){
+				alert("DOM 0级事件绑定1");
+			}
+			
+			document.getElementById("btn2").onclick = function(){
+				alert("DOM 0级事件绑定2");
+			}
+			
+			
+			//DOM 2级事件绑定
+			//针对同一个元素 多次绑定同一个事件 每次出发事件都会执行对应的代码
+			document.getElementById("btn3").addEventListener("click",function(){
+				alert("DOM 2级事件绑定1");
+			});
+			
+			document.getElementById("btn3").addEventListener("click",function(){
+				alert("DOM 2级事件绑定2");
+			});
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

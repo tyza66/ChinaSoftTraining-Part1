@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.item {
+				height: 80px;
+				width: 80px;
+				background-color: red;
+				float: left;
+				border-radius: 50%;
+				text-align: center;
+				line-height: 80px;
+			}
+		</style>
+	</head>
+	<body>
+	   <button id="btn">增加小圆</button>	
+		
+		<div id="f">
+			<div class="item">
+				圆1
+			</div>
+			<div class="item">
+				圆2
+			</div>
+			<div class="item">
+				圆3
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			var count = 4;
+			document.getElementById("btn").onclick = function(){
+				var div = document.createElement("div");
+				div.innerText = "圆" + count;
+				div.className = "item";
+				count++;
+				
+				document.getElementById("f").appendChild(div);
+				
+			}
+			
+			//循环绑定子元素 新增节点无法绑定点击事件
+			/*var items = document.getElementsByClassName("item");
+			for (var i = 0; i < items.length; i++) {
+				items[i].onclick = function(){
+					alert(this.innerText);
+				}
+			}*/
+			
+			//事件绑定在父元素 通过event事件源对象获取目标子元素对象 event.target
+			document.getElementById("f").onclick = function(event){
+				alert(event.target.innerText);
+				alert(event.type);//获取事件源对象类型
+			}
+			
+			
+			
+			
+		</script>
+		
+		
+		
+		
+	</body>
+</html>

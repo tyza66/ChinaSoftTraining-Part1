@@ -8,9 +8,16 @@
 </head>
 <body>
     <a href="http://www.baidu.com" id="a">测试链接</a>
+    <form action="http://www.baidu.com" method="get">
+        <button id="b">提交</button>
+    </form>
     <script>
         document.getElementById("a").onclick = function(event){
             alert("a链接")
+            event.preventDefault(); //阻止默认行为
+        }
+        document.getElementById("b").onclick = function(event){
+            alert("b按钮")
             event.preventDefault(); //阻止默认行为
         }
     </script>

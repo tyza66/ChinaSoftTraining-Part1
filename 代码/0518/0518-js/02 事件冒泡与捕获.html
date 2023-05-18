@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#d1 {
+				width: 300px;
+				height: 300px;
+				background-color: lightblue;
+			}
+			
+			#d2 {
+				width: 200px;
+				height: 200px;
+				background-color: lightcoral;
+			}
+			
+			#d3 {
+				width: 100px;
+				height: 100px;
+				background-color: lightgoldenrodyellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="d1">
+			<div id="d2">
+				<div id="d3">
+					
+				</div>
+			</div>
+		</div>
+		
+		
+		<script type="text/javascript">
+			//事件流：
+			//点击子元素  从子元素监听程序开始执行  找到父元素再执行监听程序  事件冒泡  子->父
+			//点击子元素  先找到顶级父元素开始执行 再执行子元素中监听程序   事件捕获  父->子
+			
+			//DOM2级事件绑定：
+			//元素节点.addEventListener("事件类型",监听程序,是否捕获) 是否捕获：默认是false 事件冒泡   true 事件捕获
+			document.getElementById("d1").addEventListener("click",function(){
+				alert("d1");
+			},true);
+			
+			document.getElementById("d2").addEventListener("click",function(event){
+				alert("d2");
+				//阻止事件冒泡
+//				event.stopPropagation();
+			},true)
+			
+			document.getElementById("d3").addEventListener("click",function(event){
+				alert("d3");
+//				event.stopPropagation();
+			},true)
+		</script>
+	</body>
+</html>

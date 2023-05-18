@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!--a链接 点击 发生跳转到指定的目标资源   默认行为-->
+		<a href="01 事件绑定.html" id="a">测试链接</a> 
+		
+		<form action="01 事件绑定.html" method="get">
+			
+			<button>提交</button> <!--默认行为  button  提交表单-->
+		</form>
+		
+		
+		<script type="text/javascript">
+			document.getElementById("a").onclick = function(event){
+				alert("a链接");
+				event.preventDefault();//阻止默认行为
+			}
+			
+			
+		</script>
+	</body>
+</html>
