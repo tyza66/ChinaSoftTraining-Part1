@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .item{
+            width: 80px;
+            height: 80px;
+            background-color: red;
+            float: left;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 80px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">增加小圆</button>
+    <div id="f">
+        <div class = "item">圆1</div>
+        <div class = "item">圆2</div>
+        <div class = "item">圆3</div>
+    </div>
+    <script>
+        var now = 3
+        var f = document.getElementById("f")
+        var is = document.getElementsByClassName("item")
+        // for(var i=0 ;i<3;i++){
+        //     is[i].onclick = function(){
+        //         alert(this.innerText)
+        //     }
+        // }
+        document.getElementById("btn").onclick = function(){
+            var one = document.createElement("div")
+            one.className = "item"
+            one.innerText = "圆" + now
+            // one.onclick = function(){
+            //     alert(this.innerText)
+            // }
+            now++
+            f.appendChild(one)
+        }
+        //事件委托
+        f.onclick = function(event){
+            //通过父元素的点击事件获得子控件
+            alert(event.target.innerText)
+        }
+    </script>
+</body>
+</html>

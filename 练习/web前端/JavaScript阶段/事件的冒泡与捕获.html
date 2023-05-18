@@ -35,14 +35,15 @@
         //事件流从子级到父级 的监听程序 叫做事件的冒泡
         document.getElementById("d1").addEventListener("click",function(){
             alert("d1")
-        })
+        },false) //第三个参数是是否使用事件的捕获  他会先找到顶级父元素再执行子元素中的监听程序 这就叫事件的捕获
         document.getElementById("d2").addEventListener("click",function(event){
             alert("d2")
             event.stopPropagation() //阻止事件冒泡
-        })
+        },false)
         document.getElementById("d3").addEventListener("click",function(){
             alert("d3")
-        })
+            event.stopPropagation() //阻止事件冒泡
+        },false)
     </script>
 </body>
 </html>
