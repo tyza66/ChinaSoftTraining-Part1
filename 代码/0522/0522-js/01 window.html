@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<!--打开浏览器窗口 自动生成window对象-->
+		<button onclick="window.open('test.html')">打开一个新的页面</button>
+		<button onclick="window.close()">关闭页面</button>
+		
+		<script type="text/javascript">
+			//获取用户输入 prompt(提示信息[,默认值])
+//			var num = window.prompt("请输入数字",10);
+//			window.alert("num " + num);//弹出框
+			
+			//确认框 window.confirm() 有确认 取消两个按钮 如果点击确认 返回true  点击取消 返回false
+			/*var flag = window.confirm("是否要删除");
+			alert("flag " + flag);*/
+			
+			
+			var res = 10/0;
+//			alert("res  " + res);//infinity
+			console.log("isFinite() 判断是否有限 ",isFinite(res));//false
+			console.log("isNaN() 判断是否是非数字",isNaN('a'));
+			
+			console.log("eval()",eval('1<2'));//eval(字符串表达式) 将字符串表达式进行运算
+			
+			//定时器函数
+			function m1(){
+				console.log("m1");
+			}
+			
+			//setTimeout(函数名称,指定的毫秒数) 在指定的毫秒数后执行函数  执行一次
+//			setTimeout(m1,1000);
+			/*var timeid = setTimeout("m1()",1000);
+			
+			
+			clearTimeout(timeid);//清除对应的定时器函数*/
+			
+			
+			//setInterval(函数名称,指定的毫秒数) 每隔指定的毫秒数执行函数 执行多次
+			var timeid = setInterval(m1,1000);
+			
+			
+			clearInterval(timeid);//清除对应的定时器函数
+			
+			
+		</script>
+		
+	</body>
+</html>

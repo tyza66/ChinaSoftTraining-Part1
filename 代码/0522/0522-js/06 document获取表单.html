@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form name="myForm">
+			
+			输入框 <input type="text" name="txt" id="txt2" value="" />
+		</form>
+		
+		<button id="btn">获取表单</button>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				document.getElementById("btn").addEventListener("click",function(){
+					//方式一：document.forms 获取所有的表单对象  HTMLCollection 通过索引下标获取指定的表单
+					var f1 = document.forms[0];
+					console.log("f1 ",f1);
+					
+					//方式二： document.forms["表单name属性名称"]
+					var f2 = document.forms["myForm"];
+					console.log("f2 ",f2);
+					
+					//方式三： document.表单name属性 
+					var f3 = document.myForm;
+					console.log("f3 ",f3);
+					
+					
+					//获取输入框的值  txt是name属性
+					console.log("input ",document.myForm.txt.value);
+					console.log("input ",document.all.txt.value);
+					console.log("input ",document.all.myForm.txt.value);
+				})
+			}
+		</script>
+	</body>
+</html>

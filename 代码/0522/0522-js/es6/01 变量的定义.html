@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			定义变量 var 全局变量
+//          同一个变量 声明多次 不会报错 覆盖
+			var i = 10;
+			var i = 20;
+			console.log("i",window.i);
+			
+			
+			function m1(){
+				//在函数内部声明变量  var 有自己的作用域  局部变量     省略var 默认全局变量
+				
+				console.log("函数内部访问j = ", j);//j undefined 变量声明作用域提升 先var j;提升在使用之前 再执行赋值
+				
+				var j = 30;
+				
+			}
+			
+			
+			m1();
+			
+//			console.log("函数外部访问j = ", window.j);
+
+           //let 声明变量  const 声明字面量   在同一个作用域 变量只能声明一次
+           let k = 10;
+//         let k = 20;
+//         const k = 30;
+//         console.log("k",k);
+           
+           function m2(){
+           
+           	console.log("函数内部访问k ", k);//报错 声明提升 但是在使用之前 必须初始化
+           	let k = 40;//局部变量与全局变量同名，查找原则 就近原则
+           }
+           
+           m2();
+
+			
+		</script>
+	</body>
+</html>

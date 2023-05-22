@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*(function(){
+				alert("匿名函数自调用");
+			})();
+			*/
+			
+			
+			/*function add(){
+				var count = 0;
+				
+				function plus(){
+					count += 1;
+				}
+				plus();
+				return count;
+			}
+			*/
+			
+			//函数嵌套函数  操作的变量成为私有变量
+			var add = (function(){
+				var count = 0;
+				return function(){
+					return count += 1;
+				}
+			})();
+			
+			
+			
+			
+			
+			console.log("add()",add());
+			console.log("add()",add());
+			console.log("add()",add());
+		</script>
+	</body>
+</html>
