@@ -36,6 +36,20 @@
         //undefined+1得到的时候NaN
         let a = new Test()
         a.addCount()
+
+        function Test1() {
+            this.count = 1;
+
+            this.addCount = function () {
+                console.log(this.count)
+            }
+            window.setTimeout(()=>{ //箭头函数里面的this默认指向的是外层的this对象
+                this.count++;
+                console.log(this.count)
+            },1000)
+        }
+        var b = new Test1()
+        b.addCount()
     </script>
 </body>
 

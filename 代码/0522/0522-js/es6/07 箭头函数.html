@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		/*	let sum = function(x,y){
+				return x + y;
+			}
+			
+			console.log("sum",sum(1,2));*/
+			
+			//箭头函数  (参数1,参数2...)=>{代码体}
+			//省略规则：如果只有一个参数 可以省略小括号  如果代码体中只有一句执行语句并return返回 可以省略大括号
+			let sum = (x,y)=>{
+				return x + y;
+			}
+			
+			console.log("箭头函数", sum(2,3));
+			
+			
+			let f1 = x => x**x;//** 幂运算
+			console.log("f1",f1(3));
+			
+			//this
+			/*function Test(){
+				this.count = 1;
+				
+				this.addCount = function(){
+					console.log("this.count",this.count);
+				}
+				
+				let that = this;//用另一个变量记录this
+				window.setTimeout(function(){
+					console.log("this",this.count); this指向window  this.count undefined
+					this.count += 1;  undefined + 1 = NaN
+					console.log("this+1",this.count);
+					
+					that.count += 1;
+					console.log("that",that.count);
+				},1000)
+			}
+			
+			let t = new Test();
+			t.addCount();*/
+			
+			
+			function Test(){
+				this.count = 1;
+				
+				this.addCount = function(){
+					console.log("this.count",this.count);
+				}
+				
+				
+				window.setTimeout(()=>{
+					console.log("this",this.count); //箭头函数 this指向外层函数指向的对象
+					this.count += 1;  
+					console.log("this+1",this.count);
+					
+				},1000)
+			}
+			
+			let t = new Test();
+			t.addCount();
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

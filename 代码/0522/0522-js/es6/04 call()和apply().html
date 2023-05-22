@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			const p1 = {
+				name:"tom",
+				age:18,
+				show:function(from,to){
+					console.log(this.name + "从 " + from + "到 " + to)
+				}
+			};
+			
+			
+			const p2 = {
+				name:"于博",
+				age:19
+			};
+			
+			p1.show("大连","锦州");
+			
+			p1.show.call(p2,"大连","鞍山");//call(改变后的对象,参数1，参数2，参数3.。。) 改变this的指向  传入多个参数  用逗号进行分隔
+			p1.show.apply(p2,["大连","沈阳"]);//apply(改变后的对象,[参数1，参数2，参数3]) 改变this的指向  传入多个参数  以数组的形式
+		</script>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//构造函数
+			function Person(name,age){
+				this.name = name;
+				this.age = age;
+			}
+			
+			//获取Person.prototype原型  在原型上添加属性与方法   对象直接使用原型的属性和方法
+			Person.prototype.email = "458@sdf";
+			Person.prototype.eat = function(food){
+				console.log(this.name + "吃了 " + food);
+			}
+			
+			let p1 = new Person("于博",21);//利用构造函数生成对象
+			console.log("姓名 " + p1.name);//方式一： 获取对象的属性值  对象名.属性名  方式二  对象名["属性名"]
+			console.log("姓名 " + p1["name"]);
+			
+			//添加属性
+//			p1.email = "4548578@163.com";
+			console.log("email",p1.email);
+			
+			p1.eat("烧烤");
+			
+			
+			
+			let p2 = new Person("李白",20);
+			console.log("p2的email",p2.email);
+			p2.eat("麻辣烫");
+			
+			console.log(Date.prototype.__proto__);//获取Object的constructor
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			let name = "tom";
+			let age = 18;
+			
+			const p1 = {
+				name:name,
+				age:age,
+				show:function(){
+					console.log("name " + this.name + " age " + this.age);
+				}
+			}
+			
+			p1.show();
+			
+			
+			//属性名称  和  属性值所代表的变量 名称一致  可以省略写法
+			const p2 = {
+				name,
+				age,
+				show:function(){
+					console.log("name " + this.name + " age " + this.age);
+				},
+				eat:function(f1,f2="酒"){//f2="酒" 参数的默认值
+					console.log(this.name + "吃了 " + f1 + " 喝了 " + f2)
+				},
+				sum:function(...args){//可变长参数 ...变量名  方法参数放在最后一个  接收后是一个数组 按照数组的方式进行处理
+					console.log("args",args);
+					for (let i in args) {
+						console.log("i是下标",i);
+						console.log("每个元素",args[i]);
+					}
+				}
+			}
+			
+			p2.show();
+			
+			p2.eat("肉","小甜水");
+			
+			p2.sum(1,2,3);
+		</script>
+	</body>
+</html>

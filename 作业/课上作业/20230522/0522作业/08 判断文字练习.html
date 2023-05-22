@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#liuyan{
+				width: 200px;
+				height: 200px;
+				border: 1px solid;
+			}
+		</style>
+	</head>
+	<body>
+		<table border="1">
+			<tr>
+				<td id="t1"><!-- 还可以输入50个字 --></td>
+			</tr>
+			<tr>
+				<td>
+					<textarea rows="20" cols="30" id="content"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>Ctrl+回车发表留言</td>
+			</tr>
+		</table>
+		
+		<p>留言区</p>
+		<div id="liuyan">
+			
+		</div>
+		
+		<!-- 	 -->
+		<script type="text/javascript">
+			var max = 50;
+			var content = document.getElementById("content");
+			var t1 = document.getElementById("t1");
+			t1.innerText = "还可以输入"+max+"个字";
+			content.onkeyup = function(event){
+				// console.log("value",this.value);
+				var num = this.value.length;
+				if (num <= max) {
+					t1.innerText = "还可以输入"+(max-num)+"个字";
+					// 绿色字体
+					content.style.color = "green";
+				}else {
+					t1.innerText = "超出"+(num-max)+"个字";
+					// 红色字体
+					content.style.color = "red";
+				}
+				// Ctrl+回车 event.keyCode == 13 回车
+				if (event.ctrlKey && event.keyCode == 13) {
+					document.getElementById("liuyan").innerText = this.value;
+				}
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>
