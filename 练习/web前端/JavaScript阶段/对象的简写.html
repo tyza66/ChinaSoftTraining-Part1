@@ -24,8 +24,19 @@
             age,
             show:function(){
                 console.log("name: " + name + " age: " + age)
+            },
+            eat:function(f1,f2="可口"){
+                console.log(this.name + "吃了" +f1 +"喝了" +f2)
+            },
+            sum:function(...args){ //可变长参数
+                var sum = 0;
+                for(var i = 0; i < args.length;i++){
+                    sum+= args[i]
+                }
+                console.log(sum)
             }
         }
+
     </script>
 </body>
 </html>

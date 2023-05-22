@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let sum = function (x, y) {
+            return x + y;
+        }
+        //箭头函数
+        //省略的规则：如果只有一个参数可以省略小括号 如果代码体中只有一句执行语句并return返回了 可以省略大括号
+        let sum1 = (x, y) => {
+            return x + y
+        }
+        //**幂运算运算符
+
+        //箭头函数中this的指向
+        function Test() {
+            this.count = 1;
+
+            this.addCount = function () {
+                console.log(this.count)
+            }
+        let that = this; //可以用这个变量提前记录this
+            window.setTimeout(function(){
+                that.count++;
+                console.log(that.count)
+            },1000)
+        }
+        //undefined+1得到的时候NaN
+        let a = new Test()
+        a.addCount()
+    </script>
+</body>
+
+</html>

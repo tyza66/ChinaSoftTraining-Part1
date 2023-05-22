@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person(name,age){
+            this.name = name;
+            this.age = age;
+        }
+        Person.prototype.email = "213" //在原型上添加属性和方法 对象就可以直接使用原型中的属性和方法
+        Person.prototype.eat = function(){
+            console.log("我在吃xxx")
+        }
+        let p1 = new Person("giao",96) //利用构造函数来生成对象
+        console.log("姓名"+p1.name) //获取属性值
+        console.log("姓名"+p1['name']) 
+
+        p1.email = "giao@gmail"
+        let p2 = new Person("小明",96)
+        console.log(p1.email)
+        console.log(p2.email)
+        p1.eat()
+
+        console.log(Date.prototype)
+    </script>
+</body>
+</html>
