@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="myForm">
+        输入框<input type="text" name="text" i="txt2" value=""/>
+    </form>
+    <button id="btn">获取表单</button>
+    
+    <script>
+        window.onload = function(){
+            document.getElementById("btn").addEventListener("click",function(){
+                var f1 = document.forms[0] //forms能获得所有的表单 是一个集合 我们能用下标获得指定的表单
+                document.forms["myForm"] //放上name属性的名称也能获得
+                document.myForm //直接跟上表单的name属性也能获得当前的表单
+            })
+        }
+    </script>
+</body>
+</html>
