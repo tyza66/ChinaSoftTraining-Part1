@@ -23,7 +23,14 @@
         let k = 10
         console.log(k)
         //let k = 20 更加规范了 不能重复声明
-
+        //在同一个作用域 变量只能声明一次
+        function m2(){
+            let k = 40;
+            console.log(k) //在函数内部访问k的值
+            //局部变量和全局变量重名的时候 就近原则
+            //这里面的k如果在后面定义 也会声明提升
+        }
+        m2()
         const k1 = 30
     </script>
 </body>
