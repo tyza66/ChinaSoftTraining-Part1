@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="window.open('test1.html')">打开一个新的界面</button>
+    <button onclick="window.close()">关闭界面</button>
+    <script>
+        var type = window.prompt("giao",10)
+        //确认框
+        var i = window.confirm("是否删除")
+        console.log(i)
+        var res = 10/0  //得到的是 Infinity 无限大
+        console.log(res)
+        console.log("",isFinite(res)) //判断是否有限
+    </script>
+</body>
+</html>
