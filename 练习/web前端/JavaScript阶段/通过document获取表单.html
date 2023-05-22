@@ -8,7 +8,7 @@
 </head>
 <body>
     <form name="myForm">
-        输入框<input type="text" name="text" i="txt2" value=""/>
+        输入框<input type="text" name="txt" i="txt2" value=""/>
     </form>
     <button id="btn">获取表单</button>
     
@@ -18,6 +18,10 @@
                 var f1 = document.forms[0] //forms能获得所有的表单 是一个集合 我们能用下标获得指定的表单
                 document.forms["myForm"] //放上name属性的名称也能获得
                 document.myForm //直接跟上表单的name属性也能获得当前的表单
+
+                console.log("input",document.myForm.txt.value)
+                console.log("input",document.all.txt.value)
+                console.log("input",document.all.myForm.txt.value)
             })
         }
     </script>
