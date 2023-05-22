@@ -17,6 +17,21 @@
         var res = 10/0  //得到的是 Infinity 无限大
         console.log(res)
         console.log("",isFinite(res)) //判断是否有限
+        console.log("",isNaN(res)) //判断是否是非数字
+        eval("1<2") //eval可以将表达式进行计算
+        
+        //定时器函数
+        function m1(){
+            alert("m1")
+        }
+        //在指定的毫秒过后执行一次 第一个参数是一个函数 第二个是指定毫秒数执行的函数
+        var timeid = setTimeout(m1,1000)
+
+        clearTimeout(timeid) //清除定时器函数
+
+        //传入的参数和setTimeout一样 每隔指定的毫秒数就执行函数
+        var timeid2 = setInterval(m1,1000);
+        clearInterval(timeid2)
     </script>
 </body>
 </html>
