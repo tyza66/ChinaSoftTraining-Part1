@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let name = "tom"
+        let age = 18
+
+        const p1 = {
+            name:name,
+            age:age,
+            show:function(){
+                console.log("name: " + name + " age: " + age)
+            }
+        }
+        //属性名称和属性存在的变量名称相同的时候可以使用省略写法
+        const p2 = {
+            name,
+            age,
+            show:function(){
+                console.log("name: " + name + " age: " + age)
+            }
+        }
+    </script>
+</body>
+</html>

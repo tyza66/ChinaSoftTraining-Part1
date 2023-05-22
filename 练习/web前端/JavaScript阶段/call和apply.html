@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const p1 = {
+            name : "tom",
+            age: 18,
+            show:function(from,to) {
+                console.log(this.name + "从" +  from + "到" + to);
+            }
+        }
+        const p2 = {
+            name : "giao",
+            age: 19
+        }
+        p1.show('大连','锦州')
+        p1.show.call(p2,"大连","鞍山") //改变this的指向
+        p1.show.apply(p2,["大连","沈阳"]) //改变this的指向 传递的参数是参数数组
+    </script>
+</body>
+</html>
