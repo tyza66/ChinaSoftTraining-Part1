@@ -23,7 +23,16 @@
 			
 		</script> -->
 
-		 <!--<script type="text/javascript">	 	
+		 <!--<script type="text/javascript">
+		 	JavaScript this 关键词指的是它所属的对象。
+
+			它拥有不同的值，具体取决于它的使用位置：
+			•在方法中，this 指的是所有者对象。
+			•单独的情况下，this 指的是全局对象。
+			•在函数中，this 指的是全局对象。
+			•在函数中，严格模式下，this 是 undefined。
+			•在事件中，this 指的是接收事件的元素
+
 		 	let name = "aaa";
 		 	function m1() {
 		 		let name = "bbb";
@@ -71,7 +80,7 @@
 		</script> -->
 
 
-		<!-- <script type="text/javascript">
+		 <!--<script type="text/javascript">
 			function Foo() {
 			    var i = 0;
 			    return function() {
@@ -83,23 +92,25 @@
 			    f2 = Foo();
 			f1();
 			f1();
-			f2();
+			f2();//010
 		</script> -->
 
 		<script type="text/javascript">
 			var user = {
 				count: 1,
 				getCount: function() {
-					return this.count;//this 指向 user对象
+					return this.count;//this指向user
 				}
 			}
 			
 			var func = user.getCount
+			//等价于
+			/*var func = function() {
+					return this.count; 在函数内部  this指向window
+				}*/
 	
-			/* var func = function() {
-				return this.count;//函数内 window
-			} */
-			console.log(func());
+		
+			console.log(func());	//undefined
 		</script>
 
 
