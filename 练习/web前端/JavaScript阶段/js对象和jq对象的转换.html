@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.6.0.js"></script>
+</head>
+
+<body>
+    <button id="btn">获取元素</button>
+    <div id="d1">giao</div>
+    <script>
+        $(() => {
+            document.getElementById("btn").onclick = function () {
+                var d1js = document.getElementById("d1")
+                console.log(d1js.innerText)
+
+                //js对象转换成jq对象
+                var d1jq = $(d1js)
+                console.log(d1jq.text())
+
+                //jq对象获取
+                let jq2 = $("#d1")
+                console.log(jq2.text())
+
+                //jq对象转换成js对象
+                console.log("转换方式一",jq2[0].innerText)
+                console.log("转换方式二",jq2.get(0).innerText)
+            }
+        })
+    </script>
+</body>
+
+</html>
