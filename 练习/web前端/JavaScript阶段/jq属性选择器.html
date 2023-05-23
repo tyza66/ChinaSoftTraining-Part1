@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.6.0.js"></script>
+</head>
+<body>
+    <ul>
+        <li class="abc">项目1</li>
+        <li class="adc">项目2</li>
+        <li class="bbc">项目3</li>
+    </ul>
+    <script>
+        $("[class]").css("color","red") //有这个属性
+        $("[class=abc]").css("color","green") //属性的名称和属性值
+        $("[class!=abc]").css("color","blue") //属性值不等于
+        $("[class^=a]").css("color","red") //属性值a开始
+        $("[class$=c]").css("font-size","50px") //属性值c结束
+    </script>
+</body>
+</html>

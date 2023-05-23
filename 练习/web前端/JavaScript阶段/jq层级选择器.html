@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.6.0.js"></script>
+</head>
+<body>
+    <div id="">
+        块级元素1
+        <p>
+            段落1
+            <span>span1</span>
+        </p>
+    </div>
+    <div id="">
+        块级元素2
+        <p>
+            段落2
+            <span>span2</span>
+        </p>
+    </div>
+    <p>giai</p>
+    <h1>一级标题</h1>
+    <p>giai</p>
+    <p>giai</p>
+    <p>giai</p>
+    <script>
+        //子代选择器 属于直接的父子关系
+        $("div>span").css("color","red")
+        //后代选择器 间接的父子关系都会被选择到
+        $("div span").css("color","green")
+        //兄弟选择器
+        $("h1~p").css("color","pink")
+        //相邻选择器
+        $("h1+p").css("color","blue")
+
+    </script>
+</body>
+</html>

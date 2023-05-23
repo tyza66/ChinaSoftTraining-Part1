@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.6.0.js"></script>
+</head>
+<body>
+    <form>
+        用户名<input type="text" name="" id="" value=""/><br/>
+        密码<input type="text" name="" id="" value=""/><br/>
+        性别<input type="radio" name="gender" id="" value="男"/>男
+            <input type="radio" name="gender" id="" value="女"/>女<br/>
+        爱好<input type="checkbox" name="hobby" id="" value="敲代码"/>敲代码
+            <input type="checkbox" name="hobby" id="" value="找bug"/>找bug
+            <input type="checkbox" name="hobby" id="" value="玩游戏"/>玩游戏<br/>
+        城市<select>
+            <option value="大连">大连</option>
+            <option value="沈阳">沈阳</option>
+            <option value="锦州">锦州</option>
+            </select><br/>
+        <input type="button" name="" value="普通按钮"/>
+        <input type="reset" name="" value="重置按钮"/>
+        <input type="submit" name="" value="提交按钮"/>
+    </form>
+    <script>
+        //获取type=button的input元素
+        $(":button").click(function(){
+            //获取元素的value值 jq中使用val()
+            alert(this.value)//this指的是js对象可以用$(this)转换成jq对象
+        })
+    </script>
+</body>
+</html>
