@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="js/jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+		
+		<div>
+			块级元素1
+			<p>
+				段落1
+				<span>span1</span>
+			</p>
+		</div>
+		
+		<div>
+			块级元素2
+			<span>span2</span>
+		</div>
+		
+		<p>上面的元素</p>
+		<h1>一级标题</h1>
+		<p>这是第1个段落</p>
+		<p>这是第2个段落</p>
+		<p>这是第3个段落</p>
+		<p>这是第4个段落</p>
+		<p>这是第5个段落</p>
+		
+		<script type="text/javascript">
+			//子代选择器  选择器1>选择器2  直接父子关系
+//			$("div>span").css("color","red");
+			//后代选择器  选择器1 选择器2 间接父子关系
+//			$("div span").css("color","green");
+//          兄弟选择器  选择器1~选择器2  
+//			$("h1~p").css("color","pink");
+//          相邻选择器  选择器1+选择器2  紧邻
+			$("h1+p").css("color","blue");
+			
+		</script>
+	</body>
+</html>

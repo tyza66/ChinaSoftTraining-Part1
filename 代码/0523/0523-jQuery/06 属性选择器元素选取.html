@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="js/jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+		
+		<ul>
+			<li class="abc">项目1</li>
+			<li class="acd">项目2</li>
+			<li class="bbc">项目3</li>
+			<li>项目4</li>
+			<li>项目5</li>
+		</ul>
+		
+		<script type="text/javascript">
+			//属性选择器  [属性] 具有这个属性的元素
+		/*	$("[class]").css("color","red");
+//		 *   [属性名=属性值]  选择具有属性名=属性值的元素
+			$("[class=abc]").css("color","green");
+			// [属性名!=属性值]  选择具有属性名不等于属性值的元素
+			$("[class!=abc]").css("color","blue");*/
+			//[属性名^=属性值]  选择具有属性名以属性值开始的元素
+			$("[class^=a]").css("color","red");
+			//[属性名$=属性值]  选择具有属性名以属性值结尾的元素
+			$("[class$=c]").css("font-size","50px");
+			
+			
+		</script>
+	</body>
+</html>

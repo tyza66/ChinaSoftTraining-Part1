@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="js/jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+		
+		<form action="">
+			用户名 <input type="text"   disabled /> <br />
+			密码 <input type="password" name="" id="" value="" /><br />
+			性别 <input type="radio" name="gender" id="" value="男" />男
+			<input type="radio" name="gender" id="" value="女" />女 <br />
+			爱好 <input type="checkbox" name="hobby" id="" value="敲代码" />敲代码
+			<input type="checkbox" name="hobby" id="" value="找bug" />找bug
+			<input type="checkbox" name="hobby" id="" value="玩游戏" />玩游戏 <br />
+			城市 : <select id="city">
+				<option value="大连">大连</option>
+				<option value="沈阳">沈阳</option>
+				<option value="锦州">锦州</option>
+			</select> <br />
+			
+			<!--上传文件-->
+			上传文件：<input type="file" name="" id="" value="" />
+			
+			<!--隐藏-->
+			<input type="hidden" name="" id="" value="隐藏的内容" /> <br />
+			
+			<!--按钮-->
+			<input type="button" name="" id="" value="普通按钮" />
+			<input type="reset" name="" id="" value="重置按钮" />
+			<input type="submit" name="" id="" value="提交按钮" />
+			
+			
+		</form>
+		
+		<script type="text/javascript">
+			//:button 选取type=button的<input>元素
+			$(":button").click(function(){
+				//获取元素的value的值    val()函数
+//				alert("内容  " + $(":button").val());
+				//this是javaScript对象  
+//				alert("this " + $(this).val());
+
+//				:text 所有 type="text" 的 <input> 元素
+//				console.log("获取用户名的值",$(":text").val());
+				//:password 所有 type="password" 的 <input> 元素
+//				console.log("获取密码 ",$(":password").val());
+				//:radio 所有 type="radio" 的 <input> 元素
+				//:checked 所有被选中的 input 元素
+//				console.log("性别选中的值",$(":radio:checked").val());
+				
+				//复选框选中的值并遍历
+				//:checkbox 所有 type="checkbox" 的 <input> 元素
+				let hs = $(":checkbox:checked");
+//				console.log("hs ",hs);
+				if (hs!= null && hs.length != 0) {
+					for (let i = 0; i < hs.length; i++) {
+//						console.log("爱好选中的值",hs[i].value);
+					}
+				}
+				
+				//jQuery 循环遍历元素
+				// $.each(目标(数组/对象),匿名回调函数(索引下标,每一个元素){})
+				/*$.each(hs, function(index,item) {
+					console.log("index",index);
+					//item是js对象
+					console.log("item",item.value);
+				});*/
+				
+//				目标(数组/对象).each(匿名回调函数(索引下标,每一个元素){})
+				/*hs.each(function(index,item){
+					console.log("index",index);
+					//item是js对象
+					console.log("item",item.value);
+				})*/
+				
+				//获取下拉框选中的值 
+				console.log("选取的城市",$("#city").val());
+				console.log(":selected",$("select>option:selected").val());
+				//所有 type="file" 的 <input> 元素
+				console.log("获取文件",$(":file"));
+				
+				//input:hidden 获取hidden的input元素
+				console.log("隐藏域内容",$("input:hidden").val());
+				
+				//:disabled 所有禁用的元素
+				$(":disabled").css("background-color","pink");
+				//:enabled 所有可用的元素
+				$(":enabled").css("background-color","red");
+				
+			})
+		</script>
+		
+		
+	</body>
+</html>

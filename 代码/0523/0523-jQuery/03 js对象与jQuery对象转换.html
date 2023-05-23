@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="d1">
+			块级元素
+		</div>
+		
+		<button id="btn">获取元素</button>
+		
+		<script type="text/javascript">
+			$(()=>{
+				document.getElementById("btn").onclick = function(){
+					//js对象获取
+					var d1js = document.getElementById("d1");
+					console.log("d1js ",d1js.innerText);
+					
+					//js对象转换为jQuery对象   $(js对象)
+					var d1jq = $(d1js);
+					console.log("d1jq ",d1jq.text());
+					
+					//jQuery对象获取
+					let jq2 = $("#d1");
+					console.log("jq2 ", jq2.text());
+					
+					//jQuery对象转换为js对象  jQuery对象[0]  或者    jQuery对象.get(0)
+					console.log("转换方式一",jq2[0].innerText);
+					console.log("转换方式二", jq2.get(0).innerText);
+				}
+			})
+		</script>
+	</body>
+</html>

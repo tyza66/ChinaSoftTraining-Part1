@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//js 页面加载完毕 1  window.onload 等待所有的DOM节点以及静态资源(图片 视频 音频)加载完毕 才执行
+			//  2 window.onload 在页面中只能执行一次  3 没有提供简略写法
+			/*window.onload = function(){
+				alert("js 页面加载完毕1");
+			}*/
+			
+			
+			/*window.onload = function(){
+				alert("js 页面加载完毕2");
+			}*/
+			
+			//jQuery 1 ready 等待页面所有的DOM节点加载完毕 执行ready函数
+			//2 ready 在页面中可以书写多次并全部都执行 3 提供简略写法
+			$(document).ready(function(){
+				alert("jQuery页面加载完毕1");
+			})
+			
+			$(document).ready(function(){
+				alert("jQuery页面加载完毕2");
+			})
+			
+			//简略写法
+			$(function(){
+				alert("jQuery页面加载完毕简略写法");
+			})
+			
+			$(()=>{
+				alert("箭头函数 ---jQuery页面加载完毕简略写法");
+			})
+			
+		</script>
+	</body>
+</html>
