@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.6.0.js"></script>
+</head>
+<body>
+    <script>
+        /*window.onload = function() {
+            alert("js 页面加载完毕1")
+        }
+        //window.onload在页面中只能执行一次
+        window.onload = function() {
+            alert("js 页面加载完毕2")
+        }*/
+        
+        //可以在页面中执行多次 都会执行
+        $(document).ready(function() {
+            alert("jq 页面加载完毕1")
+        })
+        $(document).ready(function() {
+            alert("jq 页面加载完毕2")
+        })
+
+        //简略的写法
+        $(function(){
+            alert("jq页面加载完毕的简略写法")
+        })
+
+        //简略的箭头函数写法
+        $(()=>alert("jq页面加载完毕的箭头函数简略写法"))
+    </script>
+</body>
+</html>
