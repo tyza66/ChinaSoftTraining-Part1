@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.6.0.js"></script>
+</head>
+
+<body>
+    <span id="name">小明</span>
+    <button id="ks">开始</button>
+    <button id="js">结束</button>
+    <script>
+        list = ["小明", "小亮", "小狗", "小猫","修沟","NO"]
+        function cha() {
+            var n =RandomNumBoth(0,list.length-1)
+            $("#name").text(list[n])
+        }
+        function RandomNumBoth(Min, Max) {
+            var Range = Max - Min;
+            var Rand = Math.random();
+            var num = Min + Math.round(Rand * Range); //四舍五入
+            return num;
+        }
+        var ti;
+        $("#ks").click(function(){
+            ti = setInterval(cha, 100)
+        })
+        $("#js").click(function(){
+            clearInterval(ti)
+        })
+    </script>
+</body>
+
+</html>

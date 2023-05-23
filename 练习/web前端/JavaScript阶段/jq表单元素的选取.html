@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,30 +8,63 @@
     <title>Document</title>
     <script src="./js/jquery-3.6.0.js"></script>
 </head>
+
 <body>
     <form>
-        用户名<input type="text" name="" id="" value=""/><br/>
-        密码<input type="text" name="" id="" value=""/><br/>
-        性别<input type="radio" name="gender" id="" value="男"/>男
-            <input type="radio" name="gender" id="" value="女"/>女<br/>
-        爱好<input type="checkbox" name="hobby" id="" value="敲代码"/>敲代码
-            <input type="checkbox" name="hobby" id="" value="找bug"/>找bug
-            <input type="checkbox" name="hobby" id="" value="玩游戏"/>玩游戏<br/>
-        城市<select>
+        用户名<input type="text" name="" id="" value="" disabled/><br />
+        密码<input type="password" name="" id="" value="" /><br />
+        性别<input type="radio" name="gender" id="" value="男" />男
+        <input type="radio" name="gender" id="" value="女" />女<br />
+        爱好<input type="checkbox" name="hobby" id="" value="敲代码" />敲代码
+        <input type="checkbox" name="hobby" id="" value="找bug" />找bug
+        <input type="checkbox" name="hobby" id="" value="玩游戏" />玩游戏<br />
+        城市<select id="city">
             <option value="大连">大连</option>
             <option value="沈阳">沈阳</option>
             <option value="锦州">锦州</option>
-            </select><br/>
-        <input type="button" name="" value="普通按钮"/>
-        <input type="reset" name="" value="重置按钮"/>
-        <input type="submit" name="" value="提交按钮"/>
+        </select><br />
+        <input type="file" /><br />
+        <input type="hidden" />
+        <input type="button" name="" value="普通按钮" />
+        <input type="reset" name="" value="重置按钮" />
+        <input type="submit" name="" value="提交按钮" />
     </form>
     <script>
         //获取type=button的input元素
-        $(":button").click(function(){
-            //获取元素的value值 jq中使用val()
-            alert(this.value)//this指的是js对象可以用$(this)转换成jq对象
+        $(":button").click(function () {
+            // //获取元素的value值 jq中使用val()
+            // alert(this.value)//this指的是js对象可以用$(this)转换成jq对象
+
+            console.log("获取账号", $(":text").val())
+            console.log("获取密码", $(":password").val())
+            //获取单选按钮被选中的元素
+            console.log("获取单选按钮选中的值", $(":radio:checked").val())
+            let hs = $(":checkbox:checked")
+            //console.log(hs)
+            if (hs.length != 0) {
+                for (let i = 0; i < hs.length; i++) {
+                    console.log("爱好选中的值", hs[i].value)
+                }
+            }
+            //jq中的each函数的两个参数 第一个是数组或者对象 第二个是每一个元素 item是js对象
+            $.each(hs, function (index, item) {
+                console.log("index", index)
+                console.log("item", item.value)
+            })
+            //直接用对象each方法进行遍历
+            hs.each(function (index, item) {
+                console.log("index", index)
+                console.log("item", item.value)
+            })
+
+            console.log($("#city").val())
+            console.log(":selected", $("select>option:selected").val())
+            console.log(":file",$(":file"))
+            //获取到type是hidden的
+            console.log(":hidden",$(":hidden").val())
+            $(":disabled").css("background-color","red")
         })
     </script>
 </body>
+
 </html>
