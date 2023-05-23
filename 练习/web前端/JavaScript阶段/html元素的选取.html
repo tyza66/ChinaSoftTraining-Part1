@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.6.0.js"></script>
+</head>
+<body>
+    <p>现在复🐏的人多了，大家注意保护1</p>
+    <p id = "p2">现在复🐏的人多了，大家注意保护2</p>
+    <p class="p3">现在复🐏的人多了，大家注意保护3</p>
+    <p>现在复🐏的人多了，大家注意保护4</p>
+    <p>现在复🐏的人多了，大家注意保护5</p>
+    <p>现在复🐏的人多了，大家注意保护6</p>
+    <script>
+        //基本选择器：* 通配符 # id选择器 .类选择器 标签选择器
+        $("*").css("color","red")
+        //后面相当于直接覆盖了
+        $("p").css("font-size","30px")
+        $("#p2").css("font-size","50px")
+        $(".p3").css("background-color","green")
+    </script>
+</body>
+</html>
