@@ -1,41 +1,47 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-		<script src="jquery-3.6.0.js"></script>
-	</head>
-	<body>
-		
-		<form action="" method="post">
-			学号 <input type="text" name="" id="p1" value="" /> <br />
-			姓名 <input type="text" name="" id="p2" value="" /> <br />
-			年龄 <input type="tel" name="" id="p3" value="" />
-			<input type="button" value="增加"/>
-		</form>
-		
-		<table>
-			<tr>
-				<td>学号</td>
-				<td>姓名</td>
-				<td>年龄</td>
-				<td>操作</td>
-			</tr>
-			<tr>
-				<td>1001</td>
-				<td>于博</td>
-				<td>19</td>
-				<td><a href="#" id="line">删除</a></td>
-			</tr>
-		</table>
-		<script>
-			$(":button").click(function(){
-				$("table").append("<tr><td>"+$("#p1").val()+"</td><td>"+$("#p2").val()+"</td><td>"+$("#p2").val()+"</td><td><a href='#'>删除</a></td></tr>")
-			})
-			$("#line").click(function(){
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="jquery-3.6.0.js"></script>
+</head>
+
+<body>
+
+	<form action="" method="post">
+		学号 <input type="text" name="" id="p1" value="" /> <br />
+		姓名 <input type="text" name="" id="p2" value="" /> <br />
+		年龄 <input type="tel" name="" id="p3" value="" />
+		<input type="button" value="增加" />
+	</form>
+
+	<table>
+		<tr>
+			<td>学号</td>
+			<td>姓名</td>
+			<td>年龄</td>
+			<td>操作</td>
+		</tr>
+		<tr>
+			<td>1001</td>
+			<td>于博</td>
+			<td>19</td>
+			<td><a href="#" class="line">删除</a></td>
+		</tr>
+	</table>
+	<script>
+		$(":button").click(function () {
+			$("table").append("<tr><td>" + $("#p1").val() + "</td><td>" + $("#p3").val() + "</td><td>" + $("#p2").val() + "</td><td><a href='#' class='line'>删除</a></td></tr>")
+			$(".line").click(function () {
 				$(this).parent().parent().remove();
 			})
-		</script>
-		
-	</body>
+		})
+		$(".line").click(function () {
+			$(this).parent().parent().remove();
+		})
+	</script>
+
+</body>
+
 </html>
