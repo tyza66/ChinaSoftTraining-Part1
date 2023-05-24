@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <style>
+        .active{
+            width: 150px;
+            height: 150px;
+            background-color: lightcyan;
+        }
+
+        .border{
+            border:1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="d1">我大撒旦吉萨大偏好开发为普及珀尔</div>
+    <button>设置样式</button>
+    <button>移除样式</button>
+    <button>切换样式</button>
+    <script>
+        $("button:first").click(() => {
+            $("#d1").css("color", "red")
+            //$("#d1").css({ "width": "300px", "height": "300px", "background-color": "yellow" })
+            $("#d1").addClass("border")//添加类名 可以设置类名所代表的样式
+
+            $("button:eq(1)").click(()=>{
+                let flag = $("#d1").hasClass("border")//有没有
+                if(flag){
+                    $("#d1").removeClass("border")//移除类名
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>
