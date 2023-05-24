@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="./js/jquery-3.6.0.js"></script>
 </head>
 <body>
     <input type="checkbox" name="" id="h1" value="抽烟">抽烟
@@ -15,8 +16,12 @@
         $("button").click(function(){
             //获取标签的属性 attr 参数是属性名 prop 参数也是属性名
             //在不是单一属性中建议使用prop
-            console.log($("#id").attr("checked"))
-            console.log($("#id").prop("checked"))
+            console.log($("#h1").attr("checked"))
+            console.log($("#h1").prop("checked"))
+
+            //设置还是attr 第二个参数直接设置值
+            $("#h1").prop("checked",true)
+            $("#h1").prop("checked",true)
         })
     </script>
 </body>
