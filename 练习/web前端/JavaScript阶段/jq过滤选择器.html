@@ -33,10 +33,30 @@
             <td>单元格3</td>
             <td>单元格4</td>
         </tr>
+        <tr>
+            <td>单元格1</td>
+            <td>单元格2</td>
+            <td>单元格3</td>
+            <td></td>
+        </tr>
     </table>
     <script>
         $("tr:first").css("background-color","red");
         $("tr:last").css("background-color","green");
+        $("tr:even").css("background-color","lightblue") //索引下标为偶数的元素 索引下标从0开始
+        $("tr:odd").css("background-color","yellow") //索引下标为奇数的元素
+        $("tr:eq(1)").css("background-color","pink") //索引下标为1的元素
+        $("tr:gt(1)").css("background-color","orange") //索引下标大于1的元素
+        $("tr:lt(1)").css("background-color","gray") //索引下标小于1的元素
+
+        $("tr:nth-child(1)").css("background-color","red") //第一个孩子
+        $("tr:nth-child(2n)").css("background-color","green") //偶数子元素
+        $("tr:nth-child(2n+1)").css("background-color","green") //奇数子元素
+
+        $("td:contains('单元格1')").css("background-color","red") //包含对应内容的单元格
+        $("td:empty").css("background-color","pink") //内容为空的单元格
+        $("td:parent").css("background-color","pink") //里面有文本或者有子元素的单元格
+        $("td:not(:empty)").css("background-color","grey") //not 不是内部选择器的元素
     </script>
 </body>
 </html>
