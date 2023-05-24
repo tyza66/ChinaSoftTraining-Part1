@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.6.0.js"></script>
+</head>
+
+<body>
+    <h1>二级标题</h1>
+    <div id="d1">
+        <p>我不能困，我要学习1</p>
+        <p class="item">我不能困，我要学习2</p>
+        <p>我不能困，我要学习3</p>
+        <p class="item">我不能困，我要学习4</p>
+        <p>我不能困，我要学习5</p>
+    </div>
+    <h1>一级标题</h1>
+    <button>触发</button>
+    <script>
+        $("button").click(() => {
+            let ps = $("#d1").children(".item");//children中可以使用选择器
+            //可以使用find方法过滤
+            ps.each((index, item) => {
+                console.log($(item).text());
+            })
+
+            //查看父元素 
+            console.log($("p:first").parent()) //获得直接的父元素
+            console.log($("p:first").parents()) //获得所有的父元素
+            console.log($("p:first").parents().parentsUntil("body")) //获得所有的父元素直到body
+
+            //查看所有兄弟 参数里面可以指定选择器
+            $("#d1").siblings(".h1")
+            //后面的一个
+            $("#d1").next()
+            //后面所有的
+            $("#d1").nextAll()
+            //前面的一个
+            $("#d1").prev()
+            //前面所有的
+            $("#d1").prevAll()
+
+            
+        })
+    </script>
+</body>
+
+</html>

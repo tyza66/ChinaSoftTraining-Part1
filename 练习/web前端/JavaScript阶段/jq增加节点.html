@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.6.0.js"></script>
+</head>
+<body>
+    <div>
+        <p id="d1">段落</p>
+    </div>
+
+    <button>增加节点</button>
+
+    <script>
+        $("button").click(()=>{
+            //在指定节点后面添加节点
+            $("#d1").after("<p>后面段落</p>");
+            $("#d1").before("<p>前面段落</p>");
+        })
+        //在父级节点中添加节点
+        $("#d1").append("<p>前面段落2</p>");
+        $("#d1").prepend("<p>后面段落2</p>");
+    </script>
+</body>
+</html>
