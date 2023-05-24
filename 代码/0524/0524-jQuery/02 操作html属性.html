@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<input type="checkbox" name="" id="h1" value="抽烟"/>抽烟
+		<input type="checkbox" name="" id="" value="喝酒" />喝酒
+		<input type="checkbox" name="" id="" value="烫头" />烫头
+		
+		<button>操作html属性</button>
+		
+		<script type="text/javascript">
+			$("button").click(function(){
+				//第一个复选框选中
+				
+				//获取标签的属性
+				//元素节点.attr(属性名称)  在标签内部如果没有写明单一属性  初次获取的值是undefined
+				//元素节点.prop(属性名称) 单一属性 推荐使用prop  获取单一属性的值是布尔值
+				console.log("第一个复选框选中属性 ",$("#h1").attr("checked"));//undefined
+				console.log("第一个复选框选中属性",$("#h1").prop("checked"));//false
+				
+				//设置标签属性
+//				元素节点.attr(属性名称,值)  元素节点.prop(属性名称，值)
+                $("#h1").prop("checked",true);
+                $("#h1").attr("pid",1);
+			})
+		</script>
+		
+	</body>
+</html>

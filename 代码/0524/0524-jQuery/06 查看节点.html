@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<h2>二级标题</h2>
+		<h3>三级标题</h3>
+		
+		<div id="d1">
+			<p>我不能困,我要学习1</p>
+			<p class="item">我不能困,我要学习2</p>
+			<p>我不能困,我要学习3</p>
+			<p class="item">我不能困,我要学习4</p>
+			<p>我不能困,我要学习5</p>
+		</div>
+		
+		<h1>一级标题</h1>
+		
+		<button>查看节点</button>
+		
+		<script type="text/javascript">
+			$("button").click(()=>{
+				//查看子节点
+				//children(["指定选择器"]); 如果没有指定的选择器 则查看所有的子节点 如果有 按照指定的选择器查找子节点
+//				let ps = $("#d1").children(".item");
+				/*let ps = $("#d1").find(".item");//父元素.find("选择器") 按照指定的选择器查找元素
+				ps.each((index,item)=>{
+					console.log("内容",$(item).text());
+				})
+				*/
+				
+				//查看父元素
+//				parent() 返回直接父元素  div#d1
+				console.log("父元素",$("p:first").parent());
+				//parents()  返回所有的父元素 div#d1 body html
+				console.log("父元素",$("p:first").parents());
+				//parentsUntil(父元素选择器) 查找介于两者之间的父元素
+				console.log("父元素",$("p:first").parentsUntil("body"));
+				
+				//查看同级元素
+				//siblings(["选择器"]) 按照指定的选择器选择所有的同级元素
+				console.log("所有的兄弟",$("#d1").siblings("h1"));
+				//$("#d1").next() 查看指定元素的下一个元素
+				console.log("next()",$("#d1").next());
+				//$("#d1").next() 查看指定元素的下面所有的元素
+				console.log("nextAll()",$("#d1").nextAll());
+				
+				//$("#d1").prev() 查看指定元素上一个元素
+				console.log("prev()",$("#d1").prev());
+				//$("#d1").prevAll() 查看指定元素上面所有的元素
+				console.log("prevAll()",$("#d1").prevAll());
+				
+			})
+		</script>
+		
+	</body>
+</html>

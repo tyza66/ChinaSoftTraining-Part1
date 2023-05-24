@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="d1">
+			<p>段落1</p>
+		</div>
+		
+		<button>增加节点</button>
+		
+		<script type="text/javascript">
+			$("button").click(()=>{
+				//父节点.append("子节点"); 在被选元素的结尾插入内容
+//				$("#d1").append("<p>段落2</p>");
+				
+				//父节点.prepend("子节点") 在被选元素的开头插入内容
+//				$("#d1").prepend("<p>前面段落</p>");
+				
+				
+				//同级元素之后添加节点
+				$("#d1").after("<p>After</p>");
+				//同级元素之前添加节点
+				$("#d1").before("<p>Before</p>");
+				
+				
+			})
+		</script>
+	</body>
+</html>

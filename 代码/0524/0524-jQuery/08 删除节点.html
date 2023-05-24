@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<ul>
+			<li>项目1</li>
+			<li>项目2</li>
+			<li>项目3</li>
+			<li>项目4</li>
+			<li>项目5</li>
+			<li>项目6</li>
+		</ul>
+		
+		<button>删除节点</button>
+		
+		<script type="text/javascript">
+			$("button").click(()=>{
+				//empty() 删除所有的子节点
+//				$("ul").empty();
+				
+				//删除本身节点以及子节点
+//				$("ul").remove();
+				
+				//删除第二个li元素
+//				jQuery remove() 方法也可接受一个参数，允许您对被删元素进行过滤。
+				$("li").remove("li:eq(1)");
+			})
+		</script>
+	</body>
+</html>

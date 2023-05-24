@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<input type="text" name="t" id="t" value="" />
+		
+		<div id="d1">
+			<p>块级元素</p>
+		</div>
+		
+		<button>设置值</button>
+		<button>获取值</button>
+		
+		<script type="text/javascript">
+			//获取值
+			$("button:eq(1)").click(function(){
+				
+				console.log("输入框的值",$("#t").val());//val() 值
+				console.log("div元素的内容",$("#d1").text());//text() 文本
+				console.log("html   ",$("#d1").html());//html() 标签以及文本
+			})
+			
+			//设置值
+			//val(设置值)  text(设置文本内容)  html(设置内容如果有标签则被浏览器解析)
+			$("button:eq(0)").click(function(){ 
+				$("#t").val("jack");
+//				$("#d1").text("<i>更改文本</i>");
+                $("#d1").html("<i>更改文本</i>");
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>项目1</li>
+        <li>项目2</li>
+        <li>项目3</li>
+        <li>项目4</li>
+        <li>项目5</li>
+        <li>项目6</li>
+    </ul>
+    <button>删除节点</button>
+    <script>
+        $("button").click(()=>{
+            //删除所有的子节点
+            $("ul").empty();
+            //删除节点
+            $("li").remove();
+            //删除第二个li
+            $("li").remove("li:eq(1)");
+        })
+    </script>
+</body>
+</html>

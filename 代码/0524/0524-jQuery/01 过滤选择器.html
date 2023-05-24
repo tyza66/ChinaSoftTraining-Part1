@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!--table>tr*5>td{单元格$$}*4-->
+		<table width="400" border="1" cellspacing="0">
+			<tr>
+				<td>单元格01</td>
+				<td>单元格02</td>
+				<td>单元格03</td>
+				<td>单元格04</td>
+			</tr>
+			<tr>
+				<td>单元格01</td>
+				<td>单元格02</td>
+				<td>单元格03</td>
+				<td>单元格04</td>
+			</tr>
+			<tr>
+				<td>单元格01</td>
+				<td>单元格02</td>
+				<td>单元格03</td>
+				<td>单元格04</td>
+			</tr>
+			<tr>
+				<td>单元格01</td>
+				<td>单元格02</td>
+				<td>单元格03</td>
+				<td>单元格04</td>
+			</tr>
+			<tr>
+				<td>单元格01</td>
+				<td>单元格02</td>
+				<td>单元格03</td>
+				<td></td>
+			</tr>
+		</table>
+		
+		<script type="text/javascript">
+			//:first 匹配第一个元素
+//			$("tr:first").css("color","red");
+			//:last 匹配最后一个元素
+//			$("tr:last").css("color","green");
+			
+			//:even  索引下标为偶数的元素  索引下标从0开始
+//			$("tr:even").css("background-color","lightblue");
+			//:odd  索引下标为奇数的元素  
+//			$("tr:odd").css("background-color","lightpink");
+
+			//匹配第二行  :eq(索引下标) 找到等于索引下标的元素  索引下标从0开始
+//			$("tr:eq(1)").css("color","red");
+            
+            //:gt(索引下标) 找到大于索引下标的元素
+//			$("tr:gt(1)").css("color","red");
+			
+			//:lt(索引下标) 找到小于索引下标的元素
+//			$("tr:lt(3)").css("color","red");
+
+			//:nth-child(数值) 数值从1开始   2n代表偶数 2n+1代表奇数  
+//			$("tr:nth-child(2n+1)").css("color","red");
+			
+			//:contains('字符串') 找到包含指定字符串的元素
+//			$("td:contains('单元格01')").css("background-color","lightcoral");
+			
+			//:empty 查找没有文本或者没有子元素的元素
+			$("td:empty").css("background-color","red");
+			//:parent 找到有文本或者有子元素的元素
+//			$("td:parent").css("background-color","green");
+//			:not(选择器)  选择不是指定选择器的元素
+			$("td:not(:empty)").css("background-color","green");
+			
+			
+			
+		</script>
+	</body>
+</html>

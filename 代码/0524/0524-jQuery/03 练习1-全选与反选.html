@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<input type="checkbox" name="" id="" value="" /> <br />
+		<input type="checkbox" name="" id="" value="" />List
+		<input type="checkbox" name="" id="" value="" />Set
+		<input type="checkbox" name="" id="" value="" />Map
+		
+		<script type="text/javascript">
+			$("input:checkbox:first").click(function(){
+				//获取第一个复选框中checked属性的值
+				let flag = $("input:checkbox:eq(0)").prop("checked");
+				
+				//选择除了第一个复选框 其他的复选框选中的值等于第一个
+				$("input:checkbox:gt(0)").prop("checked",flag);
+			})
+		</script>
+	</body>
+</html>
