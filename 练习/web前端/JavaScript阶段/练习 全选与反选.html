@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.6.0.js"></script>
+</head>
+
+<body>
+    <input type="checkbox" />全选 <br />
+    <input type="checkbox" />List
+    <input type="checkbox" />Set
+    <input type="checkbox" />Map
+    <script>
+        
+        $($(":checkbox").get(0)).click(function () {
+            if ($($(":checkbox").get(0)).prop("checked") == true) {
+                $($(":checkbox")[1]).prop("checked", true)
+                $($(":checkbox")[2]).prop("checked", true)
+                $($(":checkbox")[3]).prop("checked", true)
+            }else{
+                $($(":checkbox")[1]).prop("checked", false)
+                $($(":checkbox")[2]).prop("checked", false)
+                $($(":checkbox")[3]).prop("checked", false)
+            }
+        })
+        $(":checkbox:gt(0)").click(function(){
+            if($($(":checkbox").get(1)).prop("checked") == true&&$($(":checkbox").get(2)).prop("checked") == true&&$($(":checkbox").get(3)).prop("checked") == true){
+                $($(":checkbox").get(0)).prop("checked",true)
+            }else{
+                $($(":checkbox").get(0)).prop("checked",false)
+            }
+        })
+    </script>
+</body>
+
+</html>

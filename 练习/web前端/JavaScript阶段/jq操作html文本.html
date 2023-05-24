@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.6.0.js"></script>
+</head>
+<body>
+    <input type="text" name="t" id="t" value="" />
+    <div id="d1">abc</div>
+    <button>设置值</button>
+    <button>获取值</button>
+    <script>
+        $("button:eq(0)").click(function(){
+            $("#t").val("hello")
+            $("#d1").text("hello")
+        })
+        $("button:eq(1)").click(function(){
+            console.log($("#t").val())
+            console.log($("#d1").text())
+            console.log($("#d1").html())
+        })
+    </script>
+</body>
+</html>
