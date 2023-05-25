@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!--JSON:JavaScript 对象表示法
+			用于存储和交换文本信息
+		-->
+		<table border="" cellspacing="" cellpadding="">
+			<tr>
+				<th>姓名</th>
+				<th>年龄</th>
+			</tr>
+			<tbody>
+				
+			</tbody>
+		</table>
+		
+		<script type="text/javascript">
+			//对象
+			let obj = {"name":"tom","age":18};
+			
+			/*console.log("姓名",obj.name);
+			console.log("姓名",obj["name"]);
+			
+			//遍历对象
+			$.each(obj,function(index,item){
+				console.log("index",index);//获取属性名称
+				console.log("item",item);//获取属性值
+			})*/
+			
+			//对象数组
+			let arr = [
+				{"name":"tom","age":12},
+				{"name":"jack","age":13},
+				{"name":"rose","age":15},
+				{"name":"于博","age":19}
+			];
+			
+			//遍历数组
+			$.each(arr, function(index,item) {
+				console.log("index",index);
+				console.log("item",item.name + "  " + item.age);
+				
+			});
+			
+			
+			
+			
+		</script>
+		
+		
+		
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<p>这是一个段落</p>
+		
+		<button>包裹节点</button>
+		<button>去掉包裹</button>
+		
+		<script type="text/javascript">
+			$("button").first().click(function(){
+				//div包裹p标签
+				$("p").wrap("<div>包裹节点</div>");
+			})
+			
+			$("button").eq(1).click(function(){
+				$("p").unwrap();//去掉包裹 div
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<form action="success.html" method="get" id="myForm">
+			用户名 :<input type="text" name="" id="" value="" /><span id="nameErr"></span><br />
+
+			密码 <input type="password" name="" id="" value="" /><span id="pwdErr"></span> <br />
+			<input type="button" value="提交"/>
+		</form>
+		
+		<!--表单验证
+			1 输入用户名 失去焦点 验证  验证规则是字母开头+任意多数字字母下划线  {3,6}
+			2 输入密码后 失去焦点 验证  验证规则是数字开头+任意多数字字母下划线 {5,10}
+			3 提交表单 同时做用户名和密码的校验 如果符合校验规则 提交表单 否则 无法提交表单
+		-->
+		
+		<script type="text/javascript">
+			
+			
+			let flag1 = false;;
+//			输入用户名 失去焦点
+			$("input:text").blur(function(){
+				let uname = $("input:text").val();
+				let nameReg = /^[a-zA-Z]\w{2,5}$/;
+				if (!nameReg.test(uname)) {
+					$("#nameErr").text("用户名输入格式错误,字母开头+任意多数字字母下划线  {3,6}").css("color","red");
+//					$("#nameErr").css("color","red");
+					return;
+				}else {
+					$("#nameErr").text("用户名输入正确");
+					$("#nameErr").css("color","green");
+					flag1 = true;
+				}
+			})
+			
+			let flag2 = false;
+			//输入密码后 失去焦点 验证
+			$("input:password").blur(function(){
+				let pwd = $("input:password").val();
+				let pwdReg = /^\d\w{4,9}$/;
+				if (!pwdReg.test(pwd)){
+					$("#pwdErr").text("密码输入格式错误,数字开头+任意多数字字母下划线 {5,10}").css("color","red");
+					return;
+				}else {
+					$("#pwdErr").text("密码输入正确").css("color","green");
+					flag2 = true;
+					
+				}
+			})
+			
+			//提交表单 
+//			同时做用户名和密码的校验
+            $("input:button").click(function(){
+            	//点击提交按钮
+            	//trigger(事件类型)  自动触发事件类型
+            	$("input:text").trigger("blur");
+            	$("input:password").trigger("blur");
+            	
+            	if (flag1 && flag2) {
+            		$("#myForm").submit();//表单提交
+            	}
+            })
+			
+			
+			
+		</script>
+		
+		
+	</body>
+</html>

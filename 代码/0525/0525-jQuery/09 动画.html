@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			#d1 {
+				width: 100px;
+				height: 100px;
+				background-color: lightblue;
+			}
+		</style>
+	</head>
+	<body>
+		<button>开始动画</button>
+		<div id="d1">
+			
+		</div>
+		
+		
+		
+		
+		<script type="text/javascript">
+			$(function(){
+				$("button").click(function(){
+					//animate({属性列表},速度,匿名回调函数)
+					$("#d1").animate({
+						width:"300px",
+						height:"350px",
+						marginLeft:"200px"
+					},1000,function(){
+						alert("动画完成");
+					})
+				})
+			})
+		</script>
+	</body>
+</html>

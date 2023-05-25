@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<p>今天风很大,挺冷的,注意保暖1</p>
+		<p>今天风很大,挺冷的,注意保暖2</p>
+		<p>今天风很大,挺冷的,注意保暖3</p>
+		<p>今天风很大,挺冷的,注意保暖4</p>
+		<p>今天风很大,挺冷的,注意保暖5</p>
+		<p>今天风很大,挺冷的,注意保暖6</p>
+		
+		<button>隐藏</button>
+		<button>显示</button>
+		<button>切换隐藏/显示</button> <br />
+		
+		<button>淡入</button>
+		<button>淡出</button>
+		<button>切换淡入/淡出</button> <br />
+		
+		
+		<button>向下滑动</button>
+		<button>向上滑动</button>
+		<button>切换滑动</button> <br />
+		
+		
+		<script type="text/javascript">
+			//隐藏  hide(速度,匿名回调函数) 速度：slow fast或者毫秒数
+			$("button:first").click(function(){
+//				$("p").hide(); 
+				$("p").hide(1000,function(){
+					console.log("隐藏结束了");
+				})
+			})
+			//显示
+			$("button:eq(1)").click(function(){
+				$("p").show(1000);
+			})
+			//切换隐藏/显示
+			$("button:eq(2)").click(function(){
+				$("p").toggle();
+			})
+			
+			//淡入
+			$("button:eq(3)").click(function(){
+				$("p").fadeIn(1000);
+			})
+			
+			//淡出
+			$("button:eq(4)").click(function(){
+				$("p").fadeOut("slow");
+			})
+			
+			//切换淡入/淡出
+			$("button:eq(5)").click(function(){
+				$("p").fadeToggle(1000);
+			})
+			
+			//向下滑动
+			$("button:eq(6)").click(()=>{
+				$("p").slideDown();
+			})
+			//向上滑动
+			$("button:eq(7)").click(()=>{
+				$("p").slideUp();
+			})
+			//切换滑动
+			$("button:eq(8)").click(()=>{
+				$("p").slideToggle();
+			})
+			
+		</script>
+	</body>
+</html>

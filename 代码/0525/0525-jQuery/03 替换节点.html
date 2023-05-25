@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<p>六月底达到复阳高峰</p>
+		
+		<button>替换节点</button>
+		
+		<script type="text/javascript">
+			$("button").click(function(){
+				//原有的节点.replaceWith(新的节点)
+				$("p").replaceWith("<b>预防感染</b>");
+			});
+		</script>
+	</body>
+</html>

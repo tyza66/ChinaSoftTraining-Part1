@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#container{
+				width: 600px;
+				margin: 0 auto;
+			}
+			
+			#container div{
+				width: 200px;
+				height: 200px;
+				border: 1px solid black;
+				box-sizing: border-box;
+				float: left;
+				text-align: center;
+				line-height: 200px;
+			}
+			
+			.active{
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<div>1等奖</div>
+			<div>2等奖</div>
+			<div>3等奖</div>
+			<div>4等奖</div>
+			<div>5等奖</div>
+			<div>6等奖</div>
+			<div>7等奖</div>
+			<div>8等奖</div>
+			<div>9等奖</div>
+		</div>
+		
+		<div id="">
+			<input type="button" name="" id="btn" value="抽奖" />
+		</div>
+		
+		
+		<div id="luck">
+			
+		</div>
+		
+		<script src="js/jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript">
+			$(function(){
+				// 抽奖  随机数 决定次数  10个数
+				
+				 // $("#container>div").eq(index).addClass("active").siblings().removeClass("active");
+				 
+				 $("#btn").click(function(){
+					 var index = 0;// 下标
+					 
+					 //  随机数 决定次数 [最小值,最大值] 9-50  
+					 var num =parseInt(9 + Math.random()*(50-9+1));
+					 
+					 // 通过setInterval
+					 var timeid = setInterval(function(){
+						 // 当前元素设置背景颜色为红色 其他兄弟移除红色背景样式
+						 $("#container>div").eq(index%9).addClass("active").siblings().removeClass("active");
+						 // 下标递增
+						 index++;
+						 // 次数递减
+						 num--;
+						 
+						 // 次数为0的时候 清除定时器 获取中奖 获取类名为active的元素的值
+						 if (num == 0) {
+							 clearInterval(timeid);
+							 // 获取中奖 获取类名为active的元素的值
+							 $("#luck").text($(".active").text());
+						 }
+					 },200);
+				 })
+				
+				})
+		</script>
+		
+	</body>
+</html>

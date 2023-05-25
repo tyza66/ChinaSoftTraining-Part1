@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<ul>
+			<li>项目1</li>
+			<li class="item">项目2</li>
+			<li>项目3</li>
+			<li class="item">项目4</li>
+			<li>项目5</li>
+		</ul>
+		
+		<button type="button">获取元素</button>
+		
+		<script type="text/javascript">
+			$("button").click(()=>{
+				//获取第一个li first()
+				console.log("第一个li",$("li").first().text());
+				//eq(索引下标) 找到等于指定索引下标的元素  索引下标从0开始
+				console.log("第二个li ", $("li").eq(1).text());
+				//last() 最后一个元素
+				console.log("最后一个li",$("li").last().text());
+				
+//				filter(选择器) 按照指定的选择器进行过滤
+//				let items = $("li").filter(".item");//找到li标签里具有class=item的元素
+//              not(选择器)  查找不是指定选择器的元素
+				let items = $("li").not(".item");//找到li标签里不是class=item的元素
+				console.log("items",items);
+				//each() 完成遍历
+				items.each(function(index,item){
+					console.log("item",$(item).text());
+				})
+				
+				
+				
+			})
+		</script>
+	</body>
+</html>

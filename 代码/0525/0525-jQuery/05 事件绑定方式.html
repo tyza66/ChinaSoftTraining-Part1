@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	    <script src="js/jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="d1">
+			听说27号有大雨
+		</div>
+		
+		<script type="text/javascript">
+			//绑定事件 bind(事件类型,匿名回调函数(){})  解绑 unbind()
+			/*$("#d1").bind("click",function(){
+				alert($(this).text());
+			})
+			
+			//unbind() 解绑
+			$("#d1").unbind();*/
+			
+			//绑定事件 on(事件类型,[子元素],匿名回调函数(){})  解绑  off()
+			//绑定事件 delegate(子元素,事件类型,匿名回调函数(){})  解绑 undelegate()
+			/*$("#d1").on("click",function(){
+				alert($(this).text());
+			});*/
+			
+			//off() 解绑
+//			$("#d1").off();
+			
+			
+			//只绑定一次事件
+			$("#d1").one("click",function(){
+				alert($(this).text());
+			});
+			
+			
+		</script>
+	</body>
+</html>

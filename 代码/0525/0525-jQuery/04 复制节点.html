@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			#d1 {
+				background-color: lightblue;
+			}
+		</style>
+	</head>
+	<body>
+		<p>本身已经存在的段落</p>
+		
+		<div id="d1">
+			
+		</div>
+		
+		<button>复制节点</button>
+		
+		<script type="text/javascript">
+			$("button").click(function(){
+				//复制节点 clone(布尔值) false 浅克隆 复制元素节点   true 深克隆  复制元素节点以及绑定的事件
+				$("#d1").append($("p").clone(true));
+			})
+			
+			$("p").click(function(){
+				alert($(this).text());
+			})
+			
+		</script>
+	</body>
+</html>

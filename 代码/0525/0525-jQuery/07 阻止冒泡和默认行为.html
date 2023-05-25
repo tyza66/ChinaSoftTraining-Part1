@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<a href="01 过滤DOM节点.html">链接</a>
+		
+		<script type="text/javascript">
+			//阻止事件冒泡和默认行为  return false
+			$(function(){
+				$("a").click(function(event){
+//					event.preventDefault(); 阻止默认行为
+					return false;
+				})
+			})
+		</script>
+	</body>
+</html>
