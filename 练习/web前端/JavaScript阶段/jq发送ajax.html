@@ -21,6 +21,8 @@
                     dataType: "json",//接收数据类型
                     data: { "mame": "tom", "age": 18 },//请求参数
                     success: function (res) { //请求成功后的回调函数
+                        //JSON.parse(res);转换成json对象
+                        //JSON.stringify(res);转换成json字符串
                         console.log(res);
                     },
                     error: function (shr, errMsg) { //请求失败后的回调函数
