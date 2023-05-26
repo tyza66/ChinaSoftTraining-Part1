@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>xxx协议，同意才能点击继续</p><br/>
+    <input type="checkbox" name="" id="tp">同意协议<br/>
+    <input type="button" value="继续" id="btn" disabled>
+    <script src="./jquery-3.6.0.js"></script>
+    <script>
+        $("#tp").click(()=>{
+            if($("#tp").prop("checked")){
+                $("#btn").prop("disabled",false);
+            }else{
+                $("#btn").prop("disabled",true);
+            }
+        })
+    </script>
+</body>
+</html>
