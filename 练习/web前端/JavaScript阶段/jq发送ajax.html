@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.6.0.js"></script>
+</head>
+
+<body>
+    <button>jq发送ajax请求</button>
+    <script>
+        $(function () {
+            $("button").click(function () {
+                $.ajax({
+                    async: true, //是否异步
+                    url: "./temp/demo01.json",//请求地址
+                    type: "get",//请求方式
+                    dataType: "json",//接收数据类型
+                    data: { "mame": "tom", "age": 18 },//请求参数
+                    success: function (res) { //请求成功后的回调函数
+                        console.log(res);
+                    },
+                    error: function (shr, errMsg) { //请求失败后的回调函数
+                        console.log(errMsg);
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

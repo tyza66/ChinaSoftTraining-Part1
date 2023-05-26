@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">发送ajax请求</button>
+    <script>
+        window.onload = function(){
+            document.getElementById("btn").onclick = function(){
+                //1.创建XMLHttpRequest对象 为了兼容性，需要判断浏览器是否支持
+                let xhr;
+                if(window.XMLHttpRequest){
+                    xhr = new XMLHttpRequest();
+                }else{//适用于IE5和IE6的兼容性写法
+                    xhr = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                //2.设置请求参数
+                xhr.open("get","./temp/demo01.json",true);
+                //3.设置回调函数
+                xhr.onreadystatechange = function(){
+                    if(xhr.readyState == 4 && xhr.status == 200){
+                        alert(xhr.responseText);
+                    }
+                }
+                //4.发送请求
+                xhr.send();
+            }
+        }
+    </script>
+</body>
+</html>
