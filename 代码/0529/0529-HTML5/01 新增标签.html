@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<!--mark 突出显示文本  背景颜色为黄色-->
+		<p>原价999 现价<mark>9.9</mark></p> 
+		
+		<!--"短引用"-->
+		<q>短引用</q>
+		
+		<div>
+			<!--java 主方法-->
+			public static void main(String[] args){
+				System.out.println("Hello World");
+			}
+		</div>
+		
+		<!--pre 预格式文本-->
+		<pre>
+			<!--java 主方法-->
+			public static void main(String[] args){
+				System.out.println("Hello World");
+			}
+		</pre>
+		
+		<!--计算机代码文本-->
+		<code>
+			public static void main(String[] args){
+				System.out.println("Hello World");
+			}
+		</code>
+		
+		<form action="">
+			<fieldset id="">
+				<legend>登录页面</legend>
+				用户名： <input type="text" name="" id="" value="" /> <br />
+				密码 ： <input type="password" name="" id="" value="" />
+			</fieldset>
+		</form>
+		
+		<!--标示任务的进度-->
+		<progress max="100" value="0"></progress>
+		<button id="btn">开始充电</button>
+		
+		<!---->
+		<!--<script type="text/javascript">
+			//点击开始充电  value不断增加 达到最大值停止  充电完成
+			//JS
+			document.getElementById("btn").onclick = function(){
+				let pro = document.getElementsByTagName("progress")[0];
+				
+				let timeid = setInterval(function(){
+					pro.value += 10;
+					
+					if (pro.value == pro.max) {
+						clearInterval(timeid);
+						console.log("充电结束");
+					}
+				},200);
+			}
+			
+		
+		</script>-->
+		
+		<script src="js/jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("button").click(function(){
+				let pro = $("progress");
+				
+				let timeid = setInterval(function(){
+					pro.prop("value", pro.prop("value")+10);
+					
+					if (pro.prop("value") == pro.prop("max")) {
+						clearInterval(timeid);
+						console.log("充电完成");
+					}
+					
+				},200);
+				
+			})
+		</script>
+	</body>
+</html>

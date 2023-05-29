@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#d1 {
+				width: 500px;
+				height: 500px;
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<!--draggable="true" 1 添加属性 代表图片可以被拖放-->
+		<img src="img/图片1.png" draggable="true" id="m1" ondragstart="drag(event)"/>
+		<div id="d1" ondrop="drop(event)" ondragover="allowDrop(event)">
+			
+		</div>
+		
+		<script type="text/javascript">
+			//2 ondragstart 开始拖放  
+			function drag(event){
+				console.log("id",event.target.id);
+				//获取拖放的元素的id并进行存储
+				event.dataTransfer.setData("mid",event.target.id);
+			}
+			
+			//3 ondrop 正在放置
+			function drop(event){
+				event.preventDefault();//阻止默认行为  拖放图片元素默认以链接形式
+				let mid = event.dataTransfer.getData("mid");
+				event.target.appendChild(document.getElementById(mid));
+			}
+			//拖放结束
+			function allowDrop(event){
+				event.preventDefault();//默认div不可以放置  阻止默认行为
+			}
+		</script>
+	</body>
+</html>

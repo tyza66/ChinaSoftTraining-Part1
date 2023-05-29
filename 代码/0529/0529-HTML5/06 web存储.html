@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form id="f">
+			<fieldset>
+				<legend>登录</legend>
+				用户名 ： <input type="text" name="" id="uname" value="" /> <br />
+				密码 : <input type="password" name="" id="pwd" value="" /> <br />
+				
+				<input type="button"  value="登录" id="btn" />
+				
+			</fieldset>
+			
+		</form>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				document.getElementById("btn").onclick = function(){
+					//假如用户名为tom并且密码为123 登录成功 跳转到主页(登录成功的用户名 显示到主页上) 否则失败 不提交表单
+					let uname = document.getElementById("uname").value;
+					let pwd = document.getElementById("pwd").value;
+					if (uname == "tom" && pwd == "123") {
+						
+						//数据存储sessionStorage  有效时间 session没有失效(session:连续多次请求成为一次回话  关闭浏览器 session失效)
+						//sessionStorage.setItem(key,value) key和value要求是string类型
+//						sessionStorage.setItem("uname",uname);
+
+
+						//数据存储localStorage 永久有效
+						//localStorage.set(key,value) key和value要求是string类型
+						localStorage.setItem("uname",uname);
+						
+						let obj = {"uname":uname,"pwd":pwd};
+						
+						// obj --》 string  JSON.stringify(obj)
+						localStorage.setItem("obj",JSON.stringify(obj));
+						
+						//提交表单 
+						document.getElementById("f").submit();
+//						完成跳转
+						location.href = "main.html";
+					} else {
+						//否则失败 不提交表单 提示说明
+						alert("用户名或者密码不正确");
+					}
+					
+					
+				}
+			}
+		</script>
+	</body>
+</html>

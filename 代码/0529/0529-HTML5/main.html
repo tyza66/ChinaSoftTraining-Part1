@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		Main
+		欢迎 <span id="sname"></span>登录
+		
+		<script type="text/javascript">
+//			document.getElementById("sname").innerText = sessionStorage.getItem("uname");
+//			document.getElementById("sname").innerText = localStorage.getItem("uname");
+            // string --》 obj  JSON.parse(string数据)
+			document.getElementById("sname").innerText = JSON.parse(localStorage.getItem("obj")).uname;
+		</script>
+	</body>
+</html>

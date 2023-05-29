@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			canvas {
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<!--画布   JavaScript在画布上绘制图像
+			画布默认宽度 300px 高度 150px
+		-->
+		<canvas width="400" height="450" id="c"></canvas>
+		
+		<script type="text/javascript">
+			//获取画布
+			let c = document.getElementById("c");
+			//获取画笔  c.getContext("2d")
+			let ctx = c.getContext("2d");
+			
+			//确定第一个点坐标(x轴,y轴)
+			ctx.moveTo(10,10);
+			ctx.lineTo(100,10);
+			ctx.lineTo(100,50);
+			ctx.lineTo(10,10);
+			
+			//线的样式
+			ctx.strokeStyle = "red";
+			
+			//绘制成线
+			ctx.stroke();
+			
+			//填充颜色
+			ctx.fillStyle = "pink";
+			
+			//fillRect(x轴,y轴,矩形的宽度,矩形的高度)
+			ctx.fillRect(10,150,100,200);
+			
+			ctx.beginPath();
+			
+			//弧度 = 角度 * Math.PI / 180  0,Math.PI*2 圆
+			ctx.arc(150,50,20,0,90 * Math.PI / 180,false);
+			
+			ctx.fill();
+			
+			ctx.closePath();
+			
+		
+		</script>
+	</body>
+</html>
