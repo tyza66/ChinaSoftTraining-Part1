@@ -1,6 +1,4 @@
 package com.sdm;
-
-
 import java.io.IOException;
 
 public class MyServlet extends javax.servlet.http.HttpServlet {

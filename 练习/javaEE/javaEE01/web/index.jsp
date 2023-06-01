@@ -11,6 +11,10 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+  <form action="a" method="get">
+    用户：<input type="text" name="username"><br/>
+    密码：<input type="text" name="password"><br/>
+    <input type="submit" value="登录">
+  </form>
   </body>
 </html>
