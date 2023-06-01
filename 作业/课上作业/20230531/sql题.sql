@@ -6,3 +6,20 @@ select ename 姓名,SAL 薪资 from emp where sal>all(select sal from emp where 
 
 -- （3）查询每个部门工资最高且最高工资要大于10000的员工部门ID，姓名和薪水，并按部门ID降序排列
 select DEPTNO 部门ID,ENAME 姓名,SAL 薪资 from emp e where sal=(select max(sal) from EMP where deptno = e.deptno GROUP BY DEPTNO) ORDER BY DEPTno desc
+
+
+
+
+create table student(
+	id number(6) primary key,
+	name VARCHAR2(10),
+	age number(3) check(age>1 and age<200),
+	tel VARCHAR2(20),
+	birth date,
+	sex VARCHAR2(10) CHECK(SEX='男' or sex='女')
+)
+
+alert table student modify(name varchar(30))
+
+select s.name,s.sex from student s where s.sex = '男' and (s.tel like '135%' or s.tel like '136%')
+
