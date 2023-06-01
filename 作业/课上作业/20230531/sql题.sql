@@ -10,6 +10,7 @@ select DEPTNO 部门ID,ENAME 姓名,SAL 薪资 from emp e where sal=(select max(
 
 
 
+
 create table student(
 	id number(6) primary key,
 	name VARCHAR2(10),
@@ -18,8 +19,12 @@ create table student(
 	birth date,
 	sex VARCHAR2(10) CHECK(SEX='男' or sex='女')
 )
-
+②、修改上述表，将Name列的数据类型改成长度为30的字符串类型（3分）
 alert table student modify(name varchar(30))
 
+③、检索电话是135和136开头的男生姓名（3分）
 select s.name,s.sex from student s where s.sex = '男' and (s.tel like '135%' or s.tel like '136%')
+
+④、追加一名学生信息，要求生日为2010-01-01,其他数据自拟（3分）
+INSERT into student VALUES(1,'小明',18,'132',to_date('2010-01-01','yyyy-mm-dd'),'男')
 
